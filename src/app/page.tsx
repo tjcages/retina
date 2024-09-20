@@ -9,7 +9,8 @@ import {
   Header,
   Hero,
   Roadmap,
-  Vision
+  Vision,
+	Volume
 } from "@/components/home";
 import { Background, Divider, Scroll } from "@/components/ui";
 
@@ -27,8 +28,8 @@ export default async function HomePage() {
       <Divider />
       {/* <Video />
       <Divider /> */}
-      {/* <Volume />
-      <Divider /> */}
+      <Volume />
+      <Divider />
       <Community />
       <Divider />
       <Vision />
