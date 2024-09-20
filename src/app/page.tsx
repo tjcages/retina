@@ -21,14 +21,14 @@ export default async function HomePage() {
       <Hero />
       <Features />
       <Divider />
+      <Details />
+      <Divider />
       <Roadmap />
       <Divider />
       {/* <Video />
       <Divider /> */}
       {/* <Volume />
       <Divider /> */}
-      <Details />
-      <Divider />
       <Community />
       <Divider />
       <Vision />
