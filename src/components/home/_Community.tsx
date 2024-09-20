@@ -103,8 +103,7 @@ const _ = () => {
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <h3 className="max-w-2xl">Platforming the next big idea in DeFi:&nbsp;Yours</h3>
           <h5 className="max-w-md text-secondary-foreground">
-            We’re dedicated to providing a foundation for every DeFi builder. Learn more about
-            Unichain builder programs, events, and grants.
+            We are dedicated to supporting every DeFi builder. Learn more about Unichain builder programs, events, and grants.
           </h5>
           <Button variant="outline">Learn more</Button>
         </div>
