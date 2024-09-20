@@ -110,11 +110,11 @@
   }
 
   h2 {
-    @apply text-3xl font-semibold leading-none tracking-[-0.04em] md:text-4xl 2xl:text-5xl;
+    @apply text-5xl font-[550] leading-none tracking-[-0.04em] md:text-7xl 2xl:text-8xl;
   }
 
   h3 {
-    @apply text-2xl font-semibold leading-none tracking-[-0.04em] md:text-3xl 2xl:text-4xl;
+    @apply text-2xl font-[550] leading-none tracking-[-0.04em] md:text-3xl 2xl:text-4xl;
   }
 
   h4 {

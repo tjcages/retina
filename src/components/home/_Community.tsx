@@ -82,13 +82,13 @@ const _ = () => {
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-12">
         <div className="col-span-full flex items-center justify-center">
-          <h1 className="text-pink col-span-full text-center md:col-span-10">
+          <h2 className="text-pink col-span-full text-center md:max-w-2xl">
             Join the community building
             <Nbsp />
             on
             <Nbsp />
             Unichain
-          </h1>
+          </h2>
         </div>
         <div className="col-span-full row-start-2 mx-auto flex gap-6 md:col-start-2 md:-col-end-2 md:gap-12">
           {community.slice(0, 8).map((item, index) => (

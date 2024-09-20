@@ -25,27 +25,23 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
 const phases = [
   {
     header: "Public Testnet",
-    description:
-      "Placeholder description with more placeholder information of the phase of development here.",
+    description: "Access for all developers to begin testing deployments on Unichain.",
     tertiary: "Early October",
     cta: "Launch"
   },
   {
     header: "Developer Mainnet",
-    description:
-      "Placeholder description with more placeholder information of the phase of development here.",
+    description: "Access for all developers to deploy on Unichain Mainnet.",
     tertiary: "Late October"
   },
   {
     header: "Public Mainnet",
-    description:
-      "Access for any developer and user to deploy on and use Unichain. At launch,  will have forced inclusion, one-second block times, and the Uniswap Protocol deployed on Unichain.",
+    description: "Access for all developer and users to deploy on and use Unichain. ",
     tertiary: "November"
   },
   {
     header: "New Features",
-    description:
-      "Provable block building, sub-second blocks and fast finality, and Community Verification Service go live on Unichain.",
+    description: "Provable Block Building and Unichain Verification Service go live on Unichain.",
     tertiary: "Early 2025"
   }
 ] as Props[];
@@ -55,7 +51,7 @@ const _ = () => {
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-12">
         <div className="col-span-full">
-          <h1>Roadmap</h1>
+          <h2>Roadmap</h2>
         </div>
         <div className="col-span-full grid grid-cols-subgrid gap-12">
           {phases.map(phase => (

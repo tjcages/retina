@@ -9,9 +9,7 @@ import {
   Header,
   Hero,
   Roadmap,
-  Video,
-  Vision,
-  Volume
+  Vision
 } from "@/components/home";
 import { Background, Divider, Scroll } from "@/components/ui";
 
@@ -21,14 +19,14 @@ export default async function HomePage() {
       <Background />
       <Header />
       <Hero />
-      <Video />
-      <Divider />
-      <Volume />
-      <Divider />
       <Features />
       <Divider />
       <Roadmap />
       <Divider />
+      {/* <Video />
+      <Divider /> */}
+      {/* <Volume />
+      <Divider /> */}
       <Details />
       <Divider />
       <Community />
