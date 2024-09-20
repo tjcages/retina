@@ -6,7 +6,7 @@ const _ = () => {
       <article className="gap-6 md:gap-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:col-span-10">
-            Scale <strong>for</strong>&nbsp;Ethereum
+						Advancing rollup <strong>decentralization</strong>
           </h2>
         </div>
         <div className="col-span-full row-start-2 flex flex-col items-center justify-center gap-3 md:col-start-2 md:-col-end-2">
@@ -18,13 +18,10 @@ const _ = () => {
         </div>
         <div className="col-span-full row-start-4 grid grid-cols-subgrid items-center gap-6 md:col-start-4 md:-col-end-4">
           <div className="col-span-full flex flex-col items-start gap-3 md:col-span-9">
-            <h3>Community Verification</h3>
+            <h3>Community Verification Service</h3>
             <h5 className="text-secondary-foreground">
-              The Unichain Verification Service reduces reliance on the sequencer for trusted
-              transaction confirmations by paying a network of full nodes to monitor and verify the
-              actions of the sequencer. This system adds an intermediate form of finality that can
-              be used for faster settlement for cross-chain trading, payments, and other critical
-              applications.
+              A network of full nodes monitor and verify the actions of the sequencer, bringing 
+							faster settlement and more decentralization to Unichain.
             </h5>
             <Button variant="outline" className="-ml-5">
               Learn more
@@ -37,10 +34,8 @@ const _ = () => {
           <div className="col-span-full flex flex-col items-start gap-3 md:col-span-9">
             <h3>Provable Block Building</h3>
             <h5 className="text-secondary-foreground">
-              Unichain will delegate block building to a trusted execution environment (“TEE”)
-              developed by Flashbots. The TEE enables fast, trustless pre-confirmations that allow
-              for 250 ms block times, and also minimizes the discretion a sequencer operator has to
-              reorder transactions.
+            	Block building will be delegated to a trusted execution environment developed by 
+							Flashbots, enabling trustless transaction ordering.
             </h5>
             <Button variant="outline" className="-ml-5">
               Learn more
@@ -56,7 +51,7 @@ const _ = () => {
             </h3>
             <h5 className="text-secondary-foreground">
               Unichain is built on the OP Stack. Technical innovations introduced by Unichain are
-              open source, and available for any chain on the Superchain to adopt.
+              open source, and available for any rollup to adopt.
             </h5>
           </div>
           <div className="col-span-full row-start-1 aspect-[4/3] rounded-2xl bg-secondary md:col-span-9 md:row-start-auto"></div>
