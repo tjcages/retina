@@ -25,6 +25,8 @@ export default async function HomePage() {
       <Divider />
       <Builder />
       <Divider />
+      <Community />
+      <Divider />
       <Details />
       <Divider />
       <Roadmap />
@@ -32,8 +34,6 @@ export default async function HomePage() {
       {/* <Video />
       <Divider /> */}
       <Volume />
-      <Divider />
-      <Community />
       <Divider />
       <Vision />
       <Divider variant="secondary" />
