@@ -8,7 +8,7 @@ const _ = () => {
           <h1 className="text-pink col-span-full">
             Expanding the Uniswap
             <Nbsp />
-            ecosystem
+            <strong>ecosystem</strong>
           </h1>
           <h3 className="max-w-2xl">
             Informed by learnings from building the world&apos;s most popular decentralized trading
