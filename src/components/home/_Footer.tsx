@@ -27,7 +27,7 @@ const _ = () => {
               width={400}
               height={100}
             />
-            <h5>Looking for more?</h5>
+            <h5 className="md:mb-1">Looking for more?</h5>
             <p>Sign up for updates and events</p>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
