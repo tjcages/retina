@@ -9,7 +9,7 @@ interface Props {
 
 const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
   return (
-    <div className="col-span-6 flex flex-col items-start gap-3">
+    <div className="col-span-full flex flex-col items-center gap-3 text-center md:col-span-6 md:items-start md:text-left">
       <Badge>{tertiary}</Badge>
       <h3>{header}</h3>
       <h5 className="text-secondary-foreground">{description}</h5>

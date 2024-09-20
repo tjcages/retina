@@ -10,7 +10,10 @@ const _ = () => {
           </h1>
         </div>
         <div className="col-span-full row-start-2 flex flex-col items-center justify-center gap-3 md:col-start-2 md:-col-end-2">
-          <div className="aspect-[2/1] w-full rounded-3xl bg-secondary"></div>
+          <div className="flex aspect-[2/1] w-full items-center justify-center rounded-3xl bg-secondary">
+            {/* TODO: Add diagram */}
+            <h2 className="text-muted-foreground/10">Animated diagram</h2>
+          </div>
           <p className="text-center">Provable block building</p>
         </div>
         <div className="col-span-full row-start-4 grid grid-cols-subgrid items-center gap-6 md:col-start-4 md:-col-end-4">

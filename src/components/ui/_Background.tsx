@@ -181,7 +181,7 @@ export const Background = () => {
         gap={0.75}
         maxRadius={25}
         influenceRadius={400}
-        lerpFactor={0.01}
+        lerpFactor={0.05}
       />
     </div>
   );

@@ -7,7 +7,10 @@ const _ = () => {
             Where <strong>liquidity</strong>&nbsp;lives
           </h1>
         </div>
-        <div className="col-span-full row-start-2 aspect-[2/1] w-full rounded-3xl bg-secondary md:col-start-2 md:-col-end-2"></div>
+        <div className="col-span-full row-start-2 flex aspect-[2/1] w-full items-center justify-center rounded-3xl bg-secondary md:col-start-2 md:-col-end-2">
+          {/* TODO: Add video */}
+          <h2 className="text-muted-foreground/10">Teaser video</h2>
+        </div>
         <div className="col-span-full row-start-3 md:col-start-7 md:-col-end-7">
           <h4 className="max-w-2xl">
             Unichain is designed to support deep and broad liquidity for the DeFi community:

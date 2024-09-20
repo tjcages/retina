@@ -17,7 +17,7 @@ import { Background, Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {
   return (
-    <Scroll snap className="h-full w-full">
+    <Scroll className="h-full w-full">
       <Background />
       <Header />
       <Hero />
