@@ -10,7 +10,7 @@ import {
   Hero,
   Roadmap,
   Vision,
-	Volume
+  Volume
 } from "@/components/home";
 import { Background, Divider, Scroll } from "@/components/ui";
 
