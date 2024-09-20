@@ -49,8 +49,8 @@ const phases = [
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-12">
-        <div className="col-span-full">
+      <article className="gap-6 md:gap-12">
+        <div className="col-span-full text-center md:text-left">
           <h2>Roadmap</h2>
         </div>
         <div className="col-span-full grid grid-cols-subgrid gap-12">

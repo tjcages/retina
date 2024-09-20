@@ -5,11 +5,14 @@ const _ = () => {
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="justify-center gap-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-3 text-center">
-          <h3>Our vision</h3>
           <h1 className="text-pink">
-            Build on the liquidity
-            <Nbsp />
-            network.
+            Build on the{" "}
+            <strong>
+              liquidity
+              <Nbsp />
+              network
+            </strong>
+            .
           </h1>
         </div>
         <div className="col-span-full flex items-center justify-center">
