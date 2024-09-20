@@ -20,7 +20,7 @@ const _ = () => {
           </Button>
           <Button className="w-full">
             <CodeIcon className="mr-2 h-5 w-5" />
-            Dev Docs
+            Read Docs
           </Button>
         </div>
       </article>

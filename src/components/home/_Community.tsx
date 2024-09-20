@@ -7,7 +7,7 @@ interface Props {
 
 const Item: React.FC<Props> = ({ name, src }) => {
   return (
-    <div className="col-span-1 flex flex-col items-center justify-center gap-3">
+    <div className="col-span-1 flex min-w-20 flex-col items-center justify-center gap-3">
       <Image className="h-20 w-20" src={src} alt={name} width={400} height={400} />
       <p>{name}</p>
     </div>
@@ -103,7 +103,8 @@ const _ = () => {
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <h3 className="max-w-2xl">Platforming the next big idea in DeFi:&nbsp;Yours</h3>
           <h5 className="max-w-md text-secondary-foreground">
-            We are dedicated to supporting every DeFi builder. Learn more about Unichain builder programs, events, and grants.
+            We are dedicated to supporting every DeFi builder. Learn more about Unichain builder
+            programs, events, and grants.
           </h5>
           <Button variant="outline">Learn more</Button>
         </div>

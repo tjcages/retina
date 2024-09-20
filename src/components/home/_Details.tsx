@@ -6,7 +6,7 @@ const _ = () => {
       <article className="gap-6 md:gap-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:col-span-10">
-						Advancing rollup <strong>decentralization</strong>
+            Advancing rollup <strong>decentralization</strong>
           </h2>
         </div>
         <div className="col-span-full row-start-2 flex flex-col items-center justify-center gap-3 md:col-start-2 md:-col-end-2">
@@ -20,8 +20,8 @@ const _ = () => {
           <div className="col-span-full flex flex-col items-start gap-3 md:col-span-9">
             <h3>Community Verification Service</h3>
             <h5 className="text-secondary-foreground">
-              A network of full nodes monitor and verify the actions of the sequencer, bringing 
-							faster settlement and more decentralization to Unichain.
+              A network of full nodes monitor and verify the actions of the sequencer, bringing
+              faster settlement and more decentralization to Unichain.
             </h5>
             <Button variant="outline" className="-ml-5">
               Learn more
@@ -34,8 +34,8 @@ const _ = () => {
           <div className="col-span-full flex flex-col items-start gap-3 md:col-span-9">
             <h3>Provable Block Building</h3>
             <h5 className="text-secondary-foreground">
-            	Block building will be delegated to a trusted execution environment developed by 
-							Flashbots, enabling trustless transaction ordering.
+              Block building will be delegated to a trusted execution environment developed by
+              Flashbots, enabling trustless transaction ordering.
             </h5>
             <Button variant="outline" className="-ml-5">
               Learn more
