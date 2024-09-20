@@ -43,25 +43,25 @@ const _ = () => {
           className="col-span-full flex gap-6 px-3 md:px-12 lg:px-16 xl:px-[calc(max(calc((100vw-80rem)/2),_0px))]"
         >
           <Item
-            header="250 ms block times"
-            description="Designed for market efficiency and seamless UX, Unichain transactions are nearly instant. Unichain will launch with 1 second block times, with 250 ms block times coming soon."
+            header="Instant Transactions"
+            description="Optimized for market efficiency and seamless UX, transactions are almost instant. Unichain will launch with 1 second block times, with 250 ms block times coming soon."
             tertiary="Speed"
           />
           <Item
             header="Cheaper execution"
-            description="Unichain is a network purpose built for swappers and DeFi developers, offering faster transactions with significant cost savings compared to Ethereum Mainnet."
-            tertiary="Savings"
+            description="Lower costs for creating and accessing liquidity. Unichain reduces value leakage to MEV bots and Ethereum validators, and redirects value back to users."
+            tertiary="Value"
           />
           <Item
-            header="Liquidity across chains"
-            description="Unichain is designed to serve as a home for liquidity within the Superchain ecosystem, providing access to markets across rollups."
+            header="Cross-chain Liquidity"
+            description="Unichain is built to support seamless transactions across dozens of chains, so liquidity is always just a few clicks away."
             tertiary="Interoperability"
           />
-          <Item
+          {/*<Item
             header="Community-driven development"
             description="Optimized to more efficiently allocate resources to its contributors, Unichain returns value to DeFi users by reducing fees paid to MEV searchers and Ethereum validators."
             tertiary="By and for DeFi Builders"
-          />
+          />*/}
         </Scroll>
       </article>
     </section>
