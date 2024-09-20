@@ -161,7 +161,10 @@ const GridComponent: React.FC<GridProps> = ({
   }, [squareSize, gap, maxRadius, influenceRadius, onMouseMove]);
 
   return (
-    <div ref={mountRef} className="absolute inset-0 h-full w-full opacity-40 mix-blend-overlay" />
+    <div
+      ref={mountRef}
+      className="absolute bottom-0 left-0 right-0 top-0 opacity-40 mix-blend-overlay"
+    />
   );
 };
 

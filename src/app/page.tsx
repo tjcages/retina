@@ -2,6 +2,7 @@ import { seo } from "@/seo";
 import type { Metadata } from "next";
 
 import {
+  Builder,
   Community,
   Details,
   Features,
@@ -21,6 +22,8 @@ export default async function HomePage() {
       <Header />
       <Hero />
       <Features />
+      <Divider />
+      <Builder />
       <Divider />
       <Details />
       <Divider />

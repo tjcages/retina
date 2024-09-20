@@ -1,10 +1,10 @@
 export const seo = {
   title: "Unichain",
-  description: "WAGMI",
+  description: "Designed for DeFi",
   icons: [
     {
       rel: "icon",
-      url: "/favicon.ico"
+      url: "https://app.uniswap.org/favicon.png"
     }
   ]
 };

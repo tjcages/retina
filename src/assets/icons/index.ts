@@ -1,3 +1,5 @@
+import ArrowUpRight from "./_arrow-up-right";
 import Logo from "./_logo";
+import NoteText from "./_note-text";
 
-export { Logo };
+export { ArrowUpRight, Logo, NoteText };
