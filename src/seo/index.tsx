@@ -11,7 +11,7 @@ export const seo = {
     description: "Designed for DeFi",
     images: [
       {
-        url: "/preview.png",
+        url: "https://unichain-website.vercel.app/preview.png",
         width: 1600,
         height: 826,
         alt: "Unichain logo"
