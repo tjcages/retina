@@ -11,6 +11,7 @@ export * from "./_Image";
 export * from "./_Input";
 export * from "./_Label";
 export * from "./_Loader";
+export * from "./_Marquee";
 export * from "./_Nbsp";
 export * from "./_Overlay";
 export * from "./_Scroll";

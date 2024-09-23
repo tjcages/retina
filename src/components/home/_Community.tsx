@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Image, Nbsp } from "@/components/ui";
 
 interface Props {
