@@ -39,23 +39,19 @@ const items = [
     header: "Developer docs",
     description: "Resources to get started building on Unichain."
   }
-  // {
-  //   header: "Support for devs",
-  //   description: "Have questions or need help building? Join the Discord."
-  // }
 ];
 
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-6 md:gap-12">
+      <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
             Start <strong>building on</strong> Unichain
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <div className="col-span-full grid grid-cols-4 items-center justify-items-center gap-3 lg:gap-6">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-3 lg:grid-cols-4 lg:gap-6">
             {items.map((item, index) => (
               <Item key={index} header={item.header} description={item.description} />
             ))}

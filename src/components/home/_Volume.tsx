@@ -3,7 +3,7 @@ import { Nbsp } from "@/components/ui";
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-12 md:gap-x-12 md:gap-y-16">
+      <article className="gap-y-12 md:gap-y-16 xl:gap-x-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-6 text-center">
           <h2 className="text-pink col-span-full">
             Expanding the Uniswap

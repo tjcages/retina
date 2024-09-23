@@ -38,9 +38,9 @@ const _ = () => {
         {sections.map((section, index) => (
           <div
             key={index}
-            className="col-span-full grid grid-cols-subgrid items-center gap-6 md:col-start-4 md:-col-end-4"
+            className="col-span-full col-start-1 -col-end-1 grid grid-cols-subgrid items-center gap-6 lg:col-start-2 lg:-col-end-2 xl:col-start-4 xl:-col-end-4"
           >
-            <div className="col-span-full flex flex-col items-start gap-3 md:col-span-9">
+            <div className="col-span-full flex flex-col items-start gap-3 md:col-span-12 lg:col-span-11 xl:col-span-9">
               <h3>{section.header}</h3>
               <h5 className="text-secondary-foreground">{section.description}</h5>
               {section.cta !== undefined && (
@@ -50,7 +50,7 @@ const _ = () => {
               )}
             </div>
             <div
-              className={`col-span-full row-start-1 aspect-[4/3] rounded-2xl bg-secondary ${index % 2 === 0 ? "md:row-start-1" : "md:row-start-auto"} md:col-span-9`}
+              className={`col-span-full row-start-1 aspect-[4/3] rounded-2xl bg-secondary ${index % 2 === 0 ? "md:row-start-1" : "md:row-start-auto"} md:col-span-12 lg:col-span-11 xl:col-span-9`}
             ></div>
           </div>
         ))}

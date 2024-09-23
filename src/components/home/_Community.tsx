@@ -8,7 +8,7 @@ interface Props {
 const Item: React.FC<Props> = ({ name, src }) => {
   return (
     <div className="col-span-1 flex min-w-20 flex-col items-center justify-center gap-3">
-      <Image className="h-20 w-20" src={src} alt={name} width={400} height={400} />
+      <Image className="h-16 w-16 lg:h-20 lg:w-20" src={src} alt={name} width={400} height={400} />
       <p>{name}</p>
     </div>
   );
@@ -80,7 +80,7 @@ const community = [
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-12">
+      <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
             Join the <strong>community</strong> building
@@ -90,12 +90,12 @@ const _ = () => {
             Unichain
           </h2>
         </div>
-        <div className="col-span-full row-start-2 mx-auto flex gap-6 md:col-start-2 md:-col-end-2 md:gap-12">
+        <div className="col-span-full row-start-2 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
           {community.slice(0, 8).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
-        <div className="col-span-full row-start-3 mx-auto flex gap-6 md:col-start-2 md:-col-end-2 md:gap-12">
+        <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
           {community.slice(8, 15).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}

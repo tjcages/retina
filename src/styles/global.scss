@@ -72,7 +72,7 @@
   article,
   header,
   footer {
-    @apply mx-auto grid w-full max-w-7xl auto-rows-min grid-cols-8 md:grid-cols-[repeat(24,_1fr)];
+    @apply mx-auto grid w-full max-w-full auto-rows-min grid-cols-8 md:grid-cols-[repeat(24,_1fr)] lg:max-w-7xl;
   }
 
   pre {
