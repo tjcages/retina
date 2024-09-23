@@ -47,10 +47,10 @@ const community = [
     name: "Circle",
     src: "/assets/community/circle.png"
   },
-  {
-    name: "Coinbase",
-    src: "/assets/community/coinbase.png"
-  },
+  // {
+  //   name: "Coinbase",
+  //   src: "/assets/community/coinbase.png"
+  // },
   {
     name: "The Graph",
     src: "/assets/community/thegraph.png"
@@ -91,12 +91,12 @@ const _ = () => {
           </h2>
         </div>
         <div className="col-span-full row-start-2 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-          {community.slice(0, 8).map((item, index) => (
+          {community.slice(0, 7).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
         <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-          {community.slice(8, 15).map((item, index) => (
+          {community.slice(7, 14).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
