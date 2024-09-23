@@ -9,7 +9,6 @@ import { useScroll } from "@/components/ui/_Scroll";
 
 const _ = () => {
   const { scrollOffset } = useScroll();
-  console.log("scrollProgress:", scrollOffset);
   const belowFold = scrollOffset > 100;
 
   return (

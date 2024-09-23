@@ -1,114 +1,129 @@
 "use client";
 
-import { useInView } from "@/hooks";
 import { cn } from "@/utils";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { useWindowSize } from "@react-hook/window-size";
+import { MotionValue, motion, useSpring } from "framer-motion";
+import { ReactNode, useEffect, useRef } from "react";
+import { useRafLoop } from "react-use";
 
-interface MarqueeProps {
-  children: React.ReactNode;
-  direction?: "left" | "right" | "up" | "down";
-  speed?: number;
-  className?: string;
-  pauseOnHover?: boolean;
+interface MarqueeItemProps {
+  content: ReactNode;
+  speed: MotionValue<number>;
+  direction: "left" | "right";
 }
 
-export function Marquee({
-  children,
-  direction = "left",
-  speed = 50,
-  className = "",
-  pauseOnHover = true
-}: MarqueeProps) {
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [containerHeight, setContainerHeight] = useState(0);
-  const [contentWidth, setContentWidth] = useState(0);
-  const [contentHeight, setContentHeight] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+const MarqueeItem: React.FC<MarqueeItemProps> = ({ content, speed, direction }) => {
+  const item = useRef<HTMLDivElement>(null);
+  const rect = useRef<DOMRect | null>(null);
+  const x = useRef<number>(0);
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const controls = useAnimation();
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref);
+  const [width, height] = useWindowSize();
+
+  const setX = () => {
+    if (!item.current || !rect.current) return;
+    const xPercentage = (x.current / rect.current.width) * 100;
+    if (direction === "left") {
+      if (xPercentage <= -100) x.current = 0;
+      if (xPercentage > 0) x.current = -rect.current.width;
+    } else {
+      if (xPercentage >= 0) x.current = -rect.current.width;
+      if (xPercentage <= -100) x.current = 0;
+    }
+    item.current.style.transform = `translate3d(${xPercentage}%, 0, 0)`;
+  };
 
   useEffect(() => {
-    if (containerRef.current && contentRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth);
-      setContainerHeight(containerRef.current.offsetHeight);
-      setContentWidth(contentRef.current.offsetWidth);
-      setContentHeight(contentRef.current.offsetHeight);
+    if (item.current) {
+      rect.current = item.current.getBoundingClientRect();
     }
-  }, [children]);
+  }, [width, height]);
 
-  useEffect(() => {
-    let distance: number;
-    let duration: number;
+  const loop = () => {
+    // Use negative speed for left direction, positive for right
+    x.current += direction === "left" ? -speed.get() : speed.get();
+    setX();
+  };
 
-    if (direction === "left" || direction === "right") {
-      distance = contentWidth;
-      duration = (distance / speed) * 1000;
-    } else {
-      distance = contentHeight;
-      duration = (distance / speed) * 1000;
-    }
-
-    if (inView) {
-      controls.start({
-        x: direction === "left" ? -distance : direction === "right" ? distance : 0,
-        y: direction === "up" ? -distance : direction === "down" ? distance : 0,
-        transition: {
-          duration: duration / 1000,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear"
-        }
-      });
-    } else {
-      controls.stop();
-    }
-  }, [controls, direction, speed, contentWidth, contentHeight, inView]);
-
-  const isHorizontal = direction === "left" || direction === "right";
-  const dragConstraints = isHorizontal
-    ? { left: -contentWidth, right: containerWidth }
-    : { top: -contentHeight, bottom: containerHeight };
+  useRafLoop(loop, true);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
-      <motion.div
-        ref={ref}
-        className={cn("overflow-hidden", className)}
-        style={{
-          x,
-          y
-        }}
-        animate={controls}
-        drag={isHorizontal ? "x" : "y"}
-        dragConstraints={dragConstraints}
-        dragElastic={0.2}
-        onHoverStart={() => pauseOnHover && controls.stop()}
-        onHoverEnd={() => {
-          if (pauseOnHover) {
-            controls.start({
-              x: direction === "left" ? -contentWidth : direction === "right" ? contentWidth : 0,
-              y: direction === "up" ? -contentHeight : direction === "down" ? contentHeight : 0,
-              transition: {
-                duration: (isHorizontal ? contentWidth : contentHeight) / speed,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear"
-              }
-            });
-          }
-        }}
-      >
-        <div ref={contentRef} className="flex">
-          {children}
-        </div>
-        <div className="flex">{children}</div>
-      </motion.div>
+    <div className="item" ref={item}>
+      {content}
     </div>
   );
+};
+
+interface MarqueeProps {
+  children: ReactNode;
+  className?: string;
+  speed?: number;
+  threshold?: number;
+  dragFactor?: number;
+  direction?: "left" | "right";
 }
+
+export const Marquee: React.FC<MarqueeProps> = ({
+  children,
+  className,
+  speed = 1,
+  threshold = 0.014,
+  dragFactor = 1.2,
+  direction = "left"
+}) => {
+  const marquee = useRef<HTMLDivElement>(null);
+  const slowDown = useRef<boolean>(false);
+  const x = useRef<number>(0);
+
+  const springSpeed = useSpring(speed, {
+    damping: 40,
+    stiffness: 90,
+    mass: 5
+  });
+
+  const onDragStart = () => {
+    slowDown.current = true;
+    marquee.current?.classList.add("drag");
+    springSpeed.set(0);
+  };
+
+  const onDrag = (e: MouseEvent | PointerEvent, info: { delta: { x: number } }) => {
+    // Reverse drag direction for right-moving marquee
+    springSpeed.set(dragFactor * (direction === "left" ? -info.delta.x : info.delta.x));
+  };
+
+  const onDragEnd = () => {
+    slowDown.current = false;
+    marquee.current?.classList.remove("drag");
+    x.current = direction === "left" ? speed : -speed;
+  };
+
+  const loop = () => {
+    if (slowDown.current || Math.abs(x.current) < threshold) return;
+    x.current *= 0.66;
+    if (x.current < 0) {
+      x.current = Math.min(x.current, 0);
+    } else {
+      x.current = Math.max(x.current, 0);
+    }
+    // Apply direction to the speed
+    springSpeed.set((direction === "left" ? speed : -speed) + x.current);
+  };
+
+  useRafLoop(loop, true);
+
+  return (
+    <motion.div
+      className={cn("overflow-hidden", className)}
+      ref={marquee}
+      drag="x"
+      dragConstraints={{ left: 0, right: 0 }}
+      onDragStart={onDragStart}
+      onDrag={onDrag}
+      onDragEnd={onDragEnd}
+      dragElastic={0.000001}
+    >
+      <MarqueeItem content={children} speed={springSpeed} direction={direction} />
+      <MarqueeItem content={children} speed={springSpeed} direction={direction} />
+    </motion.div>
+  );
+};

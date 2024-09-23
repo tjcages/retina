@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Image, Nbsp } from "@/components/ui";
+import { Button, Image, Marquee, Nbsp } from "@/components/ui";
 
 interface Props {
   name: string;
@@ -92,12 +92,26 @@ const _ = () => {
             Unichain
           </h2>
         </div>
-        <div className="col-span-full row-start-2 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
+        <Marquee direction="right" className="col-span-full flex w-full items-center md:hidden">
+          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
+            {community.slice(0, 7).map((item, index) => (
+              <Item key={index} name={item.name} src={item.src} />
+            ))}
+          </div>
+        </Marquee>
+        <Marquee direction="left" className="col-span-full flex w-full items-center md:hidden">
+          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
+            {community.slice(7, 14).map((item, index) => (
+              <Item key={index} name={item.name} src={item.src} />
+            ))}
+          </div>
+        </Marquee>
+        <div className="col-span-full row-start-2 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
           {community.slice(0, 7).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
-        <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
+        <div className="col-span-full row-start-3 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
           {community.slice(7, 14).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
