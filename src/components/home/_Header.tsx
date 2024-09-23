@@ -1,9 +1,10 @@
 "use client";
 
-import { Logo } from "@/assets/icons";
+import { Logo, Menu } from "@/assets/icons";
 import { cn } from "@/utils";
 import Link from "next/link";
 
+import { Button } from "@/components/ui";
 import { useScroll } from "@/components/ui/_Scroll";
 
 const _ = () => {
@@ -41,6 +42,9 @@ const _ = () => {
               Discord
             </Link>
           </div>
+          <Button variant="ghost" className="col-span-3 -col-start-1 text-inherit md:hidden">
+            <Menu className="h-6 min-h-6 w-6 min-w-6 text-inherit" />
+          </Button>
         </div>
       </header>
     </section>

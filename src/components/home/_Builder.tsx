@@ -1,6 +1,6 @@
 import { ArrowUpRight, NoteText } from "@/assets/icons";
 
-import { Button } from "@/components/ui";
+import { Button, Nbsp } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -47,7 +47,9 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
-            Start <strong>building on</strong> Unichain
+            Start <strong>building on</strong>
+            <Nbsp />
+            Unichain
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">

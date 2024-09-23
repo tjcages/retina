@@ -13,7 +13,7 @@ interface LinkProps {
 
 const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
   return (
-    <Link href={href} className="whitespace-nowrap py-1.5">
+    <Link href={href} className="whitespace-nowrap py-1.5 text-secondary-foreground">
       {children}
     </Link>
   );
@@ -59,7 +59,7 @@ const _ = () => {
             <LinkItem href="/">Github</LinkItem>
             <LinkItem href="/">Brand Kit</LinkItem>
           </div> */}
-          <div className="col-span-3 flex flex-col items-start justify-start">
+          <div className="col-span-3 mt-3 flex flex-col items-start justify-start md:mt-0">
             <LinkItem href="/">Privacy Policy</LinkItem>
             <LinkItem href="/">Terms of Service</LinkItem>
           </div>

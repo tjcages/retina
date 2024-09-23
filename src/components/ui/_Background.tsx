@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/utils";
 import { useAnimationFrame } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -186,16 +187,28 @@ const GridComponent: React.FC<GridProps> = ({
 };
 
 export const Background = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 z-0 h-screen w-full">
       <Image
+        priority
         className="absolute left-0 top-0 h-full w-full object-cover"
         src="/assets/noise-texture.webp"
         alt="Pink noise texture"
         width={4000}
         height={3000}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%,#F50DB400,#F50DB4CC)] from-pink-primary to-pink-secondary" />
+      <div
+        className={cn(
+          "absolute inset-0 bg-[radial-gradient(circle_at_75%,#F50DB400,#F50DB4CC)] from-pink-primary to-pink-secondary opacity-0 transition-opacity duration-1000 ease-in",
+          isMounted && "opacity-100"
+        )}
+      />
       <GridComponent
         squareSize={50}
         gap={0.75}

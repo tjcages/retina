@@ -9,10 +9,10 @@ interface Props {
 
 const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
   return (
-    <div className="col-span-full flex flex-col items-center gap-3 text-center md:col-span-6 md:items-start md:text-left">
+    <div className="col-span-full flex flex-col items-start gap-3 md:col-span-6">
       <Badge>{tertiary}</Badge>
       <h3>{header}</h3>
-      <h5 className="text-secondary-foreground">{description}</h5>
+      <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
       {cta !== undefined && (
         <Button variant="outline" className="-my-3 -ml-5 md:-mt-3">
           {cta}
@@ -50,7 +50,7 @@ const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-6 md:gap-12">
-        <div className="col-span-full text-center md:text-left">
+        <div className="col-span-full">
           <h2>Roadmap</h2>
         </div>
         <div className="col-span-full grid grid-cols-subgrid gap-12">

@@ -1,4 +1,4 @@
-import { Badge, Scroll } from "@/components/ui";
+import { Badge, Nbsp, Scroll } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -52,7 +52,12 @@ const _ = () => {
         <div className="col-span-full w-full px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
           <div className="mx-auto w-full max-w-7xl">
             <h2>
-              The best place <strong>DeFi users</strong>
+              The best place for{" "}
+              <strong>
+                DeFi
+                <Nbsp />
+                users
+              </strong>
             </h2>
           </div>
         </div>
