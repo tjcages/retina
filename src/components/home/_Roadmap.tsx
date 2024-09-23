@@ -36,7 +36,7 @@ const phases = [
   },
   {
     header: "Public Mainnet",
-    description: "Access for all developers and users to deploy on and use Unichain.",
+    description: "Access for all developers and users to deploy on and use Unichain",
     tertiary: "November"
   },
   {

@@ -1,4 +1,4 @@
-import { Badge, Nbsp, Scroll } from "@/components/ui";
+import { Badge, Scroll } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -24,6 +24,27 @@ const Item: React.FC<Props> = ({ header, description, tertiary }) => {
   );
 };
 
+const sections = [
+  {
+    header: "Instant Transactions",
+    description:
+      "Optimized for market efficiency and seamless UX, transactions are almost instant. Unichain will launch with 1 second block times, with 250 ms block times coming soon.",
+    tertiary: "Speed"
+  },
+  {
+    header: "Cheaper Execution",
+    description:
+      "Lower costs for creating and accessing liquidity. Unichain reduces value leakage to MEV bots and Ethereum validators, and redirects value back to users.",
+    tertiary: "Value"
+  },
+  {
+    header: "Cross-chain Liquidity",
+    description:
+      "Unichain is built to support seamless transactions across dozens of chains, so tokens are always just a few clicks away.",
+    tertiary: "Interoperability"
+  }
+];
+
 const _ = () => {
   return (
     <section className="snap-start bg-background px-0 py-12 md:py-24">
@@ -31,9 +52,7 @@ const _ = () => {
         <div className="col-span-full w-full px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
           <div className="mx-auto w-full max-w-7xl">
             <h2>
-              The best place <strong>to build</strong> DeFi
-              <Nbsp />
-              apps
+              The best place <strong>DeFi users</strong>
             </h2>
           </div>
         </div>
@@ -42,26 +61,14 @@ const _ = () => {
           direction="x"
           className="col-span-full flex gap-6 px-3 md:px-12 lg:px-16 xl:px-[calc(max(calc((100vw-80rem)/2),_0px))]"
         >
-          <Item
-            header="Instant Transactions"
-            description="Optimized for market efficiency and seamless UX, transactions are almost instant. Unichain will launch with 1 second block times, with 250 ms block times coming soon."
-            tertiary="Speed"
-          />
-          <Item
-            header="Cheaper execution"
-            description="Lower costs for creating and accessing liquidity. Unichain reduces value leakage to MEV bots and Ethereum validators, and redirects value back to users."
-            tertiary="Value"
-          />
-          <Item
-            header="Cross-chain Liquidity"
-            description="Unichain is built to support seamless transactions across dozens of chains, so liquidity is always just a few clicks away."
-            tertiary="Interoperability"
-          />
-          {/*<Item
-            header="Community-driven development"
-            description="Optimized to more efficiently allocate resources to its contributors, Unichain returns value to DeFi users by reducing fees paid to MEV searchers and Ethereum validators."
-            tertiary="By and for DeFi Builders"
-          />*/}
+          {sections.map((section, index) => (
+            <Item
+              key={index}
+              header={section.header}
+              description={section.description}
+              tertiary={section.tertiary}
+            />
+          ))}
         </Scroll>
       </article>
     </section>

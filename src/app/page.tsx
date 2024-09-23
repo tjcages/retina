@@ -23,9 +23,11 @@ export default async function HomePage() {
       <Hero />
       <Features />
       <Divider />
-      <Builder />
+      <Volume />
       <Divider />
       <Community />
+      <Divider />
+      <Builder />
       <Divider />
       <Details />
       <Divider />
@@ -33,8 +35,6 @@ export default async function HomePage() {
       <Divider />
       {/* <Video />
       <Divider /> */}
-      <Volume />
-      <Divider />
       <Vision />
       <Divider variant="secondary" />
       <Footer />

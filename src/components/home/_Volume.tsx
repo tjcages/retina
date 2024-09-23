@@ -24,15 +24,15 @@ const _ = () => {
           </div>
           <div className="flex flex-col items-center justify-center md:col-span-8 md:gap-3">
             <h1 className="text-4xl md:text-8xl 2xl:text-9xl">
-              <strong>17.5M+</strong>
+              <strong>25M+</strong>
             </h1>
-            <h5 className="text-base md:text-xl">Users</h5>
+            <h5 className="text-base md:text-xl">Swapping Wallets</h5>
           </div>
           <div className="flex flex-col items-center justify-center md:col-span-8 md:gap-3">
             <h1 className="text-4xl md:text-8xl 2xl:text-9xl">
               <strong>465M+</strong>
             </h1>
-            <h5 className="text-base md:text-xl">All-time Trades</h5>
+            <h5 className="text-base md:text-xl">All-Time Trades</h5>
           </div>
         </div>
       </article>

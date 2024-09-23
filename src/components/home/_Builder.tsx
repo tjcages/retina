@@ -20,6 +20,29 @@ const Item: React.FC<Props> = ({ header, description }) => {
   );
 };
 
+const items = [
+  {
+    header: "Launch a token",
+    description: "Example token implementation."
+  },
+  {
+    header: "Deploy an app",
+    description: "Sample app to help kickstart your development process."
+  },
+  {
+    header: "Create a pool",
+    description: "Resources for creating pools on Unichain."
+  },
+  {
+    header: "Developer docs",
+    description: "Resources to get started building on Unichain."
+  },
+  {
+    header: "Support for devs",
+    description: "Have questions or need help building? Join the Discord."
+  }
+];
+
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
@@ -30,15 +53,10 @@ const _ = () => {
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <div className="col-span-full grid grid-cols-2 items-center justify-items-center gap-3 lg:gap-6">
-            <Item
-              header="Developer Docs"
-              description="Resources to get started building on Unichain."
-            />
-            <Item
-              header="Support"
-              description="Have questions or need support along the way? Join the Discord."
-            />
+          <div className="col-span-full grid grid-cols-3 items-center justify-items-center gap-3 lg:gap-6">
+            {items.map((item, index) => (
+              <Item key={index} header={item.header} description={item.description} />
+            ))}
           </div>
         </div>
       </article>
