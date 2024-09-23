@@ -44,7 +44,7 @@ const _ = () => {
               <h3>{section.header}</h3>
               <h5 className="text-secondary-foreground">{section.description}</h5>
               {section.cta !== undefined && (
-                <Button variant="outline" className="-ml-5">
+                <Button variant="outline" className="-ml-5 -mt-3">
                   Learn more
                 </Button>
               )}

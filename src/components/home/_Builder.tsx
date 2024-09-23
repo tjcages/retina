@@ -1,5 +1,7 @@
 import { ArrowUpRight, NoteText } from "@/assets/icons";
 
+import { Button } from "@/components/ui";
+
 interface Props {
   header: string;
   description: string;
@@ -14,7 +16,7 @@ const Item: React.FC<Props> = ({ header, description }) => {
       </div>
       <div className="flex w-full flex-col gap-3">
         <h3>{header}</h3>
-        <h5 className="text-base leading-none opacity-50 md:text-xl">{description}</h5>
+        <p className="text-base !leading-none text-inherit opacity-50 md:text-xl">{description}</p>
       </div>
     </div>
   );
@@ -36,28 +38,34 @@ const items = [
   {
     header: "Developer docs",
     description: "Resources to get started building on Unichain."
-  },
-  {
-    header: "Support for devs",
-    description: "Have questions or need help building? Join the Discord."
   }
+  // {
+  //   header: "Support for devs",
+  //   description: "Have questions or need help building? Join the Discord."
+  // }
 ];
 
 const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-6">
+      <article className="gap-6 md:gap-12">
         <div className="col-span-full">
-          <h2 className="text-center">
+          <h2>
             Start <strong>building on</strong> Unichain
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <div className="col-span-full grid grid-cols-3 items-center justify-items-center gap-3 lg:gap-6">
+          <div className="col-span-full grid grid-cols-4 items-center justify-items-center gap-3 lg:gap-6">
             {items.map((item, index) => (
               <Item key={index} header={item.header} description={item.description} />
             ))}
           </div>
+        </div>
+        <div className="col-span-full">
+          <Button variant="outline" className="-ml-5 -mt-5">
+            Join the community building on Unichain
+            <ArrowUpRight className="h-5 w-5 text-inherit" />
+          </Button>
         </div>
       </article>
     </section>

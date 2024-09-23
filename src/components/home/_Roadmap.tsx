@@ -14,7 +14,7 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
       <h3>{header}</h3>
       <h5 className="text-secondary-foreground">{description}</h5>
       {cta !== undefined && (
-        <Button variant="outline" className="-my-3 -ml-5 md:my-0">
+        <Button variant="outline" className="-my-3 -ml-5 md:-mt-3">
           {cta}
         </Button>
       )}

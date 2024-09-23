@@ -5,11 +5,11 @@ const _ = () => {
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-12 md:gap-x-12 md:gap-y-16">
         <div className="col-span-full flex flex-col items-center justify-center gap-6 text-center">
-          <h1 className="text-pink col-span-full">
+          <h2 className="text-pink col-span-full">
             Expanding the Uniswap
             <Nbsp />
             <strong>ecosystem</strong>
-          </h1>
+          </h2>
           <h3 className="max-w-2xl">
             Informed by learnings from building the world&apos;s most popular decentralized trading
             protocol.

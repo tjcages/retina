@@ -83,7 +83,7 @@ const _ = () => {
       <article className="gap-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
-            Join the community building
+            Join the <strong>community</strong> building
             <Nbsp />
             on
             <Nbsp />
@@ -106,7 +106,9 @@ const _ = () => {
             We are dedicated to supporting every DeFi builder. Learn more about Unichain builder
             programs, events, and grants.
           </h5>
-          <Button variant="outline">Learn more</Button>
+          <Button variant="outline" className="-mt-2.5">
+            Learn more
+          </Button>
         </div>
       </article>
     </section>

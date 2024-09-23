@@ -35,6 +35,9 @@ const GridComponent: React.FC<GridProps> = ({
       const newPos = currentMousePos.lerp(mousePosition, lerpFactor);
       prevMousePosition.current.copy(currentMousePos);
       materialRef.current.uniforms.uMousePosition.value.copy(newPos);
+
+      document.documentElement.style.setProperty("--x", (newPos.x / window.innerWidth).toFixed(2));
+      document.documentElement.style.setProperty("--y", (newPos.y / window.innerHeight).toFixed(2));
     }
 
     if (!renderer.current || !scene.current || !camera.current) return;
@@ -51,18 +54,32 @@ const GridComponent: React.FC<GridProps> = ({
     setMousePosition(new THREE.Vector2(x, y));
   }, []);
 
-  const onResize = () => {
+  const onResize = useCallback(() => {
     if (!materialRef.current || !renderer.current || !scene.current || !camera.current) return;
     const newWidth = window.innerWidth;
     const newHeight = window.innerHeight;
+
+    // Update camera
     camera.current.left = -newWidth / 2;
     camera.current.right = newWidth / 2;
     camera.current.top = newHeight / 2;
     camera.current.bottom = -newHeight / 2;
     camera.current.updateProjectionMatrix();
+
+    // Update renderer
     renderer.current.setSize(newWidth, newHeight);
+
+    // Update material uniforms
     materialRef.current.uniforms.uResolution.value.set(newWidth, newHeight);
-  };
+
+    // Update mesh geometry
+    const mesh = scene.current.children[0] as THREE.Mesh;
+    mesh.geometry.dispose();
+    mesh.geometry = new THREE.PlaneGeometry(newWidth, newHeight);
+
+    // Render the scene
+    renderer.current.render(scene.current, camera.current);
+  }, []);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -158,7 +175,7 @@ const GridComponent: React.FC<GridProps> = ({
       window.removeEventListener("resize", onResize);
       renderer.current.dispose();
     };
-  }, [squareSize, gap, maxRadius, influenceRadius, onMouseMove]);
+  }, [squareSize, gap, maxRadius, influenceRadius, onMouseMove, onResize]);
 
   return (
     <div

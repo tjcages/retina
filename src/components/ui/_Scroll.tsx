@@ -132,6 +132,8 @@ export const Scroll: React.FC<Props> = ({ className, direction = "y", children, 
             : "overflow-y-auto overflow-x-hidden",
           snap &&
             (direction === "x" ? "lg:snap-x lg:snap-mandatory" : "lg:snap-y lg:snap-mandatory"),
+          drag && "cursor-grab",
+          isDragging && "cursor-grabbing",
           className
         )}
       >

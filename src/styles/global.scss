@@ -23,6 +23,9 @@
     --pink-secondary-foreground: 299 99% 73%; // #FC74FE
 
     --border: 20 5.9% 90%;
+
+    --x: 0.5;
+    --y: 0.5;
   }
 }
 
@@ -106,19 +109,19 @@
   }
 
   h1 {
-    @apply text-6xl font-[550] leading-none tracking-[-0.04em] md:text-8xl 2xl:text-9xl;
+    @apply text-6xl font-[550] leading-none tracking-[-0.04em] md:text-8xl;
   }
 
   h2 {
-    @apply text-5xl font-[550] leading-none tracking-[-0.04em] md:text-7xl 2xl:text-8xl;
+    @apply text-5xl font-[550] leading-none tracking-[-0.04em] md:text-7xl;
   }
 
   h3 {
-    @apply text-2xl font-[550] leading-none tracking-[-0.04em] md:text-3xl 2xl:text-4xl;
+    @apply text-2xl font-[550] leading-none tracking-[-0.04em] md:text-3xl;
   }
 
   h4 {
-    @apply text-2xl font-medium leading-none tracking-[-0.04em] md:text-2xl 2xl:text-3xl;
+    @apply text-2xl font-medium leading-none tracking-[-0.04em] md:text-2xl;
     text-wrap: pretty;
   }
 
@@ -128,7 +131,7 @@
   }
 
   p {
-    @apply max-w-2xl text-base leading-tight text-[rgba(0,0,0,0.42)];
+    @apply max-w-2xl text-base leading-none text-[rgba(0,0,0,0.42)];
     text-wrap: pretty;
   }
 
@@ -139,7 +142,7 @@
 
   .text-pink {
     background: linear-gradient(
-      to right,
+      calc(var(--x) * 3.14rad),
       hsl(var(--pink-primary-foreground)),
       hsl(var(--pink-secondary-foreground))
     );

@@ -33,8 +33,6 @@ export default async function HomePage() {
       <Divider />
       <Roadmap />
       <Divider />
-      {/* <Video />
-      <Divider /> */}
       <Vision />
       <Divider variant="secondary" />
       <Footer />

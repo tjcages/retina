@@ -1,5 +1,10 @@
+"use client";
+
+import { useInView } from "@/hooks";
+import { cn } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 interface LinkProps {
   href: string;
@@ -15,8 +20,16 @@ const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
 };
 
 const _ = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   return (
-    <section className="snap-end bg-background py-6 md:py-12">
+    <section ref={ref} className="z-20 snap-end overflow-visible bg-background py-6 md:py-12">
+      <div
+        className={cn(
+          "pointer-events-none absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#F50DB433] opacity-0 transition-opacity duration-1000 ease-in",
+          inView && "opacity-100"
+        )}
+      />
       <footer>
         <div className="col-span-full grid grid-cols-subgrid gap-3">
           <div className="col-span-full mb-6 flex h-full flex-col items-start md:col-[1_/_span_15] md:mb-0">
