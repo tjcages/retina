@@ -9,8 +9,14 @@ interface Props {
 
 const Item: React.FC<Props> = ({ name, src }) => {
   return (
-    <div className="col-span-1 flex min-w-20 flex-col items-center justify-center gap-3">
-      <Image className="h-16 w-16 lg:h-20 lg:w-20" src={src} alt={name} width={400} height={400} />
+    <div className="pointer-events-none col-span-1 flex min-w-20 select-none flex-col items-center justify-center gap-3">
+      <Image
+        className="pointer-events-none h-16 w-16 select-none lg:h-20 lg:w-20"
+        src={src}
+        alt={name}
+        width={400}
+        height={400}
+      />
       <p>{name}</p>
     </div>
   );
