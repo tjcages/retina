@@ -56,9 +56,13 @@
     // text-wrap: balance;
     white-space: pre-wrap;
 
-    user-select: none;
-    -webkit-user-select: none;
+    user-select: text;
+    -webkit-user-select: text;
     -webkit-touch-callout: none;
+  }
+
+  ::selection {
+    background: hsl(var(--pink-primary-foreground));
   }
 
   main {

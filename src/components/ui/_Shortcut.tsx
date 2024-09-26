@@ -41,7 +41,7 @@ const ShortcutPrimitive = React.forwardRef<HTMLSpanElement, PrimativeProps>(
     return (
       <kbd
         className={cn(
-          "h-full uppercase opacity-70 transition-opacity duration-200 ease-in",
+          "uppercase opacity-70 transition-opacity duration-200 ease-in",
           { "opacity-100": triggered },
           className
         )}
@@ -55,7 +55,7 @@ const ShortcutPrimitive = React.forwardRef<HTMLSpanElement, PrimativeProps>(
 );
 ShortcutPrimitive.displayName = "ShortcutPrimitive";
 
-interface Props {
+interface ShortcutProps {
   meta?: boolean;
   enter?: boolean;
   chars?: (
@@ -109,7 +109,7 @@ const Shortcut = ({
   onTrigger,
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement> & Props) => {
+}: React.HTMLAttributes<HTMLSpanElement> & ShortcutProps) => {
   // turn chars into an object with keys as the chars and values as booleans
   const keyTriggers = React.useMemo(() => {
     const keyTriggers: { [key: string]: boolean } = {};
@@ -142,7 +142,7 @@ const Shortcut = ({
   return (
     <div
       className={cn(
-        "ml-auto flex items-center justify-center gap-0.5 rounded-sm border border-white/20 bg-white/5 px-1.5 text-base tracking-widest text-inherit",
+        "ml-auto flex h-5 w-5 items-center justify-center overflow-hidden rounded-[4px] bg-[rgba(34,34,34,0.08)] leading-none text-secondary-foreground",
         className
       )}
       {...props}
@@ -202,3 +202,4 @@ const Shortcut = ({
 Shortcut.displayName = "Shortcut";
 
 export { Shortcut };
+export type { ShortcutProps };

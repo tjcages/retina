@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalState } from "@/store";
 import { cn } from "@/utils";
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 
@@ -31,6 +32,7 @@ interface Props {
 }
 
 export const Scroll: React.FC<Props> = ({ className, direction = "y", children, snap, drag }) => {
+  const { menuVisible } = useLocalState();
   const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -134,6 +136,7 @@ export const Scroll: React.FC<Props> = ({ className, direction = "y", children, 
             (direction === "x" ? "lg:snap-x lg:snap-mandatory" : "lg:snap-y lg:snap-mandatory"),
           drag && "cursor-grab",
           isDragging && "cursor-grabbing",
+          menuVisible && "pointer-events-none",
           className
         )}
       >

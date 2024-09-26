@@ -3,12 +3,11 @@ import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 
 const inputVariants = cva(
-  "flex rounded-md bg-transparent px-3 py-1 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+  "flex rounded-2xl bg-secondary px-3 py-1 text-base transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "h-9 w-full border border-input shadow-sm",
-        plain: "h-8 w-full border-transparent text-inherit px-2 py-0 focus-visible:ring-black/10"
+        default: "h-12 w-full"
       }
     },
     defaultVariants: {

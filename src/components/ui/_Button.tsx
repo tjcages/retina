@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./_Tooltip";
+import { Spinner, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui";
 
 const buttonVariants = cva(
   "inline-flex items-center cursor-pointer justify-center gap-1 whitespace-nowrap rounded-2xl text-primary leading-none tracking-[-0.04em] font-medium pointer-events-auto transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!opacity-50 disabled:!cursor-not-allowed",
@@ -35,13 +35,28 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  children?: React.ReactNode | React.ReactNode[];
   asChild?: boolean;
+  loading?: boolean;
   tooltip?: string;
   tooltipAlign?: "center" | "end" | "start";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, tooltip, tooltipAlign, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      loading = false,
+      tooltip,
+      tooltipAlign,
+      asChild = false,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
     const [isMounted, setIsMounted] = React.useState(false);
 
@@ -54,7 +69,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn("relative", buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        <div
+          className={cn(
+            "flex select-none items-center transition-opacity duration-200 ease-in-out",
+            {
+              "opacity-0": loading
+            }
+          )}
+        >
+          {children}
+        </div>
+        {loading && <Spinner className="absolute h-5 w-5" isLoading={loading} />}
+      </Comp>
     );
 
     if (!isMounted || !tooltip) {

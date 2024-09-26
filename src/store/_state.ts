@@ -4,15 +4,17 @@ import { proxy, snapshot, subscribe, useSnapshot } from "valtio";
 interface State {
   // General States
   ready: boolean;
+  menuVisible: boolean;
 }
 
 const defaultState: State = {
   // General States
-  ready: false
+  ready: false,
+  menuVisible: false
 };
 
 // Define which keys should not be persisted
-const nonPersistentKeys: (keyof State)[] = [];
+const nonPersistentKeys: (keyof State)[] = ["menuVisible"];
 
 const state = proxy<State>(defaultState);
 

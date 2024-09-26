@@ -53,8 +53,14 @@ module.exports = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))"
         },
-        "pink-primary": "hsl(var(--pink-primary))",
-        "pink-secondary": "hsl(var(--pink-secondary))"
+        "pink-primary": {
+          DEFAULT: "hsl(var(--pink-primary))",
+          foreground: "hsl(var(--pink-primary-foreground))"
+        },
+        "pink-secondary": {
+          DEFAULT: "hsl(var(--pink-secondary))",
+          foreground: "hsl(var(--pink-secondary-foreground))"
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

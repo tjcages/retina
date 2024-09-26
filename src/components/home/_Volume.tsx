@@ -11,7 +11,7 @@ const _ = () => {
             <strong>ecosystem</strong>
           </h2>
           <h3 className="max-w-2xl">
-            Informed by learnings from building the world&apos;s most popular decentralized trading
+            Informed by learnings from building the world&apos;s largest decentralized trading
             protocol.
           </h3>
         </div>
