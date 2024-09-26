@@ -1,17 +1,21 @@
 "use client";
 
-import { cn } from "@/utils";
+import { cn, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTransitionRouter } from "next-view-transitions";
 import { useState } from "react";
 
 import { Shortcut, ShortcutProps } from "@/components/ui";
 
 interface ItemProps {
   children: React.ReactNode;
+  href?: string;
   shortcut: ShortcutProps["chars"];
 }
 
-const Item: React.FC<ItemProps> = ({ children, shortcut }) => {
+const Item: React.FC<ItemProps> = ({ children, href, shortcut }) => {
+  const router = useTransitionRouter();
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0, scale: 0.8 },
     visible: {
@@ -26,11 +30,19 @@ const Item: React.FC<ItemProps> = ({ children, shortcut }) => {
       }
     }
   };
+
+  const handleTrigger = () => {
+    router.push(href || "/", { onTransitionReady: pageTransition });
+  };
+
   return (
     <motion.div variants={itemVariants}>
-      <div className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-colors duration-200 ease-in-out hover:bg-pink-secondary/40">
+      <div
+        className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 active:scale-95"
+        onClick={handleTrigger}
+      >
         {children}
-        <Shortcut chars={shortcut} />
+        <Shortcut chars={shortcut} onTrigger={handleTrigger} />
       </div>
     </motion.div>
   );
@@ -93,6 +105,9 @@ const _: React.FC<Props> = ({ trigger }) => {
           >
             <Item shortcut={["g"]}>Get Started</Item>
             <Item shortcut={["d"]}>Developer Docs</Item>
+            <Item shortcut={["k"]} href="/builder-toolkit">
+              Builder Toolkit
+            </Item>
             <Item shortcut={["t"]}>Testnet</Item>
             <Item shortcut={["b"]}>Block Explorer</Item>
             <Item shortcut={["s"]}>Status</Item>

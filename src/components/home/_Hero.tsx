@@ -1,6 +1,6 @@
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 
-import { EmailSignup } from "@/components/home";
+import { EmailSignup } from "@/components/shared";
 import { Button } from "@/components/ui";
 
 const _ = () => {

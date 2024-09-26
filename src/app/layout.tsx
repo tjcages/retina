@@ -3,6 +3,7 @@ import { seo } from "@/seo";
 import { cn } from "@/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata, Viewport } from "next";
+import { ViewTransitions } from "next-view-transitions";
 
 import "@/styles/global.scss";
 
@@ -21,11 +22,13 @@ console.log("Made with ❤️ by @tjcages");
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={cn(Basel.className, Basel.variable, Jomhuria.variable, Riegraf.variable)}>
-        <main>{children}</main>
-        <Analytics />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={cn(Basel.className, Basel.variable, Jomhuria.variable, Riegraf.variable)}>
+          <main>{children}</main>
+          <Analytics />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

@@ -2,17 +2,21 @@
 
 import { Close } from "@/assets/icons";
 import { state, useLocalState } from "@/store";
-import { cn } from "@/utils";
+import { cn, delay, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTransitionRouter } from "next-view-transitions";
 
-import { EmailSignup } from "@/components/home";
+import { EmailSignup } from "@/components/shared";
 import { Button } from "@/components/ui";
 
 interface ItemProps {
   children: React.ReactNode;
+  href?: string;
 }
 
-const Item: React.FC<ItemProps> = ({ children }) => {
+const Item: React.FC<ItemProps> = ({ children, href }) => {
+  const router = useTransitionRouter();
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0, scale: 0.8 },
     visible: {
@@ -27,9 +31,18 @@ const Item: React.FC<ItemProps> = ({ children }) => {
       }
     }
   };
+
+  const handleTrigger = () => {
+    state.menuVisible = false;
+    delay(400).then(() => router.push(href || "/", { onTransitionReady: pageTransition }));
+  };
+
   return (
     <motion.div variants={itemVariants}>
-      <div className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-4 text-lg text-pink-primary transition-colors duration-200 ease-in-out hover:bg-pink-secondary/40">
+      <div
+        className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-4 text-lg text-pink-primary transition-colors duration-200 ease-in-out hover:bg-pink-secondary/40"
+        onClick={handleTrigger}
+      >
         {children}
       </div>
     </motion.div>
@@ -99,7 +112,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             <div className="pointer-events-auto flex flex-col gap-1 rounded-2xl bg-background p-1">
               <Item>Get Started</Item>
               <Item>Developer Docs</Item>
-              <Item>Testnet</Item>
+              <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item>Block Explorer</Item>
               <Item>Status</Item>
               <Item>Bug Bounty</Item>

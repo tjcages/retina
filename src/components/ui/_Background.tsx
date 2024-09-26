@@ -13,6 +13,9 @@ interface GridProps {
   maxRadius: number;
   influenceRadius: number;
   lerpFactor: number;
+  squareColor: [number, number, number]; // RGB values for square color
+  backgroundColor: [number, number, number]; // RGB values for background color
+  variant: "primary" | "secondary";
 }
 
 const GridComponent: React.FC<GridProps> = ({
@@ -20,7 +23,10 @@ const GridComponent: React.FC<GridProps> = ({
   gap,
   maxRadius,
   influenceRadius,
-  lerpFactor
+  lerpFactor,
+  squareColor,
+  backgroundColor,
+  variant
 }) => {
   const renderer = useRef<THREE.WebGLRenderer>();
   const scene = useRef<THREE.Scene>();
@@ -108,7 +114,11 @@ const GridComponent: React.FC<GridProps> = ({
         uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         uMousePosition: { value: new THREE.Vector2(0, 0) },
         uMaxRadius: { value: maxRadius },
-        uInfluenceRadius: { value: influenceRadius }
+        uInfluenceRadius: { value: influenceRadius },
+        uSquareColor: { value: new THREE.Vector3(...squareColor) },
+        uBackgroundColor: { value: new THREE.Vector3(...backgroundColor) },
+        uVariant: { value: variant === "primary" ? 0 : 1 },
+        uBorderWidth: { value: 0.75 } // Adjust this value to change border thickness
       },
       vertexShader: `
         varying vec2 vUv;
@@ -124,6 +134,10 @@ const GridComponent: React.FC<GridProps> = ({
         uniform vec2 uMousePosition;
         uniform float uMaxRadius;
         uniform float uInfluenceRadius;
+        uniform vec3 uSquareColor;
+        uniform vec3 uBackgroundColor;
+        uniform int uVariant;
+        uniform float uBorderWidth;
         varying vec2 vUv;
 
         float sdRoundBox(vec2 p, vec2 b, float r) {
@@ -148,10 +162,21 @@ const GridComponent: React.FC<GridProps> = ({
 
           float d = sdRoundBox(relativePos, vec2(uSquareSize * 0.5), radius);
 
-          if (d <= 0.0) {
-            gl_FragColor = vec4(0.9647058824, 0.0941176471, 0.7254901961, 1.0); // White square/circle
+          if (uVariant == 0) {
+            // Primary variant: filled squares
+            if (d <= 0.0) {
+              gl_FragColor = vec4(uSquareColor, 1.0);
+            } else {
+              gl_FragColor = vec4(uBackgroundColor, 1.0);
+            }
           } else {
-            gl_FragColor = vec4(1.0, 1.0, 0.9960784314, 1.0); // Black gap
+            // Secondary variant: bordered squares
+            float borderD = sdRoundBox(relativePos, vec2(uSquareSize * 0.5 - uBorderWidth), radius - uBorderWidth);
+            if (d <= 0.0 && borderD > 0.0) {
+              gl_FragColor = vec4(uBackgroundColor, 1.0);
+            } else {
+              gl_FragColor = vec4(uSquareColor, 1.0);
+            }
           }
         }
       `
@@ -176,17 +201,34 @@ const GridComponent: React.FC<GridProps> = ({
       window.removeEventListener("resize", onResize);
       renderer.current.dispose();
     };
-  }, [squareSize, gap, maxRadius, influenceRadius, onMouseMove, onResize]);
+  }, [
+    squareSize,
+    gap,
+    maxRadius,
+    influenceRadius,
+    squareColor,
+    backgroundColor,
+    variant,
+    onMouseMove,
+    onResize
+  ]);
 
   return (
     <div
       ref={mountRef}
-      className="absolute bottom-0 left-0 right-0 top-0 opacity-40 mix-blend-overlay"
+      className={cn(
+        "absolute bottom-0 left-0 right-0 top-0 opacity-40 mix-blend-overlay",
+        variant === "secondary" && "opacity-20"
+      )}
     />
   );
 };
 
-export const Background = () => {
+interface Props {
+  variant?: "primary" | "secondary";
+}
+
+export const Background: React.FC<Props> = ({ variant = "primary" }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -195,26 +237,40 @@ export const Background = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 z-0 h-screen w-full">
-      <Image
-        priority
-        className="absolute left-0 top-0 h-full w-full object-cover"
-        src="/assets/noise-texture.webp"
-        alt="Pink noise texture"
-        width={4000}
-        height={3000}
-      />
+      {variant === "primary" && (
+        <Image
+          priority
+          className="absolute left-0 top-0 h-full w-full object-cover"
+          src="/assets/noise-texture.webp"
+          alt="Pink noise texture"
+          width={4000}
+          height={3000}
+        />
+      )}
       <div
         className={cn(
           "absolute inset-0 bg-[radial-gradient(circle_at_75%,#F50DB400,#F50DB4CC)] from-pink-primary to-pink-secondary opacity-0 transition-opacity duration-1000 ease-in",
-          isMounted && "opacity-100"
+          isMounted && "opacity-100",
+          variant === "secondary" && "bg-[radial-gradient(circle_at_75%,#FFFFFF00,#FFFFFFCC)]"
         )}
       />
       <GridComponent
         squareSize={50}
-        gap={0.75}
+        gap={variant === "primary" ? 0.75 : 0}
         maxRadius={25}
         influenceRadius={400}
         lerpFactor={0.05}
+        squareColor={
+          variant === "primary"
+            ? [0.9647058824, 0.0941176471, 0.7254901961]
+            : [1.0, 1.0, 0.9960784314]
+        }
+        backgroundColor={
+          variant === "primary"
+            ? [1.0, 1.0, 0.9960784314]
+            : [0.9647058824, 0.0941176471, 0.7254901961]
+        }
+        variant={variant}
       />
     </div>
   );
