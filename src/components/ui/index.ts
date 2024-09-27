@@ -7,6 +7,7 @@ export * from "./_Dialog";
 export * from "./_DialogDynamic";
 export * from "./_Divider";
 export * from "./_DropdownMenu";
+export * from "./_Icons";
 export * from "./_Image";
 export * from "./_Input";
 export * from "./_Label";
