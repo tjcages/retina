@@ -91,7 +91,7 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
-            Join the <strong>community</strong> building
+            Join the community <strong>building</strong>
             <Nbsp />
             on
             <Nbsp />

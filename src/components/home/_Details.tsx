@@ -26,7 +26,7 @@ const _ = () => {
       <article className="gap-6">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:col-span-10">
-            Built to scale <strong>Ethereum</strong>
+            Built to <strong>scale</strong> Ethereum
           </h2>
         </div>
         {/* <div className="col-span-full row-start-2 flex flex-col items-center justify-center gap-3 md:col-start-2 md:-col-end-2">

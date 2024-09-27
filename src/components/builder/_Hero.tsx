@@ -5,9 +5,9 @@ const _ = () => {
     <section className="flex snap-start items-center border-b border-pink-secondary pb-16 pt-32 md:min-h-[50vh] md:py-24">
       <article className="gap-12 text-white">
         <h1 className="text-pink col-span-full row-start-1 md:col-[1_/_span_16]">
-          Builder
+          <strong>Builder</strong>
           <br />
-          <strong>Tool Kit</strong>
+          Tool Kit
         </h1>
       </article>
       <EmailSignup />

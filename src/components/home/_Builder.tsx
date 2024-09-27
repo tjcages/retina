@@ -47,7 +47,7 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
-            Start <strong>building on</strong>
+            Start <strong>building</strong> on
             <Nbsp />
             Unichain
           </h2>

@@ -7,10 +7,14 @@ const _ = () => {
   return (
     <section className="flex snap-start items-center pb-16 pt-32 md:min-h-[75vh] md:py-24">
       <article className="gap-12 text-white">
-        <h1 className="col-span-full row-start-1 md:col-[1_/_span_16]">
-          Designed for
-          <strong>DeFi</strong>. Built by Uniswap.
-        </h1>
+        <div className="col-span-full row-start-1 flex flex-col md:col-[1_/_span_20]">
+          <h1>
+            <strong>Designed</strong> for DeFi.
+          </h1>
+          <h1>
+            <strong>Built</strong> by Uniswap Labs.
+          </h1>
+        </div>
         <h4 className="col-span-full row-start-2 md:col-span-10">
           Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity across chains.
           <br />

@@ -6,9 +6,9 @@ const _ = () => {
       <article className="gap-y-12 md:gap-y-16 xl:gap-x-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-6 text-center">
           <h2 className="text-pink col-span-full">
-            Expanding the Uniswap
+            <strong>Expanding</strong> the Uniswap
             <Nbsp />
-            <strong>ecosystem</strong>
+            ecosystem
           </h2>
           <h3 className="max-w-2xl">
             Informed by learnings from building the world&apos;s largest decentralized trading
