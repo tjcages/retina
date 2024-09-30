@@ -1,7 +1,5 @@
-import { ArrowUpRight } from "@/assets/icons";
-
 import { ActionItem, type ActionItemProps } from "@/components/shared";
-import { Button, Nbsp } from "@/components/ui";
+import { Nbsp } from "@/components/ui";
 
 const items: ActionItemProps[] = [
   {
@@ -21,7 +19,7 @@ const items: ActionItemProps[] = [
   },
   {
     header: "Developer docs",
-    description: "Resources to get started building on Unichain.",
+    description: "Get started building on Unichain.",
     icon: "NoteText"
   }
 ];
@@ -48,12 +46,6 @@ const _ = () => {
               />
             ))}
           </div>
-        </div>
-        <div className="col-span-full">
-          <Button variant="outline" className="-ml-5 -mt-5">
-            Join the community building on Unichain
-            <ArrowUpRight className="h-5 w-5 text-inherit" />
-          </Button>
         </div>
       </article>
     </section>

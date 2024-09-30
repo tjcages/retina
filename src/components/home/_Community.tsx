@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Image, Marquee, Nbsp } from "@/components/ui";
+import { Button, Icon, Image, Marquee, Nbsp } from "@/components/ui";
 
 interface Props {
   name: string;
@@ -51,10 +51,10 @@ const community = [
     name: "Pyth",
     src: "/assets/community/pyth.png"
   },
-  {
-    name: "Circle",
-    src: "/assets/community/circle.png"
-  },
+  // {
+  //   name: "Circle",
+  //   src: "/assets/community/circle.png"
+  // },
   // {
   //   name: "Coinbase",
   //   src: "/assets/community/coinbase.png"
@@ -78,11 +78,11 @@ const community = [
   {
     name: "Fireblocks",
     src: "/assets/community/fireblocks.png"
-  },
-  {
-    name: "OKX",
-    src: "/assets/community/okx.png"
   }
+  // {
+  //   name: "OKX",
+  //   src: "/assets/community/okx.png"
+  // }
 ] as Props[];
 
 const _ = () => {
@@ -93,45 +93,48 @@ const _ = () => {
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
             Join the community <strong>building</strong>
             <Nbsp />
-            on
-            <Nbsp />
-            Unichain
+            on&nbsp;Unichain
           </h2>
         </div>
         <Marquee direction="right" className="col-span-full flex w-full items-center md:hidden">
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-            {community.slice(0, 7).map((item, index) => (
+            {community.slice(0, 6).map((item, index) => (
               <Item key={index} name={item.name} src={item.src} />
             ))}
           </div>
         </Marquee>
         <Marquee direction="left" className="col-span-full flex w-full items-center md:hidden">
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-            {community.slice(7, 14).map((item, index) => (
+            {community.slice(6, 12).map((item, index) => (
               <Item key={index} name={item.name} src={item.src} />
             ))}
           </div>
         </Marquee>
         <div className="col-span-full row-start-2 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
-          {community.slice(0, 7).map((item, index) => (
+          {community.slice(0, 6).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
         <div className="col-span-full row-start-3 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
-          {community.slice(7, 14).map((item, index) => (
+          {community.slice(6, 12).map((item, index) => (
             <Item key={index} name={item.name} src={item.src} />
           ))}
         </div>
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
+          <Button variant="outline" className="-ml-5 -mt-5">
+            Join the community building on Unichain
+            <Icon icon="ArrowUpRight" className="h-5 w-5 text-inherit" />
+          </Button>
+        </div>
+        {/* <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <h3 className="max-w-2xl">Platforming the next big idea in DeFi:&nbsp;Yours</h3>
           <h5 className="max-w-md text-secondary-foreground">
-            We are dedicated to supporting every DeFi builder. Learn more about Unichain builder
-            programs, events, and grants.
+            We are dedicated to supporting every DeFi builder with programs, events, and grants.
           </h5>
           <Button variant="outline" className="-mt-2.5">
             Learn more
           </Button>
-        </div>
+        </div> */}
       </article>
     </section>
   );

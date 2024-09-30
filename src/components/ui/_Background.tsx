@@ -15,10 +15,14 @@ interface GridProps {
   lerpFactor: number;
   squareColor: [number, number, number]; // RGB values for square color
   backgroundColor: [number, number, number]; // RGB values for background color
-  variant: "primary" | "secondary";
+  variant?: "primary" | "secondary";
+  className?: string;
+  gridLines?: boolean;
+  border?: boolean;
+  pixelRatio?: number;
 }
 
-const GridComponent: React.FC<GridProps> = ({
+export const GridComponent: React.FC<GridProps> = ({
   squareSize,
   gap,
   maxRadius,
@@ -26,14 +30,18 @@ const GridComponent: React.FC<GridProps> = ({
   lerpFactor,
   squareColor,
   backgroundColor,
-  variant
+  variant = "primary",
+  className,
+  gridLines = false,
+  border = false,
+  pixelRatio
 }) => {
   const renderer = useRef<THREE.WebGLRenderer>();
   const scene = useRef<THREE.Scene>();
   const camera = useRef<THREE.OrthographicCamera>();
   const mountRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState<THREE.Vector2>(new THREE.Vector2(0, 0));
-  const prevMousePosition = useRef<THREE.Vector2>(new THREE.Vector2(0, 0));
+  const [mousePosition, setMousePosition] = useState<THREE.Vector2>(new THREE.Vector2(500, 0));
+  const prevMousePosition = useRef<THREE.Vector2>(new THREE.Vector2(500, 0));
   const materialRef = useRef<THREE.ShaderMaterial | null>(null);
 
   const lerpMousePosition = useCallback(() => {
@@ -56,15 +64,25 @@ const GridComponent: React.FC<GridProps> = ({
   });
 
   const onMouseMove = useCallback((event: MouseEvent) => {
-    const x = event.clientX;
-    const y = window.innerHeight - event.clientY; // Invert the y-coordinate
+    if (!mountRef.current) return;
+    const rect = mountRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(event.clientX - rect.left, rect.width));
+    const y = Math.max(0, Math.min(rect.height - (event.clientY - rect.top), rect.height));
     setMousePosition(new THREE.Vector2(x, y));
   }, []);
 
   const onResize = useCallback(() => {
-    if (!materialRef.current || !renderer.current || !scene.current || !camera.current) return;
-    const newWidth = window.innerWidth;
-    const newHeight = window.innerHeight;
+    if (
+      !materialRef.current ||
+      !renderer.current ||
+      !scene.current ||
+      !camera.current ||
+      !mountRef.current
+    )
+      return;
+    const rect = mountRef.current.getBoundingClientRect();
+    const newWidth = rect.width;
+    const newHeight = rect.height;
 
     // Update camera
     camera.current.left = -newWidth / 2;
@@ -91,34 +109,41 @@ const GridComponent: React.FC<GridProps> = ({
   useEffect(() => {
     if (!mountRef.current) return;
 
+    const rect = mountRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
     scene.current = new THREE.Scene();
     camera.current = new THREE.OrthographicCamera(
-      -window.innerWidth / 2,
-      window.innerWidth / 2,
-      window.innerHeight / 2,
-      -window.innerHeight / 2,
+      -width / 2,
+      width / 2,
+      height / 2,
+      -height / 2,
       0.1,
       1000
     );
     renderer.current = new THREE.WebGLRenderer();
-    renderer.current.setSize(window.innerWidth, window.innerHeight);
-    renderer.current.setPixelRatio(window.devicePixelRatio);
+    renderer.current.setSize(width, height);
+    renderer.current.setPixelRatio(pixelRatio !== undefined ? pixelRatio : window.devicePixelRatio);
     mountRef.current.appendChild(renderer.current.domElement);
 
-    const geometry = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
+    const geometry = new THREE.PlaneGeometry(width, height);
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
         uSquareSize: { value: squareSize },
         uGap: { value: gap },
-        uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+        uResolution: { value: new THREE.Vector2(width, height) },
         uMousePosition: { value: new THREE.Vector2(0, 0) },
         uMaxRadius: { value: maxRadius },
         uInfluenceRadius: { value: influenceRadius },
         uSquareColor: { value: new THREE.Vector3(...squareColor) },
         uBackgroundColor: { value: new THREE.Vector3(...backgroundColor) },
         uVariant: { value: variant === "primary" ? 0 : 1 },
-        uBorderWidth: { value: 0.75 } // Adjust this value to change border thickness
+        uBorderWidth: { value: 0.75 }, // Adjust this value to change border thickness
+        uGridLines: { value: gridLines ? 1 : 0 },
+        uBorder: { value: border ? 1 : 0 }, // Add this line
+        uBorderColor: { value: new THREE.Vector4(245 / 255, 13 / 255, 180 / 255, 1.0) } // Add this line
       },
       vertexShader: `
         varying vec2 vUv;
@@ -138,6 +163,9 @@ const GridComponent: React.FC<GridProps> = ({
         uniform vec3 uBackgroundColor;
         uniform int uVariant;
         uniform float uBorderWidth;
+        uniform int uGridLines;
+        uniform int uBorder;
+        uniform vec4 uBorderColor;
         varying vec2 vUv;
 
         float sdRoundBox(vec2 p, vec2 b, float r) {
@@ -178,6 +206,23 @@ const GridComponent: React.FC<GridProps> = ({
               gl_FragColor = vec4(uSquareColor, 1.0);
             }
           }
+
+          // Add border
+          if (uBorder == 1) {
+            float borderThickness = 1.0;
+            if (abs(d) < borderThickness) {
+              gl_FragColor = uBorderColor;
+            }
+          }
+
+          // Add grid lines
+          if (uGridLines == 1) {
+            float gridLineWidth = 0.75;
+            vec2 gridPosition = mod(position, uSquareSize + uGap);
+            if (gridPosition.x < gridLineWidth || gridPosition.y < gridLineWidth) {
+              gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); // Black color for grid lines
+            }
+          }
         }
       `
     });
@@ -210,7 +255,10 @@ const GridComponent: React.FC<GridProps> = ({
     backgroundColor,
     variant,
     onMouseMove,
-    onResize
+    onResize,
+    gridLines,
+    border,
+    pixelRatio
   ]);
 
   return (
@@ -218,7 +266,8 @@ const GridComponent: React.FC<GridProps> = ({
       ref={mountRef}
       className={cn(
         "absolute bottom-0 left-0 right-0 top-0 opacity-40 mix-blend-overlay",
-        variant === "secondary" && "opacity-20"
+        variant === "secondary" && "opacity-20",
+        className
       )}
     />
   );
@@ -226,9 +275,15 @@ const GridComponent: React.FC<GridProps> = ({
 
 interface Props {
   variant?: "primary" | "secondary";
+  gridLines?: boolean;
+  border?: boolean; // Add this line
 }
 
-export const Background: React.FC<Props> = ({ variant = "primary" }) => {
+export const Background: React.FC<Props> = ({
+  variant = "primary",
+  gridLines = false,
+  border = false // Add this line
+}) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -271,6 +326,8 @@ export const Background: React.FC<Props> = ({ variant = "primary" }) => {
             : [0.9647058824, 0.0941176471, 0.7254901961]
         }
         variant={variant}
+        gridLines={gridLines}
+        border={border} // Add this line
       />
     </div>
   );

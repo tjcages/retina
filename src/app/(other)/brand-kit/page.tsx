@@ -1,7 +1,7 @@
 import { seo } from "@/seo";
 import type { Metadata } from "next";
 
-import { Color, Hero, Logo, Typography } from "@/components/brand";
+import { Color, Concept, Hero, Logo, Typography } from "@/components/brand";
 import { Footer, Header } from "@/components/shared";
 import { Background, Divider, Scroll } from "@/components/ui";
 
@@ -16,6 +16,8 @@ export default async function HomePage() {
       <Typography />
       <Divider variant="tertiary" />
       <Color />
+      <Divider variant="tertiary" />
+      <Concept />
       <Divider variant="tertiary" />
       <Footer />
     </Scroll>

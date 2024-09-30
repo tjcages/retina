@@ -15,11 +15,11 @@ export default async function HomePage() {
       <Divider />
       <Volume />
       <Divider />
-      <Community />
+      <Details />
       <Divider />
       <Builder />
       <Divider />
-      <Details />
+      <Community />
       <Divider />
       <Roadmap />
       <Divider />

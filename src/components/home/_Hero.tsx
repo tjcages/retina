@@ -15,7 +15,7 @@ const _ = () => {
             <strong>Built</strong> by Uniswap Labs.
           </h1>
         </div>
-        <h4 className="col-span-full row-start-2 md:col-span-10">
+        <h4 className="col-span-full row-start-2 md:col-span-10 lg:col-span-9">
           Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity across chains.
           <br />
           <strong>Powered</strong> by the Superchain.

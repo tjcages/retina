@@ -108,7 +108,6 @@ const _: React.FC<Props> = ({ trigger }) => {
               isVisible && "pointer-events-auto"
             )}
           >
-            <Item shortcut={["g"]}>Get Started</Item>
             <Item shortcut={["d"]}>Developer Docs</Item>
             <Item shortcut={["k"]} href="/builder-toolkit">
               Builder Toolkit
@@ -118,8 +117,8 @@ const _: React.FC<Props> = ({ trigger }) => {
             </Item>
             <Item shortcut={["t"]}>Testnet</Item>
             <Item shortcut={["b"]}>Block Explorer</Item>
-            <Item shortcut={["s"]}>Status</Item>
-            <Item shortcut={["x"]}>Bug Bounty</Item>
+            {/* <Item shortcut={["s"]}>Status</Item> */}
+            {/* <Item shortcut={["x"]}>Bug Bounty</Item> */}
             <Item shortcut={["h"]}>Github</Item>
           </motion.div>
         )}

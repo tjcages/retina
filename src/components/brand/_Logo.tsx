@@ -48,7 +48,7 @@ const _ = () => {
               </div>
             ))}
           </div>
-          <div className="relative col-span-full flex h-full items-center justify-center rounded-2xl bg-secondary md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
+          <div className="relative col-span-full flex h-full items-center justify-center rounded-[20px] bg-secondary md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
             <Icon
               icon="Logo"
               className={cn(
