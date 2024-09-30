@@ -1,3 +1,7 @@
+"use client";
+
+import { useIsDesktop } from "@/hooks";
+
 import { Badge, Nbsp, Scroll } from "@/components/ui";
 
 interface Props {
@@ -8,7 +12,7 @@ interface Props {
 
 const Item: React.FC<Props> = ({ header, description, tertiary }) => {
   return (
-    <div className="relative flex aspect-square w-[80vw] max-w-[500px] flex-shrink-0 flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary lg:w-[40vw]">
+    <div className="relative flex aspect-square w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none">
       <div className="absolute flex h-full w-full items-center justify-center bg-pink-primary/10 gradient-mask-b-50">
         {/* TODO: Add illustation */}
         <h3 className="mb-[30%] text-muted-foreground/10">Illustration here</h3>
@@ -46,11 +50,12 @@ const sections = [
 ];
 
 const _ = () => {
+  const isDesktop = useIsDesktop();
   return (
-    <section className="snap-start bg-background px-0 py-12 md:py-24">
+    <section className="snap-start bg-background px-0 py-12 md:py-24 xl:px-20 2xl:px-24">
       <article className="w-full max-w-none gap-12">
-        <div className="col-span-full w-full px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
-          <div className="mx-auto w-full max-w-7xl">
+        <div className="col-span-full w-full px-3 md:px-12 xl:px-0">
+          <div className="mx-auto w-full max-w-7xl lg:max-w-none">
             <h2>
               The <strong>best place</strong> for DeFi
               <Nbsp />
@@ -59,9 +64,9 @@ const _ = () => {
           </div>
         </div>
         <Scroll
-          drag
+          drag={!isDesktop}
           direction="x"
-          className="col-span-full flex gap-6 px-3 md:px-12 lg:px-16 xl:px-[calc(max(calc((100vw-80rem)/2),_0px))]"
+          className="col-span-full flex gap-6 px-3 md:px-12 lg:px-16 xl:grid xl:grid-cols-subgrid xl:overflow-hidden xl:px-0"
         >
           {sections.map((section, index) => (
             <Item

@@ -18,7 +18,7 @@ const _ = () => {
         <h4 className="col-span-full row-start-2 md:col-span-10">
           Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity across chains.
           <br />
-          Powered by the <strong>Superchain</strong>.
+          <strong>Powered</strong> by the Superchain.
         </h4>
         <div className="col-span-7 row-start-3 flex items-center gap-3">
           <Button className="w-full">

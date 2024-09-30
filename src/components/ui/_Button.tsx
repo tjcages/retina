@@ -8,7 +8,7 @@ import * as React from "react";
 import { Spinner, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui";
 
 const buttonVariants = cva(
-  "inline-flex items-center cursor-pointer justify-center gap-1 whitespace-nowrap rounded-2xl text-primary leading-none tracking-[-0.04em] font-medium pointer-events-auto transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!opacity-50 disabled:!cursor-not-allowed",
+  "inline-flex items-center cursor-pointer justify-center gap-1 whitespace-nowrap rounded-2xl text-primary !leading-none tracking-[-0.04em] font-medium pointer-events-auto transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!opacity-50 disabled:!cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -19,7 +19,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline"
       },
       size: {
-        default: "px-5 py-3 text-xl",
+        default: "px-5 py-4 text-xl",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "px-24 py-4 rounded-2xl text-xl",
         icon: "h-9 w-9"

@@ -1,12 +1,18 @@
+import ActivityCircle from "./_activity-circle";
+import ArrowDown from "./_arrow-down";
 import ArrowUpRight from "./_arrow-up-right";
 import Calendar from "./_calendar";
 import CaretDown from "./_caret-down";
 import Close from "./_close";
+import Code from "./_code";
+import DesignSquare from "./_design-square";
 import Discord from "./_discord";
 import DiscordStroke from "./_discord-stroke";
 import DollarSquare from "./_dollar-square";
 import LaptopCode from "./_laptop-code";
 import Logo from "./_logo";
+import LogoIcon from "./_logo-icon";
+import LogoVertical from "./_logo-vertical";
 import Menu from "./_menu";
 import MessagesText from "./_messages-text";
 import NoteText from "./_note-text";
@@ -18,15 +24,21 @@ import Twitter from "./_twitter";
 import UsersGroup from "./_users-group";
 
 export {
+  ActivityCircle,
+  ArrowDown,
   ArrowUpRight,
   Calendar,
   CaretDown,
   Close,
+  Code,
+  DesignSquare,
   Discord,
   DiscordStroke,
   DollarSquare,
   LaptopCode,
   Logo,
+  LogoIcon,
+  LogoVertical,
   Menu,
   MessagesText,
   NoteText,

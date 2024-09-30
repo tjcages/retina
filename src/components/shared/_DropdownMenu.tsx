@@ -3,6 +3,7 @@
 import { cn, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { Shortcut, ShortcutProps } from "@/components/ui";
@@ -14,6 +15,7 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ children, href, shortcut }) => {
+  const pathname = usePathname();
   const router = useTransitionRouter();
 
   const itemVariants = {
@@ -32,13 +34,16 @@ const Item: React.FC<ItemProps> = ({ children, href, shortcut }) => {
   };
 
   const handleTrigger = () => {
-    router.push(href || "/", { onTransitionReady: pageTransition });
+    if (pathname !== href) router.push(href || "/", { onTransitionReady: pageTransition });
   };
 
   return (
     <motion.div variants={itemVariants}>
       <div
-        className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 active:scale-95"
+        className={cn(
+          "flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 active:scale-95",
+          pathname === href && "bg-pink-secondary/30"
+        )}
         onClick={handleTrigger}
       >
         {children}
@@ -107,6 +112,9 @@ const _: React.FC<Props> = ({ trigger }) => {
             <Item shortcut={["d"]}>Developer Docs</Item>
             <Item shortcut={["k"]} href="/builder-toolkit">
               Builder Toolkit
+            </Item>
+            <Item shortcut={["k"]} href="/brand-kit">
+              Brand Kit
             </Item>
             <Item shortcut={["t"]}>Testnet</Item>
             <Item shortcut={["b"]}>Block Explorer</Item>

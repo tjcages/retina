@@ -10,14 +10,14 @@ const _ = ({ id, className }: Props) => {
     <svg
       id={id}
       className={cn(className)}
-      width="100%"
-      height="100%"
-      viewBox="0 0 300 301"
+      width="116"
+      height="115"
+      viewBox="0 0 116 115"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M178.57 127.15L290.27 0H263.81L166.78 110.38L89.34 0H0L117.13 166.93L0 300.25H26.46L128.86 183.66L210.66 300.25H300"
+        d="M115.476 56.406C84.3089 56.406 59.07 31.1416 59.07 0H56.8819V56.406H0.47583V58.594C31.6429 58.594 56.8819 83.8584 56.8819 115H59.07V58.594H115.476V56.406Z"
         fill="currentColor"
       />
     </svg>

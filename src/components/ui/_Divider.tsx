@@ -9,7 +9,8 @@ const dividerVariants = cva("col-span-full h-px w-full", {
   variants: {
     variant: {
       default: "bg-pink-secondary",
-      secondary: "bg-border"
+      secondary: "bg-border",
+      tertiary: "bg-pink-secondary"
     }
   },
   defaultVariants: {
