@@ -32,7 +32,7 @@ const _ = () => {
               target="_blank"
               className="text-pink transition-opacity duration-200 ease-in-out hover:opacity-80"
             >
-              Uniswap Foundation
+              {" "}Uniswap Foundation
             </Link>{" "}
             leads grants and support for developers building on Unichain. Unichain was developed
             alongside partners at Optimism, Flashbots, and Paradigm.
