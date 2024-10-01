@@ -109,13 +109,12 @@ const _: React.FC<Props> = ({ trigger, className }) => {
                 <Close className="h-6 w-6 text-white" />
               </Button>
             </div>
-            <div className="pointer-events-auto flex flex-col gap-1 rounded-2xl bg-background p-1">
-              <Item>Get Started</Item>
+            <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item>Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
+              <Item href="/brand-kit">Brand Kit</Item>
+              <Item>Testnet</Item>
               <Item>Block Explorer</Item>
-              <Item>Status</Item>
-              <Item>Bug Bounty</Item>
               <Item>Github</Item>
             </div>
             <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 mb-5 flex rounded-2xl text-primary" />

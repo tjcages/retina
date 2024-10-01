@@ -10,7 +10,7 @@ import { Image } from "@/components/ui";
 interface GridProps {
   squareSize: number;
   gap: number;
-  maxRadius: number;
+  maxRadius?: number;
   influenceRadius: number;
   lerpFactor: number;
   squareColor: [number, number, number]; // RGB values for square color
@@ -25,7 +25,7 @@ interface GridProps {
 export const GridComponent: React.FC<GridProps> = ({
   squareSize,
   gap,
-  maxRadius,
+  maxRadius = squareSize / 2,
   influenceRadius,
   lerpFactor,
   squareColor,
@@ -312,7 +312,6 @@ export const Background: React.FC<Props> = ({
       <GridComponent
         squareSize={50}
         gap={variant === "primary" ? 0.75 : 0}
-        maxRadius={25}
         influenceRadius={400}
         lerpFactor={0.05}
         squareColor={

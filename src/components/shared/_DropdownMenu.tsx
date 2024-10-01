@@ -104,7 +104,7 @@ const _: React.FC<Props> = ({ trigger }) => {
             animate="visible"
             exit="hidden"
             className={cn(
-              "pointer-events-none absolute top-full hidden min-w-[200px] max-w-sm flex-col gap-1 rounded-2xl bg-background p-1 shadow-xl md:flex",
+              "pointer-events-none absolute top-full hidden min-w-[200px] max-w-sm flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1 shadow-xl md:flex",
               isVisible && "pointer-events-auto"
             )}
           >

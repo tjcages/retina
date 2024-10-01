@@ -30,7 +30,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
   return (
     <section
       className={cn(
-        "sticky top-0 z-50 select-none border-b border-pink-secondary/0 py-3 text-white transition-colors duration-100 ease-in-out md:py-3.5",
+        "sticky top-0 z-50 select-none border-b border-pink-secondary/0 py-1.5 text-white transition-colors duration-100 ease-in-out md:py-3.5",
         variant === "secondary" && "text-primary",
         belowFold && "border-pink-secondary bg-background text-pink-primary duration-300",
         menuVisible && "text-white"

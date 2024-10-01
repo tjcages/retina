@@ -51,7 +51,7 @@ const PartnershipGrid: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={cn(
-        "absolute grid aspect-square h-[453.5px] grid-cols-5 grid-rows-5 items-center justify-items-center transition-opacity delay-1000 duration-1000 ease-in-out",
+        "absolute grid aspect-square h-[353.5px] grid-cols-5 grid-rows-5 items-center justify-items-center transition-opacity delay-1000 duration-1000 ease-in-out md:h-[453.5px]",
         className
       )}
     >
@@ -62,12 +62,23 @@ const PartnershipGrid: React.FC<{ className?: string }> = ({ className }) => {
           </div>
         ))}
       </AnimatePresence>
+      <div className="absolute -left-8 bottom-0 top-0 grid grid-rows-subgrid">
+        <div className="h-[1px] w-4 bg-primary" />
+        <div className="h-[1px] w-4 bg-primary" />
+        <div className="h-[1px] w-4 bg-primary" />
+        <div className="h-[1px] w-4 bg-primary" />
+        <div className="h-[1px] w-4 bg-primary" />
+        <div className="absolute bottom-0 h-[1px] w-4 bg-primary" />
+      </div>
+      <h5 className="absolute -bottom-2 -right-14 ">
+        <strong>Fig. 2</strong>
+      </h5>
     </div>
   );
 };
 
 const PartnershipFigure: React.FC<{ className?: string }> = ({ className }) => {
-  const isDesktop = useIsDesktop();
+  const isDesktop = useIsDesktop(453.5);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
 
@@ -82,23 +93,19 @@ const PartnershipFigure: React.FC<{ className?: string }> = ({ className }) => {
       <GridComponent
         border
         gridLines
-        squareSize={90}
+        squareSize={isDesktop ? 90 : 70}
         gap={0.5}
-        maxRadius={45}
         influenceRadius={400}
         pixelRatio={isDesktop ? 4 : undefined}
         lerpFactor={0.05}
         squareColor={[1.0, 1.0, 0.9960784314]}
         backgroundColor={[0.9607843137, 0.9607843137, 0.9568627451]}
         className={cn(
-          "relative aspect-square h-[453.5px] opacity-0 mix-blend-normal delay-1000 duration-1000",
+          "relative aspect-square h-[353.5px] opacity-0 mix-blend-normal delay-1000 duration-1000 md:h-[453.5px]",
           inView && "opacity-100 delay-0"
         )}
       />
       <PartnershipGrid className={cn("opacity-0", inView && "opacity-100 delay-0")} />
-      <h5 className="absolute bottom-5 right-5 text-secondary-foreground">
-        <strong>Fig. 2</strong>
-      </h5>
     </div>
   );
 };
@@ -112,7 +119,7 @@ const _ = () => {
           <small className="mb-2.5 font-mono text-secondary-foreground">04</small>
         </div>
         <div className="col-span-full grid grid-cols-subgrid items-center gap-6">
-          <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-12 lg:col-span-11 xl:col-span-9">
+          <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <div className="flex flex-col gap-3 py-5">
               <h3>The Grid</h3>
               <h5 className="text-secondary-foreground">
@@ -123,14 +130,23 @@ const _ = () => {
               </h5>
             </div>
           </div>
-          <div className="relative col-span-full flex aspect-[4/3] items-center justify-center rounded-[20px] bg-secondary p-10 md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <h5 className="absolute bottom-5 right-5 text-secondary-foreground">
-              <strong>Fig. 1</strong>
-            </h5>
+          <div className="relative col-span-full flex aspect-[4/3] items-center justify-center rounded-[20px] bg-secondary p-10 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
+            <div className="relative h-full">
+              <Image
+                className="aspect-square h-full w-auto object-contain"
+                src="/assets/graphics/grid.png"
+                alt="The Grid"
+                width={1200}
+                height={1200}
+              />
+              <h5 className="absolute -bottom-2 -right-14 text-primary">
+                <strong>Fig. 1</strong>
+              </h5>
+            </div>
           </div>
         </div>
         <div className="col-span-full grid grid-cols-subgrid items-center gap-6">
-          <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-12 lg:col-span-11 xl:col-span-9">
+          <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <div className="flex flex-col gap-3 py-5">
               <h3>Partnership & Community-Centric</h3>
               <h5 className="text-secondary-foreground">
@@ -141,7 +157,7 @@ const _ = () => {
               </h5>
             </div>
           </div>
-          <PartnershipFigure className="col-span-full md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]" />
+          <PartnershipFigure className="col-span-full md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]" />
         </div>
       </article>
     </section>

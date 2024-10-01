@@ -2,23 +2,31 @@
 
 import { useIsDesktop } from "@/hooks";
 
-import { Badge, Scroll } from "@/components/ui";
+import { Badge, Image, Scroll } from "@/components/ui";
 
 interface Props {
   header: string;
   description: string;
+  graphic?: string;
   tertiary: string;
 }
 
-const Item: React.FC<Props> = ({ header, description, tertiary }) => {
+const Item: React.FC<Props> = ({ header, description, graphic, tertiary }) => {
   return (
-    <div className="relative flex aspect-square w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none">
-      <div className="absolute flex h-full w-full items-center justify-center bg-pink-primary/10 gradient-mask-b-50">
-        {/* TODO: Add illustation */}
-        <h3 className="mb-[30%] text-muted-foreground/10">Illustration here</h3>
+    <div className="relative flex w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none">
+      <div className="mb-auto w-full">
+        {graphic !== undefined && (
+          <Image
+            className="h-auto w-full object-contain"
+            src={graphic}
+            alt={header}
+            width={800}
+            height={800}
+          />
+        )}
       </div>
       <Badge className="absolute left-3 top-3">{tertiary}</Badge>
-      <div className="flex w-full flex-col gap-3 p-6">
+      <div className="relative -mt-10 flex w-full flex-col gap-3 p-6">
         <h3>{header}</h3>
         <h5 className="text-base leading-none text-secondary-foreground md:text-xl">
           {description}
@@ -32,19 +40,22 @@ const sections = [
   {
     header: "Instant Transactions",
     description:
-      "Optimized for market efficiency and seamless UX, transactions are almost instant. Unichain will launch with 1 second block times, with 250 ms block times coming soon.",
+      "Unichain will launch with 1 second block times, with 250 ms block times coming soon.",
+    graphic: "/assets/graphics/speed.png",
     tertiary: "Speed"
   },
   {
     header: "Cheaper Execution",
     description:
-      "Lower costs for creating and accessing liquidity. Unichain reduces value leakage to MEV bots and Ethereum validators, and redirects value back to users.",
+      "Lower costs for creating and accessing liquidity. Transaction fees on Unichain will be 20x lower than Ethereum.",
+    graphic: "/assets/graphics/savings.png",
     tertiary: "Value"
   },
   {
     header: "Cross-chain Liquidity",
     description:
       "Unichain is built to support seamless transactions across dozens of chains, so tokens are always just a few clicks away.",
+    graphic: "/assets/graphics/interoperability.png",
     tertiary: "Interoperability"
   }
 ];
@@ -73,6 +84,7 @@ const _ = () => {
               key={index}
               header={section.header}
               description={section.description}
+              graphic={section.graphic}
               tertiary={section.tertiary}
             />
           ))}

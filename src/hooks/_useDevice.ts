@@ -28,12 +28,12 @@ export function isIOS(): boolean | undefined {
   return isIPhone() || isIPad();
 }
 
-export function useIsDesktop(): boolean {
+export function useIsDesktop(breakpoint: number = DESKTOP_BREAKPOINT): boolean {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   useEffect(() => {
     function handleResize() {
-      setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+      setIsDesktop(window.innerWidth >= breakpoint);
     }
 
     // Initial check
@@ -44,7 +44,7 @@ export function useIsDesktop(): boolean {
 
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [breakpoint]);
 
   return isDesktop;
 }

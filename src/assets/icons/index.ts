@@ -3,6 +3,7 @@ import ArrowDown from "./_arrow-down";
 import ArrowUpRight from "./_arrow-up-right";
 import Calendar from "./_calendar";
 import CaretDown from "./_caret-down";
+import Check from "./_check";
 import Close from "./_close";
 import Code from "./_code";
 import DesignSquare from "./_design-square";
@@ -12,6 +13,7 @@ import DollarSquare from "./_dollar-square";
 import LaptopCode from "./_laptop-code";
 import Logo from "./_logo";
 import LogoIcon from "./_logo-icon";
+import LogoNetwork from "./_logo-network";
 import LogoVertical from "./_logo-vertical";
 import Menu from "./_menu";
 import MessagesText from "./_messages-text";
@@ -22,6 +24,7 @@ import Tool from "./_tool";
 import TrophyStar from "./_trophy-star";
 import Twitter from "./_twitter";
 import UsersGroup from "./_users-group";
+import X from "./_x";
 
 export {
   ActivityCircle,
@@ -29,6 +32,7 @@ export {
   ArrowUpRight,
   Calendar,
   CaretDown,
+  Check,
   Close,
   Code,
   DesignSquare,
@@ -38,6 +42,7 @@ export {
   LaptopCode,
   Logo,
   LogoIcon,
+  LogoNetwork,
   LogoVertical,
   Menu,
   MessagesText,
@@ -47,5 +52,6 @@ export {
   Tool,
   TrophyStar,
   Twitter,
-  UsersGroup
+  UsersGroup,
+  X
 };
