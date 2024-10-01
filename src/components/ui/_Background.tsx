@@ -276,13 +276,15 @@ export const GridComponent: React.FC<GridProps> = ({
 interface Props {
   variant?: "primary" | "secondary";
   gridLines?: boolean;
-  border?: boolean; // Add this line
+  border?: boolean;
+  className?: string;
 }
 
 export const Background: React.FC<Props> = ({
   variant = "primary",
   gridLines = false,
-  border = false // Add this line
+  border = false,
+  className
 }) => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -291,7 +293,7 @@ export const Background: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 top-0 z-0 h-screen w-full">
+    <div className={cn("fixed bottom-0 left-0 right-0 top-0 z-0 h-screen w-full", className)}>
       {variant === "primary" && (
         <Image
           priority

@@ -47,24 +47,21 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
           >
             <Logo className="h-8 w-auto text-inherit md:h-12" />
           </div>
-          <div className="-col-start-1 hidden gap-3 md:flex">
+          <div className="-col-start-1 hidden items-center gap-3 md:flex">
             <div className="flex items-center gap-3">
               <DropdownMenu
                 trigger={
-                  <Link
-                    href="/"
-                    className="relative flex items-center justify-center px-4 text-inherit"
-                  >
+                  <div className="relative flex cursor-pointer items-center justify-center px-4 py-2 text-inherit">
                     Developers <CaretDown className="h-4 w-4 text-inherit" />
-                  </Link>
+                  </div>
                 }
               />
-              <Link
-                href="/"
-                className="mr-2 px-4 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+              <div
+                className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+                onClick={() => router.push("/about")}
               >
                 About
-              </Link>
+              </div>
             </div>
             <Link
               href="/"
