@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { Button, Icon, Image, Marquee } from "@/components/ui";
 
@@ -212,7 +212,11 @@ const partners = [
 ] as Props[];
 
 const _ = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const shuffledCommunity = useMemo(() => partners.sort(() => 0.5 - Math.random()), []);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-y-6 md:gap-y-12">
@@ -221,31 +225,35 @@ const _ = () => {
             <strong>Trusted</strong> by the best
           </h2>
         </div>
-        <Marquee
-          direction="right"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
-        >
-          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
-            {shuffledCommunity
-              .slice(0, Math.ceil(shuffledCommunity.length / 2))
-              .map((item, index) => (
-                <Item key={index} name={item.name} src={item.src} />
-              ))}
-          </div>
-        </Marquee>
-        <Marquee
-          direction="left"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
-        >
-          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
-            {shuffledCommunity
-              .slice(Math.ceil(shuffledCommunity.length / 2))
-              .reverse()
-              .map((item, index) => (
-                <Item key={index} name={item.name} src={item.src} />
-              ))}
-          </div>
-        </Marquee>
+        {isMounted && (
+          <>
+            <Marquee
+              direction="right"
+              className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+            >
+              <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
+                {shuffledCommunity
+                  .slice(0, Math.ceil(shuffledCommunity.length / 2))
+                  .map((item, index) => (
+                    <Item key={index} name={item.name} src={item.src} />
+                  ))}
+              </div>
+            </Marquee>
+            <Marquee
+              direction="left"
+              className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+            >
+              <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
+                {shuffledCommunity
+                  .slice(Math.ceil(shuffledCommunity.length / 2))
+                  .reverse()
+                  .map((item, index) => (
+                    <Item key={index} name={item.name} src={item.src} />
+                  ))}
+              </div>
+            </Marquee>
+          </>
+        )}
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <Button variant="outline" className="-ml-5 -mt-5">
             Apply for a developer grant

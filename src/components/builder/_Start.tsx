@@ -7,15 +7,14 @@ const items: ActionItemProps[] = [
     icon: "NoteText"
   },
   {
+    header: "Support",
+    description: "Reach out to our team in Discord for support.",
+    icon: "MessagesText"
+  },
+  {
     header: "Office Hours",
     description: "Join weekly sessions with our team to ask questions live.",
     icon: "QuestionSquare"
-  },
-  {
-    header: "Support",
-    description:
-      "If you have questions or need support along the way, reach out to our team in Discord.",
-    icon: "MessagesText"
   }
 ];
 

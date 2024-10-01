@@ -2,9 +2,8 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Community Leaderboard",
-    description:
-      "Set up your profile, level up your builder score, and connect with Unichain teams.",
+    header: "Unichain Ambassadors",
+    description: "Join and steward our developer community.",
     icon: "Ranking"
   },
   {

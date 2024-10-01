@@ -1,8 +1,8 @@
 import { seo } from "@/seo";
 import type { Metadata } from "next";
 
-import { Community, Discover, Fund, Hero, Start } from "@/components/builder";
-import { Footer, Header, Vision } from "@/components/shared";
+import { Discover, Email, Fund, Hero, Start } from "@/components/builder";
+import { Footer, Header } from "@/components/shared";
 import { Background, Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {
@@ -16,10 +16,8 @@ export default async function HomePage() {
       <Fund />
       <Divider variant="secondary" />
       <Discover />
-      <Divider variant="secondary" />
-      <Community />
       <Divider />
-      <Vision />
+      <Email />
       <Divider variant="secondary" />
       <Footer />
     </Scroll>
