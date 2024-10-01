@@ -14,8 +14,7 @@ const Typography: React.FC = () => {
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>Basel Grotesk</h3>
             <h5 className="text-secondary-foreground">
-              Unichain uses Basel Grotesk from Optimo as its primary typeface. It’s a strong,
-              trustworthy workhorse sans.
+              Unichain uses Basel Grotesk from Optimo as its primary typeface.
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
@@ -26,8 +25,7 @@ const Typography: React.FC = () => {
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>Riegraf</h3>
             <h5 className="text-secondary-foreground">
-              Riegraf’s italics bring a unique character to balance Basel’s solidity, punctuating
-              the sans with emphasis.
+              Riegraf’s italics can be used for emphasis.
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto md:border-b-0 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
