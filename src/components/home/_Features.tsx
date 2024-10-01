@@ -2,7 +2,7 @@
 
 import { useIsDesktop } from "@/hooks";
 
-import { Badge, Nbsp, Scroll } from "@/components/ui";
+import { Badge, Scroll } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -54,7 +54,7 @@ const _ = () => {
   return (
     <section className="snap-start bg-background px-0 py-12 md:py-24 xl:px-20 2xl:px-24">
       <article className="w-full max-w-none gap-12">
-        <div className="col-span-full w-full px-3 md:px-12 xl:px-0">
+        {/* <div className="col-span-full w-full px-3 md:px-12 xl:px-0">
           <div className="mx-auto w-full max-w-7xl lg:max-w-none">
             <h2>
               The <strong>best place</strong> for DeFi
@@ -62,7 +62,7 @@ const _ = () => {
               users
             </h2>
           </div>
-        </div>
+        </div> */}
         <Scroll
           drag={!isDesktop}
           direction="x"

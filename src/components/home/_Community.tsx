@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Icon, Image, Marquee, Nbsp } from "@/components/ui";
+import { Button, Icon, Image, Marquee } from "@/components/ui";
 
 interface Props {
   name: string;
@@ -91,9 +91,7 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
-            Join the community <strong>building</strong>
-            <Nbsp />
-            on&nbsp;Unichain
+            <strong>Trusted</strong> by the Best
           </h2>
         </div>
         <Marquee direction="right" className="col-span-full flex w-full items-center md:hidden">
@@ -122,7 +120,7 @@ const _ = () => {
         </div>
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <Button variant="outline" className="-ml-5 -mt-5">
-            Join the community building on Unichain
+            Apply for a developer grant
             <Icon icon="ArrowUpRight" className="h-5 w-5 text-inherit" />
           </Button>
         </div>

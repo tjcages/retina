@@ -1,5 +1,4 @@
 import { ActionItem, type ActionItemProps } from "@/components/shared";
-import { Nbsp } from "@/components/ui";
 
 const items: ActionItemProps[] = [
   {
@@ -18,8 +17,8 @@ const items: ActionItemProps[] = [
     icon: "ActivityCircle"
   },
   {
-    header: "Developer docs",
-    description: "Get started building on Unichain.",
+    header: "Read docs",
+    description: "Get started with Unichain's developer docs.",
     icon: "NoteText"
   }
 ];
@@ -30,9 +29,7 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
-            Start <strong>building</strong> on
-            <Nbsp />
-            Unichain
+            Start building on the <strong>liquidity network</strong>.
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">

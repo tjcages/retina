@@ -2,7 +2,7 @@ import { seo } from "@/seo";
 import type { Metadata } from "next";
 
 import { Builder, Community, Details, Features, Hero, Roadmap, Volume } from "@/components/home";
-import { Footer, Header, Vision } from "@/components/shared";
+import { Footer, Header } from "@/components/shared";
 import { Background, Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {
@@ -17,13 +17,13 @@ export default async function HomePage() {
       <Divider />
       <Details />
       <Divider />
-      <Builder />
+      <Roadmap />
       <Divider />
       <Community />
       <Divider />
-      <Roadmap />
-      <Divider />
-      <Vision />
+      <Builder />
+      {/* <Divider />
+      <Vision /> */}
       <Divider variant="secondary" />
       <Footer />
     </Scroll>

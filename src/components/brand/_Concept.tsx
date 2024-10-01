@@ -1,12 +1,109 @@
 "use client";
 
-import { useIsDesktop } from "@/hooks";
+import { useInView, useIsDesktop } from "@/hooks";
+import { cn } from "@/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import { GridComponent, Image } from "@/components/ui";
 
-const _ = () => {
+const PartnerItem: React.FC<{ index: number }> = ({ index }) => {
+  return (
+    <motion.div
+      key={index}
+      initial={{ scale: 0.5, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.5, opacity: 0 }}
+      transition={{ duration: 0.2, delay: 0.05 * index }}
+      className="absolute flex h-full w-full items-center justify-center"
+    >
+      <Image
+        src={`/assets/partner-icons/${index}.png`}
+        alt={`Partner ${index}`}
+        width={200}
+        height={200}
+        className="h-12 w-12 object-contain"
+      />
+    </motion.div>
+  );
+};
+
+const PartnershipGrid: React.FC<{ className?: string }> = ({ className }) => {
+  const [partners, setPartners] = useState(() =>
+    Array.from({ length: 25 }, (_, i) => ({ id: i, index: i }))
+  );
+
+  // Shuffle the partners once every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPartners(prevPartners =>
+        prevPartners
+          .sort(() => Math.random() - 0.5)
+          .map((partner, i) => ({
+            ...partner,
+            id: i
+          }))
+      );
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      className={cn(
+        "absolute grid aspect-square h-[453.5px] grid-cols-5 grid-rows-5 items-center justify-items-center transition-opacity delay-1000 duration-1000 ease-in-out",
+        className
+      )}
+    >
+      <AnimatePresence>
+        {partners.map(({ id, index }) => (
+          <div key={id} className="relative h-full w-full">
+            <PartnerItem key={`${id}-${index}`} index={index} />
+          </div>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const PartnershipFigure: React.FC<{ className?: string }> = ({ className }) => {
   const isDesktop = useIsDesktop();
-  const partners = Array.from({ length: 25 });
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "relative flex items-center justify-center overflow-hidden rounded-[20px] bg-secondary p-10",
+        className
+      )}
+    >
+      <GridComponent
+        border
+        gridLines
+        squareSize={90}
+        gap={0.5}
+        maxRadius={45}
+        influenceRadius={400}
+        pixelRatio={isDesktop ? 4 : undefined}
+        lerpFactor={0.05}
+        squareColor={[1.0, 1.0, 0.9960784314]}
+        backgroundColor={[0.9607843137, 0.9607843137, 0.9568627451]}
+        className={cn(
+          "relative aspect-square h-[453.5px] opacity-0 mix-blend-normal delay-1000 duration-1000",
+          inView && "opacity-100 delay-0"
+        )}
+      />
+      <PartnershipGrid className={cn("opacity-0", inView && "opacity-100 delay-0")} />
+      <h5 className="absolute bottom-5 right-5 text-secondary-foreground">
+        <strong>Fig. 2</strong>
+      </h5>
+    </div>
+  );
+};
+
+const _ = () => {
   return (
     <section className="snap-start bg-background py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
@@ -44,36 +141,7 @@ const _ = () => {
               </h5>
             </div>
           </div>
-          <div className="relative col-span-full flex items-center justify-center overflow-hidden rounded-[20px] bg-secondary p-10 md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <GridComponent
-              border
-              gridLines
-              squareSize={90}
-              gap={0.5}
-              maxRadius={45}
-              influenceRadius={400}
-              pixelRatio={isDesktop ? 4 : undefined}
-              lerpFactor={0.05}
-              squareColor={[1.0, 1.0, 0.9960784314]}
-              backgroundColor={[0.9607843137, 0.9607843137, 0.9568627451]}
-              className="relative aspect-square h-[453.5px] opacity-100 mix-blend-normal"
-            />
-            <div className="absolute grid aspect-square h-[453.5px] grid-cols-5 grid-rows-5 items-center justify-items-center">
-              {partners.map((_, i) => (
-                <Image
-                  key={i}
-                  src={`/assets/partner-icons/${i}.png`}
-                  alt={`Partner ${i}`}
-                  width={200}
-                  height={200}
-                  className="h-12 w-12 object-contain"
-                />
-              ))}
-            </div>
-            <h5 className="absolute bottom-5 right-5 text-secondary-foreground">
-              <strong>Fig. 2</strong>
-            </h5>
-          </div>
+          <PartnershipFigure className="col-span-full md:col-span-12 lg:col-[12_/_span_15] xl:col-[10_/_span_15]" />
         </div>
       </article>
     </section>
