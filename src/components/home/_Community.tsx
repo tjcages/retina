@@ -24,199 +24,195 @@ const Item: React.FC<Props> = ({ name, src }) => {
   );
 };
 
-const community = [
+const partners = [
   {
     name: "Optimism",
-    src: "/assets/community/optimism.png"
+    src: "/assets/partners/optimism.png"
   },
   {
     name: "Flashbots",
-    src: "/assets/community/flashbots.png"
+    src: "/assets/partners/flashbots.png"
   },
   {
     name: "Quicknode",
-    src: "/assets/community/quicknode.png"
+    src: "/assets/partners/quicknode.png"
   },
   {
     name: "Tenderly",
-    src: "/assets/community/tenderly.png"
+    src: "/assets/partners/tenderly.png"
   },
   {
     name: "Alchemy",
-    src: "/assets/community/alchemy.png"
+    src: "/assets/partners/alchemy.png"
   },
   {
     name: "ThirdWeb",
-    src: "/assets/community/thirdweb.png"
+    src: "/assets/partners/thirdweb.png"
   },
   {
     name: "The Graph",
-    src: "/assets/community/the-graph.png"
+    src: "/assets/partners/the-graph.png"
   },
   {
     name: "OpenZeppelin",
-    src: "/assets/community/openzeppelin.png"
+    src: "/assets/partners/openzeppelin.png"
   },
   {
     name: "Moralis",
-    src: "/assets/community/moralis.png"
+    src: "/assets/partners/moralis.png"
   },
   {
     name: "Goldsky",
-    src: "/assets/community/goldsky.png"
+    src: "/assets/partners/goldsky.png"
   },
   {
     name: "Subquery",
-    src: "/assets/community/subquery.png"
+    src: "/assets/partners/subquery.png"
   },
   {
     name: "Zerion",
-    src: "/assets/community/zerion.png"
+    src: "/assets/partners/zerion.png"
   },
   {
     name: "Pyth",
-    src: "/assets/community/pyth.png"
+    src: "/assets/partners/pyth.png"
   },
   {
     name: "Redstone",
-    src: "/assets/community/redstone.png"
+    src: "/assets/partners/redstone.png"
   },
   {
     name: "Etherscan",
-    src: "/assets/community/etherscan.png"
+    src: "/assets/partners/etherscan.png"
   },
   {
     name: "Blockscout",
-    src: "/assets/community/blockscout.png"
+    src: "/assets/partners/blockscout.png"
   },
   {
     name: "Parsec",
-    src: "/assets/community/parsec.png"
+    src: "/assets/partners/parsec.png"
   },
   {
     name: "LayerZero",
-    src: "/assets/community/layerzero.png"
+    src: "/assets/partners/layerzero.png"
   },
   {
     name: "Brid.gg",
-    src: "/assets/community/bridgg.png"
+    src: "/assets/partners/bridgg.png"
   },
   {
     name: "Superbridge",
-    src: "/assets/community/okx.png"
+    src: "/assets/partners/superbridge.png"
   },
   {
     name: "Bitstamp",
-    src: "/assets/community/bitstamp.png"
+    src: "/assets/partners/bitstamp.png"
   },
   {
     name: "Transak",
-    src: "/assets/community/transak.png"
+    src: "/assets/partners/transak.png"
   },
   {
     name: "Moonpay",
-    src: "/assets/community/moonpay.png"
+    src: "/assets/partners/moonpay.png"
   },
   {
     name: "Meld",
-    src: "/assets/community/meld.png"
+    src: "/assets/partners/meld.png"
   },
   {
     name: "Across",
-    src: "/assets/community/across.png"
+    src: "/assets/partners/across.png"
   },
   {
     name: "Topper",
-    src: "/assets/community/topper.png"
+    src: "/assets/partners/topper.png"
   },
   {
     name: "ZeroHash",
-    src: "/assets/community/zerohash.png"
+    src: "/assets/partners/zerohash.png"
   },
   {
     name: "Stripe",
-    src: "/assets/community/stripe.png"
+    src: "/assets/partners/stripe.png"
   },
   {
     name: "Dune",
-    src: "/assets/community/dune.png"
+    src: "/assets/partners/dune.png"
   },
   {
     name: "Coingecko",
-    src: "/assets/community/coingecko.png"
+    src: "/assets/partners/coingecko.png"
   },
   {
     name: "Allium",
-    src: "/assets/community/allium.png"
+    src: "/assets/partners/allium.png"
   },
   {
     name: "Coinmarketcap",
-    src: "/assets/community/coinmarketcap.png"
+    src: "/assets/partners/coinmarketcap.png"
   },
   {
     name: "DEXScreener",
-    src: "/assets/community/dexscreener.png"
+    src: "/assets/partners/dexscreener.png"
   },
   {
     name: "Hexagate",
-    src: "/assets/community/hexagate.png"
+    src: "/assets/partners/hexagate.png"
   },
   {
     name: "Hypernative",
-    src: "/assets/community/hypernative.png"
+    src: "/assets/partners/hypernative.png"
   },
   {
     name: "Wormhole",
-    src: "/assets/community/wormhole.png"
+    src: "/assets/partners/wormhole.png"
   },
   {
     name: "Stargate",
-    src: "/assets/community/stargate.png"
+    src: "/assets/partners/stargate.png"
   },
   {
     name: "Axelar",
-    src: "/assets/community/axelar.png"
+    src: "/assets/partners/axelar.png"
   },
   {
     name: "Squid Router",
-    src: "/assets/community/squid-router.png"
-  },
-  {
-    name: "Zerion Wallet",
-    src: "/assets/community/zerion-wallet.png"
+    src: "/assets/partners/squid-router.png"
   },
   {
     name: "Fireblocks",
-    src: "/assets/community/fireblocks.png"
+    src: "/assets/partners/fireblocks.png"
   },
   {
     name: "WalletConnect",
-    src: "/assets/community/walletconnect.png"
+    src: "/assets/partners/walletconnect.png"
   },
   {
     name: "Safe",
-    src: "/assets/community/safe.png"
+    src: "/assets/partners/safe.png"
   },
   {
     name: "RainbowKit",
-    src: "/assets/community/rainbowkit.png"
+    src: "/assets/partners/rainbowkit.png"
   },
   {
     name: "Binance",
-    src: "/assets/community/binance.png"
+    src: "/assets/partners/binance.png"
   },
   {
     name: "OKX",
-    src: "/assets/community/okx.png"
+    src: "/assets/partners/okx.png"
   },
   {
     name: "Chainlink",
-    src: "/assets/community/chainlink.png"
+    src: "/assets/partners/chainlink.png"
   }
 ] as Props[];
 
 const _ = () => {
-  const shuffledCommunity = useMemo(() => community.sort(() => 0.5 - Math.random()), []);
+  const shuffledCommunity = useMemo(() => partners.sort(() => 0.5 - Math.random()), []);
   return (
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-y-6 md:gap-y-12">
