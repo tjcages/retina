@@ -1,12 +1,58 @@
+"use client";
+
+import { useInView } from "@/hooks";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+
 import { Badge, Button, Image } from "@/components/ui";
 
 interface Props {
+  index?: number;
   header: string;
   description: string;
   graphic?: string;
   cta?: string;
   comingSoon?: boolean;
 }
+
+const Item: React.FC<Props> = ({ index, header, description, graphic, cta, comingSoon }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
+  return (
+    <div className="col-span-full col-start-1 -col-end-1 grid grid-cols-subgrid items-center gap-6 lg:col-start-2 lg:-col-end-2 xl:col-start-4 xl:-col-end-4">
+      <div className="col-span-full flex flex-col items-start gap-3 md:col-span-12 lg:col-span-11 xl:col-span-9">
+        {comingSoon && <Badge>Coming soon</Badge>}
+        <h3>{header}</h3>
+        <h5 className="text-secondary-foreground">{description}</h5>
+        {cta !== undefined && (
+          <Button variant="outline" className="-ml-5 -mt-3">
+            Learn more
+          </Button>
+        )}
+      </div>
+      <div
+        ref={ref}
+        className={`col-span-full row-start-1 aspect-[4/3] rounded-2xl bg-secondary ${(index || 0) % 2 === 0 ? "md:row-start-1" : "md:row-start-auto"} md:col-span-12 lg:col-span-11 xl:col-span-9`}
+      >
+        {graphic !== undefined && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inView ? 1 : 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
+            <Image
+              className="h-full w-full object-cover"
+              src={graphic}
+              alt={header}
+              width={800}
+              height={800}
+            />
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const sections: Props[] = [
   {
@@ -43,34 +89,7 @@ const _ = () => {
           </h2>
         </div>
         {sections.map((section, index) => (
-          <div
-            key={index}
-            className="col-span-full col-start-1 -col-end-1 grid grid-cols-subgrid items-center gap-6 lg:col-start-2 lg:-col-end-2 xl:col-start-4 xl:-col-end-4"
-          >
-            <div className="col-span-full flex flex-col items-start gap-3 md:col-span-12 lg:col-span-11 xl:col-span-9">
-              {section.comingSoon && <Badge>Coming soon</Badge>}
-              <h3>{section.header}</h3>
-              <h5 className="text-secondary-foreground">{section.description}</h5>
-              {section.cta !== undefined && (
-                <Button variant="outline" className="-ml-5 -mt-3">
-                  Learn more
-                </Button>
-              )}
-            </div>
-            <div
-              className={`col-span-full row-start-1 aspect-[4/3] rounded-2xl bg-secondary ${index % 2 === 0 ? "md:row-start-1" : "md:row-start-auto"} md:col-span-12 lg:col-span-11 xl:col-span-9`}
-            >
-              {section.graphic !== undefined && (
-                <Image
-                  className="h-full w-full object-cover"
-                  src={section.graphic}
-                  alt={section.header}
-                  width={800}
-                  height={800}
-                />
-              )}
-            </div>
-          </div>
+          <Item key={index} index={index} {...section} />
         ))}
       </article>
     </section>

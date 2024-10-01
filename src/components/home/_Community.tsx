@@ -91,33 +91,29 @@ const _ = () => {
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
-            <strong>Trusted</strong> by the Best
+            <strong>Trusted</strong> by the best
           </h2>
         </div>
-        <Marquee direction="right" className="col-span-full flex w-full items-center md:hidden">
-          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-            {community.slice(0, 6).map((item, index) => (
+        <Marquee
+          direction="right"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+        >
+          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
+            {community.map((item, index) => (
               <Item key={index} name={item.name} src={item.src} />
             ))}
           </div>
         </Marquee>
-        <Marquee direction="left" className="col-span-full flex w-full items-center md:hidden">
-          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-6 xl:gap-12">
-            {community.slice(6, 12).map((item, index) => (
+        <Marquee
+          direction="left"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+        >
+          <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
+            {community.reverse().map((item, index) => (
               <Item key={index} name={item.name} src={item.src} />
             ))}
           </div>
         </Marquee>
-        <div className="col-span-full row-start-2 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
-          {community.slice(0, 6).map((item, index) => (
-            <Item key={index} name={item.name} src={item.src} />
-          ))}
-        </div>
-        <div className="col-span-full row-start-3 mx-auto hidden justify-items-center gap-3 md:col-start-2 md:-col-end-2 md:flex lg:gap-6 xl:gap-12">
-          {community.slice(6, 12).map((item, index) => (
-            <Item key={index} name={item.name} src={item.src} />
-          ))}
-        </div>
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
           <Button variant="outline" className="-ml-5 -mt-5">
             Apply for a developer grant

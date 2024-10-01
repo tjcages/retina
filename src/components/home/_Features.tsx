@@ -1,23 +1,42 @@
 "use client";
 
 import { useIsDesktop } from "@/hooks";
+import { motion } from "framer-motion";
 
 import { Badge, Image, Scroll } from "@/components/ui";
 
 interface Props {
+  index: number;
   header: string;
   description: string;
   graphic?: string;
   tertiary: string;
 }
 
-const Item: React.FC<Props> = ({ header, description, graphic, tertiary }) => {
+const Item: React.FC<Props> = ({ index, header, description, graphic, tertiary }) => {
+  const variants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.75 + 0.25 * index
+      }
+    }
+  };
+
   return (
-    <div className="relative flex w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none">
+    <motion.div
+      className="relative flex w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none"
+      variants={variants}
+      initial={"hidden"}
+      animate={"visible"}
+    >
       <div className="mb-auto w-full">
         {graphic !== undefined && (
           <Image
-            className="h-auto w-full object-contain"
+            className="pointer-events-none h-auto w-full select-none object-contain"
             src={graphic}
             alt={header}
             width={800}
@@ -32,7 +51,7 @@ const Item: React.FC<Props> = ({ header, description, graphic, tertiary }) => {
           {description}
         </h5>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -62,18 +81,10 @@ const sections = [
 
 const _ = () => {
   const isDesktop = useIsDesktop();
+
   return (
     <section className="snap-start bg-background px-0 py-12 md:py-24 xl:px-20 2xl:px-24">
       <article className="w-full max-w-none gap-12">
-        {/* <div className="col-span-full w-full px-3 md:px-12 xl:px-0">
-          <div className="mx-auto w-full max-w-7xl lg:max-w-none">
-            <h2>
-              The <strong>best place</strong> for DeFi
-              <Nbsp />
-              users
-            </h2>
-          </div>
-        </div> */}
         <Scroll
           drag={!isDesktop}
           direction="x"
@@ -82,6 +93,7 @@ const _ = () => {
           {sections.map((section, index) => (
             <Item
               key={index}
+              index={index}
               header={section.header}
               description={section.description}
               graphic={section.graphic}
