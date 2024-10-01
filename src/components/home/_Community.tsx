@@ -28,7 +28,7 @@ const community = [
     src: "/assets/community/etherscan.png"
   },
   {
-    name: "Bridgg",
+    name: "Brid.gg",
     src: "/assets/community/bridgg.png"
   },
   {
@@ -65,7 +65,7 @@ const community = [
   },
   {
     name: "Privy",
-    src: "/assets/community/blockscout.png"
+    src: "/assets/community/privy.png"
   },
   // {
   //   name: "Circle",
@@ -75,10 +75,10 @@ const community = [
   //   name: "Coinbase",
   //   src: "/assets/community/coinbase.png"
   // },
-  // {
-  //   name: "The Graph",
-  //   src: "/assets/community/thegraph.png"
-  // },
+  {
+    name: "The Graph",
+    src: "/assets/community/thegraph.png"
+  },
   // {
   //   name: "Axelar",
   //   src: "/assets/community/axelar.png"
@@ -98,11 +98,11 @@ const community = [
   {
     name: "RedStone",
     src: "/assets/community/red-stone.png"
+  },
+  {
+    name: "OKX",
+    src: "/assets/community/okx.png"
   }
-  // {
-  //   name: "OKX",
-  //   src: "/assets/community/okx.png"
-  // }
 ] as Props[];
 
 const _ = () => {
@@ -116,7 +116,7 @@ const _ = () => {
         </div>
         <Marquee
           direction="right"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d md:hidden lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
             {community.map((item, index) => (
@@ -126,7 +126,7 @@ const _ = () => {
         </Marquee>
         <Marquee
           direction="left"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-2 lg:-col-end-2 lg:gap-8 xl:gap-12"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
             {community.reverse().map((item, index) => (
