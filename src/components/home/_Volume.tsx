@@ -28,8 +28,8 @@ const Item: React.FC<Props> = ({ value, multiple, description }) => {
               notation: "compact"
             }}
           />
-          <span className="ml-2 align-text-bottom">{multiple}+</span>
         </strong>
+        <strong className="ml-2 align-text-bottom leading-[0.6em]">{multiple}+</strong>
       </h1>
       <h5 className="text-base leading-none md:text-xl">{description}</h5>
     </div>
