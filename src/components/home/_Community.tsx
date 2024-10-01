@@ -226,9 +226,11 @@ const _ = () => {
           className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
-            {shuffledCommunity.map((item, index) => (
-              <Item key={index} name={item.name} src={item.src} />
-            ))}
+            {shuffledCommunity
+              .slice(0, Math.ceil(shuffledCommunity.length / 2))
+              .map((item, index) => (
+                <Item key={index} name={item.name} src={item.src} />
+              ))}
           </div>
         </Marquee>
         <Marquee
@@ -236,9 +238,12 @@ const _ = () => {
           className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
-            {shuffledCommunity.reverse().map((item, index) => (
-              <Item key={index} name={item.name} src={item.src} />
-            ))}
+            {shuffledCommunity
+              .slice(Math.ceil(shuffledCommunity.length / 2))
+              .reverse()
+              .map((item, index) => (
+                <Item key={index} name={item.name} src={item.src} />
+              ))}
           </div>
         </Marquee>
         <div className="col-span-full row-start-4 flex flex-col items-center justify-center gap-3 text-center md:col-start-5 md:-col-end-5">
