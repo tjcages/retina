@@ -11,7 +11,7 @@ const Item: React.FC<Props> = ({ name, src }) => {
   return (
     <div className="pointer-events-none col-span-1 flex min-w-20 select-none flex-col items-center justify-center gap-3">
       <Image
-        className="pointer-events-none h-16 w-16 select-none lg:h-20 lg:w-20"
+        className="pointer-events-none h-16 w-auto select-none lg:h-20 lg:w-auto"
         src={src}
         alt={name}
         width={400}
@@ -28,16 +28,28 @@ const community = [
     src: "/assets/community/etherscan.png"
   },
   {
+    name: "Bridgg",
+    src: "/assets/community/bridgg.png"
+  },
+  {
     name: "Flashbots",
     src: "/assets/community/flashbots.png"
   },
   {
-    name: "Chainlink",
-    src: "/assets/community/chainlink.png"
+    name: "LayerZero",
+    src: "/assets/community/layerzero.png"
   },
+  // {
+  //   name: "Chainlink",
+  //   src: "/assets/community/chainlink.png"
+  // },
   {
     name: "Subquery",
     src: "/assets/community/subquery.png"
+  },
+  {
+    name: "OpenZeplin",
+    src: "/assets/community/open-zeplin.png"
   },
   {
     name: "Blockscout",
@@ -51,6 +63,10 @@ const community = [
     name: "Pyth",
     src: "/assets/community/pyth.png"
   },
+  {
+    name: "Privy",
+    src: "/assets/community/blockscout.png"
+  },
   // {
   //   name: "Circle",
   //   src: "/assets/community/circle.png"
@@ -59,25 +75,29 @@ const community = [
   //   name: "Coinbase",
   //   src: "/assets/community/coinbase.png"
   // },
-  {
-    name: "The Graph",
-    src: "/assets/community/thegraph.png"
-  },
-  {
-    name: "Axelar",
-    src: "/assets/community/axelar.png"
-  },
-  {
-    name: "Arrakis",
-    src: "/assets/community/arrakis.png"
-  },
-  {
-    name: "Bunni",
-    src: "/assets/community/bunni.png"
-  },
+  // {
+  //   name: "The Graph",
+  //   src: "/assets/community/thegraph.png"
+  // },
+  // {
+  //   name: "Axelar",
+  //   src: "/assets/community/axelar.png"
+  // },
+  // {
+  //   name: "Arrakis",
+  //   src: "/assets/community/arrakis.png"
+  // },
+  // {
+  //   name: "Bunni",
+  //   src: "/assets/community/bunni.png"
+  // },
   {
     name: "Fireblocks",
     src: "/assets/community/fireblocks.png"
+  },
+  {
+    name: "RedStone",
+    src: "/assets/community/red-stone.png"
   }
   // {
   //   name: "OKX",
@@ -96,7 +116,7 @@ const _ = () => {
         </div>
         <Marquee
           direction="right"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d md:hidden lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
             {community.map((item, index) => (
@@ -106,7 +126,7 @@ const _ = () => {
         </Marquee>
         <Marquee
           direction="left"
-          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+          className="col-span-full flex w-full items-center gap-3 gradient-mask-l-90-d lg:col-start-2 lg:-col-end-2 lg:gap-8 xl:gap-12"
         >
           <div className="col-span-full row-start-3 mx-auto flex justify-items-center gap-3 md:col-start-2 md:-col-end-2 lg:gap-8 xl:gap-12">
             {community.reverse().map((item, index) => (

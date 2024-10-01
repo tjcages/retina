@@ -1,4 +1,4 @@
-import { Badge, Button } from "@/components/ui";
+import { Badge, Button, Icon } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -16,6 +16,7 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
       {cta !== undefined && (
         <Button variant="outline" className="-my-3 -ml-5 md:-mt-3">
           {cta}
+          <Icon icon="ArrowUpRight" className="h-5 w-5 text-inherit" />
         </Button>
       )}
     </div>

@@ -28,12 +28,12 @@ const Item: React.FC<Props> = ({ index, header, description, graphic, tertiary }
 
   return (
     <motion.div
-      className="relative flex w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-end gap-3 overflow-hidden rounded-3xl bg-secondary md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none"
+      className="relative flex h-full max-h-[100vw] w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary md:max-h-none md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none"
       variants={variants}
       initial={"hidden"}
       animate={"visible"}
     >
-      <div className="mb-auto w-full">
+      <div className="max-h-full w-full">
         {graphic !== undefined && (
           <Image
             className="pointer-events-none h-auto w-full select-none object-contain"
@@ -83,12 +83,12 @@ const _ = () => {
   const isDesktop = useIsDesktop();
 
   return (
-    <section className="snap-start bg-background px-0 py-12 md:py-24 xl:px-20 2xl:px-24">
+    <section className="snap-start bg-background px-0 py-8 md:py-24 xl:px-20 2xl:px-24">
       <article className="w-full max-w-none gap-12">
         <Scroll
           drag={!isDesktop}
           direction="x"
-          className="col-span-full flex gap-6 px-3 md:px-12 lg:px-16 xl:grid xl:grid-cols-subgrid xl:overflow-hidden xl:px-0"
+          className="col-span-full flex items-start justify-start gap-6 px-8 md:px-12 lg:px-16 xl:grid xl:grid-cols-subgrid xl:overflow-hidden xl:px-0"
         >
           {sections.map((section, index) => (
             <Item

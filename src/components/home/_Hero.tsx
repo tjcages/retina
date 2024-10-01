@@ -23,9 +23,9 @@ const item = {
 
 const _ = () => {
   return (
-    <section className="flex snap-start items-center pb-16 pt-32 md:min-h-[75vh] md:py-24">
+    <section className="flex snap-start items-center pb-8 pt-16 md:min-h-[75vh] md:py-24">
       <motion.article
-        className="gap-12 text-white"
+        className="gap-6 text-white md:gap-12"
         variants={container}
         initial="hidden"
         animate="show"
@@ -38,14 +38,15 @@ const _ = () => {
             <strong>Designed</strong> for DeFi.
           </h1>
           <h1>
-            <strong>Built</strong> by Uniswap Labs.
+            <strong>Built</strong> by Uniswap&nbsp;Labs.
           </h1>
         </motion.div>
         <motion.h4
           className="col-span-full row-start-2 md:col-span-10 lg:col-span-9"
           variants={item}
         >
-          Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity across chains.
+          Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity
+          across&nbsp;chains.
           <br />
           <strong>Powered</strong> by the Superchain.
         </motion.h4>

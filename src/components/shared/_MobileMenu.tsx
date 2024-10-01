@@ -110,6 +110,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               </Button>
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
+              <Item href="/about">About</Item>
               <Item>Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
@@ -117,7 +118,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               <Item>Block Explorer</Item>
               <Item>Github</Item>
             </div>
-            <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 mb-5 flex rounded-2xl text-primary" />
+            <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 mb-3 flex rounded-2xl text-primary" />
           </motion.div>
         )}
       </AnimatePresence>

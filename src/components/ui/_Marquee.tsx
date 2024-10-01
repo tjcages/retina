@@ -65,7 +65,7 @@ interface MarqueeProps {
 export const Marquee: React.FC<MarqueeProps> = ({
   children,
   className,
-  speed = 1,
+  speed = 0.5,
   threshold = 0.014,
   dragFactor = 1.2,
   direction = "left"
