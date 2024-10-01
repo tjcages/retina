@@ -108,7 +108,9 @@ const _: React.FC<Props> = ({ trigger }) => {
               isVisible && "pointer-events-auto"
             )}
           >
-            <Item shortcut={["d"]}>Developer Docs</Item>
+            <Item shortcut={["d"]} href="https://unichain-docs.vercel.app/docs">
+              Developer Docs
+            </Item>
             <Item shortcut={["k"]} href="/builder-toolkit">
               Builder Toolkit
             </Item>

@@ -111,7 +111,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="/about">About</Item>
-              <Item>Developer Docs</Item>
+              <Item href="https://unichain-docs.vercel.app/docs">Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
               <Item>Testnet</Item>

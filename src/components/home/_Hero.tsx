@@ -22,6 +22,10 @@ const item = {
 };
 
 const _ = () => {
+  const handleClick = (href: string) => {
+    window.open(href);
+  };
+
   return (
     <section className="flex snap-start items-center pb-8 pt-16 md:min-h-[75vh] md:py-24">
       <motion.article
@@ -51,11 +55,17 @@ const _ = () => {
           <strong>Powered</strong> by the Superchain.
         </motion.h4>
         <motion.div className="col-span-7 row-start-3 flex items-center gap-3" variants={item}>
-          <Button className="w-full">
+          <Button
+            className="w-full"
+            onClick={() => handleClick("https://unichain-docs.vercel.app/docs/getting-started")}
+          >
             <ArrowRightIcon className="mr-2 h-5 w-5" />
             Get Started
           </Button>
-          <Button className="w-full">
+          <Button
+            className="w-full"
+            onClick={() => handleClick("https://unichain-docs.vercel.app/docs")}
+          >
             <CodeIcon className="mr-2 h-5 w-5" />
             Read Docs
           </Button>

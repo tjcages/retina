@@ -19,7 +19,8 @@ const items: ActionItemProps[] = [
   {
     header: "Read docs",
     description: "Get started with Unichain's developer docs.",
-    icon: "NoteText"
+    icon: "NoteText",
+    href: "https://unichain-docs.vercel.app/docs"
   }
 ];
 
@@ -40,6 +41,7 @@ const _ = () => {
                 header={item.header}
                 description={item.description}
                 icon={item.icon}
+                href={item.href}
               />
             ))}
           </div>
