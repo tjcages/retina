@@ -114,9 +114,11 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               <Item href="https://unichain-docs.vercel.app/docs">Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
-              <Item>Testnet</Item>
-              <Item>Block Explorer</Item>
-              <Item>Github</Item>
+              <Item href="https://unichain-docs.vercel.app/docs/technical-information/network-information">
+                Testnet
+              </Item>
+              <Item href="https://unichain-sepolia.blockscout.com/">Block Explorer</Item>
+              <Item href="https://github.com/Uniswap/unichain">Github</Item>
             </div>
             <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 mb-3 flex rounded-2xl text-primary" />
           </motion.div>

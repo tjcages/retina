@@ -117,11 +117,20 @@ const _: React.FC<Props> = ({ trigger }) => {
             <Item shortcut={["k"]} href="/brand-kit">
               Brand Kit
             </Item>
-            <Item shortcut={["t"]}>Testnet</Item>
-            <Item shortcut={["b"]}>Block Explorer</Item>
+            <Item
+              shortcut={["t"]}
+              href="https://unichain-docs.vercel.app/docs/technical-information/network-information"
+            >
+              Testnet
+            </Item>
+            <Item shortcut={["b"]} href="https://unichain-sepolia.blockscout.com/">
+              Block Explorer
+            </Item>
             {/* <Item shortcut={["s"]}>Status</Item> */}
             {/* <Item shortcut={["x"]}>Bug Bounty</Item> */}
-            <Item shortcut={["h"]}>Github</Item>
+            <Item shortcut={["h"]} href="https://github.com/Uniswap/unichain">
+              Github
+            </Item>
           </motion.div>
         )}
       </AnimatePresence>
