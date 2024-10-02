@@ -133,10 +133,10 @@ const partners = [
     name: "ZeroHash",
     src: "/assets/partners/zerohash.png"
   },
-  {
-    name: "Stripe",
-    src: "/assets/partners/stripe.png"
-  },
+  // {
+  //   name: "Stripe",
+  //   src: "/assets/partners/stripe.png"
+  // },
   {
     name: "Dune",
     src: "/assets/partners/dune.png"
@@ -196,19 +196,19 @@ const partners = [
   {
     name: "RainbowKit",
     src: "/assets/partners/rainbowkit.png"
-  },
-  {
-    name: "Binance",
-    src: "/assets/partners/binance.png"
-  },
-  {
-    name: "OKX",
-    src: "/assets/partners/okx.png"
-  },
-  {
-    name: "Chainlink",
-    src: "/assets/partners/chainlink.png"
   }
+  // {
+  //   name: "Binance",
+  //   src: "/assets/partners/binance.png"
+  // },
+  // {
+  //   name: "OKX",
+  //   src: "/assets/partners/okx.png"
+  // },
+  // {
+  //   name: "Chainlink",
+  //   src: "/assets/partners/chainlink.png"
+  // }
 ] as Props[];
 
 const _ = () => {

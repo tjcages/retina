@@ -22,7 +22,10 @@ const Item: React.FC<Props> = ({ allowed, icon, description }) => {
         {icon}
       </div>
       <p>{description}</p>
-      <Icon icon={allowed ? "Check" : "X"} className="absolute right-3 top-3 h-5 w-5" />
+      <Icon
+        icon={allowed ? "Check" : "X"}
+        className={cn("absolute right-3 top-3 h-5 w-5", !allowed && "text-[#FF0000]")}
+      />
     </div>
   );
 };

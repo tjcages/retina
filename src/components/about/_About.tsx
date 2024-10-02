@@ -34,8 +34,7 @@ const _ = () => {
             >
               Uniswap Foundation
             </Link>{" "}
-            leads grants and support for developers building on Unichain. Unichain was developed
-            alongside partners at{" "}
+            leads grants and support for developers. Unichain was developed alongside partners at{" "}
             <Link
               href="https://optimism.io/"
               target="_blank"

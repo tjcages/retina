@@ -7,16 +7,18 @@ interface State {
   // General States
   ready: boolean;
   menuVisible: boolean;
+  isSignUpVisible: boolean;
 }
 
 const defaultState: State = {
   // General States
   ready: false,
-  menuVisible: false
+  menuVisible: false,
+  isSignUpVisible: false
 };
 
 // Define which keys should not be persisted
-const nonPersistentKeys: (keyof State)[] = ["menuVisible"];
+const nonPersistentKeys: (keyof State)[] = ["menuVisible", "isSignUpVisible"];
 
 const state = proxy<State>(defaultState);
 

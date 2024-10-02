@@ -1,11 +1,11 @@
 "use client";
 
-import { Close } from "@/assets/icons";
+import { state } from "@/store";
 import { cn, delay } from "@/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { Button, Input } from "@/components/ui";
+import { Button } from "@/components/ui";
 
 interface Props {
   className?: string;
@@ -13,15 +13,28 @@ interface Props {
 
 const _: React.FC<Props> = ({ className }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // TODO: Handle form submission logic here
-    console.log("Submitted email:", email);
-    delay(2000).then(() => setIsVisible(false));
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const opacity = useTransform([x, y], ([latestX, latestY]) => {
+    if ((latestX as number) > 0 && (latestY as number) > 0)
+      return 1 - Math.min(1, (Math.abs(latestX as number) + Math.abs(latestY as number)) / 400);
+    return 1;
+  });
+
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const offsetX = info.offset.x;
+    const offsetY = info.offset.y;
+    if (offsetX > 100 && offsetY > 100) {
+      setIsVisible(false);
+    } else {
+      x.set(0);
+      y.set(0);
+    }
+  };
+
+  const handleSignUp = () => {
+    state.isSignUpVisible = true;
   };
 
   const handleDismiss = () => {
@@ -36,42 +49,49 @@ const _: React.FC<Props> = ({ className }) => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ x: "50%", y: "50%", scale: 0.5, opacity: 0 }}
-          animate={{ x: "0%", y: "0%", scale: 1, opacity: 1 }}
-          exit={{ x: "50%", y: "50%", scale: 0.5, opacity: 0 }}
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragElastic={0.1}
+          onDragEnd={handleDragEnd}
+          style={{ x, y }}
+          initial={{ x: "100%", y: "100%", scale: 0.5, opacity: 0 }}
+          animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+          exit={{ x: "100%", y: "100%", scale: 0.5, opacity: 0 }}
           transition={{
             type: "spring",
-            stiffness: 300,
-            damping: 25,
+            stiffness: 250,
+            damping: 30,
             mass: 1
           }}
           className={cn(
-            "absolute bottom-8 right-8 hidden max-w-lg flex-col gap-1 rounded-3xl bg-background p-5 pt-4 shadow-xl md:flex",
+            "absolute bottom-8 right-8 hidden w-full max-w-sm flex-col gap-5 overflow-hidden rounded-3xl p-5 pt-4 shadow-xl backdrop-blur-md md:flex",
             className
           )}
         >
-          <div className="flex items-center justify-between gap-6">
-            <h5 className="h-6 text-base">Sign up for Unichain updates and events.</h5>
-            <Button variant="ghost" className="-mr-4 -mt-2" onClick={handleDismiss}>
-              <Close className="h-6 w-6 text-primary" />
-            </Button>
+          <motion.div className="absolute inset-0 z-0 bg-background" style={{ opacity }} />
+          <div className="relative flex flex-col gap-1">
+            <h5 className="h-6 text-base">Join the community building on Unichain</h5>
+            <p>Sign up for Unichain updates and events.</p>
           </div>
-          <form onSubmit={handleSubmit} className="flex items-center gap-1">
-            <Input
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="Email"
-              required
-            />
+          <div className="relative flex w-full gap-3">
             <Button
               type="submit"
-              className="bg-pink-primary-foreground text-base"
-              loading={isLoading}
+              size="md"
+              className="w-full bg-pink-secondary-foreground text-base"
+              onClick={handleSignUp}
             >
-              Subscribe
+              Sign Up
             </Button>
-          </form>
+            <Button
+              type="button"
+              variant="outline"
+              size="md"
+              className="w-full text-base"
+              onClick={handleDismiss}
+            >
+              Dismiss
+            </Button>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -13,15 +13,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-dark text-white shadow hover:bg-primary/90",
-        outline: "text-pink-primary bg-transparent hover:opacity-70 active:opacity-90",
+        outline: "bg-transparent outline outline-secondary hover:opacity-70 active:opacity-90",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:opacity-80 transition-all",
         link: "text-primary underline-offset-4 hover:underline"
       },
       size: {
         default: "px-5 py-4 text-xl",
-        sm: "h-8 rounded-md px-3 text-xs",
         lg: "px-24 py-4 rounded-2xl text-xl",
+        md: "py-3 px-3 text-base",
         icon: "h-9 w-9"
       }
     },
