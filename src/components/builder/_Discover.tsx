@@ -8,7 +8,7 @@ const items: ActionItemProps[] = [
   },
   {
     header: "Builder Channel",
-    description: "Share your project with the community through our builder channel on Discord.",
+    description: "Share your project with the community in Discord.",
     icon: "DiscordStroke"
   }
 ];
