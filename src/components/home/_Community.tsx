@@ -105,10 +105,10 @@ const partners = [
     name: "Superbridge",
     src: "/assets/partners/superbridge.png"
   },
-  {
-    name: "Bitstamp",
-    src: "/assets/partners/bitstamp.png"
-  },
+  // {
+  //   name: "Bitstamp",
+  //   src: "/assets/partners/bitstamp.png"
+  // },
   {
     name: "Transak",
     src: "/assets/partners/transak.png"
