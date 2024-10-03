@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
+import { WaveEffect } from "@/components/shared";
+
 interface LinkProps {
   href: string;
   children: React.ReactNode;
@@ -65,6 +67,7 @@ const _ = () => {
           </div>
         </div>
       </footer>
+      <WaveEffect className="absolute bottom-0 left-0 right-0 -z-10 h-[70vh] mix-blend-multiply" />
     </section>
   );
 };

@@ -7,7 +7,7 @@ const _ = () => {
         <h1 className="text-pink col-span-full row-start-1 md:col-[1_/_span_16]">
           <strong>Builder</strong>
           <br />
-          Tool Kit
+          Toolkit
         </h1>
       </article>
       <EmailSignup />

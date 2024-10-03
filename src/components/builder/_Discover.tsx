@@ -2,12 +2,12 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Unichain Ambassadors",
+    header: "Unichain ambassadors",
     description: "Join and steward our developer community.",
     icon: "Ranking"
   },
   {
-    header: "Builder Channel",
+    header: "Builder channel",
     description: "Share your project with the community in Discord.",
     icon: "DiscordStroke"
   }

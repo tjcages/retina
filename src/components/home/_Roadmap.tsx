@@ -14,9 +14,9 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
       <h3>{header}</h3>
       <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
       {cta !== undefined && (
-        <Button variant="outline" className="-my-3 -ml-5 md:-mt-3">
+        <Button variant="ghost" className="text-pink -my-3 -ml-5 md:-mt-3">
           {cta}
-          <Icon icon="ArrowUpRight" className="h-5 w-5 text-inherit" />
+          <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
         </Button>
       )}
     </div>
@@ -52,7 +52,7 @@ const _ = () => {
     <section className="snap-start bg-background py-12 md:py-24">
       <article className="gap-6 md:gap-12">
         <div className="col-span-full">
-          <h2>Unichain Roadmap</h2>
+          <h2>Unichain roadmap</h2>
         </div>
         <div className="col-span-full grid grid-cols-subgrid gap-12">
           {phases.map(phase => (

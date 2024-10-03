@@ -12,7 +12,7 @@ const _ = () => {
           <h2>
             The home for
             <Nbsp />
-            Defi
+            DeFi
           </h2>
         </div>
         <div className="col-span-12 flex flex-col gap-3">

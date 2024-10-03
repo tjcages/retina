@@ -12,7 +12,7 @@ const items: ActionItemProps[] = [
     icon: "MessagesText"
   },
   {
-    header: "Office Hours",
+    header: "Office hours",
     description: "Join weekly sessions with our team to ask questions live.",
     icon: "QuestionSquare"
   }

@@ -2,12 +2,12 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Host a Meetup",
+    header: "Host a meetup",
     description: "Sign up to host an event for the Unichain community.",
     icon: "UsersGroup"
   },
   {
-    header: "Events Calendar",
+    header: "Events calendar",
     description: "Come join our team IRL.",
     icon: "Calendar"
   },

@@ -16,7 +16,7 @@ const _ = () => {
     <Drawer.Root shouldScaleBackground open={isSignUpVisible} onOpenChange={handleOpenChange}>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-[#060E0C]/60" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 mt-24 flex h-full max-h-[96%] flex-col rounded-t-[10px] bg-background outline-none">
+        <Drawer.Content className="fixed bottom-0 left-0 right-0 mt-24 flex h-full max-h-[96%] flex-col rounded-[20px] bg-background outline-none md:mt-0">
           <div className="flex w-full items-end justify-end">
             <Button variant="ghost">
               <Icon icon="X" className="h-6 w-6 text-secondary-foreground" />

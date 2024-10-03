@@ -12,6 +12,7 @@ export * from "./_Image";
 export * from "./_Input";
 export * from "./_Label";
 export * from "./_Loader";
+export * from "./_MagneticInfo";
 export * from "./_Marquee";
 export * from "./_Nbsp";
 export * from "./_Overlay";

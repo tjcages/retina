@@ -1,18 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { state } from "@/store";
 
-import { Button, Input, Nbsp } from "@/components/ui";
+import { Button, Nbsp } from "@/components/ui";
 
 const _ = () => {
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // TODO: Handle form submission logic here
-    console.log("Submitted email:", email);
+  const handleSignUp = () => {
+    state.isSignUpVisible = true;
   };
 
   return (
@@ -30,23 +24,13 @@ const _ = () => {
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <form onSubmit={handleSubmit} className="flex items-center gap-1">
-            <Input
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="Enter Email"
-              required
-              className="w-full min-w-[200px] max-w-[300px] md:w-[20vw]"
-            />
-            <Button
-              type="submit"
-              className="bg-pink-primary-foreground text-base"
-              loading={isLoading}
-            >
-              Subscribe
-            </Button>
-          </form>
+          <Button
+            type="submit"
+            className="w-full max-w-xs bg-pink-secondary-foreground"
+            onClick={handleSignUp}
+          >
+            Sign Up
+          </Button>
         </div>
       </article>
     </section>

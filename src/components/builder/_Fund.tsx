@@ -2,30 +2,33 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Unichain Builder Open Call",
+    header: "Unichain builder open call",
     description: "Bring your project to life with support from the Uniswap Foundation.",
-    icon: "Tool"
+    icon: "Tool",
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagCUSPfAVBKUEAK9"
   },
   {
-    header: "Unichain Spark Grants",
+    header: "Unichain retro grants",
     description: "Nominate impactful Unichain projects for funding.",
-    icon: "DollarSquare"
+    icon: "DollarSquare",
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagqdZpJLh0HXT1vI"
   },
   {
-    header: "Universal Hackathon",
+    header: "Unichain infinite hackathon",
     description:
       "Enter your hackathon project into our ongoing competition, with bi-weekly rewards.",
-    icon: "TrophyStar"
+    icon: "TrophyStar",
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagoCxdfobQ9ykXx2"
   },
-  {},
+  // {},
+  // {
+  //   header: "Unigames",
+  //   description: "Compete with the best builders in crypto at 2025’s Unigames.",
+  //   icon: "UsersGroup",
+  //   comingSoon: true
+  // },
   {
-    header: "Unigames",
-    description: "Compete with the best builders in crypto at 2025’s Unigames.",
-    icon: "UsersGroup",
-    comingSoon: true
-  },
-  {
-    header: "Gas Subsidies",
+    header: "Gas subsidies",
     description: "Get reimbursed for gas spent through hooks.",
     icon: "LaptopCode",
     comingSoon: true
@@ -41,7 +44,7 @@ const _ = () => {
           <small className="mb-2.5 font-mono text-secondary-foreground">02</small>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <div className="grid grid-cols-2 grid-rows-[repeat(3,_1fr)] items-center justify-items-center gap-3 lg:grid-cols-4 lg:grid-rows-[repeat(2,_1fr)] lg:gap-6">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-3 lg:grid-cols-4 lg:gap-6">
             {items.map((item, index) => (
               <ActionItem
                 key={index}

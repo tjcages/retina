@@ -2,24 +2,25 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Launch a token",
+    header: "Create a token",
     description: "Example token implementation.",
     icon: "DesignSquare"
   },
   {
-    header: "Deploy an app",
+    header: "Build an app",
     description: "Sample app to help kickstart your development process.",
     icon: "Code"
   },
   {
-    header: "Create a pool",
+    header: "Deploy a pool",
     description: "Resources for creating pools on Unichain.",
     icon: "ActivityCircle"
   },
   {
     header: "Read docs",
     description: "Get started with Unichain's developer docs.",
-    icon: "NoteText"
+    icon: "NoteText",
+    href: "https://unichain-docs.vercel.app/docs"
   }
 ];
 
