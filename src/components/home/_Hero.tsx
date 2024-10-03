@@ -2,7 +2,7 @@
 
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { EmailSignup } from "@/components/shared";
 import { Button } from "@/components/ui";
@@ -29,6 +29,7 @@ const _ = () => {
 
   const [hoveredLetters, setHoveredLetters] = useState<boolean[]>([]);
   const [isHovered, setIsHovered] = useState(false);
+  const lastMousePositionRef = useRef<{ x: number; y: number } | null>(null);
 
   const superchainText = "Powered by the Superchain.";
   const duration = 1000;
@@ -38,9 +39,40 @@ const _ = () => {
       const interval = setInterval(() => {
         setHoveredLetters(prev => {
           const newState = [...prev];
-          const nextIndex = newState.indexOf(false);
-          if (nextIndex !== -1) {
-            newState[nextIndex] = true;
+          const falseIndices = newState.reduce<number[]>(
+            (acc, val, idx) => (!val ? [...acc, idx] : acc),
+            []
+          );
+          if (falseIndices.length > 0) {
+            const lastMousePosition = lastMousePositionRef.current;
+            if (lastMousePosition) {
+              const closestIndex = falseIndices.reduce((closest, current) => {
+                const currentRect = document
+                  .getElementById(`letter-${current}`)
+                  ?.getBoundingClientRect();
+                if (currentRect) {
+                  const currentDistance = Math.sqrt(
+                    Math.pow(currentRect.left + currentRect.width / 2 - lastMousePosition.x, 2) +
+                      Math.pow(currentRect.top + currentRect.height / 2 - lastMousePosition.y, 2)
+                  );
+                  const closestRect = document
+                    .getElementById(`letter-${closest}`)
+                    ?.getBoundingClientRect();
+                  if (closestRect) {
+                    const closestDistance = Math.sqrt(
+                      Math.pow(closestRect.left + closestRect.width / 2 - lastMousePosition.x, 2) +
+                        Math.pow(closestRect.top + closestRect.height / 2 - lastMousePosition.y, 2)
+                    );
+                    return currentDistance < closestDistance ? current : closest;
+                  }
+                }
+                return closest;
+              }, falseIndices[0]);
+              newState[closestIndex] = true;
+            } else {
+              const randomIndex = falseIndices[Math.floor(Math.random() * falseIndices.length)];
+              newState[randomIndex] = true;
+            }
           }
           return newState;
         });
@@ -51,9 +83,13 @@ const _ = () => {
       const interval = setInterval(() => {
         setHoveredLetters(prev => {
           const newState = [...prev];
-          const lastIndex = newState.lastIndexOf(true);
-          if (lastIndex !== -1) {
-            newState[lastIndex] = false;
+          const trueIndices = newState.reduce<number[]>(
+            (acc, val, idx) => (val ? [...acc, idx] : acc),
+            []
+          );
+          if (trueIndices.length > 0) {
+            const randomIndex = trueIndices[Math.floor(Math.random() * trueIndices.length)];
+            newState[randomIndex] = false;
           }
           return newState;
         });
@@ -63,13 +99,21 @@ const _ = () => {
     }
   }, [isHovered]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (event: React.MouseEvent<HTMLHeadingElement>) => {
     setIsHovered(true);
+    lastMousePositionRef.current = { x: event.clientX, y: event.clientY };
     setHoveredLetters(Array(superchainText.length).fill(false));
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (event: React.MouseEvent<HTMLHeadingElement>) => {
     setIsHovered(false);
+    lastMousePositionRef.current = { x: event.clientX, y: event.clientY };
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLHeadingElement>) => {
+    if (isHovered) {
+      lastMousePositionRef.current = { x: event.clientX, y: event.clientY };
+    }
   };
 
   return (
@@ -114,17 +158,19 @@ const _ = () => {
             Read Docs
           </Button>
         </motion.div>
-        <div className="col-span-full">
+        <div className="col-span-full flex items-start justify-start">
           <h5
             className="h-4 cursor-pointer"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
             onClick={() => window.open("https://www.optimism.io/", "_blank")}
           >
             {superchainText.split("").map((letter, index) => (
               <span
                 key={index}
-                className={hoveredLetters[index] ? "scale-105 font-riegraf italic" : ""}
+                id={`letter-${index}`}
+                className={hoveredLetters[index] ? "font-riegraf text-[1.35rem] italic" : ""}
               >
                 {letter}
               </span>
