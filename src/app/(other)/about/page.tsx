@@ -2,7 +2,7 @@ import { seo } from "@/seo";
 import type { Metadata } from "next";
 
 import { About, Builder, Hero } from "@/components/about";
-import { Footer, Header } from "@/components/shared";
+import { EmailSignup, Footer, Header } from "@/components/shared";
 import { Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {
@@ -15,6 +15,7 @@ export default async function HomePage() {
       <Builder />
       <Divider variant="secondary" />
       <Footer />
+      <EmailSignup />
     </Scroll>
   );
 }

@@ -11,7 +11,7 @@ interface Props {
 
 const Item: React.FC<Props> = ({ name, src }) => {
   return (
-    <div className="pointer-events-none col-span-1 mx-6 flex min-w-16 select-none flex-col items-center justify-center gap-3 text-center lg:min-w-20">
+    <div className="pointer-events-none col-span-1 mx-3 flex min-w-16 select-none flex-col items-center justify-center gap-3 text-center md:mx-6 lg:min-w-20">
       <Image
         className="pointer-events-none h-16 w-16 select-none lg:h-20 lg:w-20"
         src={src}
@@ -221,8 +221,8 @@ const Community = () => {
   }, []);
 
   return (
-    <section className="snap-start bg-background py-12 md:py-24">
-      <article className="gap-y-6 md:gap-y-12">
+    <section className="py-12 md:py-24">
+      <article className="gap-y-3 md:gap-y-12">
         <div className="col-span-full mb-8 flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
             <strong>Trusted</strong> by the best
@@ -256,7 +256,13 @@ const Community = () => {
           </>
         )}
         <div className="col-span-full mt-8 flex flex-col items-center justify-center gap-3 text-center">
-          <Button variant="ghost" className="text-pink">
+          <Button
+            variant="ghost"
+            className="text-pink"
+            onClick={() =>
+              window.open("https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form", "_blank")
+            }
+          >
             Apply for a developer grant
             <Icon icon="ArrowUpRight" className="ml-2 h-5 w-5 text-[#f94bdf]" />
           </Button>

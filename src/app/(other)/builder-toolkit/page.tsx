@@ -2,13 +2,12 @@ import { seo } from "@/seo";
 import type { Metadata } from "next";
 
 import { Discover, Email, Fund, Hero, Start } from "@/components/builder";
-import { Footer, Header } from "@/components/shared";
-import { Background, Divider, Scroll } from "@/components/ui";
+import { EmailSignup, Footer, Header } from "@/components/shared";
+import { Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {
   return (
     <Scroll className="h-full w-full">
-      <Background variant="secondary" />
       <Header variant="secondary" />
       <Hero />
       <Start />
@@ -20,6 +19,7 @@ export default async function HomePage() {
       <Email />
       <Divider variant="secondary" />
       <Footer />
+      <EmailSignup />
     </Scroll>
   );
 }

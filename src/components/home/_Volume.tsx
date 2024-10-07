@@ -4,7 +4,7 @@ import { useInView } from "@/hooks";
 import anime from "animejs";
 import { useEffect, useRef, useState } from "react";
 
-import { MagneticInfo } from "@/components/ui";
+import { MagneticInfo, Nbsp } from "@/components/ui";
 
 // Make sure to install this package
 
@@ -99,20 +99,34 @@ const Item: React.FC<Props> = ({ value, multiple, description }) => {
 
   return (
     <div ref={ref} className="flex flex-col items-center justify-center md:col-span-8 md:gap-3">
-      <h1 className="whitespace-nowrap text-4xl md:text-7xl lg:text-8xl 2xl:text-9xl">
+      <h1 className="whitespace-nowrap text-4xl tabular-nums md:text-7xl lg:text-8xl 2xl:text-9xl">
         <strong>
           <NumberAnimator endValue={value} format={format} shouldAnimate={hasBeenInView} />
         </strong>
         <strong className="align-text-bottom leading-[0.8em] md:ml-2">{multiple}+</strong>
       </h1>
-      <h5 className="text-base leading-none md:text-xl">{description}</h5>
+      <h5 className="text-base leading-none md:text-xl">
+        {description.split(" ").map((word, index, array) => (
+          <span key={index}>
+            {word}
+            {index === Math.floor(array.length / 2) - 1 ? (
+              <>
+                <br className="md:hidden" />
+                <Nbsp />
+              </>
+            ) : (
+              " "
+            )}
+          </span>
+        ))}
+      </h5>
     </div>
   );
 };
 
 const _ = () => {
   return (
-    <section className="snap-start bg-background py-12 md:py-24">
+    <section className="py-12 md:py-24">
       <article className="gap-y-12 md:gap-y-16 xl:gap-x-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-6 text-center">
           <h2 className="text-pink col-span-full">

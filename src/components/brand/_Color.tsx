@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import { Button } from "@/components/ui";
 
 const Typography: React.FC = () => {
+  const copyHexCode = (hex: string) => {
+    navigator.clipboard.writeText(hex);
+  };
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>Color</h2>
@@ -19,8 +22,18 @@ const Typography: React.FC = () => {
             </h5>
           </div>
           <div className="relative col-span-full flex flex-col gap-5 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <div className="aspect-[4/1] w-full rounded-[20px] bg-pink-primary" />
-            <div className="aspect-[4/1] w-full rounded-[20px] bg-pink-secondary" />
+            <Button
+              variant="ghost"
+              tooltip="Copy hex code"
+              className="aspect-[4/1] w-full rounded-[20px] bg-pink-primary"
+              onClick={() => copyHexCode("#f50db4")}
+            />
+            <Button
+              variant="ghost"
+              tooltip="Copy hex code"
+              className="aspect-[4/1] w-full rounded-[20px] bg-pink-secondary"
+              onClick={() => copyHexCode("#feaff0")}
+            />
           </div>
         </div>
       </article>

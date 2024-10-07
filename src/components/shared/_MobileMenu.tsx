@@ -120,7 +120,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               <Item href="https://unichain-sepolia.blockscout.com/">Block Explorer</Item>
               <Item href="https://github.com/Uniswap/unichain">Github</Item>
             </div>
-            <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 mb-3 flex rounded-2xl text-primary" />
+            <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 flex rounded-2xl text-primary" />
           </motion.div>
         )}
       </AnimatePresence>

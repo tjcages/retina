@@ -1,6 +1,8 @@
 "use client";
 
+import { svgContent } from "@/assets/icons/_logo";
 import { cn, pageTransition } from "@/utils";
+import { saveAs } from "file-saver";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
 import { usePathname } from "next/navigation";
@@ -33,8 +35,18 @@ const Item: React.FC<ItemProps> = ({ children, href, shortcut }) => {
     }
   };
 
+  const downloadSVG = () => {
+    const blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
+    saveAs(blob, "unichain-logo.svg");
+  };
+
   const handleTrigger = () => {
-    if (pathname !== href) router.push(href || "/", { onTransitionReady: pageTransition });
+    if (href) {
+      if (pathname !== href) router.push(href, { onTransitionReady: pageTransition });
+    } else {
+      // Handle download SVG
+      downloadSVG();
+    }
   };
 
   return (
@@ -59,6 +71,11 @@ interface Props {
 
 const _: React.FC<Props> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault(); // Prevent the default context menu
+    setIsVisible(true);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: "5%" },
@@ -87,11 +104,14 @@ const _: React.FC<Props> = ({ children }) => {
 
   return (
     <div
-      className="relative flex items-center justify-center"
-      onPointerEnter={() => setIsVisible(true)}
-      onPointerLeave={() => setIsVisible(false)}
+      className="relative z-20 md:flex md:items-center md:justify-center"
+      onMouseLeave={() => setIsVisible(false)}
     >
-      <motion.div variants={triggerVariants} animate={isVisible ? "bounce" : "initial"}>
+      <motion.div
+        variants={triggerVariants}
+        animate={isVisible ? "bounce" : "initial"}
+        onContextMenu={handleRightClick}
+      >
         {children}
       </motion.div>
       <AnimatePresence>
@@ -106,27 +126,10 @@ const _: React.FC<Props> = ({ children }) => {
               isVisible && "pointer-events-auto"
             )}
           >
-            <Item shortcut={["d"]} href="https://unichain-docs.vercel.app/docs">
-              Developer Docs
-            </Item>
-            <Item shortcut={["b"]} href="/builder-toolkit">
-              Builder Toolkit
-            </Item>
             <Item shortcut={["k"]} href="/brand-kit">
               Brand Kit
             </Item>
-            <Item
-              shortcut={["t"]}
-              href="https://unichain-docs.vercel.app/docs/technical-information/network-information"
-            >
-              Testnet
-            </Item>
-            <Item shortcut={["e"]} href="https://unichain-sepolia.blockscout.com/">
-              Block Explorer
-            </Item>
-            <Item shortcut={["h"]} href="https://github.com/Uniswap/unichain">
-              Github
-            </Item>
+            <Item shortcut={["d"]}>Download SVG</Item>
           </motion.div>
         )}
       </AnimatePresence>

@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 
 import { Graphic } from "@/components/about";
-import { EmailSignup } from "@/components/shared";
-import { Image } from "@/components/ui";
 
 const container = {
   hidden: { opacity: 0 },
@@ -22,16 +20,8 @@ const _ = () => {
         initial="hidden"
         animate="show"
       >
-        <Graphic className="absolute h-full w-full" />
-        <Image
-          className="relative h-20 w-20 object-contain md:h-32 md:w-32"
-          src="/assets/icons/about-icon.png"
-          alt="About Unichain Icon"
-          width={800}
-          height={800}
-        />
+        <Graphic className="pointer-events-auto absolute h-full w-full" />
       </motion.article>
-      <EmailSignup />
     </section>
   );
 };

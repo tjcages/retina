@@ -6,7 +6,7 @@ import { Nbsp } from "@/components/ui";
 
 const _ = () => {
   return (
-    <section className="snap-start bg-background pb-12 pt-8 md:pb-24 md:pt-16">
+    <section className="pb-12 pt-8 md:pb-24 md:pt-16">
       <article className="gap-6">
         <div className="col-span-12">
           <h2>

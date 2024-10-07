@@ -49,7 +49,7 @@ const phases = [
 
 const _ = () => {
   return (
-    <section className="snap-start bg-background py-12 md:py-24">
+    <section className="py-12 md:py-24">
       <article className="gap-6 md:gap-12">
         <div className="col-span-full">
           <h2>Unichain roadmap</h2>

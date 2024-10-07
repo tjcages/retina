@@ -37,7 +37,7 @@ const items = [
 
 const _ = () => {
   return (
-    <section className="min-h-[65vh] snap-start bg-background py-12 md:py-24">
+    <section className="min-h-[65vh] py-12 md:py-24">
       <article className="gap-6 md:gap-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>FAQ</h2>

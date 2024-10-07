@@ -1,26 +1,44 @@
 "use client";
 
 import { useIsDesktop } from "@/hooks";
+import { cn } from "@/utils";
 
 import { Badge, Icon, type Icons } from "@/components/ui";
 
 export interface ActionItemProps {
+  index?: number;
   header?: string;
   description?: string;
   icon?: Icons;
   href?: string;
   comingSoon?: boolean;
+  disabled?: boolean;
+  setHovered?: (index: number | null) => void;
 }
 
-const _: React.FC<ActionItemProps> = ({ header, description, icon, href, comingSoon }) => {
+const _: React.FC<ActionItemProps> = ({
+  index,
+  header,
+  description,
+  icon,
+  href,
+  comingSoon,
+  disabled,
+  setHovered
+}) => {
   const isDesktop = useIsDesktop(1024);
   const handleClick = () => {
     if (href) window.open(href);
   };
   return header !== undefined ? (
     <div
-      className="group relative flex h-full w-full cursor-pointer flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary p-4 text-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 hover:text-pink-primary active:scale-95 md:p-6 lg:max-w-[300px]"
+      className={cn(
+        "group relative flex h-full w-full cursor-pointer flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary p-4 text-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 hover:text-pink-primary active:scale-95 md:p-6 lg:max-w-[300px]",
+        disabled && "opacity-50 mix-blend-luminosity"
+      )}
       onClick={handleClick}
+      onMouseEnter={() => setHovered?.(index !== undefined ? index : null)}
+      onMouseLeave={() => setHovered?.(null)}
     >
       <div className="mb-6 flex w-full items-center justify-between gap-3">
         {comingSoon ? (

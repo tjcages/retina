@@ -6,6 +6,7 @@ import { proxy, snapshot, subscribe, useSnapshot } from "valtio";
 interface State {
   // General States
   ready: boolean;
+  isBelowFold: boolean;
   menuVisible: boolean;
   isSignUpVisible: boolean;
 }
@@ -13,6 +14,7 @@ interface State {
 const defaultState: State = {
   // General States
   ready: false,
+  isBelowFold: false,
   menuVisible: false,
   isSignUpVisible: false
 };

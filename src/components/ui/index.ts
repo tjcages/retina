@@ -2,6 +2,7 @@ export * from "./_Background";
 export * from "./_Badge";
 export * from "./_Breadcrumb";
 export * from "./_Button";
+export * from "./_ChainText";
 export * from "./_ContextMenu";
 export * from "./_Dialog";
 export * from "./_DialogDynamic";

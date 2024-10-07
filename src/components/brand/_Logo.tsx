@@ -1,9 +1,14 @@
 "use client";
 
+import { svgContent as logoSVGContent } from "@/assets/icons/_logo";
+import { svgContent as logoIconSVGContent } from "@/assets/icons/_logo-icon";
+import { svgContent as logoVerticalSVGContent } from "@/assets/icons/_logo-vertical";
+import { useInView } from "@/hooks";
 import { cn } from "@/utils";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
-import { Icon } from "@/components/ui";
+import { Button, Icon } from "@/components/ui";
 
 const items = [
   {
@@ -24,9 +29,40 @@ const items = [
 ];
 
 const _ = () => {
+  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const isInView = useInView(ref);
   const [selected, setSelected] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  // if copy is successful, show a success message and reset the copied state
+  const handleCopy = () => {
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
+  const copySVG = () => {
+    // const blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
+    // copy to clipboard
+    switch (selected) {
+      case 0:
+        navigator.clipboard.writeText(logoSVGContent);
+        break;
+      case 1:
+        navigator.clipboard.writeText(logoIconSVGContent);
+        break;
+      case 2:
+        navigator.clipboard.writeText(logoVerticalSVGContent);
+        break;
+      default:
+        break;
+    }
+    handleCopy();
+  };
+
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section ref={ref} className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>Logo</h2>
@@ -57,7 +93,12 @@ const _ = () => {
               </div>
             ))}
           </div>
-          <div className="relative col-span-full hidden h-full items-center justify-center rounded-[20px] bg-secondary md:col-[9_/_span_16] md:flex lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
+          <motion.div
+            className="relative col-span-full hidden h-full items-center justify-center rounded-[20px] bg-secondary md:col-[9_/_span_16] md:flex lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
+            initial={{ opacity: 0.1 }}
+            animate={{ opacity: isInView ? 1 : 0.1 }}
+            transition={{ duration: 0.5 }}
+          >
             <Icon
               icon="Logo"
               className={cn(
@@ -79,7 +120,29 @@ const _ = () => {
                 selected === 2 && "scale-100 opacity-100 delay-100"
               )}
             />
-          </div>
+            <Button
+              variant="outline"
+              size="md"
+              tooltip="Copy SVG icon"
+              className="absolute bottom-3 right-3 bg-background"
+              onClick={copySVG}
+            >
+              <Icon
+                icon="Copy"
+                className={cn(
+                  "h-5 w-5 text-secondary-foreground transition-all delay-0 duration-200 ease-in",
+                  copied && "scale-0 opacity-0 delay-0"
+                )}
+              />
+              <Icon
+                icon="Check"
+                className={cn(
+                  "absolute h-5 w-5 scale-0 text-pink-primary opacity-0 transition-all delay-0 duration-200 ease-out",
+                  copied && "scale-100 opacity-100 delay-100"
+                )}
+              />
+            </Button>
+          </motion.div>
         </div>
       </article>
     </section>

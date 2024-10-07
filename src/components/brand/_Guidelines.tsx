@@ -1,6 +1,9 @@
 "use client";
 
+import { useInView } from "@/hooks";
 import { cn } from "@/utils";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 import { Icon, Image } from "@/components/ui";
 
@@ -19,7 +22,13 @@ const Item: React.FC<Props> = ({ allowed, icon, description }) => {
       )}
     >
       <div className="flex aspect-square w-full items-center justify-center rounded-[20px] bg-secondary text-pink-primary">
-        {icon}
+        <motion.div
+          className="flex h-full w-full items-center justify-center"
+          initial={{ opacity: 0.1 }}
+          animate={{ opacity: 1 }}
+        >
+          {icon}
+        </motion.div>
       </div>
       <p>{description}</p>
       <Icon
@@ -121,8 +130,26 @@ const noItems: Props[] = [
 ];
 
 const Typography: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0.1 },
+    visible: { opacity: 1 }
+  };
+
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section className="py-12 md:py-16" ref={ref}>
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>Logo Guidelines</h2>
@@ -132,21 +159,35 @@ const Typography: React.FC = () => {
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>What works</h3>
           </div>
-          <div className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
+          <motion.div
+            className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {yesItems.map((item, index) => (
-              <Item key={index} allowed icon={item.icon} description={item.description} />
+              <motion.div key={index} variants={itemVariants}>
+                <Item allowed icon={item.icon} description={item.description} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
         <div className="col-span-full grid grid-cols-subgrid items-start gap-6">
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>What doesn&apos;t work</h3>
           </div>
-          <div className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
+          <motion.div
+            className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {noItems.map((item, index) => (
-              <Item key={index} icon={item.icon} description={item.description} />
+              <motion.div key={index} variants={itemVariants}>
+                <Item icon={item.icon} description={item.description} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </article>
     </section>

@@ -5,20 +5,20 @@ const items: ActionItemProps[] = [
     header: "Unichain builder open call",
     description: "Bring your project to life with support from the Uniswap Foundation.",
     icon: "Tool",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagCUSPfAVBKUEAK9"
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form"
   },
   {
     header: "Unichain retro grants",
     description: "Nominate impactful Unichain projects for funding.",
     icon: "DollarSquare",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagqdZpJLh0HXT1vI"
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagk50WNKL0c4rfa6/form"
   },
   {
     header: "Unichain infinite hackathon",
     description:
       "Enter your hackathon project into our ongoing competition, with bi-weekly rewards.",
     icon: "TrophyStar",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagoCxdfobQ9ykXx2"
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagKA897Zhcy4K0NR/form"
   },
   // {},
   // {
@@ -37,10 +37,10 @@ const items: ActionItemProps[] = [
 
 const _ = () => {
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
-          <h2>Fund your Project</h2>
+          <h2>Get Supported</h2>
           <small className="mb-2.5 font-mono text-secondary-foreground">02</small>
         </div>
         <div className="col-span-full flex items-center justify-center">

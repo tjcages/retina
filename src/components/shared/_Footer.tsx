@@ -23,13 +23,13 @@ const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
 
 const _ = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref);
+  const isInView = useInView(ref);
   return (
     <section ref={ref} className="z-20 snap-end overflow-visible bg-background py-6 md:py-12">
       <div
         className={cn(
           "pointer-events-none absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#F50DB433] opacity-0 transition-opacity duration-1000 ease-in",
-          inView && "opacity-100"
+          isInView && "opacity-100"
         )}
       />
       <footer>
@@ -67,7 +67,12 @@ const _ = () => {
           </div>
         </div>
       </footer>
-      <WaveEffect className="absolute bottom-0 left-0 right-0 -z-10 h-[70vh] mix-blend-multiply" />
+      <WaveEffect
+        className={cn(
+          "absolute bottom-0 left-0 right-0 -z-10 h-[70vh] mix-blend-multiply",
+          !isInView && "opacity-0"
+        )}
+      />
     </section>
   );
 };

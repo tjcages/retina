@@ -10,7 +10,7 @@ const _ = () => {
   };
 
   return (
-    <section className="snap-start bg-background py-12 md:py-24">
+    <section className="py-12 md:py-24">
       <article className="justify-center gap-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-3 text-center">
           <h2 className="text-pink">

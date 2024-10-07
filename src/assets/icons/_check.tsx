@@ -16,7 +16,7 @@ const _ = ({ id, className }: Props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M20 6L9.33333 18L4 12" stroke="#21C95E" stroke-width="2" />
+      <path d="M20 6L9.33333 18L4 12" stroke="#21C95E" strokeWidth="2" />
     </svg>
   );
 };

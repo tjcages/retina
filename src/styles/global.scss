@@ -17,8 +17,8 @@
     --accent: 60 4.8% 95.9%;
     --accent-foreground: 24 9.8% 10%;
 
-    --pink-primary: 322 97% 52%; // #f8b8d8
-    --pink-secondary: 310 95% 84%; // #f2d3f8
+    --pink-primary: 317 92% 51%; // #f50db4
+    --pink-secondary: 311 97% 84%; // #feaff0
     --pink-primary-foreground: 317 92% 51%; // #F50DB4
     --pink-secondary-foreground: 299 99% 73%; // #FC74FE
 
@@ -70,7 +70,7 @@
   }
 
   section {
-    @apply relative w-full px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
+    @apply relative w-full bg-background px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
   }
 
   article,

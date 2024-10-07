@@ -16,8 +16,8 @@ const _ = ({ id, className }: Props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" />
-      <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" />
+      <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" />
+      <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 };

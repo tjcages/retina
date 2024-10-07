@@ -51,7 +51,7 @@ const PartnershipGrid: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={cn(
-        "absolute grid aspect-square h-[353.5px] grid-cols-5 grid-rows-5 items-center justify-items-center transition-opacity delay-1000 duration-1000 ease-in-out md:h-[453.5px]",
+        "absolute grid aspect-square h-[353.5px] grid-cols-5 grid-rows-5 items-center justify-items-center transition-opacity delay-0 duration-500 ease-in-out md:h-[453.5px]",
         className
       )}
     >
@@ -105,14 +105,32 @@ const PartnershipFigure: React.FC<{ className?: string }> = ({ className }) => {
           inView && "opacity-100 delay-0"
         )}
       />
-      <PartnershipGrid className={cn("opacity-0", inView && "opacity-100 delay-0")} />
+      <PartnershipGrid className={cn("opacity-10", inView && "opacity-100 delay-500")} />
     </div>
   );
 };
 
 const _ = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+
+  const pathVariants = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: {
+          duration: 2,
+          ease: "easeInOut"
+        },
+        opacity: { duration: 0.5 }
+      }
+    }
+  };
+
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section ref={ref} className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>Concept</h2>
@@ -131,7 +149,12 @@ const _ = () => {
             </div>
           </div>
           <div className="relative col-span-full flex aspect-[4/3] items-center justify-center rounded-[20px] bg-secondary p-10 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <div className="relative h-full">
+            <div
+              className={cn(
+                "relative h-full opacity-10 transition-opacity delay-0 duration-500 ease-in-out",
+                isInView && "opacity-100 delay-500"
+              )}
+            >
               <Image
                 className="aspect-square h-full w-auto object-contain"
                 src="/assets/graphics/grid.png"
@@ -139,6 +162,31 @@ const _ = () => {
                 width={1200}
                 height={1200}
               />
+              <svg
+                width="463"
+                height="472"
+                viewBox="0 0 463 472"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute -bottom-2 -right-2 left-2 top-2"
+              >
+                <motion.path
+                  d="M248.955 18.3047C248.955 137.089 323.919 216.471 440.602 216.471"
+                  stroke="#F50DB4"
+                  strokeWidth="2"
+                  variants={pathVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                />
+                <motion.path
+                  d="M211.799 451.141C211.799 332.356 136.835 252.975 20.1515 252.975"
+                  stroke="#F50DB4"
+                  strokeWidth="2"
+                  variants={pathVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                />
+              </svg>
               <h5 className="absolute -bottom-2 -right-14 text-primary">
                 <strong>Fig. 1</strong>
               </h5>

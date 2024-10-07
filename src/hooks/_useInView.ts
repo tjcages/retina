@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export const useInView = (ref: React.RefObject<HTMLDivElement>) => {
-  const [inView, setInView] = useState(true);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {

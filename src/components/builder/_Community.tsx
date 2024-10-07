@@ -21,7 +21,7 @@ const items: ActionItemProps[] = [
 
 const _ = () => {
   return (
-    <section className="snap-start bg-background py-12 md:py-16">
+    <section className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
           <h2>Join the Community</h2>

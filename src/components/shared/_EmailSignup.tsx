@@ -1,5 +1,6 @@
 "use client";
 
+import { useIsDesktop } from "@/hooks";
 import { state } from "@/store";
 import { cn, delay } from "@/utils";
 import { AnimatePresence, PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
@@ -13,6 +14,7 @@ interface Props {
 
 const _: React.FC<Props> = ({ className }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const isDesktop = useIsDesktop();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -54,7 +56,7 @@ const _: React.FC<Props> = ({ className }) => {
           dragElastic={0.1}
           onDragEnd={handleDragEnd}
           style={{ x, y }}
-          initial={{ x: "100%", y: "100%", scale: 0.5, opacity: 0 }}
+          initial={{ x: isDesktop ? "100%" : "0%", y: "100%", scale: 0.5, opacity: 0 }}
           animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
           exit={{ x: "100%", y: "100%", scale: 0.5, opacity: 0 }}
           transition={{
@@ -64,7 +66,7 @@ const _: React.FC<Props> = ({ className }) => {
             mass: 1
           }}
           className={cn(
-            "absolute bottom-8 right-8 hidden w-full max-w-sm flex-col gap-5 overflow-hidden rounded-3xl p-5 pt-4 shadow-xl backdrop-blur-md md:flex",
+            "absolute bottom-8 right-8 z-20 hidden w-full max-w-sm flex-col gap-5 overflow-hidden rounded-3xl p-5 pt-4 shadow-xl backdrop-blur-md md:flex",
             className
           )}
         >

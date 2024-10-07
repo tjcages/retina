@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
@@ -25,8 +29,9 @@ const items: ActionItemProps[] = [
 ];
 
 const _ = () => {
+  const [hovered, setHovered] = useState<number | null>(null);
   return (
-    <section className="snap-start bg-background py-12 md:py-24">
+    <section className="py-12 md:py-24">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
@@ -38,9 +43,13 @@ const _ = () => {
             {items.map((item, index) => (
               <ActionItem
                 key={index}
+                index={index}
                 header={item.header}
                 description={item.description}
                 icon={item.icon}
+                href={item.href}
+                setHovered={setHovered}
+                disabled={hovered !== null && hovered !== index}
               />
             ))}
           </div>
