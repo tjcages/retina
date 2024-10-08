@@ -85,7 +85,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
       <AnimatePresence>
         <div
           className={cn(
-            "pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-10 bg-[#fb27ce]/80 opacity-0 backdrop-blur-lg transition-opacity duration-300 ease-in-out",
+            "pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-10 bg-[#fb27ce] opacity-0 backdrop-blur-lg transition-opacity duration-300 ease-in-out",
             menuVisible && "pointer-events-auto opacity-100"
           )}
           onClick={handleDismiss}
