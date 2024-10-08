@@ -70,7 +70,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
               </div>
             </div>
             <Link
-              href="/"
+              href="https://x.com/unichain"
               className="flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               <Twitter className="h-[17px] w-[17px] text-inherit" />

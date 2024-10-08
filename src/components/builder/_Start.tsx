@@ -4,7 +4,8 @@ const items: ActionItemProps[] = [
   {
     header: "Developer docs",
     description: "Explore Unichain documentation, resources and tutorials.",
-    icon: "NoteText"
+    icon: "NoteText",
+    href: "https://docs.unichain.org"
   },
   {
     header: "Support",

@@ -238,7 +238,7 @@ const Community = () => {
       <article className="gap-y-3 md:gap-y-12">
         <div className="col-span-full mb-8 flex items-center justify-center">
           <h2 className="text-pink col-span-full text-center md:max-w-2xl">
-            <strong>Trusted</strong> by the best
+            Join the community <strong>building</strong> on Unichain
           </h2>
         </div>
         {isMounted && (
@@ -273,8 +273,8 @@ const Community = () => {
           </>
         )}
         <div className="col-span-full mt-8 flex flex-col items-center justify-center gap-3 text-center">
-          <Link href="https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form">
-            <h5>Apply for a developer grant</h5>
+          <Link href="/builder-toolkit" routed>
+            <h5>Resources for builders</h5>
             <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
           </Link>
         </div>

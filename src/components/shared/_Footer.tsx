@@ -48,12 +48,12 @@ const _ = () => {
           <div className="col-span-3 flex flex-col items-start justify-start">
             <LinkItem href="/">About</LinkItem>
             <LinkItem href="/">Docs</LinkItem>
-            <LinkItem href="/">Blog</LinkItem>
+            {/* <LinkItem href="/">Blog</LinkItem> */}
             <LinkItem href="/">Brand Kit</LinkItem>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
             <LinkItem href="/">Discord</LinkItem>
-            <LinkItem href="/">Twitter/X</LinkItem>
+            <LinkItem href="https://x.com/unichain">Twitter/X</LinkItem>
           </div>
           {/* <div className="col-span-3 flex flex-col items-start justify-start">
             <LinkItem href="/">Status</LinkItem>

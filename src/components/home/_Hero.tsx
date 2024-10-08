@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView } from "@/hooks";
+import { state } from "@/store";
 import { cn } from "@/utils";
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
@@ -29,6 +30,12 @@ const _ = () => {
 
   const handleClick = (href: string) => {
     window.open(href);
+  };
+
+  const handleMainCTAClick = () => {
+    // old
+    // window.open("https://unichain-docs.vercel.app/docs/getting-started", "_blank");
+    state.isSignUpVisible = true;
   };
 
   return (
@@ -63,17 +70,11 @@ const _ = () => {
             across&nbsp;chains.
           </motion.h4>
           <motion.div className="col-span-7 row-start-3 flex items-center gap-3" variants={item}>
-            <Button
-              className="w-full"
-              onClick={() => handleClick("https://unichain-docs.vercel.app/docs/getting-started")}
-            >
+            <Button className="w-full" onClick={handleMainCTAClick}>
               <ArrowRightIcon className="mr-2 h-5 w-5" />
               Get Started
             </Button>
-            <Button
-              className="w-full"
-              onClick={() => handleClick("https://unichain-docs.vercel.app/docs")}
-            >
+            <Button className="w-full" onClick={() => handleClick("https://docs.unichain.org")}>
               <CodeIcon className="mr-2 h-5 w-5" />
               Read Docs
             </Button>

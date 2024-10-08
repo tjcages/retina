@@ -4,7 +4,10 @@ interface Props {
   header: string;
   description: string;
   tertiary: string;
-  cta?: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
 }
 
 const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
@@ -13,9 +16,9 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
       <Badge>{tertiary}</Badge>
       <h3>{header}</h3>
       <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
-      {cta !== undefined && (
-        <Link href="/">
-          <h5>{cta}</h5>
+      {cta && (
+        <Link href={cta.href}>
+          <h5>{cta.text}</h5>
           <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
         </Link>
       )}
@@ -28,7 +31,7 @@ const phases = [
     header: "Public Testnet",
     description: "Access for all developers to begin testing on Unichain.",
     tertiary: "Early October",
-    cta: "Launch"
+    cta: { text: "Read the announcement", href: "https://blog.uniswap.org/introducing-unichain" }
   },
   {
     header: "Developer Mainnet",

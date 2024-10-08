@@ -26,7 +26,7 @@ const Item: React.FC<Props> = ({ index, header, description, graphic, video, cta
         <h3>{header}</h3>
         <h5 className="text-secondary-foreground">{description}</h5>
         {cta !== undefined && (
-          <Link href="/">
+          <Link href={cta}>
             <h5>Learn more</h5>
           </Link>
         )}
@@ -83,7 +83,7 @@ const sections: Props[] = [
       "A network of full nodes monitor and verify the actions of the sequencer, bringing faster settlement and more decentralization to Unichain.",
     graphic: "/assets/graphics/sequencer.png",
     video: "/assets/videos/sequencer.mp4",
-    cta: "",
+    cta: "https://blog.uniswap.org/Unichain_Whitepaper",
     comingSoon: true
   },
   {
@@ -92,7 +92,7 @@ const sections: Props[] = [
       "Block building will be delegated to a trusted execution environment developed by Flashbots, enabling trustless transaction ordering.",
     graphic: "/assets/graphics/execution.png",
     video: "/assets/videos/execution.mp4",
-    cta: "",
+    cta: "https://blog.uniswap.org/Unichain_Whitepaper",
     comingSoon: true
   }
 ];

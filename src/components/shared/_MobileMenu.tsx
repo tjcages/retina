@@ -111,11 +111,13 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="/about">About</Item>
-              <Item href="https://unichain-docs.vercel.app/docs">Developer Docs</Item>
+              <Item href="https://docs.unichain.org/">Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
-              <Item href="/bridge">Testnet</Item>
-              <Item href="https://unichain-sepolia.blockscout.com/">Block Explorer</Item>
+              <Item href="https://docs.unichain.org/docs/technical-information/network-information">
+                Testnet
+              </Item>
+              <Item href="https://sepolia.uniscan.xyz/">Block Explorer</Item>
               <Item href="https://github.com/Uniswap/unichain">Github</Item>
             </div>
             <EmailSignup className="pointer-events-auto relative bottom-0 right-0 z-10 flex rounded-2xl text-primary" />

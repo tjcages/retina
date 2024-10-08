@@ -4,7 +4,7 @@ import { useIsDesktop } from "@/hooks";
 import { motion } from "framer-motion";
 import { forwardRef, useEffect, useRef, useState } from "react";
 
-import { Badge, Image, Scroll } from "@/components/ui";
+import { Badge, Icon, Image, Link, Scroll } from "@/components/ui";
 
 interface Props {
   index: number;
@@ -139,6 +139,12 @@ const _ = () => {
             />
           ))}
         </Scroll>
+        <div className="col-span-full flex flex-col items-center justify-center gap-3 text-center">
+          <Link href="https://blog.uniswap.org/Unichain_Whitepaper" target="_blank">
+            <h5>Read the whitepaper</h5>
+            <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
+          </Link>
+        </div>
       </article>
     </section>
   );
