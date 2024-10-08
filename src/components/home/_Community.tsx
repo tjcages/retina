@@ -25,6 +25,7 @@ const Item: React.FC<Props> = ({ name, src }) => {
 };
 
 const partners = [
+  // Confirmed for 10/10
   {
     name: "Optimism",
     src: "/assets/partners/optimism.png"
@@ -34,20 +35,8 @@ const partners = [
     src: "/assets/partners/flashbots.png"
   },
   {
-    name: "Quicknode",
+    name: "QuickNode",
     src: "/assets/partners/quicknode.png"
-  },
-  {
-    name: "Tenderly",
-    src: "/assets/partners/tenderly.png"
-  },
-  {
-    name: "Alchemy",
-    src: "/assets/partners/alchemy.png"
-  },
-  {
-    name: "ThirdWeb",
-    src: "/assets/partners/thirdweb.png"
   },
   {
     name: "The Graph",
@@ -58,10 +47,6 @@ const partners = [
     src: "/assets/partners/openzeppelin.png"
   },
   {
-    name: "Moralis",
-    src: "/assets/partners/moralis.png"
-  },
-  {
     name: "Goldsky",
     src: "/assets/partners/goldsky.png"
   },
@@ -70,12 +55,16 @@ const partners = [
     src: "/assets/partners/subquery.png"
   },
   {
-    name: "Zerion",
-    src: "/assets/partners/zerion.png"
+    name: "Myth",
+    src: "/assets/partners/myth.png" // TODO
   },
   {
-    name: "Pyth",
-    src: "/assets/partners/pyth.png"
+    name: "Alchemy",
+    src: "/assets/partners/alchemy.png"
+  },
+  {
+    name: "ThirdWeb",
+    src: "/assets/partners/thirdweb.png"
   },
   {
     name: "Redstone",
@@ -86,108 +75,40 @@ const partners = [
     src: "/assets/partners/etherscan.png"
   },
   {
+    name: "Zeroing",
+    src: "/assets/partners/zeroing.png" // TODO
+  },
+  {
+    name: "Tenderly",
+    src: "/assets/partners/tenderly.png"
+  },
+  {
     name: "Blockscout",
     src: "/assets/partners/blockscout.png"
-  },
-  {
-    name: "Parsec",
-    src: "/assets/partners/parsec.png"
-  },
-  {
-    name: "LayerZero",
-    src: "/assets/partners/layerzero.png"
-  },
-  {
-    name: "Brid.gg",
-    src: "/assets/partners/bridgg.png"
   },
   {
     name: "Superbridge",
     src: "/assets/partners/superbridge.png"
   },
-  // {
-  //   name: "Bitstamp",
-  //   src: "/assets/partners/bitstamp.png"
-  // },
   {
-    name: "Transak",
-    src: "/assets/partners/transak.png"
-  },
-  {
-    name: "Moonpay",
-    src: "/assets/partners/moonpay.png"
-  },
-  {
-    name: "Meld",
-    src: "/assets/partners/meld.png"
+    name: "Privy",
+    src: "/assets/partners/privy.png"
   },
   {
     name: "Across",
     src: "/assets/partners/across.png"
   },
   {
-    name: "Topper",
-    src: "/assets/partners/topper.png"
-  },
-  {
-    name: "ZeroHash",
-    src: "/assets/partners/zerohash.png"
-  },
-  // {
-  //   name: "Stripe",
-  //   src: "/assets/partners/stripe.png"
-  // },
-  {
-    name: "Dune",
-    src: "/assets/partners/dune.png"
-  },
-  {
-    name: "Coingecko",
-    src: "/assets/partners/coingecko.png"
-  },
-  {
     name: "Allium",
     src: "/assets/partners/allium.png"
-  },
-  {
-    name: "Coinmarketcap",
-    src: "/assets/partners/coinmarketcap.png"
-  },
-  {
-    name: "DEXScreener",
-    src: "/assets/partners/dexscreener.png"
-  },
-  {
-    name: "Hexagate",
-    src: "/assets/partners/hexagate.png"
-  },
-  {
-    name: "Hypernative",
-    src: "/assets/partners/hypernative.png"
-  },
-  {
-    name: "Wormhole",
-    src: "/assets/partners/wormhole.png"
-  },
-  {
-    name: "Stargate",
-    src: "/assets/partners/stargate.png"
   },
   {
     name: "Axelar",
     src: "/assets/partners/axelar.png"
   },
   {
-    name: "Squid Router",
-    src: "/assets/partners/squid-router.png"
-  },
-  {
-    name: "Fireblocks",
-    src: "/assets/partners/fireblocks.png"
-  },
-  {
-    name: "WalletConnect",
-    src: "/assets/partners/walletconnect.png"
+    name: "Hexagate",
+    src: "/assets/partners/hexagate.png"
   },
   {
     name: "Safe",
@@ -196,7 +117,105 @@ const partners = [
   {
     name: "RainbowKit",
     src: "/assets/partners/rainbowkit.png"
+  },
+  {
+    name: "Wormhole",
+    src: "/assets/partners/wormhole.png"
+  },
+
+  // Awaiting confirmation for 10/10
+  {
+    name: "WalletConnect",
+    src: "/assets/partners/walletconnect.png"
+  },
+  {
+    name: "Meld",
+    src: "/assets/partners/meld.png"
+  },
+  {
+    name: "Topper",
+    src: "/assets/partners/topper.png"
+  },
+  {
+    name: "Transak",
+    src: "/assets/partners/transak.png"
+  },
+  {
+    name: "Evervault",
+    src: "/assets/partners/evervault.png" // TODO
+  },
+  {
+    name: "Fireblocks",
+    src: "/assets/partners/fireblocks.png"
   }
+  // {
+  //   name: "Moralis",
+  //   src: "/assets/partners/moralis.png"
+  // },
+  // {
+  //   name: "Zerion",
+  //   src: "/assets/partners/zerion.png"
+  // },
+  // {
+  //   name: "Pyth",
+  //   src: "/assets/partners/pyth.png"
+  // },
+  // {
+  //   name: "Parsec",
+  //   src: "/assets/partners/parsec.png"
+  // },
+  // {
+  //   name: "LayerZero",
+  //   src: "/assets/partners/layerzero.png"
+  // },
+  // {
+  //   name: "Brid.gg",
+  //   src: "/assets/partners/bridgg.png"
+  // },
+  // {
+  //   name: "Bitstamp",
+  //   src: "/assets/partners/bitstamp.png"
+  // },
+  // {
+  //   name: "Moonpay",
+  //   src: "/assets/partners/moonpay.png"
+  // },
+  // {
+  //   name: "ZeroHash",
+  //   src: "/assets/partners/zerohash.png"
+  // },
+  // {
+  //   name: "Stripe",
+  //   src: "/assets/partners/stripe.png"
+  // },
+  // {
+  //   name: "Dune",
+  //   src: "/assets/partners/dune.png"
+  // },
+  // {
+  //   name: "Coingecko",
+  //   src: "/assets/partners/coingecko.png"
+  // },
+  // {
+  //   name: "Coinmarketcap",
+  //   src: "/assets/partners/coinmarketcap.png"
+  // },
+  // {
+  //   name: "DEXScreener",
+  //   src: "/assets/partners/dexscreener.png"
+  // },
+  // {
+  //   name: "Hypernative",
+  //   src: "/assets/partners/hypernative.png"
+  // },
+  // {
+  //   name: "Stargate",
+  //   src: "/assets/partners/stargate.png"
+  // },
+  // {
+  //   name: "Squid Router",
+  //   src: "/assets/partners/squid-router.png"
+  // }
   // {
   //   name: "Binance",
   //   src: "/assets/partners/binance.png"
@@ -264,7 +283,7 @@ const Community = () => {
             }
           >
             Apply for a developer grant
-            <Icon icon="ArrowUpRight" className="ml-2 h-5 w-5 text-[#f94bdf]" />
+            <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
           </Button>
         </div>
       </article>

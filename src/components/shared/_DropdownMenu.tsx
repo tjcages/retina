@@ -115,10 +115,7 @@ const _: React.FC<Props> = ({ children }) => {
             <Item shortcut={["k"]} href="/brand-kit">
               Brand Kit
             </Item>
-            <Item
-              shortcut={["t"]}
-              href="https://unichain-docs.vercel.app/docs/technical-information/network-information"
-            >
+            <Item shortcut={["t"]} href="/bridge">
               Testnet
             </Item>
             <Item shortcut={["e"]} href="https://unichain-sepolia.blockscout.com/">

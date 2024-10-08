@@ -15,8 +15,8 @@ export const Image = React.forwardRef<HTMLImageElement, FadeInImageProps>(
     return (
       <DefaultImage
         className={cn(
-          "transition-opacity duration-300 ease-out",
-          isLoaded ? "opacity-100" : "opacity-0",
+          "origin-bottom transition-all duration-300 ease-out",
+          isLoaded ? "scale-100 opacity-100" : "scale-90 opacity-0",
           className
         )}
         alt={alt}
