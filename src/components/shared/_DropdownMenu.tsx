@@ -1,5 +1,6 @@
 "use client";
 
+import { envClient } from "@/lib";
 import { cn, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
@@ -106,7 +107,7 @@ const _: React.FC<Props> = ({ children }) => {
               isVisible && "pointer-events-auto"
             )}
           >
-            <Item shortcut={["d"]} href="https://docs.unichain.org/">
+            <Item shortcut={["d"]} href={envClient.NEXT_PUBLIC_DOCS_URL}>
               Developer Docs
             </Item>
             <Item shortcut={["b"]} href="/builder-toolkit">

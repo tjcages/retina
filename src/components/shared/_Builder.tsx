@@ -1,5 +1,6 @@
 "use client";
 
+import { envClient } from "@/lib";
 import { useState } from "react";
 
 import { ActionItem, type ActionItemProps } from "@/components/shared";
@@ -9,25 +10,25 @@ const items: ActionItemProps[] = [
     header: "Deploy a smart contract",
     description: "Sample app to help kickstart your development process.",
     icon: "Code",
-    href: "https://docs.unichain.org/docs/building-on-unichain/deploy-a-smart-contract"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-a-smart-contract"
   },
   {
     header: "Launch an ERC-20",
     description: "Example token implementation.",
     icon: "DesignSquare",
-    href: "https://docs.unichain.org/docs/building-on-unichain/launching-a-token"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/launching-a-token"
   },
   {
     header: "Create a pool",
     description: "Resources for creating pools on Unichain.",
     icon: "ActivityCircle",
-    href: "https://docs.unichain.org/docs/building-on-unichain/create-a-pool"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/create-a-pool"
   },
   {
     header: "Read docs",
     description: "Get started with Unichain's developer docs.",
     icon: "NoteText",
-    href: "https://docs.unichain.org"
+    href: envClient.NEXT_PUBLIC_DOCS_URL
   }
 ];
 

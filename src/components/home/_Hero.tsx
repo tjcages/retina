@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView } from "@/hooks";
+import { envClient } from "@/lib";
 import { cn } from "@/utils";
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
@@ -35,7 +36,7 @@ const _ = () => {
 
   const handleMainCTAClick = () => {
     // old
-    window.open("https://docs.unichain.org/docs/getting-started", "_blank");
+    window.open(envClient.NEXT_PUBLIC_DOCS_URL + "/getting-started", "_blank");
     // router.push("builder-toolkit", { onTransitionReady: pageTransition });
     // state.isSignUpVisible = true;
   };
@@ -76,7 +77,7 @@ const _ = () => {
               <ArrowRightIcon className="mr-2 h-5 w-5" />
               Get Started
             </Button>
-            <Button className="w-full" onClick={() => handleClick("https://docs.unichain.org")}>
+            <Button className="w-full" onClick={() => handleClick(envClient.NEXT_PUBLIC_DOCS_URL)}>
               <CodeIcon className="mr-2 h-5 w-5" />
               Read Docs
             </Button>

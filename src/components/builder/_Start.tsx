@@ -1,3 +1,5 @@
+import { envClient } from "@/lib";
+
 import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
@@ -5,7 +7,7 @@ const items: ActionItemProps[] = [
     header: "Developer docs",
     description: "Explore Unichain documentation, resources and tutorials.",
     icon: "NoteText",
-    href: "https://docs.unichain.org"
+    href: envClient.NEXT_PUBLIC_DOCS_URL
   },
   {
     header: "Support",

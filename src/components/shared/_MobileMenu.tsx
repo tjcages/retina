@@ -1,6 +1,7 @@
 "use client";
 
 import { Close } from "@/assets/icons";
+import { envClient } from "@/lib";
 import { state, useLocalState } from "@/store";
 import { cn, delay, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -112,10 +113,12 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="/about">About</Item>
               <Item href="/bridge">Bridge</Item>
-              <Item href="https://docs.unichain.org/">Developer Docs</Item>
+              <Item href={envClient.NEXT_PUBLIC_DOCS_URL}>Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
-              <Item href="https://docs.unichain.org/docs/technical-information/network-information">
+              <Item
+                href={envClient.NEXT_PUBLIC_DOCS_URL + "/technical-information/network-information"}
+              >
                 Testnet
               </Item>
               <Item href="https://sepolia.uniscan.xyz/">Block Explorer</Item>
