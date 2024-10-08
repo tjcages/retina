@@ -1,13 +1,25 @@
+import { Icon, Link } from "@/components/ui";
+
 interface Props {
   header: string;
   description: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
 }
 
-const Item: React.FC<Props> = ({ header, description }) => {
+const Item: React.FC<Props> = ({ header, description, cta }) => {
   return (
     <div className="col-span-full flex flex-col items-start gap-3 md:col-span-6">
       <h3>{header}</h3>
       <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
+      {cta && (
+        <Link href={cta.href}>
+          <h5>{cta.text}</h5>
+          <Icon icon="ArrowDown" className="ml-1 h-5 w-5 text-pink-primary" />
+        </Link>
+      )}
     </div>
   );
 };
@@ -31,7 +43,11 @@ const items = [
   {
     header: "How do I download these assets?",
     description:
-      "You can copy the all the various logo assets at the top of the page, or download the full brand kit here."
+      "You can copy the all the various logo assets at the top of the page, or download the full brand kit here.",
+    cta: {
+      text: "Download Brand Kit",
+      href: "/assets/unichain-brand-kit.zip"
+    }
   }
 ] as Props[];
 
@@ -45,7 +61,12 @@ const _ = () => {
         </div>
         <div className="col-span-full grid grid-cols-subgrid gap-12">
           {items.map(item => (
-            <Item key={item.header} header={item.header} description={item.description} />
+            <Item
+              key={item.header}
+              header={item.header}
+              description={item.description}
+              cta={item.cta}
+            />
           ))}
         </div>
       </article>

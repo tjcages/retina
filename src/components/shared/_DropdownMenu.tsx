@@ -41,7 +41,7 @@ const Item: React.FC<ItemProps> = ({ children, href, shortcut }) => {
     <motion.div variants={itemVariants}>
       <div
         className={cn(
-          "flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 active:scale-95",
+          "flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-3 text-pink-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/20 active:scale-95",
           pathname === href && "bg-pink-secondary/30"
         )}
         onClick={handleTrigger}

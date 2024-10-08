@@ -11,9 +11,9 @@ export default async function HomePage() {
       <Header variant="secondary" />
       <Hero />
       <Start />
-      <Divider variant="secondary" />
+      <Divider variant="tertiary" />
       <Fund />
-      <Divider variant="secondary" />
+      <Divider variant="tertiary" />
       <Discover />
       <Divider />
       <Email />

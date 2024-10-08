@@ -98,19 +98,27 @@ interface Props {
 const GradientShader: React.FC<Props> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
+  const uniformsRef = useRef<{ [uniform: string]: THREE.IUniform } | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
 
     const scene = new THREE.Scene();
+    sceneRef.current = scene;
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    cameraRef.current = camera;
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
+    rendererRef.current = renderer;
 
     const geometry = new THREE.PlaneGeometry(2, 2);
     const uniforms = {
       iTime: { value: 0 },
       iResolution: { value: new THREE.Vector2() }
     };
+    uniformsRef.current = uniforms;
 
     const material = new THREE.ShaderMaterial({
       fragmentShader,
@@ -122,15 +130,21 @@ const GradientShader: React.FC<Props> = ({ className }) => {
     scene.add(mesh);
 
     const resizeHandler = () => {
-      const { clientWidth, clientHeight } = canvasRef.current!;
-      renderer.setSize(clientWidth, clientHeight);
+      if (!canvasRef.current || !renderer || !uniforms) return;
+
+      const { clientWidth, clientHeight } = canvasRef.current;
+      renderer.setSize(clientWidth, clientHeight, false);
       uniforms.iResolution.value.set(clientWidth, clientHeight);
     };
 
-    window.addEventListener("resize", resizeHandler);
-    resizeHandler();
+    const debouncedResizeHandler = debounce(resizeHandler, 250);
+
+    window.addEventListener("resize", debouncedResizeHandler);
+    resizeHandler(); // Initial resize
 
     const animate = (time: number) => {
+      if (!uniforms || !renderer || !scene || !camera) return;
+
       uniforms.iTime.value = time / 1000;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
@@ -142,8 +156,8 @@ const GradientShader: React.FC<Props> = ({ className }) => {
     setTimeout(() => setIsLoaded(true), 100);
 
     return () => {
-      window.removeEventListener("resize", resizeHandler);
-      renderer.dispose();
+      window.removeEventListener("resize", debouncedResizeHandler);
+      if (renderer) renderer.dispose();
     };
   }, []);
 
@@ -152,11 +166,24 @@ const GradientShader: React.FC<Props> = ({ className }) => {
       ref={canvasRef}
       className={cn(
         "h-full w-full transition-opacity delay-500 duration-1000 gradient-mask-t-0",
-        isLoaded ? "opacity-100" : "opacity-0",
+        isLoaded ? "opacity-40" : "opacity-0",
         className
       )}
     />
   );
 };
+
+// Debounce function to limit the frequency of resize events
+function debounce(func: (...args: unknown[]) => void, wait: number) {
+  let timeout: NodeJS.Timeout | null = null;
+  return function executedFunction(...args: unknown[]) {
+    const later = () => {
+      timeout = null;
+      func(...args);
+    };
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 export default GradientShader;

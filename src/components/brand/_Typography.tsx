@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { FitText } from "@/components/ui";
 
 const Typography: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Typography: React.FC = () => {
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <h1 className="text-[12.5vw] md:-mb-3 md:text-[15.5vw]">AaBbCc</h1>
+            <FitText className="leading-none md:-mb-3">AaBbCc</FitText>
           </div>
         </div>
         <div className="col-span-full mt-6 grid grid-cols-subgrid items-start gap-6 md:mt-0">
@@ -29,9 +29,9 @@ const Typography: React.FC = () => {
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto md:border-b-0 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <h1 className="text-[12.5vw] md:-mt-9 md:text-[15.5vw]">
-              <strong>AaBbCc</strong>
-            </h1>
+            <FitText className="leading-none md:-mt-9">
+              <strong className="tracking-[-0.01em]">AaBbCc</strong>
+            </FitText>
           </div>
         </div>
       </article>

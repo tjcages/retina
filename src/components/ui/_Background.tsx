@@ -43,6 +43,7 @@ export const GridComponent: React.FC<GridProps> = ({
   const [mousePosition, setMousePosition] = useState<THREE.Vector2>(new THREE.Vector2(500, 0));
   const prevMousePosition = useRef<THREE.Vector2>(new THREE.Vector2(500, 0));
   const materialRef = useRef<THREE.ShaderMaterial | null>(null);
+  const [isCanvasReady, setIsCanvasReady] = useState(false);
 
   const lerpMousePosition = useCallback(() => {
     if (materialRef.current) {
@@ -234,6 +235,11 @@ export const GridComponent: React.FC<GridProps> = ({
 
     camera.current.position.z = 5;
 
+    // Render the initial scene
+    renderer.current.render(scene.current, camera.current);
+
+    setIsCanvasReady(true);
+
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("resize", onResize);
 
@@ -265,8 +271,9 @@ export const GridComponent: React.FC<GridProps> = ({
     <div
       ref={mountRef}
       className={cn(
-        "absolute bottom-0 left-0 right-0 top-0 opacity-40 mix-blend-overlay",
-        variant === "secondary" && "opacity-20",
+        "absolute bottom-0 left-0 right-0 top-0 opacity-0 mix-blend-overlay transition-opacity duration-1000",
+        isCanvasReady && "opacity-40",
+        isCanvasReady && variant === "secondary" && "opacity-20",
         className
       )}
     />
@@ -297,7 +304,7 @@ export const Background: React.FC<Props> = ({
       {variant === "primary" && (
         <Image
           priority
-          className="absolute left-0 top-0 h-full w-full object-cover"
+          className="absolute left-0 top-0 h-full w-full !scale-100 object-cover"
           src="/assets/noise-texture.webp"
           alt="Pink noise texture"
           width={4000}
@@ -306,7 +313,7 @@ export const Background: React.FC<Props> = ({
       )}
       <div
         className={cn(
-          "absolute inset-0 bg-[radial-gradient(circle_at_75%,#F50DB400,#F50DB4CC)] from-pink-primary to-pink-secondary opacity-0 transition-opacity duration-1000 ease-in",
+          "absolute inset-0 bg-[radial-gradient(circle_at_75%,#F50DB400,#F50DB4CC)] from-pink-primary to-pink-secondary opacity-0 transition-opacity duration-1000",
           isMounted && "opacity-100",
           variant === "secondary" && "bg-[radial-gradient(circle_at_75%,#FFFFFF00,#FFFFFFCC)]"
         )}

@@ -33,7 +33,7 @@ const _: React.FC<ActionItemProps> = ({
   return header !== undefined ? (
     <div
       className={cn(
-        "group relative flex h-full w-full cursor-pointer flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary p-4 text-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/40 hover:text-pink-primary active:scale-95 md:p-6 lg:max-w-[300px]",
+        "group relative flex h-full w-full cursor-pointer flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary p-4 text-primary transition-all duration-200 ease-in-out hover:bg-pink-secondary/20 hover:text-pink-primary hover:mix-blend-multiply active:scale-95 md:p-6 lg:max-w-[300px]",
         disabled && "opacity-50 mix-blend-luminosity"
       )}
       onClick={handleClick}
@@ -52,9 +52,7 @@ const _: React.FC<ActionItemProps> = ({
       </div>
       <div className="flex w-full flex-col gap-3">
         <h3>{header}</h3>
-        <p className="text-pretty text-base !leading-none text-inherit opacity-50 md:text-xl">
-          {description}
-        </p>
+        <h5 className="text-pretty text-base text-inherit opacity-50 md:text-xl">{description}</h5>
       </div>
     </div>
   ) : isDesktop ? (

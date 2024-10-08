@@ -26,7 +26,7 @@ export const Divider = ({ className, variant = "default", ...props }: DividerPro
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
   return (
-    <section ref={ref} className="z-20 bg-background py-6">
+    <section ref={ref} className="py-6">
       <article>
         <div
           className={cn(

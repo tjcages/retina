@@ -1,4 +1,4 @@
-import { Badge, Button, Icon } from "@/components/ui";
+import { Badge, Icon, Link } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -14,10 +14,10 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
       <h3>{header}</h3>
       <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
       {cta !== undefined && (
-        <Button variant="ghost" className="text-pink -my-3 -ml-5 md:-mt-3">
-          {cta}
+        <Link href="/">
+          <h5>{cta}</h5>
           <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
-        </Button>
+        </Link>
       )}
     </div>
   );

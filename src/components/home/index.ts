@@ -1,4 +1,3 @@
-export { default as Builder } from "./_Builder";
 export { default as Community } from "./_Community";
 export { default as Details } from "./_Details";
 export { default as Features } from "./_Features";

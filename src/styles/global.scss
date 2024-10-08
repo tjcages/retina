@@ -130,12 +130,12 @@
   }
 
   h5 {
-    @apply text-xl leading-6 tracking-[-0.04em];
+    @apply text-xl leading-6 tracking-[-0.03em];
     text-wrap: pretty;
   }
 
   p {
-    @apply max-w-2xl text-base leading-6 tracking-[-0.04em] text-[rgba(0,0,0,0.42)];
+    @apply max-w-2xl text-base leading-[1.2rem] tracking-[-0.03em] text-[rgba(0,0,0,0.42)];
     text-wrap: pretty;
   }
 

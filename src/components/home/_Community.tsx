@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 
-import { Button, Icon, Image, Marquee } from "@/components/ui";
+import { Icon, Image, Link, Marquee } from "@/components/ui";
 
 interface Props {
   name: string;
@@ -11,7 +11,7 @@ interface Props {
 
 const Item: React.FC<Props> = ({ name, src }) => {
   return (
-    <div className="pointer-events-none col-span-1 mx-3 flex min-w-16 select-none flex-col items-center justify-center gap-3 text-center md:mx-6 lg:min-w-20">
+    <div className="pointer-events-none col-span-1 flex min-w-16 select-none flex-col items-center justify-center gap-3 text-center lg:min-w-20">
       <Image
         className="pointer-events-none h-16 w-16 select-none lg:h-20 lg:w-20"
         src={src}
@@ -55,8 +55,8 @@ const partners = [
     src: "/assets/partners/subquery.png"
   },
   {
-    name: "Myth",
-    src: "/assets/partners/myth.png" // TODO
+    name: "Pyth",
+    src: "/assets/partners/pyth.png"
   },
   {
     name: "Alchemy",
@@ -75,8 +75,8 @@ const partners = [
     src: "/assets/partners/etherscan.png"
   },
   {
-    name: "Zeroing",
-    src: "/assets/partners/zeroing.png" // TODO
+    name: "Zerion",
+    src: "/assets/partners/zerion.png"
   },
   {
     name: "Tenderly",
@@ -121,44 +121,38 @@ const partners = [
   {
     name: "Wormhole",
     src: "/assets/partners/wormhole.png"
-  },
+  }
 
   // Awaiting confirmation for 10/10
-  {
-    name: "WalletConnect",
-    src: "/assets/partners/walletconnect.png"
-  },
-  {
-    name: "Meld",
-    src: "/assets/partners/meld.png"
-  },
-  {
-    name: "Topper",
-    src: "/assets/partners/topper.png"
-  },
-  {
-    name: "Transak",
-    src: "/assets/partners/transak.png"
-  },
-  {
-    name: "Evervault",
-    src: "/assets/partners/evervault.png" // TODO
-  },
-  {
-    name: "Fireblocks",
-    src: "/assets/partners/fireblocks.png"
-  }
+  // {
+  //   name: "WalletConnect",
+  //   src: "/assets/partners/walletconnect.png"
+  // },
+  // {
+  //   name: "Meld",
+  //   src: "/assets/partners/meld.png"
+  // },
+  // {
+  //   name: "Topper",
+  //   src: "/assets/partners/topper.png"
+  // },
+  // {
+  //   name: "Transak",
+  //   src: "/assets/partners/transak.png"
+  // },
+  // {
+  //   name: "Evervault",
+  //   src: "/assets/partners/evervault.png" // TODO
+  // },
+  // {
+  //   name: "Fireblocks",
+  //   src: "/assets/partners/fireblocks.png"
+  // }
+
+  // Others
   // {
   //   name: "Moralis",
   //   src: "/assets/partners/moralis.png"
-  // },
-  // {
-  //   name: "Zerion",
-  //   src: "/assets/partners/zerion.png"
-  // },
-  // {
-  //   name: "Pyth",
-  //   src: "/assets/partners/pyth.png"
   // },
   // {
   //   name: "Parsec",
@@ -252,39 +246,37 @@ const Community = () => {
             <Marquee
               direction="left"
               speed={20}
-              className="col-span-full flex w-full items-center gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+              className="col-span-full gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4"
             >
-              {shuffledCommunity
-                .slice(0, Math.ceil(shuffledCommunity.length / 2))
-                .map((item, index) => (
-                  <Item key={index} name={item.name} src={item.src} />
-                ))}
+              <div className="flex items-center lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
+                {shuffledCommunity
+                  .slice(0, Math.ceil(shuffledCommunity.length / 2))
+                  .map((item, index) => (
+                    <Item key={index} name={item.name} src={item.src} />
+                  ))}
+              </div>
             </Marquee>
             <Marquee
               direction="right"
               speed={20}
-              className="col-span-full flex w-full items-center gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4 lg:gap-8 xl:gap-12"
+              className="col-span-full gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4"
             >
-              {shuffledCommunity
-                .slice(Math.ceil(shuffledCommunity.length / 2))
-                .reverse()
-                .map((item, index) => (
-                  <Item key={index} name={item.name} src={item.src} />
-                ))}
+              <div className="flex items-center lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
+                {shuffledCommunity
+                  .slice(Math.ceil(shuffledCommunity.length / 2))
+                  .reverse()
+                  .map((item, index) => (
+                    <Item key={index} name={item.name} src={item.src} />
+                  ))}
+              </div>
             </Marquee>
           </>
         )}
         <div className="col-span-full mt-8 flex flex-col items-center justify-center gap-3 text-center">
-          <Button
-            variant="ghost"
-            className="text-pink"
-            onClick={() =>
-              window.open("https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form", "_blank")
-            }
-          >
-            Apply for a developer grant
+          <Link href="https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form">
+            <h5>Apply for a developer grant</h5>
             <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
-          </Button>
+          </Link>
         </div>
       </article>
     </section>

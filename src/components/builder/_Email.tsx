@@ -24,11 +24,7 @@ const _ = () => {
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
-          <Button
-            type="submit"
-            className="w-full max-w-xs bg-pink-secondary-foreground"
-            onClick={handleSignUp}
-          >
+          <Button type="submit" className="w-full max-w-xs" onClick={handleSignUp}>
             Sign Up
           </Button>
         </div>

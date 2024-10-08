@@ -6,7 +6,7 @@ import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-import { Background, Button, Icon } from "@/components/ui";
+import { Background, Button, ChainText } from "@/components/ui";
 
 const container = {
   hidden: { opacity: 0 },
@@ -82,16 +82,16 @@ const _ = () => {
             className="col-span-full flex items-start justify-start md:mt-14"
             variants={item}
           >
-            <Button
+            {/* <Button
               variant="ghost"
               onClick={() => window.open("https://www.optimism.io/", "_blank")}
             >
               <Icon icon="Superchain" className="h-10 w-auto" />
-            </Button>
-            {/* <ChainText
+            </Button> */}
+            <ChainText
               text={"Powered by the Superchain."}
               onClick={() => window.open("https://www.optimism.io/", "_blank")}
-            /> */}
+            />
           </motion.div>
         </motion.article>
       </section>

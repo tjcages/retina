@@ -58,7 +58,7 @@ const noItems: Props[] = [
   {
     icon: (
       <Image
-        className="h-1/3 w-auto object-contain"
+        className="h-1/3 w-auto object-contain opacity-50"
         src="/assets/graphics/not-allowed/0.png"
         alt="Not allowed"
         width={400}
@@ -67,18 +67,18 @@ const noItems: Props[] = [
     ),
     description: "Don’t stretch or skew the logo"
   },
-  {
-    icon: (
-      <Image
-        className="h-1/3 w-auto object-contain"
-        src="/assets/graphics/not-allowed/1.png"
-        alt="Not allowed"
-        width={400}
-        height={400}
-      />
-    ),
-    description: "Don’t use off-brand colors"
-  },
+  // {
+  //   icon: (
+  //     <Image
+  //       className="h-1/3 w-auto object-contain"
+  //       src="/assets/graphics/not-allowed/1.png"
+  //       alt="Not allowed"
+  //       width={400}
+  //       height={400}
+  //     />
+  //   ),
+  //   description: "Don’t use off-brand colors"
+  // },
   {
     icon: (
       <Image
@@ -91,30 +91,30 @@ const noItems: Props[] = [
     ),
     description: "Don’t rotate the logo"
   },
-  {
-    icon: (
-      <Image
-        className="h-1/3 w-auto object-contain"
-        src="/assets/graphics/not-allowed/3.png"
-        alt="Not allowed"
-        width={400}
-        height={400}
-      />
-    ),
-    description: "Don’t use multiple colors within the logo"
-  },
-  {
-    icon: (
-      <Image
-        className="h-1/2 w-auto object-contain"
-        src="/assets/graphics/not-allowed/4.png"
-        alt="Not allowed"
-        width={400}
-        height={400}
-      />
-    ),
-    description: "Don’t add effects like gradients and shadows to the logo"
-  },
+  // {
+  //   icon: (
+  //     <Image
+  //       className="h-1/3 w-auto object-contain"
+  //       src="/assets/graphics/not-allowed/3.png"
+  //       alt="Not allowed"
+  //       width={400}
+  //       height={400}
+  //     />
+  //   ),
+  //   description: "Don’t use multiple colors within the logo"
+  // },
+  // {
+  //   icon: (
+  //     <Image
+  //       className="h-1/2 w-auto object-contain"
+  //       src="/assets/graphics/not-allowed/4.png"
+  //       alt="Not allowed"
+  //       width={400}
+  //       height={400}
+  //     />
+  //   ),
+  //   description: "Don’t add effects like gradients and shadows to the logo"
+  // },
   {
     icon: (
       <Image

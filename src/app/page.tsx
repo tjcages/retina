@@ -1,8 +1,8 @@
 import { seo } from "@/seo";
 import type { Metadata } from "next";
 
-import { Builder, Community, Details, Features, Hero, Roadmap, Volume } from "@/components/home";
-import { EmailSignup, Footer, Header } from "@/components/shared";
+import { Community, Details, Features, Hero, Roadmap, Volume } from "@/components/home";
+import { Builder, EmailSignup, Footer, Header } from "@/components/shared";
 import { Divider, Scroll } from "@/components/ui";
 
 export default async function HomePage() {

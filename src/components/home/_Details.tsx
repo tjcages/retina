@@ -4,7 +4,7 @@ import { useInView } from "@/hooks";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-import { Badge, Button, Image } from "@/components/ui";
+import { Badge, Image, Link } from "@/components/ui";
 
 interface Props {
   index?: number;
@@ -26,9 +26,9 @@ const Item: React.FC<Props> = ({ index, header, description, graphic, video, cta
         <h3>{header}</h3>
         <h5 className="text-secondary-foreground">{description}</h5>
         {cta !== undefined && (
-          <Button variant="ghost" className="text-pink -ml-5 -mt-3 outline-none">
-            Learn more
-          </Button>
+          <Link href="/">
+            <h5>Learn more</h5>
+          </Link>
         )}
       </div>
       <div
