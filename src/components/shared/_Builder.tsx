@@ -6,19 +6,19 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Create a token",
-    description: "Example token implementation.",
-    icon: "DesignSquare",
-    href: "https://docs.unichain.org/docs/building-on-unichain/launching-a-token"
-  },
-  {
-    header: "Build an app",
+    header: "Deploy a smart contract",
     description: "Sample app to help kickstart your development process.",
     icon: "Code",
     href: "https://docs.unichain.org/docs/building-on-unichain/deploy-a-smart-contract"
   },
   {
-    header: "Deploy a pool",
+    header: "Launch an ERC-20",
+    description: "Example token implementation.",
+    icon: "DesignSquare",
+    href: "https://docs.unichain.org/docs/building-on-unichain/launching-a-token"
+  },
+  {
+    header: "Create a pool",
     description: "Resources for creating pools on Unichain.",
     icon: "ActivityCircle",
     href: "https://docs.unichain.org/docs/building-on-unichain/create-a-pool"

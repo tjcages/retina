@@ -1,8 +1,8 @@
 "use client";
 
 import { useIsDesktop } from "@/hooks";
-import { state } from "@/store";
-import { cn, delay } from "@/utils";
+import { state, useLocalState } from "@/store";
+import { cn } from "@/utils";
 import { AnimatePresence, PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -13,6 +13,7 @@ interface Props {
 }
 
 const _: React.FC<Props> = ({ className }) => {
+  const { showSignUpBanner } = useLocalState();
   const [isVisible, setIsVisible] = useState(false);
   const isDesktop = useIsDesktop();
 
@@ -40,12 +41,16 @@ const _: React.FC<Props> = ({ className }) => {
   };
 
   const handleDismiss = () => {
+    state.showSignUpBanner = false;
     setIsVisible(false);
   };
 
   useEffect(() => {
-    delay(1000).then(() => setIsVisible(true));
-  }, []);
+    if (showSignUpBanner) {
+      const timeout = setTimeout(() => setIsVisible(true), 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showSignUpBanner]);
 
   return (
     <AnimatePresence>

@@ -8,6 +8,7 @@ interface State {
   ready: boolean;
   isBelowFold: boolean;
   menuVisible: boolean;
+  showSignUpBanner: boolean;
   isSignUpVisible: boolean;
 }
 
@@ -16,6 +17,7 @@ const defaultState: State = {
   ready: false,
   isBelowFold: false,
   menuVisible: false,
+  showSignUpBanner: true,
   isSignUpVisible: false
 };
 

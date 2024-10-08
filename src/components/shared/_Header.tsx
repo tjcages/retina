@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretDown, Discord, Logo, Menu, Twitter } from "@/assets/icons";
+import { Discord, Logo, Menu, Twitter } from "@/assets/icons";
 import { state, useLocalState } from "@/store";
 import { cn, pageTransition } from "@/utils";
 import { useTransitionRouter } from "next-view-transitions";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { DropdownMenu, LogoBrandMenu, MobileMenu } from "@/components/shared";
+import { LogoBrandMenu, MobileMenu } from "@/components/shared";
 import { Button, useScroll } from "@/components/ui";
 
 interface Props {
@@ -57,11 +57,23 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
 
           <div className="-col-start-1 hidden items-center gap-3 md:flex">
             <div className="flex items-center gap-3">
-              <DropdownMenu>
+              {/* <DropdownMenu>
                 <div className="relative flex cursor-pointer items-center justify-center px-4 py-2 text-inherit">
                   Developers <CaretDown className="h-4 w-4 text-inherit" />
                 </div>
-              </DropdownMenu>
+              </DropdownMenu> */}
+              <div
+                className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+                onClick={() => router.push("/bridge")}
+              >
+                Docs
+              </div>
+              <div
+                className="mr-2 cursor-pointer whitespace-nowrap px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+                onClick={() => router.push("/bridge")}
+              >
+                Builder Toolkit
+              </div>
               <div
                 className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
                 onClick={() => router.push("/bridge")}

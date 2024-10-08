@@ -34,7 +34,7 @@ const Typography: React.FC = () => {
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto md:border-b-0 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
             <FitText className="leading-none md:-mt-9">
-              <strong className="tracking-[-0.05em]">AaBbCc</strong>
+              <strong className="tracking-[-0.02em]">AaBbCc</strong>
             </FitText>
           </div>
         </div>

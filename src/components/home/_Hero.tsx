@@ -1,10 +1,10 @@
 "use client";
 
 import { useInView } from "@/hooks";
-import { state } from "@/store";
 import { cn } from "@/utils";
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
+import { useTransitionRouter } from "next-view-transitions";
 import { useRef } from "react";
 
 import { Background, Button, ChainText } from "@/components/ui";
@@ -27,6 +27,7 @@ const item = {
 const _ = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
+  const router = useTransitionRouter();
 
   const handleClick = (href: string) => {
     window.open(href);
@@ -34,8 +35,9 @@ const _ = () => {
 
   const handleMainCTAClick = () => {
     // old
-    // window.open("https://unichain-docs.vercel.app/docs/getting-started", "_blank");
-    state.isSignUpVisible = true;
+    window.open("https://docs.unichain.org/docs/getting-started", "_blank");
+    // router.push("builder-toolkit", { onTransitionReady: pageTransition });
+    // state.isSignUpVisible = true;
   };
 
   return (
@@ -90,6 +92,7 @@ const _ = () => {
               <Icon icon="Superchain" className="h-10 w-auto" />
             </Button> */}
             <ChainText
+              className="opacity-70"
               text={"Powered by the Superchain."}
               onClick={() => window.open("https://www.optimism.io/", "_blank")}
             />

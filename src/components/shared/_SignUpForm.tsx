@@ -53,7 +53,7 @@ const _ = () => {
   };
 
   const renderContent = () => (
-    <form onSubmit={handleSubmit} className="flex max-h-full flex-col gap-6 overflow-y-auto p-6">
+    <form onSubmit={handleSubmit} className="flex max-h-[90vh] flex-col gap-6 overflow-y-auto p-6">
       <div className="flex w-full items-end justify-end">
         <Button variant="ghost" className="-my-4 -mr-5" onClick={() => handleOpenChange(false)}>
           <Icon icon="X" className="h-6 w-6 text-secondary-foreground" />

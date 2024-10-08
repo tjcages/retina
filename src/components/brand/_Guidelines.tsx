@@ -13,7 +13,7 @@ interface Props {
   description: string;
 }
 
-const Item: React.FC<Props> = ({ allowed, icon, description }) => {
+const Item: React.FC<Props> = ({ allowed = true, icon, description }) => {
   return (
     <div
       className={cn(
@@ -62,7 +62,8 @@ const items: Props[] = [
         height={400}
       />
     ),
-    description: "Don’t stretch or skew the logo"
+    description: "Don’t stretch or skew the logo",
+    allowed: false
   },
   {
     icon: (
@@ -74,7 +75,8 @@ const items: Props[] = [
         height={400}
       />
     ),
-    description: "Don’t rotate the logo"
+    description: "Don’t rotate the logo",
+    allowed: false
   },
   {
     icon: (
@@ -86,7 +88,8 @@ const items: Props[] = [
         height={400}
       />
     ),
-    description: "Don’t place other elements too closely to the logo"
+    description: "Don’t place other elements too closely to the logo",
+    allowed: false
   }
 ];
 
@@ -120,7 +123,7 @@ const Typography: React.FC = () => {
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>Do&apos;s and Don&apos;ts</h3>
             <h5 className="text-secondary-foreground">
-              If you&apos;re ever tempted to to try something creative with this logo — don&apos;t.
+              If you&apos;re ever tempted to try something creative with this logo — don&apos;t.
               Channel your creative spark into whatever the logo will live on instead.
             </h5>
           </div>
@@ -132,7 +135,7 @@ const Typography: React.FC = () => {
           >
             {items.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Item allowed icon={item.icon} description={item.description} />
+                <Item allowed={item.allowed} icon={item.icon} description={item.description} />
               </motion.div>
             ))}
           </motion.div>

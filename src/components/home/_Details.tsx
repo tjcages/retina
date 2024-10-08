@@ -89,7 +89,7 @@ const sections: Props[] = [
   {
     header: "Provable Block Building",
     description:
-      "Block building will be delegated to a trusted execution environment developed by Flashbots, enabling trustless transaction ordering.",
+      "Block building will be delegated to a trusted execution environment developed in partnership with Flashbots, enabling trustless transaction ordering.",
     graphic: "/assets/graphics/execution.png",
     video: "/assets/videos/execution.mp4",
     cta: "https://blog.uniswap.org/Unichain_Whitepaper",

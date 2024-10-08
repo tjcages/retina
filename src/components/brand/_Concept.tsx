@@ -139,11 +139,11 @@ const _ = () => {
         <div className="col-span-full grid grid-cols-subgrid items-center gap-6">
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <div className="flex flex-col gap-3 py-5">
-              <h3>The Grid</h3>
+              <h3>The Graph</h3>
               <h5 className="text-secondary-foreground">
-                The logo is based on the xy=k formula as plotted on a graph. With this equation as
-                the core element, the lines and grid extend from this center and reflect the
-                scalability of the underlying tech stack, alluding to the breadth and depth of its
+                Rooted deep in the origins of Uniswap (even before the Unicorn) is the x*y=k formula
+                that powers the AMM, enabling permissionless trading. The icon extend vertically and
+                horizontally alluding to the breadth and depth of Unichain&apos;s vision for
                 liquidity.
               </h5>
             </div>
@@ -163,12 +163,12 @@ const _ = () => {
                 height={1200}
               />
               <svg
-                width="463"
-                height="472"
+                width="100%"
+                height="100%"
                 viewBox="0 0 463 472"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute -bottom-2 -right-2 left-2 top-2"
+                className="absolute bottom-0 left-0 right-0 top-0 xl:-bottom-2 xl:-right-2 xl:left-2 xl:top-2"
               >
                 <motion.path
                   d="M248.955 18.3047C248.955 137.089 323.919 216.471 440.602 216.471"
@@ -196,12 +196,11 @@ const _ = () => {
         <div className="col-span-full grid grid-cols-subgrid items-center gap-6">
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <div className="flex flex-col gap-3 py-5">
-              <h3>Partnership & Community-Centric</h3>
+              <h3>Partners and Community</h3>
               <h5 className="text-secondary-foreground">
-                The gridded shapes that continue infinitely allude to the ecosystem of developers,
-                protocols, apps, assets that Unichain serves. The fluidity and liquidity of the
-                elements reveals the sparkle shape within the grid, while also representing the
-                users, apps, networks, and tokens.
+                The graph comes to life with color and interactivity — revealing shapes that
+                represent users, assets, projects, apps, and networks that scale Unichain, Ethereum,
+                and DeFi.
               </h5>
             </div>
           </div>

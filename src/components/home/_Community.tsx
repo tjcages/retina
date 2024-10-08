@@ -110,10 +110,10 @@ const partners = [
     name: "Hexagate",
     src: "/assets/partners/hexagate.png"
   },
-  {
-    name: "Safe",
-    src: "/assets/partners/safe.png"
-  },
+  // {
+  //   name: "Safe",
+  //   src: "/assets/partners/safe.png"
+  // },
   {
     name: "RainbowKit",
     src: "/assets/partners/rainbowkit.png"
