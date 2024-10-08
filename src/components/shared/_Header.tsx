@@ -64,13 +64,13 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
               </DropdownMenu> */}
               <div
                 className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push("/bridge")}
+                onClick={() => router.push("https://docs.unichain.org/")}
               >
                 Docs
               </div>
               <div
                 className="mr-2 cursor-pointer whitespace-nowrap px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push("/bridge")}
+                onClick={() => router.push("/builder-toolkit")}
               >
                 Builder Toolkit
               </div>
