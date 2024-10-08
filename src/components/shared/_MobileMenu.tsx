@@ -40,7 +40,7 @@ const Item: React.FC<ItemProps> = ({ children, href }) => {
   return (
     <motion.div variants={itemVariants}>
       <div
-        className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary p-4 text-lg text-pink-primary transition-colors duration-200 ease-in-out hover:bg-pink-secondary/40"
+        className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-secondary px-4 py-3 text-lg text-pink-primary transition-colors duration-200 ease-in-out hover:bg-pink-secondary/40"
         onClick={handleTrigger}
       >
         {children}
@@ -111,6 +111,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="/about">About</Item>
+              <Item href="/bridge">Bridge</Item>
               <Item href="https://docs.unichain.org/">Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>

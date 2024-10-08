@@ -17,7 +17,7 @@ const Item: React.FC<Props> = ({ allowed, icon, description }) => {
   return (
     <div
       className={cn(
-        "relative flex select-none flex-col items-center justify-center gap-3 text-center",
+        "relative flex select-none flex-col items-center justify-center gap-3",
         !allowed && "pointer-events-none"
       )}
     >
@@ -30,7 +30,7 @@ const Item: React.FC<Props> = ({ allowed, icon, description }) => {
           {icon}
         </motion.div>
       </div>
-      <p>{description}</p>
+      <p className="w-full">{description}</p>
       <Icon
         icon={allowed ? "Check" : "X"}
         className={cn("absolute right-3 top-3 h-5 w-5", !allowed && "text-[#FF0000]")}
@@ -39,10 +39,10 @@ const Item: React.FC<Props> = ({ allowed, icon, description }) => {
   );
 };
 
-const yesItems: Props[] = [
+const items: Props[] = [
   {
     icon: <Icon icon="Logo" className="h-auto w-3/4 text-inherit" />,
-    description: "Use the full lockup when appropriate"
+    description: "Use only the official logos"
   },
   {
     icon: <Icon icon="LogoIcon" className="h-auto w-1/3 text-inherit" />,
@@ -50,11 +50,8 @@ const yesItems: Props[] = [
   },
   {
     icon: <Icon icon="LogoNetwork" className="h-auto w-1/3 text-inherit" />,
-    description: "For network icons, use the white icon on a Primary Pink background"
-  }
-];
-
-const noItems: Props[] = [
+    description: "Network icons to use white icon on pink background"
+  },
   {
     icon: (
       <Image
@@ -67,18 +64,6 @@ const noItems: Props[] = [
     ),
     description: "Don’t stretch or skew the logo"
   },
-  // {
-  //   icon: (
-  //     <Image
-  //       className="h-1/3 w-auto object-contain"
-  //       src="/assets/graphics/not-allowed/1.png"
-  //       alt="Not allowed"
-  //       width={400}
-  //       height={400}
-  //     />
-  //   ),
-  //   description: "Don’t use off-brand colors"
-  // },
   {
     icon: (
       <Image
@@ -91,30 +76,6 @@ const noItems: Props[] = [
     ),
     description: "Don’t rotate the logo"
   },
-  // {
-  //   icon: (
-  //     <Image
-  //       className="h-1/3 w-auto object-contain"
-  //       src="/assets/graphics/not-allowed/3.png"
-  //       alt="Not allowed"
-  //       width={400}
-  //       height={400}
-  //     />
-  //   ),
-  //   description: "Don’t use multiple colors within the logo"
-  // },
-  // {
-  //   icon: (
-  //     <Image
-  //       className="h-1/2 w-auto object-contain"
-  //       src="/assets/graphics/not-allowed/4.png"
-  //       alt="Not allowed"
-  //       width={400}
-  //       height={400}
-  //     />
-  //   ),
-  //   description: "Don’t add effects like gradients and shadows to the logo"
-  // },
   {
     icon: (
       <Image
@@ -157,7 +118,11 @@ const Typography: React.FC = () => {
         </div>
         <div className="col-span-full mb-12 grid grid-cols-subgrid items-start gap-6">
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
-            <h3>What works</h3>
+            <h3>Do&apos;s and Don&apos;ts</h3>
+            <h5 className="text-secondary-foreground">
+              If you&apos;re ever tempted to to try something creative with this logo — don&apos;t.
+              Channel your creative spark into whatever the logo will live on instead.
+            </h5>
           </div>
           <motion.div
             className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
@@ -165,26 +130,9 @@ const Typography: React.FC = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {yesItems.map((item, index) => (
+            {items.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <Item allowed icon={item.icon} description={item.description} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-        <div className="col-span-full grid grid-cols-subgrid items-start gap-6">
-          <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
-            <h3>What doesn&apos;t work</h3>
-          </div>
-          <motion.div
-            className="relative col-span-full grid grid-cols-3 items-start gap-6 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            {noItems.map((item, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Item icon={item.icon} description={item.description} />
               </motion.div>
             ))}
           </motion.div>
