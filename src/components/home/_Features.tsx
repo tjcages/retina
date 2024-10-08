@@ -32,16 +32,16 @@ const Item = forwardRef<HTMLDivElement, Props>(
     return (
       <motion.div
         ref={ref}
-        className="relative flex h-full max-h-[100vw] w-[80vw] max-w-[500px] flex-shrink-0 select-none flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary md:max-h-none md:w-[60vw] lg:w-[40vw] xl:col-span-8 xl:h-full xl:w-full xl:max-w-none"
+        className="relative flex h-full max-h-[380px] w-full max-w-[80vw] flex-shrink-0 select-none flex-col items-start justify-start gap-3 overflow-hidden rounded-3xl bg-secondary md:max-w-[360px] lg:max-h-[380px] xl:h-auto xl:max-w-[500px]"
         variants={variants}
         initial={"hidden"}
         animate={"visible"}
         style={style}
       >
-        <div className="max-h-full w-full">
+        <div className="aspect-square w-full overflow-hidden">
           {graphic !== undefined && (
             <Image
-              className="pointer-events-none h-auto w-full select-none object-contain"
+              className="pointer-events-none h-full w-full select-none object-cover"
               src={graphic}
               alt={header}
               width={800}
@@ -50,7 +50,7 @@ const Item = forwardRef<HTMLDivElement, Props>(
           )}
         </div>
         <Badge className="absolute left-3 top-3">{tertiary}</Badge>
-        <div className="relative -mt-10 flex w-full flex-col gap-3 p-6">
+        <div className="-mt-10 flex w-full flex-col gap-3 p-6">
           <h3>{header}</h3>
           <h5 className="text-base text-secondary-foreground md:text-xl">{description}</h5>
         </div>
@@ -119,12 +119,12 @@ const _ = () => {
   }, [isDesktop]);
 
   return (
-    <section className="px-0 py-6 md:py-24 xl:px-20 2xl:px-24">
-      <article className="w-full gap-12" style={{ maxHeight: articleMaxHeight }}>
+    <section className="max-w-full px-0 py-6 md:pb-24 md:pt-12 xl:px-20 2xl:px-24">
+      <article className="gap-y-12" style={{ maxHeight: articleMaxHeight }}>
         <Scroll
           drag={!isDesktop}
           direction="x"
-          className="col-span-full flex items-start justify-start gap-6 px-3 md:px-12 lg:px-16 xl:grid xl:grid-cols-subgrid xl:overflow-hidden xl:px-0"
+          className="col-span-full flex w-full gap-6 px-3 md:px-12 lg:grid lg:grid-cols-3 lg:px-16 xl:px-0"
         >
           {displayedSections.map((section, index) => (
             <Item

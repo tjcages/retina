@@ -130,7 +130,7 @@ const _ = () => {
       <article className="gap-y-12 md:gap-y-16 xl:gap-x-12">
         <div className="col-span-full flex flex-col items-center justify-center gap-6 text-center">
           <h2 className="text-pink col-span-full">
-            <strong>Expanding</strong> the <strong>Uni</strong>verse
+            Expanding the <strong>Uni</strong>verse
           </h2>
           <h3 className="max-w-2xl">
             Informed by our experience building the world&apos;s largest decentralized trading

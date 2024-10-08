@@ -16,8 +16,12 @@ interface LinkProps {
 
 const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
   return (
-    <Link href={href} variant="ghost" className="whitespace-nowrap text-secondary-foreground">
-      {children}
+    <Link
+      href={href}
+      variant="ghost"
+      className="-my-0.5 whitespace-nowrap text-secondary-foreground"
+    >
+      <p>{children}</p>
     </Link>
   );
 };

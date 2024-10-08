@@ -94,7 +94,7 @@ const _ = () => {
             </Button> */}
             <ChainText
               className="opacity-70"
-              text={"Powered by the Superchain."}
+              text={"Powered by the Superchain"}
               onClick={() => window.open("https://www.optimism.io/", "_blank")}
             />
           </motion.div>
