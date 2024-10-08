@@ -1,4 +1,4 @@
-import { Icon, Link } from "@/components/ui";
+import { Link } from "@/components/ui";
 
 interface Props {
   header: string;
@@ -13,27 +13,30 @@ const Item: React.FC<Props> = ({ header, description, cta }) => {
   return (
     <div className="col-span-full flex flex-col items-start gap-3 md:col-span-6">
       <h3>{header}</h3>
-      <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
-      {cta && (
-        <Link href={cta.href}>
-          <h5>{cta.text}</h5>
-          <Icon icon="ArrowDown" className="ml-1 h-5 w-5 text-pink-primary" />
-        </Link>
-      )}
+      <h5 className="inline max-w-xs text-secondary-foreground md:max-w-none">
+        {description.includes("{{") ? (
+          <>
+            {description.split("{{")[0]}
+            <Link href={cta?.href || "#"}>{description.split("{{")[1].split("}}")[0]}</Link>
+            {description.split("}}")[1]}
+          </>
+        ) : (
+          description
+        )}
+      </h5>
     </div>
   );
 };
 
 const items = [
   {
-    header: "Where should I use these logos?",
+    header: "Why do I need to follow the these guidelines?",
     description:
-      "You can use these logos for social images, collaborations, or anywhere you need to display the Unichain logo."
+      "We don't want anyone to midcurve Unichain's brand. Keeping things consistent instills recognizability and trust."
   },
   {
-    header: "Can I use these assets for other projects?",
-    description:
-      "These assets represent the Unichain brand. Assets can be used in materials that directly reference Unichain."
+    header: "Can I use a different logo color to match my project’s theme?",
+    description: "Tempting, but no. Swapping out our colors compromises the integrity of our brand."
   },
   {
     header: "Can I pair this logo with another brand?",
@@ -43,9 +46,8 @@ const items = [
   {
     header: "How do I download these assets?",
     description:
-      "You can copy the all the various logo assets at the top of the page, or download the full brand kit here.",
+      "You can copy all the various logos and assets throughout this page, or download the full {{Brand Kit here.}}",
     cta: {
-      text: "Download Brand Kit",
       href: "/assets/unichain-brand-kit.zip"
     }
   }
