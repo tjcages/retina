@@ -2,7 +2,6 @@
 
 import { useInView } from "@/hooks";
 import { cn } from "@/utils";
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -35,13 +34,13 @@ const _ = () => {
       <footer>
         <div className="col-span-full grid grid-cols-subgrid gap-3">
           <div className="col-span-full mb-6 flex h-full flex-col items-start md:col-[1_/_span_15] md:mb-0">
-            <Image
+            {/* <Image
               className="mb-6 h-12 w-auto md:mb-auto"
               src="/assets/logo-secondary.webp"
               alt="Unichain logo"
               width={400}
               height={100}
-            />
+            /> */}
             <h5 className="md:mb-1">Looking for more?</h5>
             <p>Sign up for updates and events</p>
           </div>

@@ -29,23 +29,23 @@ const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
 const phases = [
   {
     header: "Public Testnet",
-    description: "Access for all developers to begin testing on Unichain.",
+    description: "Access for all developers to begin testing.",
     tertiary: "Early October",
     cta: { text: "Read the announcement", href: "https://blog.uniswap.org/introducing-unichain" }
   },
-  {
-    header: "Developer Mainnet",
-    description: "Access for all developers to deploy on Unichain.",
-    tertiary: "Late October"
-  },
+  // {
+  //   header: "Developer Mainnet",
+  //   description: "Access for all developers to deploy on Unichain.",
+  //   tertiary: "Late October"
+  // },
   {
     header: "Public Mainnet",
-    description: "Access for all developers and users to deploy on and use Unichain",
+    description: "Access for all developers and users to deploy on and use Unichain.",
     tertiary: "November"
   },
   {
     header: "New Features",
-    description: "Provable Block Building and Unichain Verification Service go live on Unichain.",
+    description: "Provable Block Building and Unichain Verification Service.",
     tertiary: "Early 2025"
   }
 ] as Props[];
