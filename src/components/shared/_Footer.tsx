@@ -1,11 +1,13 @@
 "use client";
 
 import { useInView } from "@/hooks";
+import { envClient } from "@/lib";
+import { state } from "@/store";
 import { cn } from "@/utils";
-import Link from "next/link";
 import { useRef } from "react";
 
 import { WaveEffect } from "@/components/shared";
+import { Link } from "@/components/ui";
 
 interface LinkProps {
   href: string;
@@ -14,7 +16,7 @@ interface LinkProps {
 
 const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
   return (
-    <Link href={href} className="whitespace-nowrap py-1.5 text-secondary-foreground">
+    <Link href={href} variant="ghost" className="whitespace-nowrap text-secondary-foreground">
       {children}
     </Link>
   );
@@ -42,13 +44,19 @@ const _ = () => {
               height={100}
             /> */}
             <h5 className="md:mb-1">Looking for more?</h5>
-            <p>Sign up for updates and events</p>
+            <div
+              className="-mx-3 -my-2 cursor-pointer px-3 py-2 text-secondary-foreground transition-all duration-200 ease-in-out hover:opacity-60"
+              onClick={() => (state.isSignUpVisible = true)}
+            >
+              Sign up for updates and events
+            </div>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
-            <LinkItem href="/">About</LinkItem>
-            <LinkItem href="/">Docs</LinkItem>
+            <LinkItem href="/about">About</LinkItem>
+            <LinkItem href={envClient.NEXT_PUBLIC_DOCS_URL}>Docs</LinkItem>
             {/* <LinkItem href="/">Blog</LinkItem> */}
-            <LinkItem href="/">Brand Kit</LinkItem>
+            <LinkItem href="/builder-toolkit">Builder Toolkit</LinkItem>
+            <LinkItem href="/brand-kit">Brand Kit</LinkItem>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
             <LinkItem href="/">Discord</LinkItem>

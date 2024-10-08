@@ -18,8 +18,12 @@ const Typography: React.FC = () => {
             <h3>Pink</h3>
             <h5 className="text-secondary-foreground">
               It&apos;s Unichain&apos;s primary color and secondary color — that&apos;s how strongly
-              we feel about it. Pink holds the most brand equity which people associate with the
-              brand.
+              we feel about it. Pink is what people associate with the brand and makes Unichain
+              instantly recognizable.
+              <br />
+              <br />
+              *Black, white, and greys supplement our Pinks. Black and White can be applied to the
+              logo when additional contrast is necessary.
             </h5>
           </div>
           <div className="relative col-span-full flex flex-col gap-5 md:col-[9_/_span_16] lg:col-[12_/_span_15] xl:col-[10_/_span_15]">

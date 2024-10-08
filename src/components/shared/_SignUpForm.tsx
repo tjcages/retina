@@ -3,6 +3,7 @@
 import { useIsDesktop } from "@/hooks";
 import { state, useLocalState } from "@/store";
 import { Drawer } from "modal";
+import { HubspotProvider, useHubspotForm } from "next-hubspot";
 import { useState } from "react";
 
 import {
@@ -16,9 +17,13 @@ import {
   Textarea
 } from "@/components/ui";
 
-const _ = () => {
-  const { isSignUpVisible } = useLocalState();
-  const isDesktop = useIsDesktop();
+const Content = () => {
+  const { loaded, error, formCreated } = useHubspotForm({
+    portalId: "XXXXXXX",
+    formId: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    target: "#hubspot-form-wrapper"
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -52,8 +57,12 @@ const _ = () => {
     handleOpenChange(false);
   };
 
-  const renderContent = () => (
-    <form onSubmit={handleSubmit} className="flex max-h-[90vh] flex-col gap-6 overflow-y-auto p-6">
+  return (
+    <form
+      id="hubspot-form-wrapper"
+      onSubmit={handleSubmit}
+      className="flex max-h-[90vh] flex-col gap-6 overflow-y-auto p-6"
+    >
       <div className="flex w-full items-end justify-end">
         <Button variant="ghost" className="-my-4 -mr-5" onClick={() => handleOpenChange(false)}>
           <Icon icon="X" className="h-6 w-6 text-secondary-foreground" />
@@ -145,20 +154,35 @@ const _ = () => {
       </Button>
     </form>
   );
+};
 
-  return isDesktop ? (
-    <Dialog open={isSignUpVisible} onOpenChange={handleOpenChange}>
-      <DialogContent className="rounded-[20px] bg-background">{renderContent()}</DialogContent>
-    </Dialog>
-  ) : (
-    <Drawer.Root shouldScaleBackground open={isSignUpVisible} onOpenChange={handleOpenChange}>
-      <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-[#060E0C]/60" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 mt-24 flex h-full max-h-[96%] flex-col rounded-t-[20px] bg-background outline-none md:mt-0">
-          {renderContent()}
-        </Drawer.Content>
-      </Drawer.Portal>
-    </Drawer.Root>
+const _ = () => {
+  const { isSignUpVisible } = useLocalState();
+  const isDesktop = useIsDesktop();
+
+  const handleOpenChange = (open: boolean) => {
+    state.isSignUpVisible = open;
+  };
+
+  return (
+    <HubspotProvider>
+      {isDesktop ? (
+        <Dialog open={isSignUpVisible} onOpenChange={handleOpenChange}>
+          <DialogContent className="rounded-[20px] bg-background">
+            <Content />
+          </DialogContent>
+        </Dialog>
+      ) : (
+        <Drawer.Root shouldScaleBackground open={isSignUpVisible} onOpenChange={handleOpenChange}>
+          <Drawer.Portal>
+            <Drawer.Overlay className="fixed inset-0 bg-[#060E0C]/60" />
+            <Drawer.Content className="fixed bottom-0 left-0 right-0 mt-24 flex h-full max-h-[96%] flex-col rounded-t-[20px] bg-background outline-none md:mt-0">
+              <Content />
+            </Drawer.Content>
+          </Drawer.Portal>
+        </Drawer.Root>
+      )}
+    </HubspotProvider>
   );
 };
 
