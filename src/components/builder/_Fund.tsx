@@ -19,7 +19,7 @@ const items: ActionItemProps[] = [
       "Enter your hackathon project into our ongoing competition, with bi-weekly rewards.",
     icon: "TrophyStar",
     href: "https://airtable.com/appx3c28q91Ii1iQs/pagKA897Zhcy4K0NR/form"
-  },
+  }
   // {},
   // {
   //   header: "Unigames",
@@ -27,12 +27,12 @@ const items: ActionItemProps[] = [
   //   icon: "UsersGroup",
   //   comingSoon: true
   // },
-  {
-    header: "Gas subsidies",
-    description: "Get reimbursed for gas spent through hooks.",
-    icon: "LaptopCode",
-    comingSoon: true
-  }
+  // {
+  //   header: "Gas subsidies",
+  //   description: "Get reimbursed for gas spent through hooks.",
+  //   icon: "LaptopCode",
+  //   comingSoon: true
+  // }
 ];
 
 const _ = () => {
