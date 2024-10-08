@@ -14,23 +14,27 @@ const Typography: React.FC = () => {
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>Basel Grotesk</h3>
             <h5 className="text-secondary-foreground">
-              Unichain uses Basel Grotesk from Optimo as its primary typeface.
+              Our primary typeface. Rooted in modernist typography, Basel Grotesk reinterprets key
+              elements of this aesthetic with a new dynamism. Elegant and versatile—just like
+              Unichain.
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
-            <FitText className="leading-none md:-mb-3">AaBbCc</FitText>
+            <FitText className="leading-none tracking-[-0.75em] md:-mb-3">AaBbCc</FitText>
           </div>
         </div>
         <div className="col-span-full mt-6 grid grid-cols-subgrid items-start gap-6 md:mt-0">
           <div className="col-span-full flex h-full flex-col items-start gap-5 md:col-span-8 lg:col-span-10 xl:col-span-8">
             <h3>Riegraf</h3>
             <h5 className="text-secondary-foreground">
-              Riegraf’s italics can be used for emphasis.
+              Used for emphasis. With its high contrast strokes and fusion of geometric and
+              calligraphic models, Riegraf adds personality and echos the tapered tips of
+              Unichain&apos;s icon.
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto md:border-b-0 lg:col-[12_/_span_15] xl:col-[10_/_span_15]">
             <FitText className="leading-none md:-mt-9">
-              <strong className="tracking-[-0.01em]">AaBbCc</strong>
+              <strong className="tracking-[-0.05em]">AaBbCc</strong>
             </FitText>
           </div>
         </div>

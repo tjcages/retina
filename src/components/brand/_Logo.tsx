@@ -12,19 +12,19 @@ import { Button, Icon } from "@/components/ui";
 
 const items = [
   {
-    header: "Full Logo",
+    header: "Full (Horizontal)",
     description:
-      "The full logo locks up the Unichain icon with the wordmark, for use in more formal settings or lorem ipsum dolor sit amet consecetetur dolorem "
+      "This is the primary logo that is most recognizable. It works well in most environments. The vertical version is available when space is constrained or limited."
   },
   {
-    header: "Unichain Icon",
+    header: "Full (Vertical)",
     description:
-      "The full logo locks up the Unichain icon with the wordmark, for use in more formal settings or lorem ipsum dolor sit amet consecetetur dolorem "
+      "This version of the logo is available for instances where space is constrained or limited."
   },
   {
-    header: "Vertical Lockup",
+    header: "Logo",
     description:
-      "The full logo locks up the Unichain icon with the wordmark, for use in more formal settings or lorem ipsum dolor sit amet consecetetur dolorem "
+      "It's called an icon because it's iconic. It's deceptively simple, and can be used as a shorthand for the Full logo."
   }
 ];
 
