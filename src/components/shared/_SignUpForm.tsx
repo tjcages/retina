@@ -158,7 +158,7 @@ const Content = () => {
 
 const _ = () => {
   const { isSignUpVisible } = useLocalState();
-  const isDesktop = useIsDesktop();
+  const isDesktop = useIsDesktop(1024);
 
   const handleOpenChange = (open: boolean) => {
     state.isSignUpVisible = open;
