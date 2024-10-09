@@ -14,13 +14,13 @@ const items: ActionItemProps[] = [
     description: "Reach out to our team in Discord for support.",
     icon: "MessagesText",
     href: "https://discord.gg/AhgRNru9"
-  },
-  {
-    header: "Join builder registry",
-    description: "Join weekly sessions with our team to ask questions live.",
-    icon: "UsersGroup",
-    href: "SignUpForm"
   }
+  // {
+  //   header: "Join builder registry",
+  //   description: "Join weekly sessions with our team to ask questions live.",
+  //   icon: "UsersGroup",
+  //   href: "SignUpForm"
+  // }
 ];
 
 const _ = () => {
