@@ -62,7 +62,15 @@ const _ = () => {
               <strong>Designed</strong> for DeFi.
             </h1>
             <h1>
-              <strong>Built</strong> by Uniswap.
+              <strong>Built</strong> by{" "}
+              <Link
+                href="http://uniswap.org/"
+                variant="ghost"
+                className="text-inherit hover:opacity-90"
+              >
+                Uniswap
+              </Link>
+              .
             </h1>
           </motion.div>
           <motion.h4

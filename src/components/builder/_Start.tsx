@@ -16,7 +16,7 @@ const items: ActionItemProps[] = [
     href: "https://discord.gg/AhgRNru9"
   },
   {
-    header: "Join Builder Registry",
+    header: "Join builder registry",
     description: "Join weekly sessions with our team to ask questions live.",
     icon: "UsersGroup",
     href: "SignUpForm"
