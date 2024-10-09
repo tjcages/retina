@@ -7,13 +7,13 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Deploy a smart contract",
+    header: "Write a smart contract",
     description: "Sample app to help kickstart your development process.",
     icon: "Code",
     href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-a-smart-contract"
   },
   {
-    header: "Launch an ERC-20",
+    header: "Deploy an ERC-20",
     description: "Example token implementation.",
     icon: "DesignSquare",
     href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-an-erc20"
