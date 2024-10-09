@@ -1,11 +1,11 @@
 /* Fields */
 
 .hs-form {
-  input { 
+  input {
     @apply flex rounded-2xl bg-background border px-3 py-2 text-base transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 w-full;
   }
 
-  input[type=checkbox] {
+  input[type="checkbox"] {
     @apply w-auto;
   }
   .hs-form-field {
@@ -16,116 +16,110 @@
     @apply block font-medium text-base;
   }
 
-  input[type=submit] {
+  input[type="submit"] {
     @apply inline-flex items-center cursor-pointer justify-center gap-1 whitespace-nowrap rounded-2xl text-primary !leading-none tracking-[-0.01em] font-medium pointer-events-auto transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!opacity-50 disabled:!cursor-not-allowed;
     @apply px-5 py-4 text-xl font-medium;
     @apply w-full bg-pink-primary-foreground hover:bg-primary text-white;
   }
 
-/* Inputs - checkbox/radio */
+  /* Inputs - checkbox/radio */
 
-.inputs-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.inputs-list > li {
-  display: block;
-  margin: 0.7rem 0;
-}
-
-.inputs-list input,
-.inputs-list span {
-  vertical-align: middle;
-}
-
-input[type=checkbox],
-input[type=radio] {
-  cursor: pointer;
-  margin-right: 0.5rem;
-}
-
-.legal-consent-container {
-  & .hs-form-booleancheckbox-display>span {
-    @apply ml-[35px];
+  .inputs-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .hs-form-booleancheckbox {
-    input[type=checkbox], input[type=checkbox]:checked {
-      appearance: none;
+
+  .inputs-list > li {
+    display: block;
+    margin: 0.7rem 0;
+  }
+
+  .inputs-list input,
+  .inputs-list span {
+    vertical-align: middle;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
+  .legal-consent-container {
+    .hs-form-required {
+      @apply text-[rgba(0,0,0,0.42)];
     }
-
-    input[type=checkbox] {
-      @apply mr-3;
-      @apply relative h-6 w-6 shrink-0 rounded-[4px] border border-secondary-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
-      @apply transition-all duration-200 ease-in-out;
-     &:checked { 
-      @apply border-secondary-foreground/0 bg-pink-500 text-primary-foreground;
-     } 
-
-
-     &:checked::after {
-       content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
-       display: block;
-       position: absolute;
-       left: 3px;
-       top: 3px;
-     }
+    & .hs-form-booleancheckbox-display > span {
+      @apply ml-[35px];
     }
+    .hs-form-booleancheckbox {
+      input[type="checkbox"],
+      input[type="checkbox"]:checked {
+        appearance: none;
+      }
 
-    input[type=checkbox]:checked+label::before {
-      content: "";
-      display: block;
-      position: absolute;
-      text-align: center;
-      height: 20px;
-      width: 20px;
-      left: 0;
-      top: 5px;
-      background-color: #FA9E57;
-      font-family: "Montserrat";
-      border-radius: 2px;
-      border: 1px solid rgb(150 150 150 / 30%);
-    }
+      input[type="checkbox"] {
+        @apply mr-3;
+        @apply relative h-6 w-6 shrink-0 rounded-[4px] border border-secondary-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+        @apply transition-all duration-200 ease-in-out;
+        &:checked {
+          @apply border-secondary-foreground/0 bg-pink-500 text-primary-foreground;
+        }
 
+        &:checked::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
+          display: block;
+          position: absolute;
+          left: 3px;
+          top: 3px;
+        }
+      }
 
-    span {
-      a {
-        @apply font-semibold inline-block;
+      input[type="checkbox"]:checked + label::before {
+        content: "";
+        display: block;
+        position: absolute;
+        text-align: center;
+        height: 20px;
+        width: 20px;
+        left: 0;
+        top: 5px;
+        background-color: #fa9e57;
+        font-family: "Montserrat";
+        border-radius: 2px;
+        border: 1px solid rgb(150 150 150 / 30%);
+      }
+
+      span {
+        a {
+          @apply font-semibold inline-block;
+        }
       }
     }
   }
 
-}
-
-
-
-/*Validation */
-  .hs-form-required {
-    @apply text-[rgba(0,0,0,0.42)];
-  }
-
+  /*Validation */
   .hs-input.invalid.error {
     border-color: rgb(255, 95, 82);
   }
 
-  .hs-error-msg, .hs-error-msgs {
-  color: rgb(255, 95, 82);
-}
+  .hs-error-msg,
+  .hs-error-msgs {
+    color: rgb(255, 95, 82);
+  }
 
-.hs-error-msg {
-  @apply mt-1;
-}
+  .hs-error-msg {
+    @apply mt-1;
+  }
 
-.hs-error-msgs {
-  @apply mb-2;
-}
+  .hs-error-msgs {
+    @apply mb-2;
+  }
 
-
-ul {
-  @apply list-none;
-}
-
+  ul {
+    @apply list-none;
+  }
 }
 
 /* Inputs */
@@ -144,4 +138,3 @@ form textarea {
   padding: 0.7rem;
   width: 100%;
 } */
-
