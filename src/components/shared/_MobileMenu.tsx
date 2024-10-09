@@ -97,7 +97,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             animate="visible"
             exit="hidden"
             className={cn(
-              "pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-10 flex flex-col gap-3 p-5 pt-3"
+              "pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-10 flex flex-col gap-3 p-5 pt-1"
             )}
           >
             <div

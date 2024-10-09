@@ -4,20 +4,21 @@ import { useIsDesktop } from "@/hooks";
 import { state, useLocalState } from "@/store";
 import { Drawer } from "modal";
 import { HubspotProvider, useHubspotForm } from "next-hubspot";
-import Link from "next/link";
 import { useState } from "react";
 
-import { Button, Dialog, DialogContent, Icon, Image } from "@/components/ui";
+import { Button, Dialog, DialogContent, Icon, Image, Link } from "@/components/ui";
 
-import "./signup.scss";
+import "@/styles/signup.scss";
 
 const Content = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const onFormSubmit = () => {
     setFormSubmitted(true);
+    state.isSignUpVisible = false;
+    state.isSignUpSuccessVisible = true;
   };
 
-  const { loaded, error, formCreated } = useHubspotForm({
+  useHubspotForm({
     portalId: "47651697",
     formId: "b5be498a-4c56-4913-8c01-2c7c774774f7",
     target: "#hubspot-form-wrapper",
@@ -52,7 +53,7 @@ const Content = () => {
             <p>Sign up for Unichain news, updates and events.</p>
           </div>
 
-          <div id="hubspot-form-wrapper" />
+          <div id="hubspot-form-wrapper" className="min-h-[440px]" />
         </>
       ) : (
         <div className="flex w-full flex-col items-center justify-start gap-3 pb-2 text-center">
@@ -69,11 +70,7 @@ const Content = () => {
           <h4>Need support building your project?</h4>
           <p className="text-lg">
             Fill out the{" "}
-            <Link
-              href="/"
-              target="_blank"
-              className="text-pink-primary transition hover:text-primary"
-            >
+            <Link href="https://share.hsforms.com/1Bc0BcWqPTW-no_TIM5hbFAsdca9">
               Builder Open Call Form
             </Link>
           </p>

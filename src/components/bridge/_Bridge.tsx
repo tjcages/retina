@@ -10,7 +10,7 @@ const _ = () => {
       <article className="gap-6 md:gap-y-12">
         <Link
           className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5 transition-all duration-300 ease-in-out hover:opacity-90 active:scale-90"
-          href="https://www.brid.gg/"
+          href="https://testnet.brid.gg/unichain-sepolia"
           target="_blank"
         >
           <div className="h-auto w-full overflow-hidden rounded-xl">
@@ -35,7 +35,7 @@ const _ = () => {
         </Link>
         <Link
           className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5 transition-all duration-300 ease-in-out hover:opacity-90 active:scale-90"
-          href="https://superbridge.app/"
+          href="https://superbridge.app/unichain-sepolia"
           target="_blank"
         >
           <div className="h-auto w-full overflow-hidden rounded-xl">

@@ -49,7 +49,7 @@ const _ = () => {
         className="flex items-center bg-transparent pb-8 pt-16 md:min-h-[65vh] md:pb-12 md:pt-16"
       >
         <motion.article
-          className="gap-6 text-white md:gap-12"
+          className="gap-6 text-white md:gap-4"
           variants={container}
           initial="hidden"
           animate="show"
@@ -80,7 +80,10 @@ const _ = () => {
             Unichain is a DeFi-native Ethereum L2, optimized to be the home for liquidity
             across&nbsp;chains.
           </motion.h4>
-          <motion.div className="col-span-7 row-start-3 flex items-center gap-3" variants={item}>
+          <motion.div
+            className="col-span-7 row-start-3 mt-4 flex items-center gap-3"
+            variants={item}
+          >
             <Button className="w-full" onClick={handleMainCTAClick}>
               <ArrowRightIcon className="mr-2 h-5 w-5" />
               Get Started
@@ -101,7 +104,7 @@ const _ = () => {
               <Icon icon="Superchain" className="h-10 w-auto" />
             </Button> */}
             <Link variant="ghost" href="https://optimism.io/build">
-              <h5 className="text-white/70">Built on the Superchain</h5>
+              <h5 className="text-2xl text-white/70">Built on the Superchain</h5>
             </Link>
           </motion.div>
         </motion.article>

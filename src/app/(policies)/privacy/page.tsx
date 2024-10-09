@@ -8,148 +8,144 @@ import { Divider, Scroll } from "@/components/ui";
 const policy = {
   title: "Privacy Policy",
   content: `
-### Uniswap Labs Privacy Policy 
-Last modified: August 7, 2024  
+### UNICHAIN PRIVACY POLICY 
+_Last Revised: October 10, 2024_
 
-This Privacy Policy (the "Agreement") explain the terms and conditions by which you may access and use the Products provided by Uniswap Labs (referred to herein as "Uniswap Labs", "we", "our", or "us"). The Products include, but are not limited to:
+This Privacy Policy (“Privacy Policy”) explains how Universal Navigation Inc. (“we,” “our,” or “us”) collects, uses and discloses information that we obtain about visitors (“you” and “your”) who visit the https://unichain.org and https://docs.unichain.org websites (the “Websites”), which are maintained by us, and such other products and services related to the Websites that may be offered by us from time to time (collectively, the “Services”).
 
-(a) **https://app.uniswap.org**, a website-hosted user interface (the "Interface" or "App")  
-(b) An aggregator of various third-party non-fungible token ("NFT") marketplaces (the "NFT Marketplace Aggregator")  
-(c) Our mobile wallet application (the "Uniswap Wallet")  
-(d) Any other products and services that link to this Agreement (collectively, the “Products”)  
+By visiting the Websites or using any other Services, you acknowledge and agree to this Privacy Policy and that your data (including Personal Information, as defined below) will be handled by us in accordance with this Privacy Policy. The Services may contain feeds or links to third-party websites, applications or services, such as user interfaces for decentralized exchanges, bridges or any other types of websites, applications or services. If you visit third-party websites, applications or services, any information collected is governed by the terms and conditions and privacy policies of such third parties. This Privacy Policy does not apply to information collected through third-party websites, applications or services that you may access through the Services. We are not responsible for the content of third-party websites, and your use of such third-party websites is at your own risk.
 
-You must read this Agreement carefully, as it governs your use of the Products. By accessing or using any of the Products, you signify that you have read, understood, and agree to be bound by this Agreement in its entirety. If you do not agree, you are not authorized to access or use any of our Products.
+This Privacy Policy applies globally. If you are a resident of the European Economic Area (“EEA”) or the United Kingdom (“UK”), please review the “Notice to Residents of the EEA and the UK” section below for important information about how we collect and use your Personal Information and your rights under the General Data Protection Regulation (“GDPR”) and the UK General Data Protection Regulation (“UK GDPR”).
 
-### 1. Our Products
-#### 1.1 The Interface  
-The Interface provides access to:  
-- A decentralized protocol on various public blockchains, including Ethereum, that allows users to trade certain compatible digital assets (the "Uniswap Protocol" or the "Protocol").  
-- The NFT Marketplace Aggregator.  
+Please review this Privacy Policy carefully. If you have any questions, please reach out via the “Contact Us” information provided below.
 
-The Interface is distinct from the Protocol, which is open-source and self-executing smart contracts deployed on various blockchains, such as Ethereum. Uniswap Labs does not control or operate any version of the Protocol. Fees paid by traders accrue to liquidity providers, not to Uniswap Labs.
+### Personal Information That We Collect
 
-To access the Interface, you must use a non-custodial wallet software. We do not have custody or control over the contents of your wallet and have no ability to retrieve or transfer its contents.
+We, and third parties working on our behalf, collect and process the Personal Information that you directly provide to us through the Services. We may also collect and process Personal Information that is provided to us from other sources. “Personal Information” includes any information that, alone or in combination with other information, can be used to identify you, such as a personal identifier (e.g., name, phone number or email address), an identification number, online identifiers or inferences about your preferences. Personal Information does not include information that is de-identified or aggregated such that it cannot be used to identify individuals. Personal Information also includes “personal data,” as such term is defined under the GDPR or the UK GDPR.
 
-#### 1.2 The NFT Marketplace Aggregator  
-The NFT Marketplace Aggregator allows users to discover, buy, and sell NFTs simultaneously across multiple third-party marketplaces ("Third-Party Marketplaces").  
+We may collect the following Personal Information:
 
-Uniswap Labs does not determine what to list or set pricing for NFTs on those Third-Party Marketplaces. If a purchase transaction for a Sweep fails, refunds will be made to your wallet, less any Gas Fees. Uniswap Labs does not guarantee that a Sweep will be successful or that any financial outcomes will be achieved.
+- Information you provide, including your name, email address, social media handles, digital wallet addresses, and company name (and related information); 
+- Publicly available blockchain data; and
+- Usage data about devices you use to access the Services, such as device manufacturer, operating system, browser information, domain name, location and internet protocol (“IP”) address (collectively, “Automatically Collected Information”).
 
-#### 1.3 The Uniswap Wallet  
-The Uniswap Wallet allows you to:  
-- Store digital assets  
-- Link to third-party decentralized exchanges ("DEXs") and decentralized applications  
-- View addresses and information part of digital asset networks and broadcast transactions  
-- Participate in DEX trades  
-- Perform additional services that may be added to the Uniswap Wallet.  
+We may also collect other information, which may be publicly available, or that we may acquire through third-party sources, or that you provide to us.
 
-#### 1.4 Subdomains  
-The Uniswap Wallet allows you to claim a subdomain (username) associated with your wallet address. Uniswap Labs reserves the right to revoke your username at its discretion without notice if you violate terms or laws or engage in harmful behavior.
+### Personal Information Used and Disclosed to Third Parties
 
-#### 1.5 Access through Third-Party Partners  
-Some Products may be made accessible or usable through third-party partners, such as exchanges and trading platforms. Even when using third-party interfaces, your use of our Products is still governed by this Agreement.
+We, or third parties on our behalf may, use the Personal Information, including Automatically Collected Information, that we have about you to enforce the Terms of Service and this Privacy Policy, to provide the Services, to communicate with you regarding your requests, to analyze Services usage, for marketing and advertising purposes, to detect fraud or misuse, to comply with our legal or regulatory obligations, with your consent or otherwise for valid business purposes, to help us improve your experience with the Services, to enforce eligibility requirements and to record IP addresses, browser types, internet service provider and usage metrics.
 
-#### 1.6 Other Products  
-From time to time, we may offer additional products, and these will also be governed by this Agreement.
+We may also share your Personal Information in the following circumstances:
 
-#### 1.7 Third-Party Services and Content  
-Our Products may include integrations with third-party services, which may require additional terms and agreements. Uniswap Labs is not responsible for the accuracy, availability, or privacy practices of third-party services.
+- **Designated Service Providers.** We may share your Personal Information with companies that we contract with in order to provide the Services (“Service Providers”). For example, Service Providers may: (i) provide products or services to you on our behalf; (ii) create or maintain our networks, systems, databases or analytics; (iii) provide other general support; (iv) respond to inquiries; (v) provide marketing services and advertising relevant to you; (vi) monitor and analyze the use and functionality of our Services; and (vii) other relevant internal business operations and purposes. Information disclosed to third parties may include aggregated and/or de-identified information derived from your Personal Information. We may disclose Automatically Collected Information obtained from your use of the Services to our Service Providers.
+- **Legal or Regulatory Obligations.** We may disclose your Personal Information if we believe that such disclosure is necessary to satisfy our legal or regulatory obligations. This may include: (i) to comply with the law or in response to a subpoena, court order, government request or other legal process; (ii) to produce relevant documents or information in connection with litigation, arbitration, mediation, adjudication, government or internal investigations or other legal or administrative proceedings; (iii) to protect the interests, rights, safety or property of us, or any of our subsidiaries, affiliates, employees or users of the Services; (iv) to monitor compliance with and enforce the Terms of Service; (v) to operate the systems that are designed to allow the Services to function properly; (vi) for internal research purposes or managing the use of our copyrighted materials; or (vii) if we reasonably believe that a disclosure is necessary.
+- **Business Transactions.** In the event that we go through a business transition, such as a merger, acquisition by another company, reorganization or sale of a portion of its assets, some or all of your Personal Information may be transferred in connection with the proposed transaction.
+- **Consent.** With your consent or at your direction, such as sharing with your representatives or third parties.
 
-### 2. Modifications of this Agreement or our Products  
-#### 2.1 Modifications of this Agreement  
-Uniswap Labs reserves the right to modify this Agreement at any time. Changes will be effective upon posting, and your continued use of any Products will confirm your acceptance of those changes.
+### Cookies and Other Data Collection Technologies
 
-#### 2.2 Modifications of our Products  
-We reserve the right to modify, substitute, eliminate, or add to any of our Products at any time without notice.
+We utilize cookies and other data collection technologies on our Services. A cookie is a small text file placed on your computer that helps us understand how you and our other visitors use the Services, to enhance the user experience through different features and functionality and to analyze and compile usage data. Personal Information collected by cookies may include your device’s IP address, browser type, operating system, computer platform, web pages viewed and/or the date and time of your visit. For example, we may use cookies to remember your preferences or settings. We may also use Software Development Kits (“SDKs”) on the Services for services related to on-ramping and maintenance of crypto wallets. SDKs are a collection of tools or libraries that we may use to add functionality to the Services.
 
-### 3. Intellectual Property Rights  
-#### 3.1 IP Rights Generally  
-Uniswap Labs owns all intellectual property rights in the Products, including trademarks, service marks, copyrights, and patents. You are granted a limited, non-exclusive license to use the Products in accordance with this Agreement.
+Most browsers include tools to manage or disable cookies. You can visit the help function on most browsers to modify how your browser handles cookies. However, if you disable cookies, some features of the Services may not function properly.
 
-#### 3.2 DMCA Complaints  
-If you believe your copyrighted work is being infringed on a Third-Party Marketplace, you should notify that Marketplace. Uniswap Labs will investigate and take action under the DMCA.
+Cookies can be categorized by how long they remain on your device. All cookies have expiration dates in them that determine how long they stay in your browser. There are two broad categories of duration:
 
-#### 3.3 Third-Party Resources and Promotions  
-Uniswap Labs does not endorse or assume responsibility for third-party resources, services, or promotions that may be referenced within its Products.
+- **Session Cookies.** Session cookies are temporary cookies that exist only during an online session and are not stored on your computer or mobile device.
+- **Persistent Cookies.** Persistent cookies are those placed on your computer or mobile device for a pre-determined length of time when you visit our Sites and Apps. Persistent cookies remain on your device until deleted manually or automatically.
 
-### 4. Your Responsibilities  
-#### 4.1 Prohibited Activity  
-You agree not to engage in any of the following prohibited activities:  
-- Intellectual Property Infringement. Activity that infringes on or violates any copyright, trademark, service mark, patent, right of publicity, right of privacy, or other proprietary or intellectual property rights under the law.
-- Cyberattack. Activity that seeks to interfere with or compromise the integrity, security, or proper functioning of any computer, server, network, personal device, or other information technology system, including, but not limited to, the deployment of viruses and denial of service attacks.
-- Fraud and Misrepresentation. Activity that seeks to defraud us or any other person or entity, including, but not limited to, providing any false, inaccurate, or misleading information in order to unlawfully obtain the property of another.
-- Market Manipulation. Activity that violates any applicable law, rule, or regulation concerning the integrity of trading markets, including, but not limited to, the manipulative tactics commonly known as "rug pulls", pumping and dumping, and wash trading.
-- Securities and Derivatives Violations. Activity that violates any applicable law, rule, or regulation concerning the trading of securities or derivatives, including, but not limited to, the unregistered offering of securities and the offering of leveraged and margined commodity products to retail customers in the United States.
-- Sale of Stolen Property. Buying, selling, or transferring of stolen items, fraudulently obtained items, items taken without authorization, and/or any other illegally obtained items.
-- Data Mining or Scraping. Activity that involves data mining, robots, scraping, or similar data gathering or extraction methods of content or information from any of our Products.
-- Objectionable Content. Activity that involves soliciting information from anyone under the age of 18 or that is otherwise harmful, threatening, abusive, harassing, tortious, excessively violent, defamatory, vulgar, obscene, pornographic, libelous, invasive of another's privacy, hateful, discriminatory, or otherwise objectionable.
-- Any Other Unlawful Conduct. Activity that violates any applicable law, rule, or regulation of the United States or another relevant jurisdiction, including, but not limited to, the restrictions and regulatory requirements imposed by U.S. law.
+To assist us with the various uses and purposes described in this Privacy Policy, your Personal Information, including information collected by cookies or similar data collection technologies, may be aggregated, analyzed or linked to other information we have about you (including information from other online and offline sources). For example, we may use Service Providers to collect information about your use of the Services, such as pages viewed via the Websites, to provide us reports about your use of the Services.
 
-#### 4.2 Trading  
-All trades made using Uniswap Labs Products are unsolicited and initiated solely by you. Uniswap Labs does not provide investment advice.
+- **Global Privacy Control.** The Global Privacy Control (“GPC”) is a method for individuals to opt-out of the sale or sharing of their personal information, as such term is described under applicable data protection laws, via a user-enabled privacy control that is available on certain internet browsers. Our systems are not configured to detect or respond to the GPC. You can learn more about the GPC here.
+- **“Do Not Track” Signals.** Some web browsers have “Do Not Track” or similar features that allow you to tell each website you visit that you do not want your activities on that website tracked. Currently, the Services do not respond to “Do Not Track” signals and will continue to collect information about you even if your browser’s “Do Not Track” functionality is activated. Please note that your selection of the “Do Not Track” option provided by your browser may not have any effect on our collection of cookie information.
 
-#### 4.3 Non-Custodial and No Fiduciary Duties  
-Uniswap Labs does not have custody of your digital assets and does not owe fiduciary duties to you. You are solely responsible for the security of your wallets and transactions.
+### Notice to Residents of the EEA and the UK
 
-#### 4.4 Compliance and Tax Obligations  
-You are solely responsible for complying with all applicable laws in your jurisdiction, including tax obligations related to the use of the Products.
+If you are a resident of the EEA or the UK, you have the rights under the GDPR or the UK GDPR. We are required to comply with the GDPR, the UK GDPR and applicable local laws with respect to certain Personal Information we collect. If you are a resident of the EEA or the UK, the GDPR and the UK GDPR provide you with certain rights and choices regarding your Personal Information and how you can exercise those rights. Please note that we do not collect Special Categories of Personal Information, as such term is defined under the GDPR and the UK GDPR.
 
-#### 4.5 NFT Terms  
-NFTs may be subject to additional terms set by creators. Uniswap Labs is not responsible for enforcing or communicating these terms.
+#### Legal Bases for Processing Your Personal Information
 
-#### 4.6 Gas Fees  
-You are responsible for paying Gas Fees for any blockchain transactions initiated via Uniswap Labs Products.
+We collect and process Personal Information for the following legal bases:
 
-#### 4.7 Release of Claims  
-By using any Products, you waive any claims against Uniswap Labs related to your use of the Products.
+- We process your Personal Information with your valid, explicit consent.
+- We process your Personal Information when necessary to perform our agreements with you.
+- We process your Personal Information in pursuit of our legitimate interests. Examples of these legitimate interests include operation and improvement of the Services, personalization of content on the Services and made available via the Services, and protection from fraud or security threats
 
-### 5. Disclaimers  
-#### 5.1 Assumption of Risk — Generally  
-You acknowledge the risks associated with using blockchain-based systems and digital assets, including volatility and irreversibility of transactions.
+.
+- We process your Personal Information when necessary to ensure compliance with a legal obligation to which we are subject.
+- We process your Personal Information to protect an individual’s vital interests.
 
-#### 5.2 Assumption of Risk — NFTs  
-You accept the inherent risks involved with NFT transactions, including volatility, potential loss, and purchasing counterfeit items.
+#### Your Rights With Respect To Personal Information
 
-#### 5.3 No Warranties  
-Uniswap Labs Products are provided "as is," without warranties. Uniswap Labs is not responsible for errors, defects, or interruptions related to the Products.
+Subject to certain conditions, if you are a resident of the EEA or UK and have submitted Personal Information to us, you have the right to access, correct, delete, or object to or restrict the use of certain Personal Information covered by this Privacy Policy. You may also have the right to request the following: a copy of your Personal Information in a structured, commonly used and machine-readable format and/or request that we transmit that Personal Information to a third party where this is technically feasible, and that we refrain from processing Personal Information. To honor any requests, we will take steps (and may need to collect information from you) to verify your identity. You can also designate an authorized agent to make a request on your behalf. If you use an authorized agent, please include written permission that you have designated that agent to make the request or proof of the agent’s power of attorney. We may follow up with you to verify your identity before processing your authorized agent’s request.
 
-#### 5.4 No Investment Advice  
-Information provided by Uniswap Labs Products is for informational purposes only and should not be construed as investment advice.
+We will only use Personal Information provided in the verification process for identity verification purposes. Please note that if you exercise such rights, this may affect our ability to provide the Services to you. While we will make reasonable efforts to accommodate your request, we also reserve the right to impose certain restrictions and requirements on such requests or deny certain requests, to the extent allowed or required by applicable law. For inquiries about your Personal Information, please contact us through one of the methods listed in the “Contact Us” Section below. You have the right to lodge a complaint about the processing of your Personal Information with a supervisory authority.
 
-### 6. Indemnification  
-You agree to indemnify Uniswap Labs and its affiliates from any claims, losses, or damages arising from your use of the Products or violation of this Agreement.
+#### Withdrawal of Consent
 
-### 7. Limitation of Liability  
-Uniswap Labs is not liable for any damages arising from your use of the Products, including indirect, incidental, or consequential damages.
+Where you have given us valid, explicit consent to collect, use and process your Personal Information, we will rely on your valid, explicit consent. In instances in which we have based our processing of your Personal Information on your consent, you have the right to withdraw your consent. To withdraw such consent, please contact us through the methods listed below. Please note that when you withdraw consent, we might not be able to provide you with the Services. In certain situations, we may continue to process your Personal Information after you have withdrawn consent and requested that we delete your Personal Information, if we have a legal basis to do so. For example, we may retain certain information if we need to do so to comply with a legal obligation or if it is necessary to do so to pursue our legitimate interest in keeping the Services safe and secure.
 
-### 8. Governing Law, Dispute Resolution, and Class Action Waivers  
-#### 8.1 Governing Law  
-The laws of the State of New York govern this Agreement.
+#### International Transfers of Personal Information
 
-#### 8.2 Dispute Resolution  
-Disputes will be resolved by confidential arbitration under JAMS rules in New York, New York.
+We are headquartered and operate in the United States. If you visit or use the Services, or contact us from outside the United States, please be advised that (i) any Personal Information you provide to us or that we automatically collect will be transferred to the United States; and (ii) by using or submitting Personal Information through the Services, you explicitly authorize the transfer to and subsequent processing in the United States, and other countries in which we operate, in accordance with this Privacy Policy. Please be advised that the United States and other countries may not offer the same privacy protections as the laws of the jurisdiction where you reside.
 
-#### 8.3 Class Action and Jury Trial Waiver  
-You agree to resolve disputes in your individual capacity and waive the right to a trial by jury or to participate in a class action.
+### Notice to California Residents
 
-### 9. Miscellaneous  
-#### 9.1 Entire Agreement  
-This Agreement constitutes the entire agreement between you and Uniswap Labs regarding the subject matter.
+The California Consumer Privacy Act, as amended by the California Privacy Rights Act (“CCPA”) provides California residents with rights to receive certain disclosures regarding the collection, use, and sharing of their Personal Information, and the right to know, access, correct, delete, and transfer Personal Information. In the past twelve months, we have collected the categories of Personal Information as described in the “Personal Information That We Collect” section.
 
-#### 9.2 Assignment  
-You may not assign this Agreement without Uniswap Labs’ consent. Uniswap Labs may assign the Agreement freely.
+We provide California residents with the privacy rights listed below, in accordance with the CCPA. To exercise these rights, please use one of the outreach methods listed in the “Contact Us” section below.
 
-#### 9.3 Rewards  
-Uniswap Labs may provide incentives or rewards for using its Products, subject to applicable terms.
+- **The right to know.** You may request the following information about how we have collected and used your Personal Information during the past twelve (12) months: (i) the specific pieces of Personal Information we have about you; (ii) the categories of Personal Information we have collected about you; (iii) the categories of sources from which that Personal Information was collected; (iv) the purpose for collecting and selling your Personal Information; and (v) the categories of your Personal Information that we sold or disclosed for a business purpose.
+- **The right to deletion.** You have the right to request that we delete the Personal Information that we have collected or maintain about you. We may deny your request under certain circumstances, such as if we need to retain the information to comply with our legal obligations or complete a transaction for which your Personal Information was collected. If we deny your request for deletion, we will let you know the reason why.
+- **The right to correct.** In certain situations, you have the right to request that we correct any inaccurate information that we maintain about you. We will use commercially reasonable effort to correct the inaccurate Personal Information.
+- **Request Verification and Response.** We will take steps to verify your identity before processing your request. We will not fulfill your request unless you have provided sufficient information for us to reasonably verify you are the individual about whom we collected Personal Information. If you are a customer, we will use our existing account authentication practices to verify your request. If you do not have an account with us, we may request additional information about you. We will only use the Personal Information provided in the verification process to verify your identity or authority to make a request and to track and document request responses, unless you initially provided the information for another purpose. We will confirm our receipt of a verifiable consumer request within ten (10) business days and respond to a verifiable consumer request within forty-five (45) days of receipt. If we need more time to respond, we will provide written notification to you, including our reason for the need for an extension and respond to your request no later than ninety (90) days after receipt. If we cannot verify your identity to comply with a request, we will explain the reason in our communication to you.
+- **Authorized Agent.** You may use an authorized agent to submit a request. When we verify your agent’s request, we may verify both your and your agent’s identity and request a signed document from you that authorizes your agent to make the request on your behalf. To protect your Personal Information, we reserve the right to deny a request from an agent that does not submit proof that they have been authorized by you to act on their behalf.
+- **Non-Discrimination.** If you choose to exercise any of these rights, we will not discriminate against you in any way. If you exercise certain rights, please be advised that you may be unable to use or access certain features of our Services.
+- **Sale or Sharing of Personal Information.** We do not “sell” or “share” Personal Information, as those terms are defined in the CCPA. We do not knowingly sell or share any information of any individuals younger than the age of 16 –for more information, see the “Children’s Privacy” section, below.
+- **Other California Privacy Rights.** Under California Civil Code Section 1798.83, California residents are entitled to request and obtain from us once per calendar year information about when we share your Personal Information with third parties for those third parties’ own direct marketing purposes. To request this information, please contact us by email and indicate “California Shine the Light” in the subject line. Please be advised that in the past year, we have not shared Personal Information with third parties for those third parties’ own direct marketing purposes.
 
-#### 9.4 Not Registered with the SEC or Any Other Agency  
-Uniswap Labs is not registered with the U.S. Securities and Exchange Commission.
+### Notice to Residents of Other States
 
-#### 9.5 Notice  
-Uniswap Labs may provide notice via public communication channels.
+If you are a resident of state that has enacted a comprehensive privacy law that is in effect as of the “Last Revised” date of this Privacy Policy—specifically, Colorado, Connecticut, Montana, Oregon, Texas, Utah, or Virginia—you may have rights with respect to the collection, use, and disclosure of your Personal Information. In accordance with the applicability requirements of applicable data privacy laws, we will provide residents of these states with the privacy rights listed below when the laws apply to us.
 
-#### 9.6 Severability  
-If any provision of this Agreement is found to be invalid, the remaining provisions will continue to be valid and enforceable.
+- **The right to know.** You may request to know, access, and receive a copy of the Personal Information that we process about you.
+- **The right to deletion.** In certain circumstances, you have the right to request that we delete the Personal Information that we have collected or maintain about you. We may deny your request under certain circumstances, such as if we need to comply with our legal obligations or complete a transaction for which your Personal Information was collected. If we deny your request for deletion, we will let you know the reason why.
+- **The right to correct.** In certain circumstances, you have the right to request that we correct any inaccurate information that we maintain about you.
+- **The right to portability.** You have the right to obtain a copy of the Personal Information that you have provided to us in a portable, secure, and readily-usable format.
+- **The right to opt-out.** You have the right to opt out of targeted advertising, sale, or profiling (in furtherance of decisions that produce legal or similar significant effects) of your Personal Information, as such terms are defined under applicable data privacy law. Please note that we do not “sell” your Personal Information or engage in profiling, as such terms are defined under state data privacy laws.
+- **The right to appeal.** If we deny your rights request, you may have the right to appeal our decision under applicable state data privacy law.
+- **The right to non-discrimination.** If you choose to exercise any of these rights, we will not discriminate against you. However, please be advised that if you exercise certain rights, you may be unable to use or access certain features of our services.
+
+#### Submitting a Rights Request
+
+Colorado, Connecticut, Montana, Oregon, and Utah residents may request information without charge once every twelve
+
+ months, and we may charge an administrative fee for additional requests during a twelve (12) month period. Texas and Virginia residents may request information twice in a twelve (12) month period without charge. When you exercise these rights and submit a request to us, we will take steps to verify your identity before processing your request regarding your Personal Information. We will not fulfill your request unless you have provided sufficient information for us to reasonably verify you are the individual about whom we collected Personal Information. You also may designate an authorized agent to make a request for deletion on your behalf. We reserve the right to deny a request from an agent that does not submit proof that they have been authorized by you to act on your behalf. Please note that we may use a third-party verification provider to verify your identity. Applicable laws may permit or require us to decline your rights request. If we decline your request, we will tell you why, unless prohibited by law from doing so.
+
+### Data Retention
+
+We retain Personal Information we collect as long as it is necessary and relevant to fulfill the purposes outlined in this Privacy Policy. Subject to applicable law, we may also retain Personal Information to resolve disputes, enforce any of our terms of service or engage in other actions permitted by applicable law.
+
+### Children’s Privacy
+
+The Services are intended for users 18 years of age or older. You are not permitted to use the Services if you are younger than 18 years of age without parental or guardian consent. In accordance with the Children’s Online Privacy Protection Act and applicable children’s data protection laws, we do not knowingly collect Personal Information from children under the age of 18. If we learn we have collected or received Personal Information from a child under 18 years of age without authorization, verification or parental consent, we will promptly delete that information.
+
+### Security of Your Personal Information
+
+We maintain administrative, physical and technical safeguards designed to protect the Personal Information we collect and maintain. However, no data transmission over the internet is ever 100% secure. As a result, while we strive to protect your information, we cannot guarantee or warrant the security of any information you transmit via the Services.
+
+### Email Marketing
+
+We, or third parties, may use your Personal Information to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email sent by us or on our behalf or by contacting us.
+
+Your option not to receive marketing material shall not preclude us from: corresponding with you, by email or otherwise, regarding your relationship with us; accessing your Personal Information for our internal business purposes; or disclosing your Personal Information as described in this Privacy Policy for purposes other than sending you marketing materials.
+
+### Notification of Changes
+
+We reserve the right to update, modify or change this Privacy Policy from time to time. If we make a material change to the way we intend to use your Personal Information, we will notify you by updating this Privacy Policy and modifying the date updated at the beginning of this Privacy Policy. We encourage you to review the Privacy Policy whenever you access the Services to stay informed about our privacy practices.
+
+### Contact Us
+
+We seek to resolve any issues that you have with our privacy practices. If you have questions or complaints regarding this Privacy Policy, please contact us through email at: privacy@uniswap.org or support@uniswap.org. Please include “Privacy” in the subject line of your inquiry.
   `
 };
 

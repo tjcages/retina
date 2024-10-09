@@ -154,7 +154,7 @@ const _ = () => {
         >
           <Item value={2.36} multiple="T" description="Trading Volume" />
           <Item value={25} dollar={false} multiple="M" description="Swapping Wallets" />
-          <Item value={465} multiple="M" description="All-Time Trades" />
+          <Item value={465} dollar={false} multiple="M" description="All-Time Trades" />
         </MagneticInfo>
       </article>
     </section>

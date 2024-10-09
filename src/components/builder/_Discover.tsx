@@ -31,6 +31,7 @@ const _ = () => {
                 header={item.header}
                 description={item.description}
                 icon={item.icon}
+                href={item.href}
               />
             ))}
           </div>

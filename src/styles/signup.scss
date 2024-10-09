@@ -2,7 +2,7 @@
 
 .hs-form {
   input {
-    @apply flex rounded-2xl bg-background border px-3 py-2 text-base transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 w-full;
+    @apply flex w-full rounded-2xl border bg-background px-3 py-2 text-base transition-colors placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   input[type="checkbox"] {
@@ -13,13 +13,13 @@
   }
 
   label {
-    @apply block font-medium text-base;
+    @apply block text-base font-medium text-secondary-foreground;
   }
 
   input[type="submit"] {
-    @apply inline-flex items-center cursor-pointer justify-center gap-1 whitespace-nowrap rounded-2xl text-primary !leading-none tracking-[-0.01em] font-medium pointer-events-auto transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!opacity-50 disabled:!cursor-not-allowed;
-    @apply px-5 py-4 text-xl font-medium;
-    @apply w-full bg-pink-primary-foreground hover:bg-primary text-white;
+    @apply pointer-events-auto inline-flex cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-2xl font-medium !leading-none tracking-[-0.01em] text-primary transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95 active:opacity-70 disabled:pointer-events-none disabled:!cursor-not-allowed disabled:!opacity-50;
+    @apply mb-4 mt-2 px-5 py-4 text-xl font-medium lg:mb-0;
+    @apply w-full bg-pink-primary-foreground text-white hover:bg-primary;
   }
 
   /* Inputs - checkbox/radio */
@@ -48,10 +48,19 @@
 
   .legal-consent-container {
     .hs-form-required {
-      @apply text-[rgba(0,0,0,0.42)];
+      @apply text-secondary-foreground;
     }
     & .hs-form-booleancheckbox-display > span {
-      @apply ml-[35px];
+      @apply ml-[35px] text-secondary-foreground;
+    }
+    & .hs-form-booleancheckbox-display > span > p {
+      @apply text-secondary-foreground;
+      @apply max-w-2xl text-base leading-[1.2rem] tracking-normal text-[rgba(0,0,0,0.42)];
+      text-wrap: pretty;
+
+      a {
+        @apply text-pink font-medium transition-opacity duration-200 ease-in-out hover:opacity-80;
+      }
     }
     .hs-form-booleancheckbox {
       input[type="checkbox"],
@@ -71,7 +80,7 @@
           content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
           display: block;
           position: absolute;
-          left: 3px;
+          left: 5px;
           top: 3px;
         }
       }
@@ -93,7 +102,7 @@
 
       span {
         a {
-          @apply font-semibold inline-block;
+          @apply inline-block font-semibold;
         }
       }
     }
@@ -106,7 +115,7 @@
 
   .hs-error-msg,
   .hs-error-msgs {
-    color: rgb(255, 95, 82);
+    @apply -mt-2 text-[#ff5f52];
   }
 
   .hs-error-msg {
@@ -114,7 +123,7 @@
   }
 
   .hs-error-msgs {
-    @apply mb-2;
+    @apply mb-2 text-[#ff5f52];
   }
 
   ul {

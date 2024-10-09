@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Metadata, Viewport } from "next";
 import { ViewTransitions } from "next-view-transitions";
 
-import { SignUpForm } from "@/components/shared";
+import { SignUpForm, SignUpSuccess } from "@/components/shared";
 
 import "@/styles/global.scss";
 
@@ -20,16 +20,17 @@ export const viewport: Viewport = {
   themeColor: "#fb27ce"
 };
 
-console.log("Made with ❤️ by @tjcages");
-
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ViewTransitions>
       <html lang="en">
         <body className={cn(Basel.className, Basel.variable, Jomhuria.variable, Riegraf.variable)}>
           <main>{children}</main>
           <SignUpForm />
+          <SignUpSuccess />
           <Analytics />
+          {/* Add the following script tag */}
+          <script src="/scripts/formPlaceholders.js" defer></script>
         </body>
       </html>
     </ViewTransitions>

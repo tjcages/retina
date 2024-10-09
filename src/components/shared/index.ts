@@ -8,5 +8,6 @@ export { default as Header } from "./_Header";
 export { default as LogoBrandMenu } from "./_LogoBrandMenu";
 export { default as MobileMenu } from "./_MobileMenu";
 export { default as SignUpForm } from "./_SignUpForm";
+export { default as SignUpSuccess } from "./_SignUpSuccess";
 export { default as Vision } from "./_Vision";
 export { default as WaveEffect } from "./_WaveEffect";
