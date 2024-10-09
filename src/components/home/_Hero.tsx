@@ -62,7 +62,7 @@ const _ = () => {
               <strong>Designed</strong> for DeFi.
             </h1>
             <h1>
-              <strong>Built</strong> by{" "}
+              <strong>Powered</strong> by{" "}
               <Link
                 href="http://uniswap.org/"
                 variant="ghost"
@@ -74,10 +74,10 @@ const _ = () => {
             </h1>
           </motion.div>
           <motion.h4
-            className="col-span-full row-start-2 md:col-span-10 lg:col-span-9"
+            className="col-span-full row-start-2 md:col-span-10 lg:col-span-10"
             variants={item}
           >
-            Unichain is a DeFi-native Ethereum L2, built to be the home for liquidity
+            Unichain is a DeFi-native Ethereum L2, optimized to be the home for liquidity
             across&nbsp;chains.
           </motion.h4>
           <motion.div className="col-span-7 row-start-3 flex items-center gap-3" variants={item}>
