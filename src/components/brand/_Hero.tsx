@@ -1,6 +1,12 @@
+"use client";
+
 import { Background, Button, Icon } from "@/components/ui";
 
 const _ = () => {
+  const handleDownload = () => {
+    window.open("/assets/zip/unichain-brand-kit.zip", "_blank");
+  };
+
   return (
     <>
       <Background variant="secondary" />
@@ -12,7 +18,7 @@ const _ = () => {
             <strong>Brand Kit</strong>
           </h1>
           <div className="col-span-full">
-            <Button>
+            <Button onClick={handleDownload}>
               Download Brand Kit
               <Icon icon="ArrowDown" className="ml-2 h-5 w-5 text-inherit" />
             </Button>

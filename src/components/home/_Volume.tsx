@@ -17,6 +17,7 @@ if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype
 
 interface Props {
   value: number;
+  dollar?: boolean;
   multiple?: string;
   description: string;
 }
@@ -25,7 +26,7 @@ const NumberAnimator: React.FC<{
   endValue: number;
   format: {
     style: string;
-    currency: string;
+    currency?: string;
     notation: string;
     minimumFractionDigits: number;
     maximumFractionDigits: number;
@@ -69,7 +70,7 @@ const NumberAnimator: React.FC<{
   );
 };
 
-const Item: React.FC<Props> = ({ value, multiple, description }) => {
+const Item: React.FC<Props> = ({ value, dollar = true, multiple, description }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
   const [hasBeenInView, setHasBeenInView] = useState(false);
@@ -80,8 +81,8 @@ const Item: React.FC<Props> = ({ value, multiple, description }) => {
     }
   }, [inView, hasBeenInView]);
 
-  const format =
-    value < 100
+  const format = dollar
+    ? value < 100
       ? {
           style: "currency",
           currency: "USD",
@@ -95,7 +96,13 @@ const Item: React.FC<Props> = ({ value, multiple, description }) => {
           notation: "compact",
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        };
+        }
+    : {
+        style: "decimal",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+        notation: "compact"
+      };
 
   return (
     <div ref={ref} className="flex flex-col items-center justify-center md:col-span-8 md:gap-3">
@@ -146,7 +153,7 @@ const _ = () => {
           className="col-span-full flex cursor-default items-start justify-between gap-6 px-3 text-center md:grid md:grid-cols-subgrid md:gap-3 md:px-0"
         >
           <Item value={2.36} multiple="T" description="Trading Volume" />
-          <Item value={25} multiple="M" description="Swapping Wallets" />
+          <Item value={25} dollar={false} multiple="M" description="Swapping Wallets" />
           <Item value={465} multiple="M" description="All-Time Trades" />
         </MagneticInfo>
       </article>

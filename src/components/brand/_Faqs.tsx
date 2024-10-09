@@ -48,7 +48,7 @@ const items = [
     description:
       "You can copy all the various logos and assets throughout this page, or download the full {{Brand Kit here.}}",
     cta: {
-      href: "/assets/unichain-brand-kit.zip"
+      href: "/assets/zip/unichain-brand-kit.zip"
     }
   }
 ] as Props[];
