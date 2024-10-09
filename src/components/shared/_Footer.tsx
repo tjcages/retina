@@ -17,6 +17,7 @@ interface LinkProps {
 const LinkItem: React.FC<LinkProps> = ({ href, children }) => {
   return (
     <Link
+      routed
       href={href}
       variant="ghost"
       className="-my-0.5 whitespace-nowrap text-secondary-foreground"
@@ -73,8 +74,8 @@ const _ = () => {
             <LinkItem href="/">Brand Kit</LinkItem>
           </div> */}
           <div className="col-span-3 mt-3 flex flex-col items-start justify-start md:mt-0">
-            <LinkItem href="/">Privacy Policy</LinkItem>
-            <LinkItem href="/">Terms of Service</LinkItem>
+            <LinkItem href="/privacy">Privacy Policy</LinkItem>
+            <LinkItem href="/terms">Terms of Service</LinkItem>
           </div>
         </div>
       </footer>

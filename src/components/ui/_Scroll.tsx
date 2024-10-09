@@ -9,6 +9,7 @@ interface ScrollContextType {
   scrollOffset: number;
   scrollProgress: number;
   onScroll: (callback: () => void) => void;
+  scrollTo: (point?: number) => void;
   scrollToTop: () => void; // Add this line
 }
 
@@ -90,14 +91,16 @@ export const Scroll: React.FC<Props> = ({ className, direction = "y", children, 
     scrollCallbacks.current.push(callback);
   }, []);
 
-  const scrollToTop = useCallback(() => {
+  const scrollTo = useCallback((point: number = 0) => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
-        top: 0,
+        top: point,
         behavior: "smooth"
       });
     }
   }, []);
+
+  const scrollToTop = scrollTo;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -132,6 +135,7 @@ export const Scroll: React.FC<Props> = ({ className, direction = "y", children, 
     scrollOffset,
     scrollProgress,
     onScroll,
+    scrollTo,
     scrollToTop // Add this line
   };
 

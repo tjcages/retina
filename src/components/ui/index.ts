@@ -2,6 +2,7 @@ export * from "./_Background";
 export * from "./_Badge";
 export * from "./_Breadcrumb";
 export * from "./_Button";
+export * from "./_Card";
 export * from "./_ChainText";
 export * from "./_Checkbox";
 export * from "./_ContextMenu";

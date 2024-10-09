@@ -161,7 +161,11 @@
     cursor: pointer;
   }
 
-  ul,
+  ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+  }
   li {
     margin: 0;
     padding: 0;
@@ -204,4 +208,22 @@ body {
 
 .noise {
   @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:-z-10 after:bg-[url('/textures/noise.png')] after:opacity-15;
+}
+
+.dotted-line {
+  @apply bg-red-500/10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px];
+  .absolute {
+    &:first-child {
+      animation: moveDotsUp 20s linear infinite;
+    }
+  }
+}
+
+@keyframes moveDotsUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
 }
