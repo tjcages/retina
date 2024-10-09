@@ -12,12 +12,12 @@ interface Props {
 
 const Item: React.FC<Props> = ({ header, description, tertiary, cta }) => {
   return (
-    <div className="col-span-full flex flex-col items-start gap-3 md:col-span-7 lg:col-span-8">
+    <div className="col-span-full flex flex-col items-center gap-3 text-center md:col-span-7 lg:col-span-8">
       <Badge>{tertiary}</Badge>
       <h3>{header}</h3>
       <h5 className="max-w-xs text-secondary-foreground md:max-w-none">{description}</h5>
       {cta && (
-        <Link href={cta.href}>
+        <Link href={cta.href} className="-mt-5">
           <h5>{cta.text}</h5>
           <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
         </Link>
@@ -54,8 +54,8 @@ const _ = () => {
   return (
     <section className="py-12 md:py-24">
       <article className="gap-6 md:gap-12">
-        <div className="col-span-full">
-          <h2>
+        <div className="col-span-full flex items-center justify-center">
+          <h2 className="text-pink">
             Unichain <strong>Roadmap</strong>
           </h2>
         </div>
