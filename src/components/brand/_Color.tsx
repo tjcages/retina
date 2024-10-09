@@ -64,7 +64,7 @@ const _: React.FC = () => {
               instantly recognizable.
               <br />
               <br />
-              *Black, white, and greys supplement our Pinks. Black and White can be applied to the
+              Black, white, and greys supplement our pinks. Black and White can be applied to the
               logo when additional contrast is necessary.
             </h5>
           </div>

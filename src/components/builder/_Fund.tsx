@@ -3,22 +3,24 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 const items: ActionItemProps[] = [
   {
     header: "Unichain builder open call",
-    description: "Bring your project to life with support from the Uniswap Foundation.",
+    description:
+      "Apply for opportunities to receive funding, technical support, and go-to-market resources for your project.",
     icon: "Tool",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagbc651Mkl6lGKhJ/form"
-  },
-  {
-    header: "Unichain retro grants",
-    description: "Nominate impactful Unichain projects for funding.",
-    icon: "DollarSquare",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagk50WNKL0c4rfa6/form"
+    href: "SignUpForm"
   },
   {
     header: "Unichain infinite hackathon",
     description:
-      "Enter your hackathon project into our ongoing competition, with bi-weekly rewards.",
+      "Enter any project developed on Unichain into our Infinite Hackathon, with grants awarded monthly.",
     icon: "TrophyStar",
     href: "https://airtable.com/appx3c28q91Ii1iQs/pagKA897Zhcy4K0NR/form"
+  },
+  {
+    header: "Unichain retro grants",
+    description:
+      "Nominate a builder or team that’s creating impact with their Unichain project for retroactive funding.",
+    icon: "DollarSquare",
+    href: "https://airtable.com/appx3c28q91Ii1iQs/pagk50WNKL0c4rfa6/form"
   }
   // {},
   // {
@@ -40,7 +42,7 @@ const _ = () => {
     <section className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full flex items-end gap-5">
-          <h2>Get Supported</h2>
+          <h2>Get Support</h2>
           <small className="mb-2.5 font-mono text-secondary-foreground">02</small>
         </div>
         <div className="col-span-full flex items-center justify-center">

@@ -50,7 +50,7 @@ const items: Props[] = [
   },
   {
     icon: <Icon icon="LogoNetwork" className="h-auto w-1/3 text-inherit" />,
-    description: "Network icons to use white icon on pink background"
+    description: "Network icons use white icon on pink background"
   },
   {
     icon: (

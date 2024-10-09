@@ -140,7 +140,7 @@ const _ = () => {
           ))}
         </Scroll>
         <div className="col-span-full flex flex-col items-center justify-center gap-3 text-center">
-          <Link href="https://blog.uniswap.org/Unichain_Whitepaper" target="_blank">
+          <Link href="https://docs.unichain.org/whitepaper.pdf" target="_blank">
             <h5>Read the whitepaper</h5>
             <Icon icon="ArrowUpRight" className="h-5 w-5 text-[#f94bdf]" />
           </Link>

@@ -45,7 +45,7 @@ const phases = [
   },
   {
     header: "New Features",
-    description: "Provable Block Building and Unichain Verification Service.",
+    description: "Provable Block Building and Unichain Validation Network.",
     tertiary: "Early 2025"
   }
 ] as Props[];

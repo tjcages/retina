@@ -24,7 +24,7 @@ const items = [
   {
     header: "Logo",
     description:
-      "It's called an icon because it's iconic. It's deceptively simple, and can be used as a shorthand for the Full logo."
+      "It's called an icon because it's iconic. It's simple and can be used as a shorthand for the Full logo."
   }
 ];
 
@@ -48,10 +48,10 @@ const _ = () => {
         navigator.clipboard.writeText(logoSVGContent);
         break;
       case 1:
-        navigator.clipboard.writeText(logoIconSVGContent);
+        navigator.clipboard.writeText(logoVerticalSVGContent);
         break;
       case 2:
-        navigator.clipboard.writeText(logoVerticalSVGContent);
+        navigator.clipboard.writeText(logoIconSVGContent);
         break;
       default:
         break;
@@ -80,10 +80,10 @@ const _ = () => {
                 <div className="relative col-span-full flex aspect-[7/3] items-center justify-center rounded-[20px] bg-secondary md:hidden">
                   {index === 0 && <Icon icon="Logo" className="h-auto w-2/3 text-pink-primary" />}
                   {index === 1 && (
-                    <Icon icon="LogoIcon" className="h-1/2 w-auto text-pink-primary" />
+                    <Icon icon="LogoVertical" className="h-1/2 w-auto text-pink-primary" />
                   )}
                   {index === 2 && (
-                    <Icon icon="LogoVertical" className="h-1/2 w-auto text-pink-primary" />
+                    <Icon icon="LogoIcon" className="h-1/2 w-auto text-pink-primary" />
                   )}
                 </div>
                 <h3>{item.header}</h3>
@@ -105,16 +105,16 @@ const _ = () => {
               )}
             />
             <Icon
-              icon="LogoIcon"
+              icon="LogoVertical"
               className={cn(
-                "absolute h-1/2 w-auto scale-50 text-pink-primary opacity-0 transition-all duration-200 ease-in-out",
+                "absolute h-2/3 w-auto scale-50 text-pink-primary opacity-0 transition-all duration-200 ease-in-out",
                 selected === 1 && "scale-100 opacity-100 delay-100"
               )}
             />
             <Icon
-              icon="LogoVertical"
+              icon="LogoIcon"
               className={cn(
-                "absolute h-2/3 w-auto scale-50 text-pink-primary opacity-0 transition-all duration-200 ease-in-out",
+                "absolute h-1/2 w-auto scale-50 text-pink-primary opacity-0 transition-all duration-200 ease-in-out",
                 selected === 2 && "scale-100 opacity-100 delay-100"
               )}
             />

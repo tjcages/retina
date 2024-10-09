@@ -78,21 +78,21 @@ const sections: Props[] = [
     video: "/assets/videos/superchain.mp4"
   },
   {
-    header: "Community Verification Service",
+    header: "Unichain Validation Network",
     description:
       "A network of full nodes monitor and verify the actions of the sequencer, bringing faster settlement and more decentralization to Unichain.",
     graphic: "/assets/graphics/sequencer.png",
     video: "/assets/videos/sequencer.mp4",
-    cta: "https://blog.uniswap.org/Unichain_Whitepaper",
+    cta: "https://docs.unichain.org/whitepaper.pdf",
     comingSoon: true
   },
   {
     header: "Provable Block Building",
     description:
-      "Block building will be delegated to a trusted execution environment developed in partnership with Flashbots, enabling trustless transaction ordering.",
+      "Block building will be delegated to a trusted execution environment developed in partnership with Flashbots, enabling transparent transaction ordering and faster blocks.",
     graphic: "/assets/graphics/execution.png",
     video: "/assets/videos/execution.mp4",
-    cta: "https://blog.uniswap.org/Unichain_Whitepaper",
+    cta: "https://docs.unichain.org/whitepaper.pdf",
     comingSoon: true
   }
 ];

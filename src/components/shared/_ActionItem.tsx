@@ -1,6 +1,7 @@
 "use client";
 
 import { useIsDesktop } from "@/hooks";
+import { state } from "@/store";
 import { cn } from "@/utils";
 
 import { Badge, Icon, type Icons } from "@/components/ui";
@@ -28,7 +29,10 @@ const _: React.FC<ActionItemProps> = ({
 }) => {
   const isDesktop = useIsDesktop(1024);
   const handleClick = () => {
-    if (href) window.open(href);
+    if (href === "SignUpForm") state.isSignUpVisible = true;
+    else {
+      if (href) window.open(href);
+    }
   };
   return header !== undefined ? (
     <div

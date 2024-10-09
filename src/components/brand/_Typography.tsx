@@ -15,8 +15,7 @@ const _: React.FC = () => {
             <h3>Basel Grotesk</h3>
             <h5 className="text-secondary-foreground">
               Our primary typeface. Rooted in modernist typography, Basel Grotesk reinterprets key
-              elements of this aesthetic with a new dynamism. Elegant and versatile—just like
-              Unichain.
+              elements of this aesthetic with a new dynamism.
             </h5>
           </div>
           <div className="relative col-span-full row-start-1 flex flex-col gap-5 border-b md:col-[9_/_span_16] md:row-start-auto lg:col-[12_/_span_15] xl:col-[10_/_span_15]">

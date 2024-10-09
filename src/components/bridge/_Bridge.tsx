@@ -1,15 +1,21 @@
 "use client";
 
+import Link from "next/link";
+
 import { Button, Icon, Image } from "@/components/ui";
 
 const _ = () => {
   return (
     <section className="bg-transparent py-12 md:pb-16 md:pt-0">
       <article className="gap-6 md:gap-y-12">
-        <div className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5">
+        <Link
+          className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5 transition-all duration-300 ease-in-out hover:opacity-90 active:scale-90"
+          href="https://www.brid.gg/"
+          target="_blank"
+        >
           <div className="h-auto w-full overflow-hidden rounded-xl">
             <Image
-              className="h-auto w-full rounded-xl group-hover:scale-[1.01]"
+              className="pointer-events-none h-auto w-full select-none rounded-xl group-hover:scale-[1.01]"
               src="/assets/graphics/bridgg.png"
               alt="Brid.gg graphic"
               width={800}
@@ -26,11 +32,15 @@ const _ = () => {
               </Button>
             </div>
           </div>
-        </div>
-        <div className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5">
+        </Link>
+        <Link
+          className="group col-span-12 flex cursor-pointer flex-col gap-6 rounded-[20px] bg-secondary p-5 transition-all duration-300 ease-in-out hover:opacity-90 active:scale-90"
+          href="https://superbridge.app/"
+          target="_blank"
+        >
           <div className="h-auto w-full overflow-hidden rounded-xl">
             <Image
-              className="h-auto w-full rounded-xl group-hover:scale-[1.01]"
+              className="pointer-events-none h-auto w-full select-none rounded-xl group-hover:scale-[1.01]"
               src="/assets/graphics/superbridge.png"
               alt="Superbridge graphic"
               width={800}
@@ -47,7 +57,7 @@ const _ = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </Link>
       </article>
     </section>
   );

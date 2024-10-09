@@ -12,13 +12,15 @@ const items: ActionItemProps[] = [
   {
     header: "Support",
     description: "Reach out to our team in Discord for support.",
-    icon: "MessagesText"
+    icon: "MessagesText",
+    href: "https://discord.gg/AhgRNru9"
+  },
+  {
+    header: "Join Builder Registry",
+    description: "Join weekly sessions with our team to ask questions live.",
+    icon: "UsersGroup",
+    href: "SignUpForm"
   }
-  // {
-  //   header: "Office hours",
-  //   description: "Join weekly sessions with our team to ask questions live.",
-  //   icon: "QuestionSquare"
-  // }
 ];
 
 const _ = () => {
@@ -37,6 +39,7 @@ const _ = () => {
                 header={item.header}
                 description={item.description}
                 icon={item.icon}
+                href={item.href}
               />
             ))}
           </div>

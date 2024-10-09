@@ -2,13 +2,13 @@
 
 import { useInView } from "@/hooks";
 import { envClient } from "@/lib";
-import { cn } from "@/utils";
+import { cn, pageTransition } from "@/utils";
 import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
 import { useRef } from "react";
 
-import { Background, Button, ChainText } from "@/components/ui";
+import { Background, Button, Link } from "@/components/ui";
 
 const container = {
   hidden: { opacity: 0 },
@@ -36,8 +36,8 @@ const _ = () => {
 
   const handleMainCTAClick = () => {
     // old
-    window.open(envClient.NEXT_PUBLIC_DOCS_URL + "/getting-started", "_blank");
-    // router.push("builder-toolkit", { onTransitionReady: pageTransition });
+    // window.open(envClient.NEXT_PUBLIC_DOCS_URL + "/getting-started", "_blank");
+    router.push("builder-toolkit", { onTransitionReady: pageTransition });
     // state.isSignUpVisible = true;
   };
 
@@ -83,7 +83,7 @@ const _ = () => {
             </Button>
           </motion.div>
           <motion.div
-            className="col-span-full flex items-start justify-start md:mt-14"
+            className="col-span-full flex items-start justify-start md:mt-8"
             variants={item}
           >
             {/* <Button
@@ -92,11 +92,9 @@ const _ = () => {
             >
               <Icon icon="Superchain" className="h-10 w-auto" />
             </Button> */}
-            <ChainText
-              className="opacity-70"
-              text={"Powered by the Superchain"}
-              onClick={() => window.open("https://www.optimism.io/", "_blank")}
-            />
+            <Link variant="ghost" href="https://optimism.io/build">
+              <h5 className="text-white/70">Built on the Superchain</h5>
+            </Link>
           </motion.div>
         </motion.article>
       </section>

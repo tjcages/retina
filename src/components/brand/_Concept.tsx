@@ -141,10 +141,8 @@ const _ = () => {
             <div className="flex flex-col gap-3 py-5">
               <h3>The Graph</h3>
               <h5 className="text-secondary-foreground">
-                Rooted deep in the origins of Uniswap (even before the Unicorn) is the x*y=k formula
-                that powers the AMM, enabling permissionless trading. The icon extend vertically and
-                horizontally alluding to the breadth and depth of Unichain&apos;s vision for
-                liquidity.
+                Rooted in the origins of the Uniswap Protocol (even before the Unicorn) is the x*y=k
+                formula that powers the AMM.
               </h5>
             </div>
           </div>
@@ -198,9 +196,8 @@ const _ = () => {
             <div className="flex flex-col gap-3 py-5">
               <h3>Partners and Community</h3>
               <h5 className="text-secondary-foreground">
-                The graph comes to life with color and interactivity — revealing shapes that
-                represent users, assets, projects, apps, and networks that scale Unichain, Ethereum,
-                and DeFi.
+                The grid comes to life with color and interactivity — revealing shapes that
+                represent users, assets, projects, apps, and networks that call Unichain home.
               </h5>
             </div>
           </div>
