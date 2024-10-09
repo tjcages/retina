@@ -72,7 +72,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     const colorIndex = Math.floor(easedProgress * (interpolatedColorsLinear.length - 1));
     const color = interpolatedColorsLinear[colorIndex];
     metaTag.setAttribute("content", `rgb(${color.join(",")})`);
-  }, [menuVisible, transitionProgress, belowFold, interpolatedColorsLinear]);
+  }, [menuVisible, belowFold, variant, transitionProgress, interpolatedColorsLinear]);
 
   useEffect(() => {
     lastScrollTime.current = Date.now();
