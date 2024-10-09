@@ -84,7 +84,7 @@ const _: React.FC<Props> = ({ className }) => {
             <Button
               type="submit"
               size="md"
-              className="w-full bg-pink-secondary-foreground text-base"
+              className="w-full bg-pink-primary-foreground text-base"
               onClick={handleSignUp}
             >
               Sign Up
