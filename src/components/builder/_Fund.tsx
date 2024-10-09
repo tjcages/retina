@@ -6,7 +6,7 @@ const items: ActionItemProps[] = [
     description:
       "Apply for opportunities to receive funding, technical support, and go-to-market resources for your project.",
     icon: "Tool",
-    href: "SignUpForm"
+    href: "https://share.hsforms.com/1Bc0BcWqPTW-no_TIM5hbFAsdca9"
   },
   {
     header: "Unichain infinite hackathon",
