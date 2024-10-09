@@ -48,7 +48,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     const timeDiff = now - lastScrollTime.current;
     lastScrollTime.current = now;
 
-    const targetProgress = menuVisible ? 0 : belowFold ? 1 : 0;
+    const targetProgress = menuVisible ? 0 : belowFold ? 1 : variant === "primary" ? 0 : 1;
     const newProgress = Math.max(
       0,
       Math.min(
