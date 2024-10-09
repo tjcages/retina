@@ -2,7 +2,7 @@
 
 import { FitText } from "@/components/ui";
 
-const Typography: React.FC = () => {
+const _: React.FC = () => {
   return (
     <section className="py-12 md:py-16">
       <article className="gap-y-6 md:gap-y-12">
@@ -43,4 +43,4 @@ const Typography: React.FC = () => {
   );
 };
 
-export default Typography;
+export default _;

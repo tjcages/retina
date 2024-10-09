@@ -4,11 +4,11 @@ import { svgContent as logoSVGContent } from "@/assets/icons/_logo";
 import { svgContent as logoIconSVGContent } from "@/assets/icons/_logo-icon";
 import { svgContent as logoVerticalSVGContent } from "@/assets/icons/_logo-vertical";
 import { useInView } from "@/hooks";
-import { cn } from "@/utils";
+import { cn, delay } from "@/utils";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
-import { Button, Icon } from "@/components/ui";
+import { Button, Icon, Text } from "@/components/ui";
 
 const items = [
   {
@@ -37,9 +37,7 @@ const _ = () => {
   // if copy is successful, show a success message and reset the copied state
   const handleCopy = () => {
     setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+    delay(2000).then(() => setCopied(false));
   };
 
   const copySVG = () => {
@@ -94,7 +92,7 @@ const _ = () => {
             ))}
           </div>
           <motion.div
-            className="relative col-span-full hidden h-full items-center justify-center rounded-[20px] bg-secondary md:col-[9_/_span_16] md:flex lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
+            className="group relative col-span-full hidden h-full items-center justify-center rounded-[20px] bg-secondary md:col-[9_/_span_16] md:flex lg:col-[12_/_span_15] xl:col-[10_/_span_15]"
             initial={{ opacity: 0.1 }}
             animate={{ opacity: isInView ? 1 : 0.1 }}
             transition={{ duration: 0.5 }}
@@ -123,24 +121,24 @@ const _ = () => {
             <Button
               variant="outline"
               size="md"
-              tooltip="Copy SVG icon"
-              className="absolute bottom-3 right-3 bg-background"
+              className="absolute bottom-3 right-3 rounded-xl bg-background p-2.5 text-secondary-foreground opacity-0 group-hover:opacity-100"
               onClick={copySVG}
             >
               <Icon
                 icon="Copy"
                 className={cn(
-                  "h-5 w-5 text-secondary-foreground transition-all delay-0 duration-200 ease-in",
+                  "mr-1 h-5 w-5 text-inherit transition-all delay-0 duration-200 ease-in",
                   copied && "scale-0 opacity-0 delay-0"
                 )}
               />
               <Icon
                 icon="Check"
                 className={cn(
-                  "absolute h-5 w-5 scale-0 text-pink-primary opacity-0 transition-all delay-0 duration-200 ease-out",
+                  "absolute h-5 w-5 scale-0 text-[#21C95E] opacity-0 transition-all delay-0 duration-200 ease-out",
                   copied && "scale-100 opacity-100 delay-100"
                 )}
               />
+              <Text>{copied ? "Copied SVG" : "Copy SVG"}</Text>
             </Button>
           </motion.div>
         </div>

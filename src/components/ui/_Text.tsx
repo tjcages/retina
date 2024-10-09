@@ -44,7 +44,7 @@ const LineWrapper: FC<WrapperBaseProps> = ({ children, index }) => {
         type: "spring",
         stiffness: 200,
         damping: 20,
-        delay: 0.1 * index
+        delay: 0.05 * index
       }
     },
     exit: {
