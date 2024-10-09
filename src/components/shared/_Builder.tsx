@@ -16,7 +16,7 @@ const items: ActionItemProps[] = [
     header: "Launch an ERC-20",
     description: "Example token implementation.",
     icon: "DesignSquare",
-    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/launching-a-token"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-an-erc20"
   },
   {
     header: "Create a pool",
