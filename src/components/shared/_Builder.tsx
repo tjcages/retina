@@ -46,9 +46,9 @@ const _ = () => {
   }, [isInView]);
 
   return (
-    <section ref={ref} className="z-20 bg-transparent py-12 md:py-24">
+    <section className="z-20 bg-transparent py-12 md:py-24">
       <article className="gap-y-6 md:gap-y-12">
-        <div className="col-span-full">
+        <div ref={ref} className="col-span-full">
           <h2>
             Start building on the{" "}
             <strong
