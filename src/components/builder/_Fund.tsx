@@ -2,23 +2,20 @@ import { ActionItem, type ActionItemProps } from "@/components/shared";
 
 const items: ActionItemProps[] = [
   {
-    header: "Unichain builder open call",
-    description:
-      "Apply for opportunities to receive funding, technical support, and go-to-market resources for your project.",
+    header: "Builder open call",
+    description: "Apply to receive funding, technical support, and marketing resources.",
     icon: "Tool",
     href: "https://share.hsforms.com/1Bc0BcWqPTW-no_TIM5hbFAsdca9"
   },
   {
-    header: "Unichain infinite hackathon",
-    description:
-      "Enter any project developed on Unichain into our Infinite Hackathon, with grants awarded monthly.",
+    header: "Infinite hackathon",
+    description: "Enter any Unichain project into the Infinite Hackathon, with monthly grants.",
     icon: "TrophyStar",
     href: "https://airtable.com/appx3c28q91Ii1iQs/pagKA897Zhcy4K0NR/form"
   },
   {
-    header: "Unichain retro grants",
-    description:
-      "Nominate a builder or team that’s creating impact with their Unichain project for retroactive funding.",
+    header: "Retro grants",
+    description: "Nominate a builder or team for retroactive funding.",
     icon: "DollarSquare",
     href: "https://airtable.com/appx3c28q91Ii1iQs/pagk50WNKL0c4rfa6/form"
   }

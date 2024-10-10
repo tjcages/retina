@@ -10,7 +10,7 @@ const items: ActionItemProps[] = [
   {
     header: "Builder channel",
     description: "Share your project with the community on Farcaster.",
-    icon: "DiscordStroke",
+    icon: "Farcaster",
     href: "https://warpcast.com/~/channel/unichain"
   }
 ];

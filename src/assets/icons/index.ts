@@ -11,6 +11,7 @@ export { default as DesignSquare } from "./_design-square";
 export { default as Discord } from "./_discord";
 export { default as DiscordStroke } from "./_discord-stroke";
 export { default as DollarSquare } from "./_dollar-square";
+export { default as Farcaster } from "./_farcaster";
 export { default as LaptopCode } from "./_laptop-code";
 export { default as Logo } from "./_logo";
 export { default as LogoIcon } from "./_logo-icon";
