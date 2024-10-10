@@ -8,7 +8,8 @@ import { Divider, Scroll } from "@/components/ui";
 const policy = {
   title: "Privacy Policy",
   content: `
-### UNICHAIN PRIVACY POLICY 
+Unichain Privacy Policy
+
 _Last Revised: October 10, 2024_
 
 This Privacy Policy (“Privacy Policy”) explains how Universal Navigation Inc. (“we,” “our,” or “us”) collects, uses and discloses information that we obtain about visitors (“you” and “your”) who visit the https://unichain.org and https://docs.unichain.org websites (the “Websites”), which are maintained by us, and such other products and services related to the Websites that may be offered by us from time to time (collectively, the “Services”).

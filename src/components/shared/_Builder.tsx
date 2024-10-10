@@ -1,7 +1,9 @@
 "use client";
 
+import { useInView } from "@/hooks";
 import { envClient } from "@/lib";
-import { useState } from "react";
+import { cn, delay } from "@/utils";
+import { useEffect, useRef, useState } from "react";
 
 import { ActionItem, type ActionItemProps } from "@/components/shared";
 
@@ -33,13 +35,31 @@ const items: ActionItemProps[] = [
 ];
 
 const _ = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [isPink, setIsPink] = useState(false);
+
+  useEffect(() => {
+    if (isInView) delay(2000).then(() => setIsPink(true));
+    else setIsPink(false);
+  }, [isInView]);
+
   return (
-    <section className="z-20 bg-transparent py-12 md:py-24">
+    <section ref={ref} className="z-20 bg-transparent py-12 md:py-24">
       <article className="gap-y-6 md:gap-y-12">
         <div className="col-span-full">
           <h2>
-            Start building on the <strong>liquidity network</strong>.
+            Start building on the{" "}
+            <strong
+              className={cn(
+                "transition-all duration-1000 ease-in-out",
+                isInView && isPink && "text-pink"
+              )}
+            >
+              liquidity network
+            </strong>
+            .
           </h2>
         </div>
         <div className="col-span-full flex items-center justify-center">
