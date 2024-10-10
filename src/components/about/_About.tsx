@@ -14,15 +14,15 @@ const _ = () => {
           </h2>
         </div>
         <div className="col-span-12 flex flex-col gap-3">
-          <h4>For DeFi natives. By DeFi natives.</h4>
           <h4 className="text-pretty">
-            The development of Unichain has been a collaborative effort across many organizations:
-            <br />
-            <br />
+            For DeFi natives. By DeFi natives. The development of Unichain has been a collaborative
+            effort across many organizations:
+          </h4>
+          <h4>
             <Link href="https://uniswap.org">Uniswap Labs</Link> is the primary technical provider
             for Unichain and operates the Unichain Sequencer.
-            <br />
-            <br />
+          </h4>
+          <h4>
             Unichain includes open source code contributions from{" "}
             <Link href="https://optimism.io/" variant="ghost">
               Optimism
@@ -36,8 +36,8 @@ const _ = () => {
               Paradigm
             </Link>{" "}
             research teams.
-            <br />
-            <br />
+          </h4>
+          <h4>
             <Link href="https://www.uniswapfoundation.org/">Uniswap Foundation</Link> provides
             grants and support for developers.
           </h4>
