@@ -135,7 +135,7 @@ We maintain administrative, physical and technical safeguards designed to protec
 
 ### Email Marketing
 
-We, or third parties, may use your Personal Information to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email sent by us or on our behalf or by contacting us.
+We, or third parties, may use your Personal Information to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. In particular, Uniswap Foundation may receive the Personal Information you provide on the Websites and contact you about Unichain. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email sent by us or on our behalf or by contacting us.
 
 Your option not to receive marketing material shall not preclude us from: corresponding with you, by email or otherwise, regarding your relationship with us; accessing your Personal Information for our internal business purposes; or disclosing your Personal Information as described in this Privacy Policy for purposes other than sending you marketing materials.
 
