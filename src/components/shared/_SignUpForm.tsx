@@ -16,6 +16,7 @@ const Content = () => {
   const onFormSubmitted = () => {
     setFormSubmitted(true);
     state.isSignUpVisible = false;
+    state.showSignUpBanner = false;
     state.isSignUpSuccessVisible = true;
   };
 
