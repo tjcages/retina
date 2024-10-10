@@ -114,13 +114,21 @@ const partners = [
   //   name: "Safe",
   //   src: "/assets/partners/safe.png"
   // },
-  {
-    name: "RainbowKit",
-    src: "/assets/partners/rainbowkit.png"
-  },
+  // {
+  //   name: "RainbowKit",
+  //   src: "/assets/partners/rainbowkit.png"
+  // },
   {
     name: "Wormhole",
     src: "/assets/partners/wormhole.png"
+  },
+  {
+    name: "LayerZero",
+    src: "/assets/partners/layerzero.png"
+  },
+  {
+    name: "Brid.gg",
+    src: "/assets/partners/bridgg.png"
   }
 
   // Awaiting confirmation for 10/10
@@ -157,14 +165,6 @@ const partners = [
   // {
   //   name: "Parsec",
   //   src: "/assets/partners/parsec.png"
-  // },
-  // {
-  //   name: "LayerZero",
-  //   src: "/assets/partners/layerzero.png"
-  // },
-  // {
-  //   name: "Brid.gg",
-  //   src: "/assets/partners/bridgg.png"
   // },
   // {
   //   name: "Bitstamp",

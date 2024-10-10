@@ -1,6 +1,7 @@
 "use client";
 
 import { useIsDesktop } from "@/hooks";
+import { envClient } from "@/lib";
 import { state, useLocalState } from "@/store";
 import { Drawer } from "modal";
 import { HubspotProvider, useHubspotForm } from "next-hubspot";
@@ -19,8 +20,8 @@ const Content = () => {
   };
 
   useHubspotForm({
-    portalId: "47651697",
-    formId: "b5be498a-4c56-4913-8c01-2c7c774774f7",
+    portalId: envClient.NEXT_PUBLIC_HUBSPOT_ID,
+    formId: envClient.NEXT_PUBLIC_HUBSPOT_FORM_ID,
     target: "#hubspot-form-wrapper",
     onFormSubmitted: onFormSubmitted
   });

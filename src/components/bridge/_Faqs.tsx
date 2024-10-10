@@ -26,7 +26,7 @@ const items = [
   {
     header: "Why can’t I bridge my assets?",
     description:
-      "Assets on Testnet are not real assets. You can only bridge assets from Ethereum Sepolia to Unichain Testnet."
+      "Assets on Unichain Testnet are not real assets. You can only bridge assets from Ethereum Sepolia to Unichain Testnet."
   }
 ] as Props[];
 

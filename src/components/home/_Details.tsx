@@ -80,7 +80,7 @@ const sections: Props[] = [
   {
     header: "Unichain Validation Network",
     description:
-      "A network of full nodes monitor and verify the actions of the sequencer, bringing faster settlement and more decentralization to Unichain.",
+      "A network of full nodes monitor and verify the actions of the sequencer, bringing faster transactions and more decentralization to Unichain.",
     graphic: "/assets/graphics/sequencer.png",
     video: "/assets/videos/sequencer.mp4",
     cta: "https://docs.unichain.org/whitepaper.pdf",
@@ -89,7 +89,7 @@ const sections: Props[] = [
   {
     header: "Provable Block Building",
     description:
-      "Block building will be delegated to a trusted execution environment developed in partnership with Flashbots, enabling transparent transaction ordering and faster blocks.",
+      "Block building will be delegated to a trusted execution environment developed in collaboration with Flashbots, enabling transparent transaction ordering and faster blocks.",
     graphic: "/assets/graphics/execution.png",
     video: "/assets/videos/execution.mp4",
     cta: "https://docs.unichain.org/whitepaper.pdf",
