@@ -72,7 +72,7 @@ const Content = () => {
           <h4>Need support building your project?</h4>
           <p className="text-lg">
             Fill out the{" "}
-            <Link href="https://share.hsforms.com/1Bc0BcWqPTW-no_TIM5hbFAsdca9">
+            <Link href="https://share.hsforms.com/1br6jbotQSvussdlWepfayQsdca9">
               Builder Open Call Form
             </Link>
           </p>

@@ -5,7 +5,7 @@ const items: ActionItemProps[] = [
     header: "Builder open call",
     description: "Apply to receive funding, technical support, and marketing resources.",
     icon: "Tool",
-    href: "https://share.hsforms.com/1Bc0BcWqPTW-no_TIM5hbFAsdca9"
+    href: "https://share.hsforms.com/1br6jbotQSvussdlWepfayQsdca9"
   },
   {
     header: "Infinite hackathon",
