@@ -10,7 +10,7 @@ const policy = {
   content: `
 Unichain Terms of Service
 
-Last Modified: October 10, 2024
+_Last Modified: October 10, 2024_
 
 These Terms of Service (the “Terms”) constitute a legally binding agreement made between you (“you”) and Universal Navigation Inc. (“Uniswap Labs” “we,” “our” or “us”) concerning your access to and use of the <https://unichain.org> website (the “Website”) and such other products and services related to the Unichain Testnet (as defined below) that may be offered by Uniswap Labs from time to time (collectively, the “Services”). By accessing or using the Services, you agree that you have read, understand and accept all of the terms and conditions contained in the Terms. If you do not agree to all of the terms and conditions of the Terms, you may not access or use the Services.
 
