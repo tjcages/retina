@@ -12,13 +12,14 @@ import { Link, useScroll } from "@/components/ui";
 interface PolicyContentProps {
   header: string;
   content: string;
+  tocDepth?: number;
 }
 
 const clean = (str: string) => {
   return str.split(". ").pop()?.toLowerCase().replace(/\s+/g, "-").replace(/,/g, ""); // Remove all commas
 };
 
-export default function PolicyContent({ header, content }: PolicyContentProps) {
+export default function PolicyContent({ header, content, tocDepth = 3 }: PolicyContentProps) {
   const [toc, setToc] = useState<{ id: string; title: string; level: number }[]>([]);
   const router = useRouter();
   const { scrollTo } = useScroll();
@@ -27,7 +28,7 @@ export default function PolicyContent({ header, content }: PolicyContentProps) {
   useEffect(() => {
     const tokens = marked.lexer(content);
     const headings = tokens.filter(
-      token => token.type === "heading" && token.depth === 3
+      token => token.type === "heading" && token.depth <= tocDepth
     ) as Tokens.Heading[];
     setToc(
       headings.map(heading => {
@@ -44,7 +45,7 @@ export default function PolicyContent({ header, content }: PolicyContentProps) {
         };
       })
     );
-  }, [content]);
+  }, [content, tocDepth]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -134,7 +135,7 @@ export default function PolicyContent({ header, content }: PolicyContentProps) {
                     onClick={e => handleScrollToSection(e, item.id)}
                     className={cn("text-secondary-foreground")}
                   >
-                    {item.title}
+                    <p className="line-clamp-1">{item.title}</p>
                   </Link>
                 </motion.div>
               ))}
