@@ -139,6 +139,11 @@
     text-wrap: pretty;
   }
 
+  code {
+    @apply max-w-2xl font-basel text-base leading-[1.2rem] tracking-normal text-[rgba(0,0,0,0.42)];
+    text-wrap: pretty;
+  }
+
   span {
     @apply tracking-normal;
   }
@@ -169,6 +174,9 @@
     list-style-type: disc;
     margin: 0;
     padding: 0;
+  }
+  ol {
+    list-style-type: decimal;
   }
   li {
     margin: 0;

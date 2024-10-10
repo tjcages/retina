@@ -59,7 +59,7 @@
       text-wrap: pretty;
 
       a {
-        @apply text-pink font-medium transition-opacity duration-200 ease-in-out hover:opacity-80;
+        @apply font-semibold transition-opacity duration-200 ease-in-out hover:opacity-80;
       }
     }
     .hs-form-booleancheckbox {

@@ -20,17 +20,14 @@ const clean = (str: string) => {
 
 export default function PolicyContent({ header, content }: PolicyContentProps) {
   const [toc, setToc] = useState<{ id: string; title: string; level: number }[]>([]);
-  const [activeHeading, setActiveHeading] = useState<string | null>(null);
   const router = useRouter();
   const { scrollTo } = useScroll();
   const contentRef = useRef<HTMLDivElement>(null);
 
-  console.log(activeHeading);
-
   useEffect(() => {
     const tokens = marked.lexer(content);
     const headings = tokens.filter(
-      token => token.type === "heading" && !/\d+\.\d+/.test(token.text)
+      token => token.type === "heading" && token.depth === 3
     ) as Tokens.Heading[];
     setToc(
       headings.map(heading => {
@@ -78,25 +75,10 @@ export default function PolicyContent({ header, content }: PolicyContentProps) {
       if (element) {
         scrollTo(element.offsetTop);
         router.push(`#${id}`, { scroll: false });
-        setActiveHeading(id);
       }
     },
     [router, scrollTo]
   );
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      if (hash) {
-        setActiveHeading(hash);
-        setTimeout(() => setActiveHeading(null), 3000);
-      }
-    };
-
-    handleHashChange(); // Check on initial load
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
 
   const renderContent = useCallback(() => {
     const renderedContent = marked(content);
