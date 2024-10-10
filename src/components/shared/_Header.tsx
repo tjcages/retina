@@ -27,11 +27,21 @@ const easeInOut = (t: number): number => {
 const _: React.FC<Props> = ({ variant = "primary" }) => {
   const pathname = usePathname();
   const router = useTransitionRouter();
-  const { menuVisible } = useLocalState();
+  const { menuVisible, isSignUpVisible, isSignUpSuccessVisible } = useLocalState();
   const { scrollOffset, scrollToTop } = useScroll();
   const belowFold = scrollOffset > 100;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const interpolatedColorsLinear = interpolateColors([251, 39, 206], [255, 255, 255], duration); // #fb27ce -> #ffffff
+  const interpolatedColorsLinearWhiteToDim = interpolateColors(
+    [255, 255, 255],
+    [106, 110, 109],
+    duration
+  ); // #ffffff -> #6a6e6d
+  const interpolatedColorsLinearPinkToDim = interpolateColors(
+    [251, 39, 206],
+    [104, 24, 90],
+    duration
+  ); // #68185a -> #6a6e6d
   const [transitionProgress, setTransitionProgress] = useState(0);
   const lastScrollTime = useRef(Date.now());
 
@@ -48,7 +58,27 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     const timeDiff = now - lastScrollTime.current;
     lastScrollTime.current = now;
 
-    const targetProgress = menuVisible ? 0 : belowFold ? 1 : variant === "primary" ? 0 : 1;
+    let targetProgress: number;
+    let currentInterpolation: number[][];
+
+    if (isSignUpVisible || isSignUpSuccessVisible) {
+      targetProgress = 1;
+      if (!belowFold || menuVisible) {
+        currentInterpolation = interpolatedColorsLinearPinkToDim;
+      } else {
+        currentInterpolation = interpolatedColorsLinearWhiteToDim;
+      }
+    } else if (menuVisible) {
+      targetProgress = 0;
+      currentInterpolation = interpolatedColorsLinear;
+    } else if (belowFold) {
+      targetProgress = 1;
+      currentInterpolation = interpolatedColorsLinear;
+    } else {
+      targetProgress = variant === "primary" ? 0 : 1;
+      currentInterpolation = interpolatedColorsLinear;
+    }
+
     const newProgress = Math.max(
       0,
       Math.min(
@@ -59,20 +89,25 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
       )
     );
 
-    // Check if we've reached the target color
-    if (newProgress === targetProgress) {
-      return; // Exit the function if we've reached the target color
-    }
-
     setTransitionProgress(newProgress);
 
     // Apply ease-in-out function to the progress
     const easedProgress = easeInOut(newProgress);
 
-    const colorIndex = Math.floor(easedProgress * (interpolatedColorsLinear.length - 1));
-    const color = interpolatedColorsLinear[colorIndex];
+    const colorIndex = Math.floor(easedProgress * (currentInterpolation.length - 1));
+    const color = currentInterpolation[colorIndex];
     metaTag.setAttribute("content", `rgb(${color.join(",")})`);
-  }, [menuVisible, belowFold, variant, transitionProgress, interpolatedColorsLinear]);
+  }, [
+    menuVisible,
+    belowFold,
+    variant,
+    transitionProgress,
+    interpolatedColorsLinear,
+    interpolatedColorsLinearWhiteToDim,
+    interpolatedColorsLinearPinkToDim,
+    isSignUpVisible,
+    isSignUpSuccessVisible
+  ]);
 
   useEffect(() => {
     lastScrollTime.current = Date.now();
