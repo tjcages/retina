@@ -54,7 +54,7 @@ const Content = () => {
             <p>Sign up for Unichain news, updates and events.</p>
           </div>
 
-          <div id="hubspot-form-wrapper" className="min-h-[440px]" />
+          <div id="hubspot-form-wrapper" className="min-h-[340px]" />
         </>
       ) : (
         <div className="flex w-full flex-col items-center justify-start gap-3 pb-2 text-center">
