@@ -12,7 +12,7 @@ import "@/styles/signup.scss";
 
 const Content = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const onFormSubmit = () => {
+  const onFormSubmitted = () => {
     setFormSubmitted(true);
     state.isSignUpVisible = false;
     state.isSignUpSuccessVisible = true;
@@ -22,7 +22,7 @@ const Content = () => {
     portalId: "47651697",
     formId: "b5be498a-4c56-4913-8c01-2c7c774774f7",
     target: "#hubspot-form-wrapper",
-    onFormSubmit: onFormSubmit
+    onFormSubmitted: onFormSubmitted
   });
 
   const handleOpenChange = (open: boolean) => {
