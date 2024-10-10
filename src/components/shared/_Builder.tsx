@@ -10,19 +10,19 @@ const items: ActionItemProps[] = [
     header: "Write a smart contract",
     description: "Sample app to help kickstart your development process.",
     icon: "Code",
-    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-a-smart-contract"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/docs/building-on-unichain/deploy-a-smart-contract"
   },
   {
     header: "Deploy an ERC-20",
     description: "Example token implementation.",
     icon: "DesignSquare",
-    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/deploy-an-erc20"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/docs/building-on-unichain/deploy-an-erc20"
   },
   {
     header: "Create a pool",
     description: "Resources for creating pools on Unichain.",
     icon: "ActivityCircle",
-    href: envClient.NEXT_PUBLIC_DOCS_URL + "/building-on-unichain/create-a-pool"
+    href: envClient.NEXT_PUBLIC_DOCS_URL + "/docs/building-on-unichain/create-a-pool"
   },
   {
     header: "Read docs",
