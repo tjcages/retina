@@ -6,13 +6,13 @@ const items: ActionItemProps[] = [
     description: "Join and steward our developer community.",
     icon: "Ranking",
     href: "https://airtable.com/appwTvPg1yJjRWjte/shrY1z3y2jZBLmEgQ"
-  },
-  {
-    header: "Builder channel",
-    description: "Share your project with the community on Farcaster.",
-    icon: "Farcaster",
-    href: "https://warpcast.com/~/channel/unichain"
   }
+  // {
+  //   header: "Builder channel",
+  //   description: "Share your project with the community on Farcaster.",
+  //   icon: "Farcaster",
+  //   href: "https://warpcast.com/~/channel/unichain"
+  // }
 ];
 
 const _ = () => {
