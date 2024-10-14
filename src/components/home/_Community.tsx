@@ -246,9 +246,9 @@ const Community = () => {
             <Marquee
               direction="left"
               speed={20}
-              className="col-span-full gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4"
+              className="col-span-full mb-6 gradient-mask-l-90-d md:mb-0 lg:col-start-4 lg:-col-end-4"
             >
-              <div className="flex items-center lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
+              <div className="flex items-center gap-6 lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
                 {shuffledCommunity
                   .slice(0, Math.ceil(shuffledCommunity.length / 2))
                   .map((item, index) => (
@@ -261,7 +261,7 @@ const Community = () => {
               speed={20}
               className="col-span-full gradient-mask-l-90-d lg:col-start-4 lg:-col-end-4"
             >
-              <div className="flex items-center lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
+              <div className="flex items-center gap-6 lg:mr-8 lg:gap-8 xl:mr-12 xl:gap-12">
                 {shuffledCommunity
                   .slice(Math.ceil(shuffledCommunity.length / 2))
                   .reverse()
