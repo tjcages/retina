@@ -30,7 +30,7 @@ const Item: React.FC<Props> = ({ header, description, cta }) => {
 
 const items = [
   {
-    header: "Why do I need to follow the these guidelines?",
+    header: "Why do I need to follow these guidelines?",
     description:
       "We don't want anyone to midcurve Unichain's brand. Keeping things consistent instills recognizability and trust."
   },
