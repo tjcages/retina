@@ -13,7 +13,7 @@ const items: ActionItemProps[] = [
     header: "Support",
     description: "Reach out to our team in Discord for support.",
     icon: "MessagesText",
-    href: "https://discord.gg/uniswap"
+    href: "https://discord.gg/UVnGqnCq"
   }
   // {
   //   header: "Join builder registry",
