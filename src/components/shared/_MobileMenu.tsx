@@ -125,7 +125,7 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               {/* <Item href="https://github.com/Uniswap/unichain">Github</Item> */}
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
-              <Item href="https://discord.gg/UVnGqnCq">Discord</Item>
+              <Item href="https://discord.gg/uniswap">Discord</Item>
               <Item href="https://x.com/unichain">Twitter/X</Item>
             </div>
             <EmailSignup className="pointer-events-auto relative bottom-auto right-auto z-10 mx-auto mt-auto flex w-full rounded-2xl text-primary" />
