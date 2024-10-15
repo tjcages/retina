@@ -183,7 +183,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
               <Twitter className="h-[17px] w-[17px] text-inherit" />
             </Link>
             <Link
-              href="https://discord.gg/uniswap"
+              href="https://discord.gg/UVnGqnCq"
               className="px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               <Discord className="h-7 w-7 text-inherit" />
