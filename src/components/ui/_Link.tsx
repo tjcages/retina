@@ -35,25 +35,27 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, variant, routed, href, blank = true, children, ...props }, ref) => {
     const router = useTransitionRouter();
 
-    const handleTrigger = () => {
-      router.push(href || "/", { onTransitionReady: pageTransition });
-    };
+    const handleClick = React.useCallback(
+      (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (routed) {
+          e.preventDefault();
+          router.push(href, { onTransitionReady: pageTransition });
+        }
+      },
+      [routed, router, href]
+    );
 
     const renderLine = () => (
       <div className="absolute bottom-2 left-3 right-3 h-[1.5px] origin-right scale-x-0 bg-gradient-to-r from-pink-primary to-pink-secondary transition-transform duration-200 ease-in-out group-hover:origin-left group-hover:scale-x-100" />
     );
 
-    return routed ? (
-      <div className={cn(linkVariants({ variant, className }))} onClick={handleTrigger}>
-        {children}
-        {variant !== "ghost" && renderLine()}
-      </div>
-    ) : (
+    return (
       <NextLink
         ref={ref}
         href={href}
-        target={blank ? "_blank" : undefined}
+        target={blank && !routed ? "_blank" : undefined}
         className={cn(linkVariants({ variant, className }))}
+        onClick={handleClick}
         {...props}
       >
         {children}

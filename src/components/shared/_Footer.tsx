@@ -41,13 +41,6 @@ const _ = () => {
       <footer>
         <div className="col-span-full grid grid-cols-subgrid gap-3">
           <div className="col-span-full mb-6 flex h-full flex-col items-start md:col-[1_/_span_15] md:mb-0">
-            {/* <Image
-              className="mb-6 h-12 w-auto md:mb-auto"
-              src="/assets/logo-secondary.webp"
-              alt="Unichain logo"
-              width={400}
-              height={100}
-            /> */}
             <h5 className="md:mb-1">Looking for more?</h5>
             <div
               className="-mx-3 -my-2 cursor-pointer px-3 py-2 text-secondary-foreground transition-all duration-200 ease-in-out hover:opacity-60"
@@ -67,12 +60,6 @@ const _ = () => {
             <LinkItem href="https://discord.gg/uniswap">Discord</LinkItem>
             <LinkItem href="https://x.com/unichain">Twitter/X</LinkItem>
           </div>
-          {/* <div className="col-span-3 flex flex-col items-start justify-start">
-            <LinkItem href="/">Status</LinkItem>
-            <LinkItem href="/">Bug Bounty</LinkItem>
-            <LinkItem href="/">Github</LinkItem>
-            <LinkItem href="/">Brand Kit</LinkItem>
-          </div> */}
           <div className="col-span-3 mt-3 flex flex-col items-start justify-start md:mt-0">
             <LinkItem href="/privacy">Privacy Policy</LinkItem>
             <LinkItem href="/terms">Terms of Service</LinkItem>
