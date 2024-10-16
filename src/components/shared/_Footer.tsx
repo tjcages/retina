@@ -57,7 +57,7 @@ const _ = () => {
             <LinkItem href="/brand-kit">Brand Kit</LinkItem>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
-            <LinkItem href="https://discord.gg/uniswap">Discord</LinkItem>
+            <LinkItem href="https://discord.com/invite/uniswap">Discord</LinkItem>
             <LinkItem href="https://x.com/unichain">Twitter/X</LinkItem>
           </div>
           <div className="col-span-3 mt-3 flex flex-col items-start justify-start md:mt-0">
