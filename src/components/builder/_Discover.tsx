@@ -5,7 +5,7 @@ const items: ActionItemProps[] = [
     header: "Unichain ambassadors",
     description: "Join and steward our developer community.",
     icon: "Ranking",
-    href: "https://airtable.com/appwTvPg1yJjRWjte/shrY1z3y2jZBLmEgQ"
+    href: "https://share.hsforms.com/1Q8dDENc5SJi5OyHOa18ZJgsdca9"
   }
   // {
   //   header: "Builder channel",
