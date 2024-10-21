@@ -7,12 +7,6 @@ const items: ActionItemProps[] = [
     icon: "Ranking",
     href: "https://share.hsforms.com/1Q8dDENc5SJi5OyHOa18ZJgsdca9"
   }
-  // {
-  //   header: "Builder channel",
-  //   description: "Share your project with the community on Farcaster.",
-  //   icon: "Farcaster",
-  //   href: "https://warpcast.com/~/channel/unichain"
-  // }
 ];
 
 const _ = () => {

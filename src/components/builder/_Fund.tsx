@@ -11,27 +11,14 @@ const items: ActionItemProps[] = [
     header: "Infinite hackathon",
     description: "Enter any Unichain project into the Infinite Hackathon, with monthly grants.",
     icon: "TrophyStar",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagKA897Zhcy4K0NR/form"
+    href: "https://share.hsforms.com/113Gp09xPRbeZl5EKkDo93Qsdca9"
   },
   {
     header: "Retro grants",
     description: "Nominate a builder or team for retroactive funding.",
     icon: "DollarSquare",
-    href: "https://airtable.com/appx3c28q91Ii1iQs/pagk50WNKL0c4rfa6/form"
+    href: "https://share.hsforms.com/1vZfQM5elQD-JSFCtwVLZhQsdca9"
   }
-  // {},
-  // {
-  //   header: "Unigames",
-  //   description: "Compete with the best builders in crypto at 2025’s Unigames.",
-  //   icon: "UsersGroup",
-  //   comingSoon: true
-  // },
-  // {
-  //   header: "Gas subsidies",
-  //   description: "Get reimbursed for gas spent through hooks.",
-  //   icon: "LaptopCode",
-  //   comingSoon: true
-  // }
 ];
 
 const _ = () => {
