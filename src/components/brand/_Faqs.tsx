@@ -41,7 +41,7 @@ const items = [
   {
     header: "Can I pair this logo with another brand?",
     description:
-      "Don’t blend the Unichain brand with others. Leave the logo enough space to stand clearly on its own."
+      "Yes! We love a good partnership. Give our logos enough space to stand out and shine on their own."
   },
   {
     header: "How do I download these assets?",
