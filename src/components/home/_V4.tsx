@@ -37,7 +37,14 @@ const _ = ({ id = "v4-svg", className }: Props) => {
           scale: scale,
           duration: 0.3,
           ease: "power4.out",
-          overwrite: true
+          overwrite: true,
+          onComplete: () => {
+            gsap.to(path, {
+              scale: 1,
+              duration: 0.6,
+              ease: "power4.out"
+            });
+          }
         });
       } else {
         gsap.to(path, {
