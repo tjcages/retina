@@ -73,9 +73,9 @@ const Content = () => {
         <p className="text-secondary-foreground">Create an address using:</p>
         <ol className="ml-4 list-decimal text-secondary-foreground">
           <li>
-            Create an address using <Badge variant="outline">0age/create2crunch</Badge> which is a
-            Rust program for finding salts that create gas-efficient Ethereum addresses via CREATE
-            and or Stars Language.
+            Create an address using tools/languages such as{" "}
+            <Badge variant="outline">0age/create2crunch</Badge> which is a Rust program for finding
+            salts that create gas-efficient Ethereum addresses via CREATE2.
           </li>
           <li>
             Submit your salt values on Ethereum mainnet to the
