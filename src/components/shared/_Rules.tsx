@@ -87,7 +87,7 @@ const Content = () => {
             at a time, and be unique; submitting the same Address will result in an on-chain
             failure.
           </li>
-          <li>Deadline for submission is 11:59 p.m. ET on [___________], 2024</li>
+          <li>Deadline for submission is 11:59 p.m. ET on December 1, 2024</li>
         </ol>
       </div>
     </div>
