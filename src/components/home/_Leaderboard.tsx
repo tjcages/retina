@@ -64,7 +64,7 @@ const scoreData: ScoreProps[] = [
     rank: "1",
     user: {
       pfpSrc: "path/to/pfp1.png",
-      username: "toda.eth",
+      username: "ldelisle.uni.eth",
       wallet: "0x1234...1234"
     },
     v4Address: "0x00044444444444444444444444444444444123418289",
