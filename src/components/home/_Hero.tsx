@@ -42,7 +42,7 @@ const _ = () => {
           className="col-span-full row-start-1 flex flex-col items-center"
           variants={item}
         >
-          <V4 className="pointer-events-auto mb-6 h-auto w-48 lg:w-52" />
+          <V4 className="pointer-events-auto mb-6 h-auto w-48 md:w-52 lg:w-64" />
           <h2 className="font-mono">
             <strong>{"</"}</strong>Address Challenge<strong>{">"}</strong>
           </h2>

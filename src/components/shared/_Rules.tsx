@@ -4,7 +4,7 @@ import { useIsDesktop } from "@/hooks";
 import { state, useLocalState } from "@/store";
 import { Drawer } from "modal";
 
-import { Badge, Button, Dialog, DialogContent, Icon } from "@/components/ui";
+import { Badge, Button, Dialog, DialogContent, Icon, Link } from "@/components/ui";
 
 const Content = () => {
   const handleOpenChange = (open: boolean) => {
@@ -63,14 +63,17 @@ const Content = () => {
           </div>
         </div>
         <p className="text-secondary-foreground">
-          The scoring system can also be found here. In the event of a tie, the Address that
-          received the highest score first will be declared the winning Address.
+          The scoring system can also be found{" "}
+          <Link href="https://github.com/Uniswap/v4-periphery/blob/0bbf0dc09889e3bc34c7aa08962160a27ba4b340/src/libraries/VanityAddressLib.sol#L19-L24">
+            here
+          </Link>
+          . The one (1) Address that receives the highest score will be declared the winning
+          Address. In the event of a tie, the Address that received the highest score first will be
+          declared the winning Address.
         </p>
       </div>
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
         <p className="font-mono font-semibold uppercase text-pink-primary">How to enter</p>
-        <h5>Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.</h5>
-        <p className="text-secondary-foreground">Create an address using:</p>
         <ol className="ml-4 list-decimal text-secondary-foreground">
           <li>
             Create an address using tools/languages such as{" "}
@@ -84,10 +87,10 @@ const Content = () => {
           </li>
           <li>
             You can submit multiple Addresses, but each Address must be submitted individually, one
-            at a time, and be unique; submitting the same Address will result in an on-chain
-            failure.
+            at a time, and be unique; submitting the same Address or an Address with a same or worse
+            score than previous submissions will result in an on-chain failure.
           </li>
-          <li>Deadline for submission is 11:59 p.m. ET on December 1, 2024</li>
+          <li>Deadline for submission is 11:59 p.m. ET on December&nbsp;1,&nbsp;2024.</li>
         </ol>
       </div>
     </div>
