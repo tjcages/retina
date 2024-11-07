@@ -106,13 +106,10 @@ const _: React.FC<Props> = ({ children }) => {
               isVisible && "pointer-events-auto"
             )}
           >
-            <Item shortcut={["b"]} href="/builder-toolkit">
+            <Item shortcut={["b"]} href="https://www.unichain.org/builder-toolkit">
               Builder Toolkit
             </Item>
-            <Item shortcut={["e"]} href="https://unichain-sepolia.blockscout.com/">
-              Block Explorer
-            </Item>
-            <Item shortcut={["h"]} href="https://github.com/Uniswap/unichain">
+            <Item shortcut={["h"]} href="https://github.com/uniswapfoundation/v4-template">
               Github
             </Item>
           </motion.div>

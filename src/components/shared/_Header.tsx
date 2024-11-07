@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretDown, Menu } from "@/assets/icons";
+import { CaretDown, Discord, Menu, Twitter } from "@/assets/icons";
 import { state, useLocalState } from "@/store";
 import { cn, interpolateColors, pageTransition } from "@/utils";
 import { useAnimationFrame } from "framer-motion";
@@ -149,14 +149,14 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
               href="https://x.com/unichain"
               className="mx-0 flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
-              Twitter/X
+              <Twitter className="h-[17px] w-[17px] text-inherit" />
             </Link>
             <Link
               variant="ghost"
               href="https://discord.com/invite/uniswap"
               className="mx-0 px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
-              Discord
+              <Discord className="h-7 w-7 text-inherit" />
             </Link>
           </div>
           <MobileMenu
