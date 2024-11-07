@@ -29,7 +29,7 @@ const _: React.FC<ActionItemProps> = ({
 }) => {
   const isDesktop = useIsDesktop(1024);
   const handleClick = () => {
-    if (href === "SignUpForm") state.isSignUpVisible = true;
+    if (href === "SignUpForm") state.isRulesVisible = true;
     else {
       if (href) window.open(href);
     }

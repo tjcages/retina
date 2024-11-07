@@ -1,14 +1,12 @@
 "use client";
 
-import { useInView } from "@/hooks";
-import { envClient } from "@/lib";
-import { cn, pageTransition } from "@/utils";
-import { ArrowRightIcon, CodeIcon } from "@radix-ui/react-icons";
+import { state } from "@/store";
 import { motion } from "framer-motion";
-import { useTransitionRouter } from "next-view-transitions";
 import { useRef } from "react";
 
-import { Background, Button, Link } from "@/components/ui";
+import { Button, Icon } from "@/components/ui";
+
+import V4 from "./_V4";
 
 const container = {
   hidden: { opacity: 0 },
@@ -27,89 +25,45 @@ const item = {
 
 const _ = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
-  const router = useTransitionRouter();
-
-  const handleClick = (href: string) => {
-    window.open(href);
-  };
 
   const handleMainCTAClick = () => {
-    // old
-    // window.open(envClient.NEXT_PUBLIC_DOCS_URL + "/getting-started", "_blank");
-    router.push("builder-toolkit", { onTransitionReady: pageTransition });
-    // state.isSignUpVisible = true;
+    state.isRulesVisible = true;
   };
 
   return (
-    <>
-      <Background className={cn(!isInView && "hidden")} />
-      <section
-        ref={ref}
-        className="flex items-center bg-transparent pb-8 pt-16 md:min-h-[65vh] md:pb-12 md:pt-16"
+    <section ref={ref} className="flex items-center bg-transparent pt-8 md:pb-8 md:pt-16">
+      <motion.article
+        className="gap-6 md:gap-4"
+        variants={container}
+        initial="hidden"
+        animate="show"
       >
-        <motion.article
-          className="gap-6 text-white md:gap-4"
-          variants={container}
-          initial="hidden"
-          animate="show"
+        <motion.div
+          className="col-span-full row-start-1 flex flex-col items-center"
+          variants={item}
         >
-          <motion.div
-            className="col-span-full row-start-1 flex flex-col md:col-[1_/_span_20]"
-            variants={item}
-          >
-            <h1>
-              <strong>Designed</strong> for DeFi.
-            </h1>
-            <h1>
-              <strong>Powered</strong> by{" "}
-              <Link
-                href="http://uniswap.org/"
-                variant="ghost"
-                className="text-inherit hover:opacity-90"
-              >
-                Uniswap
-              </Link>
-              .
-            </h1>
-          </motion.div>
-          <motion.h4
-            className="col-span-full row-start-2 md:col-span-10 lg:col-span-10"
-            variants={item}
-          >
-            Unichain is a DeFi-native Ethereum L2, optimized to be the home for liquidity
-            across&nbsp;chains.
-          </motion.h4>
-          <motion.div
-            className="col-span-7 row-start-3 mt-4 flex items-center gap-3"
-            variants={item}
-          >
-            <Button className="w-full" onClick={handleMainCTAClick}>
-              <ArrowRightIcon className="mr-2 h-5 w-5" />
-              Get Started
-            </Button>
-            <Button className="w-full" onClick={() => handleClick(envClient.NEXT_PUBLIC_DOCS_URL)}>
-              <CodeIcon className="mr-2 h-5 w-5" />
-              Read Docs
-            </Button>
-          </motion.div>
-          <motion.div
-            className="col-span-full flex items-start justify-start md:mt-8"
-            variants={item}
-          >
-            {/* <Button
-              variant="ghost"
-              onClick={() => window.open("https://www.optimism.io/", "_blank")}
-            >
-              <Icon icon="Superchain" className="h-10 w-auto" />
-            </Button> */}
-            <Link variant="ghost" href="https://optimism.io/build">
-              <h5 className="text-2xl text-white/70">Built on the Superchain</h5>
-            </Link>
-          </motion.div>
-        </motion.article>
-      </section>
-    </>
+          <V4 className="pointer-events-auto mb-6 h-auto w-48 lg:w-52" />
+          <h2 className="font-mono">
+            <strong>{"</"}</strong>Address Challenge<strong>{">"}</strong>
+          </h2>
+        </motion.div>
+        <motion.h4
+          className="col-span-full col-start-1 text-center lg:col-span-12 lg:col-start-7 xl:col-span-10 xl:col-start-8"
+          variants={item}
+        >
+          Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.
+        </motion.h4>
+        <motion.div
+          className="col-span-full mt-4 flex items-center justify-center gap-3"
+          variants={item}
+        >
+          <Button onClick={handleMainCTAClick}>
+            <Icon icon="Rules" className="mr-2 h-6 w-6" />
+            Challenge rules
+          </Button>
+        </motion.div>
+      </motion.article>
+    </section>
   );
 };
 

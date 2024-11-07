@@ -8,9 +8,7 @@ interface State {
   ready: boolean;
   isBelowFold: boolean;
   menuVisible: boolean;
-  showSignUpBanner: boolean;
-  isSignUpVisible: boolean;
-  isSignUpSuccessVisible: boolean;
+  isRulesVisible: boolean;
 }
 
 const defaultState: State = {
@@ -18,17 +16,11 @@ const defaultState: State = {
   ready: false,
   isBelowFold: false,
   menuVisible: false,
-  showSignUpBanner: true,
-  isSignUpVisible: false,
-  isSignUpSuccessVisible: false
+  isRulesVisible: false
 };
 
 // Define which keys should not be persisted
-const nonPersistentKeys: (keyof State)[] = [
-  "menuVisible",
-  "isSignUpVisible",
-  "isSignUpSuccessVisible"
-];
+const nonPersistentKeys: (keyof State)[] = ["menuVisible", "isRulesVisible"];
 
 const state = proxy<State>(defaultState);
 

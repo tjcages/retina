@@ -1,20 +1,21 @@
 import { Metadata } from "next";
 
 export const seo = {
-  title: "Unichain",
-  description: "Designed for DeFi. Built by Uniswap.",
+  title: "Uniswap v4",
+  description: "Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://unichain.com",
-    title: "Unichain",
-    description: "Designed for DeFi. Built by Uniswap.",
+    url: "https://uniswap.org",
+    title: "Uniswap v4",
+    description:
+      "Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.",
     images: [
       {
-        url: "https://unichain-website.vercel.app/preview.png",
+        url: "https://uniswap-v4.vercel.app/preview.png",
         width: 1600,
         height: 826,
-        alt: "Unichain logo"
+        alt: "Uniswap v4 preview"
       }
     ]
   },

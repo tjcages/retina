@@ -1,4 +1,3 @@
-export * from "./_Background";
 export * from "./_Badge";
 export * from "./_Breadcrumb";
 export * from "./_Button";

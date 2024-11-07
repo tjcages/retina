@@ -24,7 +24,8 @@ module.exports = {
       fontFamily: {
         basel: ["var(--font-basel)"],
         jomhuria: ["var(--font-jomhuria)"],
-        riegraf: ["var(--font-riegraf)"]
+        riegraf: ["var(--font-riegraf)"],
+        mono: ["var(--font-sf-mono)"]
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,7 +61,8 @@ module.exports = {
         "pink-secondary": {
           DEFAULT: "hsl(var(--pink-secondary))",
           foreground: "hsl(var(--pink-secondary-foreground))"
-        }
+        },
+        "pink-light": "hsl(var(--pink-light))"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -92,6 +94,10 @@ module.exports = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" }
         }
+      },
+      boxShadow: {
+        pink: "0px 0px 40px 0px rgba(252, 114, 255, 0.20)",
+        light: "0px 1px 6px 2px rgba(0, 0, 0, 0.03), 0px 1px 2px 0px rgba(0, 0, 0, 0.02)"
       }
     }
   },

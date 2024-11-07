@@ -1,7 +1,6 @@
 "use client";
 
-import { Discord, Logo, Menu, Twitter } from "@/assets/icons";
-import { envClient } from "@/lib";
+import { CaretDown, Menu } from "@/assets/icons";
 import { state, useLocalState } from "@/store";
 import { cn, interpolateColors, pageTransition } from "@/utils";
 import { useAnimationFrame } from "framer-motion";
@@ -10,7 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { LogoBrandMenu, MobileMenu } from "@/components/shared";
+import { DropdownMenu, LogoBrandMenu, MobileMenu } from "@/components/shared";
 import { Button, useScroll } from "@/components/ui";
 
 interface Props {
@@ -27,9 +26,9 @@ const easeInOut = (t: number): number => {
 const _: React.FC<Props> = ({ variant = "primary" }) => {
   const pathname = usePathname();
   const router = useTransitionRouter();
-  const { menuVisible, isSignUpVisible, isSignUpSuccessVisible } = useLocalState();
+  const { menuVisible, isRulesVisible } = useLocalState();
   const { scrollOffset, scrollToTop } = useScroll();
-  const belowFold = scrollOffset > 100;
+  const belowFold = scrollOffset > 10;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const interpolatedColorsLinear = interpolateColors([251, 39, 206], [255, 255, 255], duration); // #fb27ce -> #ffffff
   const interpolatedColorsLinearWhiteToDim = interpolateColors(
@@ -37,11 +36,6 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     [106, 110, 109],
     duration
   ); // #ffffff -> #6a6e6d
-  const interpolatedColorsLinearPinkToDim = interpolateColors(
-    [251, 39, 206],
-    [104, 24, 90],
-    duration
-  ); // #68185a -> #6a6e6d
   const [transitionProgress, setTransitionProgress] = useState(0);
   const lastScrollTime = useRef(Date.now());
 
@@ -61,13 +55,9 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     let targetProgress: number;
     let currentInterpolation: number[][];
 
-    if (isSignUpVisible || isSignUpSuccessVisible) {
+    if (isRulesVisible) {
       targetProgress = 1;
-      if (!belowFold || menuVisible) {
-        currentInterpolation = interpolatedColorsLinearPinkToDim;
-      } else {
-        currentInterpolation = interpolatedColorsLinearWhiteToDim;
-      }
+      currentInterpolation = interpolatedColorsLinearWhiteToDim;
     } else if (menuVisible) {
       targetProgress = 0;
       currentInterpolation = interpolatedColorsLinear;
@@ -104,9 +94,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
     transitionProgress,
     interpolatedColorsLinear,
     interpolatedColorsLinearWhiteToDim,
-    interpolatedColorsLinearPinkToDim,
-    isSignUpVisible,
-    isSignUpSuccessVisible
+    isRulesVisible
   ]);
 
   useEffect(() => {
@@ -124,14 +112,14 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
   return (
     <section
       className={cn(
-        "sticky top-0 z-50 select-none border-b border-pink-secondary/0 bg-transparent py-1.5 text-white transition-colors duration-300 ease-in-out md:py-3.5",
+        "sticky top-0 z-50 select-none border-b border-pink-secondary/0 bg-transparent py-1.5 text-primary transition-colors duration-300 ease-in-out md:py-3.5",
         variant === "secondary" && "text-primary",
         belowFold && "border-pink-secondary bg-background text-pink-primary",
         menuVisible && "text-white"
       )}
     >
       <header>
-        <div className="col-span-full grid grid-cols-subgrid items-center gap-3">
+        <div className="pointer-events-auto col-span-full grid grid-cols-subgrid items-center gap-3">
           <LogoBrandMenu>
             <div
               className={cn(
@@ -140,53 +128,33 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
               )}
               onClick={handleTrigger}
             >
-              <Logo className="h-8 w-auto text-inherit md:h-12" />
+              <h4 className="whitespace-nowrap">Uniswap v4</h4>
             </div>
           </LogoBrandMenu>
 
           <div className="-col-start-1 hidden items-center gap-3 md:flex">
-            <div className="flex items-center gap-3">
-              {/* <DropdownMenu>
-                <div className="relative flex cursor-pointer items-center justify-center px-4 py-2 text-inherit">
-                  Developers <CaretDown className="h-4 w-4 text-inherit" />
-                </div>
-              </DropdownMenu> */}
-              <div
-                className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push(envClient.NEXT_PUBLIC_DOCS_URL)}
-              >
-                Docs
+            <DropdownMenu>
+              <div className="relative flex cursor-pointer items-center justify-center px-4 py-2 text-inherit">
+                Developers <CaretDown className="h-4 w-4 text-inherit" />
               </div>
-              <div
-                className="mr-2 cursor-pointer whitespace-nowrap px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push("/builder-toolkit")}
-              >
-                Builder Toolkit
-              </div>
-              <div
-                className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push("/bridge")}
-              >
-                Bridge
-              </div>
-              <div
-                className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-                onClick={() => router.push("/about")}
-              >
-                About
-              </div>
+            </DropdownMenu>
+            <div
+              className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+              onClick={() => router.push("/about")}
+            >
+              About
             </div>
             <Link
               href="https://x.com/unichain"
               className="flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
-              <Twitter className="h-[17px] w-[17px] text-inherit" />
+              Twitter/X
             </Link>
             <Link
               href="https://discord.com/invite/uniswap"
               className="px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
-              <Discord className="h-7 w-7 text-inherit" />
+              Discord
             </Link>
           </div>
           <MobileMenu

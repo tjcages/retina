@@ -1,13 +1,11 @@
 "use client";
 
 import { Close } from "@/assets/icons";
-import { envClient } from "@/lib";
 import { state, useLocalState } from "@/store";
 import { cn, delay, pageTransition } from "@/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
 
-import { EmailSignup } from "@/components/shared";
 import { Button } from "@/components/ui";
 
 interface ItemProps {
@@ -113,22 +111,13 @@ const _: React.FC<Props> = ({ trigger, className }) => {
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="/about">About</Item>
               <Item href="/bridge">Bridge</Item>
-              <Item href={envClient.NEXT_PUBLIC_DOCS_URL}>Developer Docs</Item>
               <Item href="/builder-toolkit">Builder Toolkit</Item>
               <Item href="/brand-kit">Brand Kit</Item>
-              {/* <Item
-                href={envClient.NEXT_PUBLIC_DOCS_URL + "/technical-information/network-information"}
-              >
-                Testnet
-              </Item> */}
-              {/* <Item href="https://sepolia.uniscan.xyz/">Block Explorer</Item> */}
-              {/* <Item href="https://github.com/Uniswap/unichain">Github</Item> */}
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="https://discord.com/invite/uniswap">Discord</Item>
               <Item href="https://x.com/unichain">Twitter/X</Item>
             </div>
-            <EmailSignup className="pointer-events-auto relative bottom-auto right-auto z-10 mx-auto mt-auto flex w-full rounded-2xl text-primary" />
           </motion.div>
         )}
       </AnimatePresence>

@@ -11,7 +11,7 @@
     --primary: 220 7% 8%;
     --primary-foreground: 0 0% 13%;
     --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 0 0% 49%;
+    --secondary-foreground: 0 0% 49%; // #7D7D7D
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
     --accent: 60 4.8% 95.9%;
@@ -19,6 +19,7 @@
 
     --pink-primary: 317 92% 51%; // #f50db4
     --pink-secondary: 311 97% 84%; // #feaff0
+    --pink-light: 295 100% 98%; // #FEF4FF
     --pink-primary-foreground: 317 92% 51%; // #F50DB4
     --pink-secondary-foreground: 299 99% 73%; // #FC74FE
 
@@ -49,7 +50,7 @@
   html,
   body {
     @apply m-0 p-0 font-serif;
-    @apply select-none;
+    @apply pointer-events-none select-none;
 
     font-size: 15px;
     font-family: Helvetica, Arial, sans-serif;
@@ -66,17 +67,17 @@
   }
 
   main {
-    @apply fixed bottom-0 left-0 right-0 top-0 bg-background text-primary;
+    @apply fixed bottom-0 left-0 right-0 top-0 text-primary;
   }
 
   section {
-    @apply relative w-full bg-background px-3 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
+    @apply relative w-full;
   }
 
   article,
   header,
   footer {
-    @apply relative mx-auto grid w-full max-w-full auto-rows-min grid-cols-8 md:grid-cols-[repeat(24,_1fr)] lg:max-w-7xl;
+    @apply relative mx-auto grid w-full max-w-full auto-rows-min grid-cols-8 px-3 md:grid-cols-[repeat(24,_1fr)] md:px-12 lg:max-w-7xl lg:px-16 xl:px-20 2xl:px-24;
   }
 
   pre {
@@ -113,19 +114,19 @@
   }
 
   h1 {
-    @apply text-[52px] font-[550] leading-none tracking-[-0.04em] md:text-7xl lg:text-8xl;
+    @apply text-[52px] font-medium leading-none tracking-[-0.04em] md:text-7xl lg:text-8xl;
   }
 
   h2 {
-    @apply text-5xl font-[550] leading-none tracking-[-0.04em] md:text-6xl lg:text-7xl;
+    @apply text-3xl font-medium leading-none tracking-[-0.04em] md:text-5xl lg:text-5xl;
   }
 
   h3 {
-    @apply text-2xl font-[550] leading-8 tracking-[-0.04em] md:text-3xl;
+    @apply text-2xl font-medium leading-8 tracking-[-0.04em] md:text-3xl;
   }
 
   h4 {
-    @apply text-2xl font-medium leading-none tracking-[-0.01em] md:text-2xl;
+    @apply text-[1.4rem] font-medium leading-8 tracking-[-0.04em] md:text-2xl;
     text-wrap: pretty;
   }
 
@@ -135,7 +136,7 @@
   }
 
   p {
-    @apply max-w-2xl text-base leading-[1.2rem] tracking-normal text-[rgba(0,0,0,0.42)];
+    @apply max-w-2xl text-base leading-[1.2rem] tracking-normal;
     text-wrap: pretty;
   }
 
@@ -149,7 +150,7 @@
   }
 
   strong {
-    @apply font-riegraf font-medium italic tracking-[-0.04em];
+    @apply font-medium tracking-[0.04em] text-pink-primary;
     font-feature-settings: "liga" off;
   }
 
