@@ -79,8 +79,8 @@ const Content = () => {
           </li>
           <li>
             Submit your salt values on Ethereum mainnet to the
-            <Badge variant="outline">competition contract</Badge>. This contract will check the
-            salt, verify the score, and save the Address if it is the new highest scored value.
+            <Badge variant="outline">challenge contract</Badge>. This contract will check the salt,
+            verify the score, and save the Address if it is the new highest scored value.
           </li>
           <li>
             You can submit multiple Addresses, but each Address must be submitted individually, one
