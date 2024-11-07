@@ -5,12 +5,11 @@ import { state, useLocalState } from "@/store";
 import { cn, interpolateColors, pageTransition } from "@/utils";
 import { useAnimationFrame } from "framer-motion";
 import { useTransitionRouter } from "next-view-transitions";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { DropdownMenu, LogoBrandMenu, MobileMenu } from "@/components/shared";
-import { Button, useScroll } from "@/components/ui";
+import { Button, Link, useScroll } from "@/components/ui";
 
 interface Props {
   variant?: "primary" | "secondary";
@@ -138,21 +137,24 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
                 Developers <CaretDown className="h-4 w-4 text-inherit" />
               </div>
             </DropdownMenu>
-            <div
-              className="mr-2 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
-              onClick={() => router.push("/about")}
+            <Link
+              variant="ghost"
+              href="/about"
+              className="mx-0 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               About
-            </div>
+            </Link>
             <Link
+              variant="ghost"
               href="https://x.com/unichain"
-              className="flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+              className="mx-0 flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               Twitter/X
             </Link>
             <Link
+              variant="ghost"
               href="https://discord.com/invite/uniswap"
-              className="px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+              className="mx-0 px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               Discord
             </Link>
