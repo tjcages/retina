@@ -10,7 +10,7 @@
     "lint-staged": "lint-staged",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
-    "postinstall": "husky install",
+    "postinstall": "husky install && prisma generate",
     "vercel-build": "next build",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
