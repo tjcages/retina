@@ -15,7 +15,7 @@ export async function syncEvents() {
     });
 
     const currentBlock = await provider.getBlockNumber();
-    const startBlock = syncState ? Number(syncState.lastBlock) + 1 : 5817294;
+    const startBlock = syncState ? Number(syncState.lastBlock) + 1 : 21144577;
 
     // Don't proceed if we're already up to date
     if (startBlock > currentBlock) {
