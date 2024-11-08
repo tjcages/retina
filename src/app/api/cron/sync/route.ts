@@ -1,11 +1,12 @@
+import { envServer } from "@/lib";
 import { syncEvents } from "@/lib/sync";
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  // if (request.headers.get("Authorization") !== `Bearer ${envServer.CRON_SECRET}`) {
-  //   return new Response("Unauthorized", { status: 401 });
-  // }
+  if (request.headers.get("Authorization") !== `Bearer ${envServer.CRON_SECRET}`) {
+    return new Response("Unauthorized", { status: 401 });
+  }
 
   try {
     const result = await syncEvents();
