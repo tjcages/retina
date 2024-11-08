@@ -24,7 +24,7 @@ export async function syncEvents() {
     }
 
     const iface = new ethers.Interface([
-      "event NewAddressFound(address bestAddress, address minter, uint256 score)"
+      "event NewAddressFound(address indexed bestAddress, address indexed submitter, uint256 score)"
     ]);
 
     // Process blocks in batches
