@@ -36,8 +36,8 @@ export async function syncEvents() {
       const logs = await provider.getLogs({
         address: envServer.CONTRACT_ADDRESS,
         topics: [iface.getEvent("NewAddressFound")!.topicHash],
-        fromBlock,
-        toBlock
+        fromBlock: BigInt(fromBlock),
+        toBlock: BigInt(toBlock)
       });
 
       if (logs.length > 0) {
