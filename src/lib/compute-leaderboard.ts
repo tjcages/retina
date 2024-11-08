@@ -25,7 +25,7 @@ export const computeLeaderboard = cache(async (): Promise<LeaderboardEntry[]> =>
       { score: "desc" },
       { blockNumber: "asc" } // Earlier blocks (lower numbers) rank higher
     ],
-    take: 100
+    take: 200
   });
 
   return results.map((entry, index) => ({

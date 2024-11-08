@@ -50,7 +50,7 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
   );
 };
 
-const _: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
+const LeaderboardList: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
 
   const container = {
@@ -73,6 +73,34 @@ const _: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
   };
 
   return (
+    <>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="col-span-full row-start-2 grid grid-cols-subgrid items-center"
+      >
+        {leaders.slice(0, visibleItems).map((leader, index) => (
+          <motion.div key={index} variants={item} className="col-span-full grid grid-cols-subgrid">
+            <ScoreItem leader={leader} />
+          </motion.div>
+        ))}
+      </motion.div>
+      {visibleItems < leaders.length && (
+        <Button
+          variant="ghost"
+          className="col-span-full text-base text-pink-primary"
+          onClick={handleSeeMore}
+        >
+          See More
+        </Button>
+      )}
+    </>
+  );
+};
+
+export const LeaderboardContainer: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+  return (
     <section className="pb-12 md:pb-24">
       <article className="grid-cols-[repeat(24,_1fr)] gap-8 overflow-x-auto lg:gap-12 lg:overflow-x-hidden">
         <div className="pointer-events-auto col-span-full row-start-2 grid w-full max-w-full grid-cols-[repeat(24,_1fr)] grid-rows-[auto_1fr] items-start gap-0 rounded-3xl border border-pink-light bg-background/80 shadow-pink backdrop-blur-sm md:col-start-2 md:-col-end-2 lg:grid-cols-subgrid">
@@ -82,34 +110,18 @@ const _: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
             <p className="col-span-12 p-2 md:col-span-11">V4 Address</p>
             <p className="col-span-3 p-2">Score</p>
           </div>
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="col-span-full row-start-2 grid grid-cols-subgrid items-center"
-          >
-            {leaders.slice(0, visibleItems).map((leader, index) => (
-              <motion.div
-                key={index}
-                variants={item}
-                className="col-span-full grid grid-cols-subgrid"
-              >
-                <ScoreItem leader={leader} />
-              </motion.div>
-            ))}
-          </motion.div>
-          {visibleItems < leaders.length && (
-            <Button
-              variant="ghost"
-              className="col-span-full text-base text-pink-primary"
-              onClick={handleSeeMore}
-            >
-              See More
-            </Button>
-          )}
+          {children}
         </div>
       </article>
     </section>
+  );
+};
+
+const _: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
+  return (
+    <LeaderboardContainer>
+      <LeaderboardList leaders={leaders} />
+    </LeaderboardContainer>
   );
 };
 
