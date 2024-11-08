@@ -1,22 +1,11 @@
 "use client";
 
+import { LeaderboardEntry } from "@/lib/types";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { VanityBadge } from "@/components/home";
 import { Button, Icon } from "@/components/ui";
-
-interface ScoreProps {
-  rank: string;
-  user: {
-    pfpSrc: string;
-    username?: string;
-    wallet: string;
-  };
-  v4Address: string;
-  score: string;
-  badge?: "longest" | "blaze" | "four" | "zero" | "general";
-}
 
 const ITEMS_PER_PAGE = 10;
 
@@ -26,7 +15,7 @@ const truncateAddress = (address: string) => {
   return `${start}...${end}`;
 };
 
-const ScoreItem: React.FC<ScoreProps> = ({ rank, user, v4Address, score, badge }) => {
+const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,169 +23,34 @@ const ScoreItem: React.FC<ScoreProps> = ({ rank, user, v4Address, score, badge }
       className="col-span-full grid cursor-pointer grid-cols-subgrid items-center border-b p-3 transition-all duration-200 ease-out hover:bg-pink-primary/10"
     >
       <div className="relative col-span-3 ml-4 flex items-center p-2 pl-4 font-mono text-secondary-foreground">
-        {rank === "1" && (
+        {leader.rank === 1 && (
           <Icon icon="Crown" className="absolute -left-1 h-4 w-4 text-pink-primary" />
         )}
-        <p>{rank}</p>
+        <p>{String(leader.rank)}</p>
       </div>
       <div className="col-span-4 flex items-center gap-2.5 p-2 md:col-span-5">
         <div className="h-9 min-h-9 w-9 min-w-9 rounded-full bg-pink-primary" />
         <div className="flex flex-col">
-          <p>{user.username ?? user.wallet}</p>
-          {user.username !== undefined && (
-            <p className="text-sm text-secondary-foreground">{user.wallet}</p>
+          <p>{leader.uniUsername ?? truncateAddress(leader.minterAddress)}</p>
+          {leader.uniUsername !== undefined && (
+            <p className="text-sm text-secondary-foreground">
+              {truncateAddress(leader.minterAddress)}
+            </p>
           )}
         </div>
       </div>
       <div className="col-span-12 flex items-center gap-2 p-2 md:col-span-11">
-        <p className="max-w-[300px] truncate font-mono" title={v4Address}>
-          {truncateAddress(v4Address)}
+        <p className="max-w-[300px] truncate font-mono" title={leader.v4Address}>
+          {truncateAddress(leader.v4Address)}
         </p>
-        <VanityBadge badge={badge} />
+        <VanityBadge badge={leader.badge} />
       </div>
-      <p className="col-span-3 p-2 font-mono">{score}</p>
+      <p className="col-span-3 p-2 font-mono">{leader.score.toLocaleString()}</p>
     </motion.div>
   );
 };
 
-const scoreData: ScoreProps[] = [
-  {
-    rank: "1",
-    user: {
-      pfpSrc: "path/to/pfp1.png",
-      username: "ldelisle.uni.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "2,129",
-    badge: "longest"
-  },
-  {
-    rank: "2",
-    user: {
-      pfpSrc: "path/to/pfp2.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "984",
-    badge: "blaze"
-  },
-  {
-    rank: "3",
-    user: {
-      pfpSrc: "path/to/pfp3.png",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "743"
-  },
-  {
-    rank: "4",
-    user: {
-      pfpSrc: "path/to/pfp4.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129",
-    badge: "four"
-  },
-  {
-    rank: "5",
-    user: {
-      pfpSrc: "path/to/pfp5.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "6",
-    user: {
-      pfpSrc: "path/to/pfp6.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129",
-    badge: "zero"
-  },
-  {
-    rank: "7",
-    user: {
-      pfpSrc: "path/to/pfp7.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "8",
-    user: {
-      pfpSrc: "path/to/pfp8.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "9",
-    user: {
-      pfpSrc: "path/to/pfp9.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "10",
-    user: {
-      pfpSrc: "path/to/pfp10.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129",
-    badge: "general"
-  },
-  {
-    rank: "11",
-    user: {
-      pfpSrc: "path/to/pfp11.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "12",
-    user: {
-      pfpSrc: "path/to/pfp12.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  },
-  {
-    rank: "13",
-    user: {
-      pfpSrc: "path/to/pfp13.png",
-      username: "toda.eth",
-      wallet: "0x1234...1234"
-    },
-    v4Address: "0x00044444444444444444444444444444444123418289",
-    score: "129"
-  }
-];
-
-const _ = () => {
+const _: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders }) => {
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
 
   const container = {
@@ -215,7 +69,7 @@ const _ = () => {
   };
 
   const handleSeeMore = () => {
-    setVisibleItems(prev => Math.min(prev + ITEMS_PER_PAGE, scoreData.length));
+    setVisibleItems(prev => Math.min(prev + ITEMS_PER_PAGE, leaders.length));
   };
 
   return (
@@ -234,17 +88,17 @@ const _ = () => {
             animate="show"
             className="col-span-full row-start-2 grid grid-cols-subgrid items-center"
           >
-            {scoreData.slice(0, visibleItems).map((score, index) => (
+            {leaders.slice(0, visibleItems).map((leader, index) => (
               <motion.div
                 key={index}
                 variants={item}
                 className="col-span-full grid grid-cols-subgrid"
               >
-                <ScoreItem {...score} />
+                <ScoreItem leader={leader} />
               </motion.div>
             ))}
           </motion.div>
-          {visibleItems < scoreData.length && (
+          {visibleItems < leaders.length && (
             <Button
               variant="ghost"
               className="col-span-full text-base text-pink-primary"

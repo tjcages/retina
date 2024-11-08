@@ -1,5 +1,5 @@
 {
-  "name": "unichain",
+  "name": "uniswap-v4-leaderboard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,10 @@
     "prettier:check": "prettier --check --ignore-unknown .",
     "postinstall": "husky install",
     "vercel-build": "next build",
-    "inngest": "npx inngest-cli dev"
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push"
   },
   "git": {
     "pre-commit": "lint-staged"
@@ -22,6 +25,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@prisma/client": "5.22.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-context-menu": "^2.2.1",
@@ -43,6 +47,7 @@
     "animejs": "^3.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "ethers": "^6.13.4",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.5.4",
     "gsap": "^3.12.5",
@@ -99,6 +104,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.7",
+    "prisma": "5.22.0",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^3.4.7",
     "ts-node": "^10.9.2",
