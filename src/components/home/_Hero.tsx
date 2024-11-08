@@ -59,7 +59,7 @@ const _ = () => {
         >
           <Button onClick={handleMainCTAClick}>
             <Icon icon="Rules" className="mr-2 h-6 w-6" />
-            Challenge rules
+            Challenge details
           </Button>
         </motion.div>
       </motion.article>

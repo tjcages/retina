@@ -74,6 +74,13 @@ const Content = () => {
       </div>
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
         <p className="font-mono font-semibold uppercase text-pink-primary">How to enter</p>
+        <p className="text-secondary-foreground">
+          Find all the details on how to participate{" "}
+          <Link href="http://blog.uniswap.org/uniswap-v4-address-mining-challenge">here</Link>.
+        </p>
+      </div>
+      {/* <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
+        <p className="font-mono font-semibold uppercase text-pink-primary">How to enter</p>
         <ol className="ml-4 list-decimal text-secondary-foreground">
           <li>
             Create an address using tools/languages such as{" "}
@@ -92,7 +99,7 @@ const Content = () => {
           </li>
           <li>Deadline for submission is 11:59 p.m. ET on December&nbsp;1,&nbsp;2024.</li>
         </ol>
-      </div>
+      </div> */}
     </div>
   );
 };

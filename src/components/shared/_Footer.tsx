@@ -52,6 +52,9 @@ const _ = () => {
             </div>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
+            <LinkItem href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf">
+              Challenge Rules
+            </LinkItem>
             <LinkItem href="/about">About</LinkItem>
             <LinkItem href="/blog">Blog</LinkItem>
             <LinkItem href="/builder-toolkit">Builder Toolkit</LinkItem>
