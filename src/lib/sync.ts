@@ -49,7 +49,7 @@ export async function syncEvents() {
             await tx.event.create({
               data: {
                 bestAddress: parsedLog.args.bestAddress,
-                minter: parsedLog.args.minter,
+                minter: parsedLog.args.submitter,
                 score: BigInt(parsedLog.args.score.toString()),
                 blockNumber: BigInt(log.blockNumber),
                 transactionHash: log.transactionHash
