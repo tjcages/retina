@@ -7,7 +7,7 @@ import { Hero, Leaderboard } from "@/components/home";
 import { Footer, Header, Rules } from "@/components/shared";
 import { Scroll } from "@/components/ui";
 
-export const revalidate = 300; // 5 minutes
+export const revalidate = 240; // 4 minutes
 
 export default async function HomePage() {
   const leaders = await computeLeaderboard();
