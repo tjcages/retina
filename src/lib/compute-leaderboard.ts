@@ -21,10 +21,11 @@ export const computeLeaderboard = cache(async (): Promise<LeaderboardEntry[]> =>
         }
       }))
     },
-    orderBy: {
-      score: "desc"
-    },
-    take: 1000
+    orderBy: [
+      { score: "desc" },
+      { blockNumber: "asc" } // Earlier blocks (lower numbers) rank higher
+    ],
+    take: 100
   });
 
   return results.map((entry, index) => ({
