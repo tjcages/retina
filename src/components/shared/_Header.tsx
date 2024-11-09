@@ -139,7 +139,7 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
             </DropdownMenu>
             <Link
               variant="ghost"
-              href="https://www.unichain.org/about"
+              href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf"
               className="mx-0 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               About

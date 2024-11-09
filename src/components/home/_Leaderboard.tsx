@@ -1,21 +1,62 @@
 "use client";
 
 import { LeaderboardEntry } from "@/lib/types";
+import { cn } from "@/utils";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { VanityBadge } from "@/components/home";
-import { Button, Icon } from "@/components/ui";
+import { ScoreBreakdown } from "@/components/shared";
+import { Button, Icon, MagneticInfo } from "@/components/ui";
 
 const ITEMS_PER_PAGE = 10;
 
-const truncateAddress = (address: string) => {
-  const start = address.slice(0, 6);
-  const end = address.slice(-4);
-  return `${start}...${end}`;
+const calculateVisibleCharacters = (element: HTMLElement, address: string) => {
+  const containerWidth = element.offsetWidth;
+  const charWidth = 8.5;
+  const possibleChars = Math.floor(containerWidth / charWidth);
+  const minChars = 9;
+  if (possibleChars < minChars) {
+    return 4;
+  }
+  const charsPerSide = Math.floor((possibleChars - 3) / 2);
+  return Math.min(charsPerSide, Math.floor(address.length / 2));
+};
+
+const truncateAddress = (address: string, containerRef?: React.RefObject<HTMLElement>) => {
+  if (!containerRef?.current) {
+    return `${address.slice(0, 4)}...${address.slice(-4)}`;
+  }
+  const charsPerSide = calculateVisibleCharacters(containerRef.current, address);
+  return `${address.slice(0, charsPerSide)}...${address.slice(-charsPerSide)}`;
 };
 
 const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
+  const minterAddressRef = useRef<HTMLParagraphElement>(null);
+  const v4AddressRef = useRef<HTMLParagraphElement>(null);
+
+  const [truncatedMinterAddress, setTruncatedMinterAddress] = useState(() =>
+    truncateAddress(leader.minterAddress)
+  );
+  const [truncatedV4Address, setTruncatedV4Address] = useState(() =>
+    truncateAddress(leader.v4Address)
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (minterAddressRef.current) {
+        setTruncatedMinterAddress(truncateAddress(leader.minterAddress, minterAddressRef));
+      }
+      if (v4AddressRef.current) {
+        setTruncatedV4Address(truncateAddress(leader.v4Address, v4AddressRef));
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [leader.minterAddress, leader.v4Address]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -28,24 +69,55 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
         )}
         <p>{String(leader.rank)}</p>
       </div>
-      <div className="col-span-4 flex items-center gap-2.5 p-2 md:col-span-5">
+      <div className="col-span-7 flex items-center gap-2.5 p-2 md:col-span-5">
         <div className="h-9 min-h-9 w-9 min-w-9 rounded-full bg-pink-primary" />
-        <div className="flex flex-col">
-          <p>{leader.uniUsername ?? truncateAddress(leader.minterAddress)}</p>
+        <MagneticInfo
+          align="center"
+          tooltip={
+            <p className="rounded-xl bg-secondary px-3 py-1.5 shadow-md">{leader.minterAddress}</p>
+          }
+          className="flex flex-col"
+        >
+          <div className="flex items-center gap-1">
+            <p className={cn(leader.uniUsername === undefined && "font-mono")}>
+              {leader.uniUsername ?? truncatedMinterAddress}
+            </p>
+            {leader.uniUsername !== undefined && (
+              <Icon icon="UniswapUsername" className="h-6 w-6" />
+            )}
+          </div>
           {leader.uniUsername !== undefined && (
-            <p className="text-sm text-secondary-foreground">
-              {truncateAddress(leader.minterAddress)}
+            <p ref={minterAddressRef} className="text-sm text-secondary-foreground">
+              {truncatedMinterAddress}
             </p>
           )}
-        </div>
+        </MagneticInfo>
       </div>
-      <div className="col-span-12 flex items-center gap-2 p-2 md:col-span-11">
-        <p className="max-w-[300px] truncate font-mono" title={leader.v4Address}>
-          {truncateAddress(leader.v4Address)}
+      <MagneticInfo
+        align="center"
+        tooltip={
+          <p className="rounded-xl bg-secondary px-3 py-1.5 shadow-md">{leader.v4Address}</p>
+        }
+        className="col-span-9 flex items-center gap-2 p-2 md:col-span-11"
+      >
+        <p ref={v4AddressRef} className="w-full max-w-[300px] font-mono" title={leader.v4Address}>
+          {truncatedV4Address}
         </p>
         <VanityBadge badge={leader.badge} />
+      </MagneticInfo>
+      <div className="relative col-span-3 p-2">
+        {/* <ScoreBreakdown breakdown={leader.scoreBreakdown}> */}
+        <ScoreBreakdown
+          breakdown={{
+            leadingZeroNibbles: 1,
+            firstFourIsFollowedByThreeFours: 1,
+            lastFourNibblesAreFours: 1,
+            numberOfFours: 1
+          }}
+        >
+          <p className="font-mono">{leader.score.toLocaleString()}</p>
+        </ScoreBreakdown>
       </div>
-      <p className="col-span-3 p-2 font-mono">{leader.score.toLocaleString()}</p>
     </motion.div>
   );
 };
@@ -101,13 +173,13 @@ const LeaderboardList: React.FC<{ leaders: LeaderboardEntry[] }> = ({ leaders })
 
 export const LeaderboardContainer: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
-    <section className="pb-12 md:pb-24">
-      <article className="grid-cols-[repeat(24,_1fr)] gap-8 overflow-x-auto lg:gap-12 lg:overflow-x-hidden">
+    <section className="pointer-events-auto overflow-visible pb-12 md:pb-24">
+      <article className="grid-cols-[repeat(24,_1fr)] gap-8 overflow-x-auto overflow-y-visible lg:gap-12 lg:overflow-x-hidden">
         <div className="pointer-events-auto col-span-full row-start-2 grid w-full max-w-full grid-cols-[repeat(24,_1fr)] grid-rows-[auto_1fr] items-start gap-0 rounded-3xl border border-pink-light bg-background/80 shadow-pink backdrop-blur-sm md:col-start-2 md:-col-end-2 lg:grid-cols-subgrid">
           <div className="col-span-full grid grid-cols-subgrid items-center border-b p-3 font-mono uppercase text-pink-primary">
             <p className="col-span-3 p-2 pl-4">Rank</p>
-            <p className="col-span-4 p-2 md:col-span-5">Wallet</p>
-            <p className="col-span-12 p-2 md:col-span-11">V4 Address</p>
+            <p className="col-span-7 p-2 md:col-span-5">Wallet</p>
+            <p className="col-span-9 p-2 md:col-span-11">V4 Address</p>
             <p className="col-span-3 p-2">Score</p>
           </div>
           {children}

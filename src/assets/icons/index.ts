@@ -29,5 +29,6 @@ export { default as Superchain } from "./_superchain";
 export { default as Tool } from "./_tool";
 export { default as TrophyStar } from "./_trophy-star";
 export { default as Twitter } from "./_twitter";
+export { default as UniswapUsername } from "./_uniswap-username";
 export { default as UsersGroup } from "./_users-group";
 export { default as X } from "./_x";

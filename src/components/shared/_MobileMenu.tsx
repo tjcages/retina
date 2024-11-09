@@ -109,10 +109,9 @@ const _: React.FC<Props> = ({ trigger, className }) => {
               </Button>
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
-              <Item href="/about">About</Item>
-              <Item href="/bridge">Bridge</Item>
-              <Item href="/builder-toolkit">Builder Toolkit</Item>
-              <Item href="/brand-kit">Brand Kit</Item>
+              <Item href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf">About</Item>
+              <Item href="https://www.unichain.org/builder-toolkit">Builder Toolkit</Item>
+              <Item href="https://github.com/uniswapfoundation/v4-template">Github</Item>
             </div>
             <div className="pointer-events-auto flex flex-col gap-1 overflow-hidden rounded-2xl bg-background p-1">
               <Item href="https://discord.com/invite/uniswap">Discord</Item>
