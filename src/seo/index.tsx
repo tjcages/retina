@@ -12,7 +12,7 @@ export const seo = {
       "Find a salt value that will deploy the Uniswap v4 protocol to an optimal address.",
     images: [
       {
-        url: "https://uniswap--v4.vercel.app/preview.png",
+        url: "https://v4-address.uniswap.org/preview.png",
         width: 1600,
         height: 826,
         alt: "Uniswap v4 preview"
