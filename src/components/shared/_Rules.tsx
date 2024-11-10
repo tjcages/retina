@@ -31,9 +31,9 @@ const Content = () => {
       </Link>
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
         <p className="font-mono font-semibold uppercase text-pink-primary">Challenge goal</p>
-        <h5>Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.</h5>
+        <h5>Find a salt value that will deploy the Uniswap v4 protocol to an optimal address.</h5>
         <p className="text-secondary-foreground">
-          Uniswap V4 will be deployed using CREATE2, which deploys the protocol at a deterministic
+          Uniswap v4 will be deployed using CREATE2, which deploys the protocol at a deterministic
           address based on the initcode, deployer address, and an arbitrary salt. Participants can
           iterate through salt values to calculate and score the resultant address using tools such
           as create2crunch or similar.
@@ -73,9 +73,9 @@ const Content = () => {
           <Link href="https://github.com/Uniswap/v4-periphery/blob/0bbf0dc09889e3bc34c7aa08962160a27ba4b340/src/libraries/VanityAddressLib.sol#L19-L24">
             here
           </Link>
-          . The one (1) Address that receives the highest score will be declared the winning
-          Address. In the event of a tie, the Address that received the highest score first will be
-          declared the winning Address.
+          . The one (1) address that receives the highest score will be declared the final
+          deployment address. In the event of a tie, the address that received the highest score
+          first will be declared the winning address.
         </p>
       </div>
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">

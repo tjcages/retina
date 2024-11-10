@@ -1,7 +1,6 @@
 "use client";
 
 import { useInView } from "@/hooks";
-import { state } from "@/store";
 import { cn } from "@/utils";
 import { useRef } from "react";
 
@@ -44,29 +43,30 @@ const _ = () => {
         <div className="pointer-events-auto col-span-full grid grid-cols-subgrid gap-3">
           <div className="col-span-full mb-6 flex h-full flex-col items-start md:col-[1_/_span_15] md:mb-0">
             <h5 className="md:mb-1">Looking for more?</h5>
-            <div
+            <Link
               className="-mx-3 -my-2 cursor-pointer px-3 py-2 text-secondary-foreground transition-all duration-200 ease-in-out hover:opacity-60"
-              onClick={() => (state.isRulesVisible = true)}
+              href="https://x.com/uniswap"
             >
-              Sign up for updates and events
-            </div>
+              Follow us on Twitter/X
+            </Link>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
             <LinkItem href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf">
-              Challenge Rules
+              Rules
             </LinkItem>
             <LinkItem href="/about">About</LinkItem>
-            <LinkItem href="/blog">Blog</LinkItem>
-            <LinkItem href="/builder-toolkit">Builder Toolkit</LinkItem>
-            <LinkItem href="/brand-kit">Brand Kit</LinkItem>
           </div>
           <div className="col-span-3 flex flex-col items-start justify-start">
-            <LinkItem href="https://discord.com/invite/uniswap">Discord</LinkItem>
-            <LinkItem href="https://x.com/unichain">Twitter/X</LinkItem>
+            {/* <LinkItem href="https://discord.com/invite/uniswap">Discord</LinkItem> */}
+            <LinkItem href="https://x.com/uniswap">Twitter/X</LinkItem>
           </div>
           <div className="col-span-3 mt-3 flex flex-col items-start justify-start md:mt-0">
-            <LinkItem href="/privacy">Privacy Policy</LinkItem>
-            <LinkItem href="/terms">Terms of Service</LinkItem>
+            <LinkItem href="https://support.uniswap.org/hc/en-us/articles/30934457771405-Uniswap-Labs-Privacy-Policy">
+              Privacy Policy
+            </LinkItem>
+            <LinkItem href="https://support.uniswap.org/hc/en-us/articles/30935100859661-Uniswap-Labs-Terms-of-Service">
+              Terms of Service
+            </LinkItem>
           </div>
         </div>
       </footer>

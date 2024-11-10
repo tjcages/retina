@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretDown, Discord, Menu, Twitter } from "@/assets/icons";
+import { Menu, Twitter } from "@/assets/icons";
 import { state, useLocalState } from "@/store";
 import { cn, interpolateColors, pageTransition } from "@/utils";
 import { useAnimationFrame } from "framer-motion";
@@ -8,7 +8,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { DropdownMenu, LogoBrandMenu, MobileMenu } from "@/components/shared";
+import { LogoBrandMenu, MobileMenu } from "@/components/shared";
 import { Button, Link, useScroll } from "@/components/ui";
 
 interface Props {
@@ -132,11 +132,18 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
           </LogoBrandMenu>
 
           <div className="-col-start-1 hidden items-center gap-3 md:flex">
-            <DropdownMenu>
+            <Link
+              variant="ghost"
+              href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf"
+              className="mx-0 cursor-pointer px-4 py-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
+            >
+              Rules
+            </Link>
+            {/* <DropdownMenu>
               <div className="relative flex cursor-pointer items-center justify-center px-4 py-2 text-inherit">
                 Developers <CaretDown className="h-4 w-4 text-inherit" />
               </div>
-            </DropdownMenu>
+            </DropdownMenu> */}
             <Link
               variant="ghost"
               href="https://blog.uniswap.org/uniswap-v4-address-mining-challenge"
@@ -146,18 +153,18 @@ const _: React.FC<Props> = ({ variant = "primary" }) => {
             </Link>
             <Link
               variant="ghost"
-              href="https://x.com/unichain"
+              href="https://x.com/uniswap"
               className="mx-0 flex items-center px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               <Twitter className="h-[17px] w-[17px] text-inherit" />
             </Link>
-            <Link
+            {/* <Link
               variant="ghost"
               href="https://discord.com/invite/uniswap"
               className="mx-0 px-2 text-inherit transition-opacity duration-200 ease-in-out hover:opacity-80 active:opacity-90"
             >
               <Discord className="h-7 w-7 text-inherit" />
-            </Link>
+            </Link> */}
           </div>
           <MobileMenu
             className="col-span-3 -col-start-1 md:hidden"

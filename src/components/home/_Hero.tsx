@@ -51,7 +51,7 @@ const _ = () => {
           className="col-span-full col-start-1 text-center lg:col-span-12 lg:col-start-7 xl:col-span-10 xl:col-start-8"
           variants={item}
         >
-          Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.
+          Find a salt value that will deploy the Uniswap v4 protocol to an optimal address.
         </motion.h4>
         <motion.div
           className="col-span-full mt-4 flex items-center justify-center gap-3"
