@@ -108,7 +108,7 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
           )}
         </MagneticInfo>
       </div>
-      <div className="col-span-9 flex items-center gap-10 p-2 md:col-span-11">
+      <div className="col-span-9 flex items-center gap-6 p-2 md:col-span-11 md:gap-10">
         <MagneticInfo
           align="center"
           tooltip={
@@ -122,7 +122,7 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
         </MagneticInfo>
         <VanityBadge badges={leader.badges} />
       </div>
-      <div className="relative col-span-3 p-2">
+      <div className="relative col-span-2 p-2 md:col-span-3">
         {/* <ScoreBreakdown breakdown={leader.scoreBreakdown}> */}
         <ScoreBreakdown
           breakdown={{
@@ -197,7 +197,7 @@ export const LeaderboardContainer: React.FC<{ children?: React.ReactNode }> = ({
             <p className="col-span-3 p-2 pl-4">Rank</p>
             <p className="col-span-7 p-2 md:col-span-5">Wallet</p>
             <p className="col-span-9 p-2 md:col-span-11">V4 Address</p>
-            <p className="col-span-3 p-2">Score</p>
+            <p className="col-span-2 p-2 md:col-span-3">Score</p>
           </div>
           {children}
         </div>
