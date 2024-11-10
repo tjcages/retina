@@ -27,3 +27,22 @@ model SyncState {
   lastBlock    BigInt
   lastSyncTime DateTime @default(now())
 }
+
+model AddressIdentity {
+  address         String   @id
+  ens             String?
+  ensPfp          String?
+  uniswapUsername String?
+  uniswapPfp      String?
+  lastUpdated     DateTime @default(now())
+
+  @@index([lastUpdated])
+}
+
+model BadgeState {
+  id               String   @id @default("current")
+  maxConsecutive4s Int
+  maxLeadingZeros  Int
+  maxTotalFours    Int
+  lastUpdated      DateTime @default(now())
+}

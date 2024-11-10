@@ -1,3 +1,5 @@
+export type Badge = "longest" | "blaze" | "four" | "zero" | "general";
+
 export interface LeaderboardEntry {
   rank: number;
   v4Address: string;
@@ -9,7 +11,22 @@ export interface LeaderboardEntry {
     numberOfFours?: number;
   };
   minterAddress: string;
-  uniPfpSrc?: string;
-  uniUsername?: string;
-  badge?: "longest" | "blaze" | "four" | "zero" | "general";
+  avatarSrc?: string;
+  username?: string;
+  badges: Badge[];
 }
+
+export type UnitagsAddressesResponse = {
+  usernames: Record<
+    string,
+    {
+      username?: string;
+      address?: string;
+      metadata?: {
+        avatar?: string;
+        description?: string;
+        twitter?: string;
+      };
+    }
+  >;
+};

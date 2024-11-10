@@ -19,12 +19,12 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      // {
-      //   protocol: "https",
-      //   hostname: "pngimg.com",
-      //   port: "",
-      //   pathname: "/uploads/**"
-      // },
+      {
+        protocol: "https",
+        hostname: "i.seadn.io",
+        port: "",
+        pathname: "/**"
+      }
     ]
   }
 };

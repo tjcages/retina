@@ -3,6 +3,7 @@
 import { LeaderboardEntry } from "@/lib/types";
 import { cn } from "@/utils";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { VanityBadge } from "@/components/home";
@@ -70,7 +71,21 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
         <p>{String(leader.rank)}</p>
       </div>
       <div className="col-span-7 flex items-center gap-2.5 p-2 md:col-span-5">
-        <div className="h-9 min-h-9 w-9 min-w-9 rounded-full bg-pink-primary" />
+        <div
+          className={cn(
+            "relative h-9 min-h-9 w-9 min-w-9 overflow-hidden rounded-full bg-pink-primary",
+            leader.avatarSrc ? "bg-transparent" : ""
+          )}
+        >
+          {leader.avatarSrc && (
+            <Image
+              src={leader.avatarSrc}
+              alt={leader.username ?? "pfp"}
+              fill
+              className="object-cover"
+            />
+          )}
+        </div>
         <MagneticInfo
           align="center"
           tooltip={
@@ -79,14 +94,14 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
           className="flex flex-col"
         >
           <div className="flex items-center gap-1">
-            <p className={cn(leader.uniUsername === undefined && "font-mono")}>
-              {leader.uniUsername ?? truncatedMinterAddress}
+            <p className={cn(leader.username === undefined && "font-mono")}>
+              {leader.username ?? truncatedMinterAddress}
             </p>
-            {leader.uniUsername !== undefined && (
+            {leader.username !== undefined && leader.username.endsWith(".uni.eth") && (
               <Icon icon="UniswapUsername" className="h-6 w-6" />
             )}
           </div>
-          {leader.uniUsername !== undefined && (
+          {leader.username !== undefined && (
             <p ref={minterAddressRef} className="text-sm text-secondary-foreground">
               {truncatedMinterAddress}
             </p>
@@ -103,7 +118,8 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
         <p ref={v4AddressRef} className="w-full max-w-[300px] font-mono" title={leader.v4Address}>
           {truncatedV4Address}
         </p>
-        <VanityBadge badge={leader.badge} />
+        {/* TODO: Support multiple badges */}
+        <VanityBadge badge={leader.badges[0]} />
       </MagneticInfo>
       <div className="relative col-span-3 p-2">
         {/* <ScoreBreakdown breakdown={leader.scoreBreakdown}> */}
