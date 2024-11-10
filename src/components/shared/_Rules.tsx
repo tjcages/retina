@@ -14,7 +14,7 @@ const Content = () => {
   return (
     <div className="flex w-full flex-col gap-4 overflow-y-auto overflow-x-hidden p-4 lg:max-h-[80vh]">
       <div className="grid w-full grid-cols-[0.1fr_1fr_0.1fr] items-center justify-between">
-        <h5 className="col-start-2 text-center">Challenge rules</h5>
+        <h5 className="col-start-2 text-center">Challenge details</h5>
         <Button
           variant="ghost"
           className="col-start-3 -my-4 -mr-5"
@@ -23,6 +23,12 @@ const Content = () => {
           <Icon icon="X" className="h-6 w-6 text-secondary-foreground" />
         </Button>
       </div>
+      <Link
+        href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf"
+        className="mx-auto -mt-5"
+      >
+        Full address mining challenge rules can be found here
+      </Link>
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
         <p className="font-mono font-semibold uppercase text-pink-primary">Challenge goal</p>
         <h5>Find a salt value that will deploy the Uniswap V4 protocol to an optimal address.</h5>

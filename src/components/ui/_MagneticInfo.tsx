@@ -85,7 +85,7 @@ const MagneticInfo: React.FC<MagneticInfoProps> = ({
       {children}
       <motion.div
         ref={tooltipRef}
-        className="pointer-events-none absolute whitespace-nowrap"
+        className="pointer-events-none absolute z-20 whitespace-nowrap"
         style={{
           x: tooltipX,
           y: tooltipY,

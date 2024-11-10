@@ -108,19 +108,20 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
           )}
         </MagneticInfo>
       </div>
-      <MagneticInfo
-        align="center"
-        tooltip={
-          <p className="rounded-xl bg-secondary px-3 py-1.5 shadow-md">{leader.v4Address}</p>
-        }
-        className="col-span-9 flex items-center gap-2 p-2 md:col-span-11"
-      >
-        <p ref={v4AddressRef} className="w-full max-w-[300px] font-mono" title={leader.v4Address}>
-          {truncatedV4Address}
-        </p>
-        {/* TODO: Support multiple badges */}
-        <VanityBadge badge={leader.badges[0]} />
-      </MagneticInfo>
+      <div className="col-span-9 flex items-center gap-10 p-2 md:col-span-11">
+        <MagneticInfo
+          align="center"
+          tooltip={
+            <p className="rounded-xl bg-secondary px-3 py-1.5 shadow-md">{leader.v4Address}</p>
+          }
+          className="w-full max-w-[300px]"
+        >
+          <p ref={v4AddressRef} className="font-mono" title={leader.v4Address}>
+            {truncatedV4Address}
+          </p>
+        </MagneticInfo>
+        <VanityBadge badges={leader.badges} />
+      </div>
       <div className="relative col-span-3 p-2">
         {/* <ScoreBreakdown breakdown={leader.scoreBreakdown}> */}
         <ScoreBreakdown
