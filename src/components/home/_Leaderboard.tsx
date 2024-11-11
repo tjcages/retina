@@ -123,15 +123,7 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
         <VanityBadge badges={leader.badges} />
       </div>
       <div className="relative col-span-2 p-2 md:col-span-3">
-        {/* <ScoreBreakdown breakdown={leader.scoreBreakdown}> */}
-        <ScoreBreakdown
-          breakdown={{
-            leadingZeroNibbles: 1,
-            firstFourIsFollowedByThreeFours: 1,
-            lastFourNibblesAreFours: 1,
-            numberOfFours: 1
-          }}
-        >
+        <ScoreBreakdown breakdown={leader.scoreBreakdown}>
           <p className="font-mono">{leader.score.toLocaleString()}</p>
         </ScoreBreakdown>
       </div>

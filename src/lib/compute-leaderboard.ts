@@ -2,6 +2,7 @@ import { cache } from "react";
 
 import { getAddressIdentities } from "./address-identity";
 import { calculateBadges } from "./badge";
+import { computeAddressScore } from "./compute-score";
 import prisma from "./db";
 import { LeaderboardEntry } from "./types";
 
@@ -57,6 +58,7 @@ export const computeLeaderboard = cache(async (): Promise<LeaderboardEntry[]> =>
   return results.map((entry, index) => {
     const badges = addressToBadges[entry.bestAddress];
     const identity = addressIdentities.get(entry.minter);
+    const scoreBreakdown = computeAddressScore(entry.bestAddress);
 
     return {
       rank: index + 1,
@@ -65,7 +67,13 @@ export const computeLeaderboard = cache(async (): Promise<LeaderboardEntry[]> =>
       score: Number(entry.score),
       avatarSrc: identity?.uniswapPfp ?? identity?.ensPfp ?? undefined,
       username: identity?.uniswapUsername ?? identity?.ens ?? undefined,
-      badges: badges ?? []
+      badges: badges ?? [],
+      scoreBreakdown: {
+        leadingZeroNibbles: scoreBreakdown.leadingZeros.score,
+        firstFourIsFollowedByThreeFours: scoreBreakdown.leadingFours.score,
+        lastFourNibblesAreFours: scoreBreakdown.trailingFours.score,
+        numberOfFours: scoreBreakdown.additionalFours.score
+      }
     } satisfies LeaderboardEntry;
   });
 });
