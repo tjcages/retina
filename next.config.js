@@ -24,6 +24,13 @@ const nextConfig = {
         hostname: "i.seadn.io",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname:
+          "prod-uniswap-backend-unit-unitagavatars2bucketfae0-s4e32dbyamuy.s3.us-east-2.amazonaws.com",
+        port: "",
+        pathname: "/**"
       }
     ]
   }
