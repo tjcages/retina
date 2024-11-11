@@ -63,7 +63,9 @@ async function processIdentityBatch(addresses: string[]) {
       address,
       ens: ensNames[address]?.name || null,
       ensPfp: ensNames[address]?.pfp || null,
-      uniswapUsername: uniswapData[address]?.username || null,
+      uniswapUsername: uniswapData[address]?.username
+        ? uniswapData[address].username + ".uni.eth"
+        : null,
       uniswapPfp: uniswapData[address]?.metadata?.avatar || null,
       lastUpdated: now
     };
