@@ -108,7 +108,7 @@ const ScoreItem: React.FC<{ leader: LeaderboardEntry }> = ({ leader }) => {
           )}
         </MagneticInfo>
       </div>
-      <div className="col-span-9 flex items-center gap-6 p-2 md:col-span-11 md:gap-10">
+      <div className="col-span-9 flex items-center gap-2 p-2 md:col-span-11 md:gap-10">
         <MagneticInfo
           align="center"
           tooltip={

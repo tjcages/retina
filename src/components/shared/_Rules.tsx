@@ -25,7 +25,7 @@ const Content = () => {
       </div>
       <Link
         href="https://blog.uniswap.org/v4-deployment-challenge-rules.pdf"
-        className="mx-auto -mt-5"
+        className="mx-auto -mt-5 text-pretty text-center"
       >
         Full address mining challenge rules can be found here
       </Link>
@@ -42,27 +42,27 @@ const Content = () => {
       <div className="flex w-full flex-col items-start justify-start gap-3 rounded-2xl border bg-background p-4 shadow-light">
         <p className="font-mono font-semibold uppercase text-pink-primary">Scoring system</p>
         <div className="flex w-full flex-col gap-1.5">
-          <div className="flex items-center gap-1">
+          <div className="flex items-start gap-1">
             <Icon icon="Plus" className="h-4 w-4" />
             <Badge variant="outline">10 points</Badge>
             <p> for every leading 0 nibble</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-start gap-1">
             <Icon icon="Plus" className="h-4 w-4" />
             <Badge variant="outline">40 points</Badge>
             <p> if the first 4 is followed by 3 more 4s</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-start gap-1">
             <Icon icon="Plus" className="h-4 w-4" />
             <Badge variant="outline">20 points</Badge>
             <p> if the first nibble after the four 4s is NOT a 4</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-start gap-1">
             <Icon icon="Plus" className="h-4 w-4" />
             <Badge variant="outline">20 points</Badge>
             <p> if the last 4 nibbles are 4s</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-start gap-1">
             <Icon icon="Plus" className="h-4 w-4" />
             <Badge variant="outline">1 point</Badge>
             <p> for every 4</p>
