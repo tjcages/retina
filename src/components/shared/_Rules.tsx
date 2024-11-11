@@ -70,7 +70,7 @@ const Content = () => {
         </div>
         <p className="text-secondary-foreground">
           The scoring system can also be found{" "}
-          <Link href="https://github.com/Uniswap/v4-periphery/blob/0bbf0dc09889e3bc34c7aa08962160a27ba4b340/src/libraries/VanityAddressLib.sol#L19-L24">
+          <Link href="https://github.com/Uniswap/v4-periphery/blob/3f295d8435e4f776ea2daeb96ce1bc6d63f33fc7/src/libraries/VanityAddressLib.sol#L16-L22">
             here
           </Link>
           . The one (1) address that receives the highest score will be declared the final
