@@ -24,6 +24,7 @@ export * from "./_Scroll";
 export * from "./_Select";
 export * from "./_Shortcut";
 export * from "./_Skeleton";
+export * from "./_Slider";
 export * from "./_Spinner";
 export * from "./_Switch";
 export * from "./_Tabs";

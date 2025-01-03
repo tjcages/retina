@@ -5,8 +5,8 @@
 /*   VARIABLES   */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 100%;
     --dark: 298 36% 16%; // #361A37
     --primary: 220 7% 8%;
     --primary-foreground: 0 0% 13%;
@@ -36,34 +36,18 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 
-    &::-moz-selection {
-      color: hsl(var(--background));
-      background: #005be7;
-    }
-
-    &::selection {
-      color: hsl(var(--background));
-      background: #005be7;
-    }
+    @apply select-none;
   }
 
   html,
   body {
-    @apply m-0 p-0 font-serif;
+    @apply m-0 p-0;
     @apply select-none;
 
-    font-size: 15px;
-    font-family: Helvetica, Arial, sans-serif;
-    // text-wrap: balance;
+    font-size: 12px;
+    font-family: "Roboto Mono", monospace;
     white-space: pre-wrap;
-
-    user-select: text;
-    -webkit-user-select: text;
     -webkit-touch-callout: none;
-  }
-
-  ::selection {
-    background: hsl(var(--pink-primary-foreground));
   }
 
   main {
@@ -136,7 +120,7 @@
   }
 
   p {
-    @apply max-w-2xl text-base leading-[1.2rem] tracking-normal;
+    @apply max-w-2xl text-base leading-[1.2rem] tracking-[-0.04em];
     text-wrap: pretty;
   }
 
@@ -150,7 +134,7 @@
   }
 
   strong {
-    @apply font-medium tracking-[0.04em] text-pink-primary;
+    @apply font-medium tracking-[0.04em];
     font-feature-settings: "liga" off;
   }
 
@@ -189,7 +173,7 @@
   }
 
   hr {
-    @apply h-[1px] w-full border-none bg-black/10;
+    @apply h-[1px] w-full border-none bg-white/10;
   }
 
   /* Remove grey border around images on iOS */

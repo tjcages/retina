@@ -1,40 +1,15 @@
-import { computeLeaderboard } from "@/lib/compute-leaderboard";
-import { seo } from "@/seo";
-import type { Metadata } from "next";
-import { Suspense } from "react";
-
 import { Canvas } from "@/components/canvas";
-import { Hero, Leaderboard } from "@/components/home";
-import { LeaderboardContainer } from "@/components/home/_Leaderboard";
-import { Footer, Header, Rules } from "@/components/shared";
-import { Scroll } from "@/components/ui";
+import { ActionBar, Controls } from "@/components/controls";
+import { Layout } from "@/components/shared";
 
-export const revalidate = 240; // 4 minutes
-
-const LeaderboardServer = async () => {
-  const leaders = await computeLeaderboard();
-  return <Leaderboard leaders={leaders} />;
-};
-
-export default async function HomePage() {
+export default async function _() {
   return (
-    <>
-      <Scroll className="relative h-full w-full">
-        <Header variant="secondary" />
-        <section>
-          <Canvas />
-          <Hero />
-          <Suspense fallback={<LeaderboardContainer />}>
-            <LeaderboardServer />
-          </Suspense>
-        </section>
-        <Footer />
-      </Scroll>
-      <Rules />
-    </>
+    <section className="h-screen">
+      <Layout>
+        <Canvas />
+        <Controls />
+      </Layout>
+      <ActionBar />
+    </section>
   );
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  return seo;
 }

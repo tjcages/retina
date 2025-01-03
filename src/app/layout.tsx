@@ -1,6 +1,4 @@
-import { Basel, SFMono } from "@/assets/fonts";
 import { seo } from "@/seo";
-import { cn } from "@/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata, Viewport } from "next";
 import { ViewTransitions } from "next-view-transitions";
@@ -22,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ViewTransitions>
       <html lang="en">
-        <body className={cn(Basel.className, Basel.variable, SFMono.variable)}>
+        <body>
           <main>{children}</main>
           <Analytics />
         </body>

@@ -24,8 +24,7 @@ module.exports = {
       fontFamily: {
         basel: ["var(--font-basel)"],
         jomhuria: ["var(--font-jomhuria)"],
-        riegraf: ["var(--font-riegraf)"],
-        mono: ["var(--font-sf-mono)"]
+        riegraf: ["var(--font-riegraf)"]
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,21 +52,7 @@ module.exports = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))"
-        },
-        "pink-primary": {
-          DEFAULT: "hsl(var(--pink-primary))",
-          foreground: "hsl(var(--pink-primary-foreground))"
-        },
-        "pink-secondary": {
-          DEFAULT: "hsl(var(--pink-secondary))",
-          foreground: "hsl(var(--pink-secondary-foreground))"
-        },
-        "pink-light": "hsl(var(--pink-light))"
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)"
+        }
       },
       animation: {
         "pulse-slow": "pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;",

@@ -5,22 +5,92 @@ import { proxy, snapshot, subscribe, useSnapshot } from "valtio";
 
 interface State {
   // General States
-  ready: boolean;
-  isBelowFold: boolean;
-  menuVisible: boolean;
-  isRulesVisible: boolean;
+  controlsOpen: boolean;
+
+  // Canvas States
+  fps: number;
+  postprocessing: {
+    enabled: boolean;
+    n8ao: {
+      enabled: boolean;
+      aoRadius: number;
+      intensity: number;
+    };
+    tiltShift: {
+      enabled: boolean;
+      amount: number;
+      blur: number;
+    };
+    chromaticAberration: {
+      enabled: boolean;
+      offset: number;
+    };
+    hdrToneMapping: {
+      enabled: boolean;
+      maxLuminance: number;
+      whitePoint: number;
+    };
+    noise: {
+      enabled: boolean;
+      opacity: number;
+    };
+    vignette: {
+      enabled: boolean;
+      offset: number;
+      darkness: number;
+    };
+    fisheye: {
+      enabled: boolean;
+      strength: number;
+    };
+  };
 }
 
 const defaultState: State = {
   // General States
-  ready: false,
-  isBelowFold: false,
-  menuVisible: false,
-  isRulesVisible: false
+  controlsOpen: false,
+
+  // Canvas States
+  fps: 0,
+  postprocessing: {
+    enabled: true,
+    n8ao: {
+      enabled: true,
+      aoRadius: 1,
+      intensity: 6
+    },
+    tiltShift: {
+      enabled: true,
+      amount: 5,
+      blur: 0.1
+    },
+    chromaticAberration: {
+      enabled: false,
+      offset: 0.006
+    },
+    hdrToneMapping: {
+      enabled: true,
+      maxLuminance: 1,
+      whitePoint: 1
+    },
+    noise: {
+      enabled: false,
+      opacity: 0.5
+    },
+    vignette: {
+      enabled: false,
+      offset: 0.5,
+      darkness: 0.5
+    },
+    fisheye: {
+      enabled: false,
+      strength: 1.0
+    }
+  }
 };
 
 // Define which keys should not be persisted
-const nonPersistentKeys: (keyof State)[] = ["menuVisible", "isRulesVisible"];
+const nonPersistentKeys: (keyof State)[] = ["fps", "postprocessing"];
 
 const state = proxy<State>(defaultState);
 

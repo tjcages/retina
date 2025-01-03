@@ -1,28 +1,32 @@
 "use client";
 
+import { useLocalState } from "@/store";
+import { Center, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { motion } from "framer-motion";
 
-import AsciiEffect from "./_Ascii";
-import Fluid from "./_Fluid";
+import { IPhone } from "@/components/canvas/model";
+import { Effects, Environment, Grid, Performance } from "@/components/canvas/shared";
 
-const _ = () => {
+export default function App() {
+  const { postprocessing } = useLocalState();
   return (
-    <motion.div
-      className="absolute bottom-0 left-0 right-0 top-0 min-h-full"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2, ease: "easeOut" }}
-    >
-      <Canvas className="gradient-mask-tl-0" style={{ width: "100%", minHeight: "100%" }}>
-        <color attach="background" args={["white"]} />
-        <ambientLight intensity={0.5} />
-
-        <Fluid />
-        <AsciiEffect />
-      </Canvas>
-    </motion.div>
+    <Canvas shadows camera={{ position: [0, 8, 5], fov: 45 }}>
+      <group position={[0, -0.5, 0]}>
+        <Center position={[0, 0.1, 0]} rotation={[-Math.PI / 2, -Math.PI - 0.05, 0.5]}>
+          <IPhone position={[0, 0, 0]} url="http://off-brand.studio/" />
+        </Center>
+        <Grid />
+      </group>
+      <OrbitControls
+        autoRotate
+        autoRotateSpeed={0.1}
+        makeDefault
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI / 2}
+      />
+      <Environment />
+      {postprocessing.enabled && <Effects />}
+      <Performance />
+    </Canvas>
   );
-};
-
-export default _;
+}
